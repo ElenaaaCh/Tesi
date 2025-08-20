@@ -1,0 +1,32 @@
+# File di output LaTeX
+*.aux
+*.acn
+*.acr
+*.alg
+*.bbl
+*.bcf
+*.blg
+*.brf
+*.fls
+*.fdb_latexmk
+*.glg
+*.glo
+*.gls
+*.ist
+*.log
+*.lol
+*.out
+*.toc
+*.lof
+*.lot
+*.gz
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+*.xdv
+*.xml
+*.xmpi
+
+# Directory generata da latexmk
+_build/

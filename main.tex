@@ -1,0 +1,42 @@
+\documentclass[
+    table,
+    12pt,
+    oneside,
+    a4paper,
+    italian
+]{book}
+
+\input{config/packages}
+%\input{config/thesis_config}
+\input{config/variables.tex}
+
+\date{}
+\makeglossaries
+\onehalfspacing
+
+%\hypersetup{pdfstartview=}
+\begin{document}
+    \frontmatter
+    \input{preface/01_frontespizio.tex}
+    \input{preface/02_ringraziamenti.tex}
+    \input{preface/03_sommario.tex}
+    \input{preface/04_indice.tex}
+    %\input{preface/5_table_of_contents}
+    %\printglossary[type=\acronymtype, title=Acronimi e abbreviazioni, toctitle=Acronimi e abbreviazioni]
+    %\printglossary[type=main, title=Glossario, toctitle=Glossario]
+    %\blankpage % example of a blank page that also increases the page couter by 1
+
+    \mainmatter
+    \input{chapters/01_intro.tex}
+    \input{chapters/02_analisi_requisiti.tex}
+    \input{chapters/03_tecnologie.tex}
+    %\input{chapters/4_requirement_analysis}
+    %\input{chapters/5_design_coding}
+    %\input{chapters/6_verify_validate}
+    %\input{chapters/7_conclusions}
+
+    \pagenumbering{roman}
+    \backmatter
+    %\input{references/bibliography}
+    %\input{references/webliography}
+\end{document}
