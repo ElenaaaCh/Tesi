@@ -23,6 +23,11 @@ HTML5 rappresenta un’evoluzione del linguaggio di \glslink{markupg}{markup} co
 \noindent \acrshort{css} (Cascading Style Sheets) è un linguaggio utilizzato per definire la presentazione dei documenti \acrshort{html} e \acrshort{xml}. Introdotto nel 1996 da Håkon Wium Lie, consente di separare la struttura dei contenuti dalla loro formattazione, migliorando la chiarezza del codice e facilitandone la manutenzione.\\ 
 I fogli di stile permettono di specificare, tramite regole composte da selettori, proprietà e valori, l’aspetto degli elementi \acrshort{html}: layout, colori, font, margini, spaziature, effetti visivi, animazioni e molto altro. Le regole di stile possono essere inline (tramite tag \texttt{<style>} o con attributi style) oppure riportate in file esterni .css riutilizzabili. La prima soluzione non mantiene però una netta separazione tra struttura e contenuto, non rispettando quindi le best-practice del settore.\\ 
 L'attuale versione, CSS3, è modulare e introduce importanti funzionalità come Flexbox, Grid, media query per il responsive design, transizioni, trasformazioni e nuovi selettori.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/css3.png}
+    \caption[Logo CSS3]{Logo CSS3}
+\end{figure}
 
 \subsection{Prism.js}
 \noindent Prism.js è una libreria JavaScript leggera ed estensibile progettata per evidenziare la sintassi del codice sorgente in modo chiaro e leggibile, rispettando gli standard moderni del web. \\
@@ -35,12 +40,15 @@ Nella mia estensione, Prism.js è stato integrato per colorare il codice sorgent
 È stato sviluppato nel 1995 da Brendan Eich per Netscape con il nome LiveScript, e successivamente rinominato in JavaScript per motivi di marketing, pur non avendo legami diretti con il linguaggio Java. La sua standardizzazione è gestita da ECMA International, sotto il nome ECMAScript.\\
 \\
 Concepito per essere eseguito direttamente all’interno del \glslink{browserg}{browser}, JavaScript consente di scrivere \glslink{scriptg}{script} incorporati nel codice \acrshort{html}, eseguibili senza compilazione al momento del caricamento della pagina. Questi \glslink{scriptg}{script} permettono di manipolare il \acrshort{dom} (Document Object Model), reagire agli eventi dell’utente (come click, input da tastiera o movimenti del mouse), modificare dinamicamente il contenuto della pagina e gestire funzionalità come validazioni, messaggi, animazioni, e interazioni \glslink{asincronog}{asincrone}.\\
-\\
 Oltre alla manipolazione di elementi visivi, JavaScript permette di sfruttare numerose \acrshort{api} messe a disposizione dal \glslink{browserg}{browser}, dalla gestione del mouse e del touch, alla manipolazione delle immagini, fino alla gestione locale dei dati attraverso meccanismi come il LocalStorage. Questa versatilità lo rende uno strumento fondamentale per lo sviluppo di applicazioni web moderne.\\
 \\
 JavaScript si è evoluto da semplice linguaggio \glslink{client-sideg}{client-side} a tecnologia completa e versatile, oggi utilizzabile anche su \glslink{serverg}{server} (ad esempio con Node.js) e in ambienti esterni ai \glslink{browserg}{browser} grazie all’uso di diversi motori JavaScript i quali permettono l’esecuzione di codice \acrshort{js} con alte prestazioni, rendendo il linguaggio adatto anche a contesti \glslink{backendg}{backend}, applicazioni desktop e mobile.\\
-\\
 Oggi JavaScript rappresenta uno dei tre pilastri fondamentali del web, insieme a \acrshort{html} e \acrshort{css}, ed è completamente integrato con essi. Esistono anche linguaggi alternativi (come TypeScript o CoffeeScript) che vengono compilati in JavaScript, offrendo funzionalità aggiuntive mantenendo la compatibilità con l’ambiente JavaScript standard.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/js.png}
+    \caption[Logo JavaScript]{Logo JavaScript}
+\end{figure}
 
 \section{Tecnologie e strumenti}
 \subsection{Chrome Extension}
@@ -75,12 +83,27 @@ Oltre ai modelli gpt-oss-20B e gpt-oss-120B, progettati rispettivamente per scen
 La piattaforma integra funzionalità avanzate (function calling, navigazione web integrata, esecuzione di codice Python, output strutturati), accesso completo al processo di ragionamento del modello, regolazione dello sforzo computazionale e possibilità di fine-tuning per personalizzare le prestazioni. 
 Grazie al supporto nativo per la \glslink{quantizzazioneg}{quantizzazione} in formato MXFP4, Ollama riesce a ridurre drasticamente il consumo di memoria, permettendo l’esecuzione di modelli molto grandi anche su sistemi con risorse limitate. 
 La licenza Apache 2.0 garantisce libertà di utilizzo e personalizzazione, mentre l’ottimizzazione per \acrshort{gpu} NVIDIA GeForce RTX e RTX PRO assicura alte prestazioni in locale.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/ollama.png}
+    \caption[Logo Ollama]{Logo Ollama}
+\end{figure}
 
 
 \subsection{GitHub}
 \noindent GitHub è una piattaforma di hosting basata su Git, il sistema di controllo di versione distribuito ideato da Linus Torvalds. Lanciata nel 2008, GitHub si è affermata come uno degli strumenti principali per la collaborazione nello sviluppo software, consentendo a sviluppatori di tutto il mondo di condividere, modificare e mantenere progetti in modo coordinato. \\La piattaforma offre funzionalità avanzate per il versionamento del codice, la gestione dei rami (branching), il tracciamento delle modifiche e la revisione collaborativa tramite pull request. \\Oltre a essere uno strumento tecnico, GitHub ha favorito la nascita di una vera e propria comunità \glslink{open-sourceg}{open source}, nella quale il codice è accessibile, riutilizzabile e migliorabile da chiunque.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/github.jpg}
+    \caption[Logo GitHub]{Logo GitHub}
+\end{figure}
 
 \subsection{VSCode}
-Visual Studio Code, conosciuto semplicemente come VSCode, è un editor di codice sorgente sviluppato da Microsoft e distribuito gratuitamente. Introdotto nel 2015, ha rapidamente conquistato una posizione di rilievo tra gli strumenti preferiti dagli sviluppatori grazie alla sua combinazione di leggerezza, flessibilità e ricchezza di funzionalità. \\Compatibile con i principali sistemi operativi (Windows, macOS e Linux), VSCode supporta evidenziazione della sintassi per numerosi linguaggi, suggerimenti intelligenti e completamento automatico del codice, strumenti di \glslink{debuggingg}{debugging} integrati e gestione del controllo di versione tramite Git. \\Inoltre, grazie a un vasto marketplace di estensioni, può essere facilmente personalizzato per adattarsi a diversi flussi di lavoro e tecnologie, rendendolo un ambiente di sviluppo versatile e ampiamente diffuso.
+\noindent Visual Studio Code, conosciuto semplicemente come VSCode, è un editor di codice sorgente sviluppato da Microsoft e distribuito gratuitamente. Introdotto nel 2015, ha rapidamente conquistato una posizione di rilievo tra gli strumenti preferiti dagli sviluppatori grazie alla sua combinazione di leggerezza, flessibilità e ricchezza di funzionalità. \\Compatibile con i principali sistemi operativi (Windows, macOS e Linux), VSCode supporta evidenziazione della sintassi per numerosi linguaggi, suggerimenti intelligenti e completamento automatico del codice, strumenti di \glslink{debuggingg}{debugging} integrati e gestione del controllo di versione tramite Git. \\Inoltre, grazie a un vasto marketplace di estensioni, può essere facilmente personalizzato per adattarsi a diversi flussi di lavoro e tecnologie, rendendolo un ambiente di sviluppo versatile e ampiamente diffuso.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/vscode.png}
+    \caption[Logo VSCode]{Logo VSCode}
+\end{figure}
 
 \newpage

@@ -30,22 +30,22 @@ Sono stati definiti tre casi d’uso principali per la generazione dei prompt:
 \begin{itemize}
     \item l’invio congiunto del DOM della pagina e della domanda dell’utente, utile per ricevere spiegazioni e indicazioni sulle righe che verranno poi evidenziate in quanto utili alla comprensione della risposta; 
     \begin{lstlisting}[language=JavaScript, caption={Prompt per la generazione di risposta e righe da evidenziare}]
-      const promptPrincipale =
-      `Sei un assistente che analizza codice HTML. Rispondi alla domanda in modo chiaro ma conciso, usando al massimo 5-6 frasi. ` +
-      `Evita ripetizioni o spiegazioni troppo generiche. ` +
-      `Alla fine della risposta, su una nuova riga, scrivi le righe eventualmente utilizzate per la risposta nel seguente formato:\n\n` +
-      `##RIGHE##\n{"righe": [elenco_di_numeri_di_riga]}\n\n` +
-      `Codice HTML:\n${codice}\n\nDomanda: ${domanda}`;
+    const promptPrincipale =
+    `Sei un assistente che analizza codice HTML. Rispondi alla domanda in modo chiaro ma conciso, usando al massimo 5-6 frasi. ` +
+    `Evita ripetizioni o spiegazioni troppo generiche. ` +
+    `Alla fine della risposta, su una nuova riga, scrivi le righe eventualmente utilizzate per la risposta nel seguente formato:\n\n` +
+    `##RIGHE##\n{"righe": [elenco_di_numeri_di_riga]}\n\n` +
+    `Codice HTML:\n${codice}\n\nDomanda: ${domanda}`;
     \end{lstlisting}
     
     \item l'invio della sola domanda per generare ulteriori domande piu' approfondite da consigliare all'utente;
     \begin{lstlisting}[language=JavaScript, caption={Prompt per la generazione di domande successive}]
     const promptSuccessiva =
-      `Suggerisci 1 o 2 domande piu' specifiche sull'accessibilita' o sull'analisi del codice, ` +
-      `partendo dalla seguente domanda:\n\n` +
-      `Rispondi solo con il seguente formato JSON:\n\n` +
-      `##DOMANDA##\n{ "domande": ["prima domanda", "seconda...", "terza..."] }\n\n` +
-      `Domanda iniziale: ${domanda}`;
+    `Suggerisci 1 o 2 domande piu' specifiche sull'accessibilita' o sull'analisi del codice, ` +
+    `partendo dalla seguente domanda:\n\n` +
+    `Rispondi solo con il seguente formato JSON:\n\n` +
+    `##DOMANDA##\n{ "domande": ["prima domanda", "seconda...", "terza..."] }\n\n` +
+    `Domanda iniziale: ${domanda}`;
     \end{lstlisting}
 
     
