@@ -1,33 +1,25 @@
 \cleardoublepage
+\renewcommand{\contentsname}{Tabella dei contenuti}
 \pdfbookmark{\contentsname}{tableofcontents}
 \setcounter{secnumdepth}{5}
 \setcounter{tocdepth}{5}     
-
 \tableofcontents
 \clearpage
-
 \begingroup
     \let\clearpage\relax
     \let\cleardoublepage\relax
     \let\cleardoublepage\relax
-
     % Figures list
     \phantomsection
-    \pdfbookmark{\listfigurename}{lof}
+    \renewcommand{\listfigurename}{Elenco delle figure}
+    \pdfbookmark{\listfigurename}{edf}
     \listoffigures
     \vspace*{8ex}
-
     % Tables list
     \phantomsection
-    \pdfbookmark{\listtablename}{lot}
+    \renewcommand{\listtablename}{Elenco delle tabelle}
+    \pdfbookmark{\listtablename}{edt}
     \listoftables
+    % Listings list
 \endgroup
-
-\begingroup
-    % Code list
-    \phantomsection
-    \pdfbookmark{\listoflistingscaption}{lol}
-    \listoflistings
-\endgroup
-
 \cleardoublepage

@@ -1,0 +1,58 @@
+\documentclass[
+    table,
+    12pt,
+    oneside,
+    a4paper,
+    italian
+]{book}
+
+\setcounter{secnumdepth}{5}
+
+% Definizione delle variabili direttamente nel documento principale
+\newcommand{\myUni}{Università degli Studi di Padova}
+\newcommand{\myDepartment}{Dipartimento di Matematica ``Tullio Levi-Civita''}
+\newcommand{\myFaculty}{Corso di Laurea in Informatica}
+\newcommand{\myTitle}{SviluppAbile: un'estensione per sviluppare pagine web accessibili con l'aiuto di un chatbot}
+\newcommand{\myDegree}{Tesi di Laurea Triennale}
+\newcommand{\profTitle}{Prof.ssa}
+\newcommand{\myProf}{Ombretta Gaggi}
+\newcommand{\graduateTitle}{Laureanda}
+\newcommand{\myName}{Elena Chilese}
+\newcommand{\myStudentID}{2008074}
+\newcommand{\myAA}{2024-2025}
+\newcommand{\myLocation}{Padova}
+\newcommand{\myTime}{Settembre 2025}
+
+% Caricamento dei pacchetti
+\input{config/packages}
+
+% Caricamento della configurazione della tesi
+\input{config/thesis_config}
+
+\date{}
+\hypersetup{pdfstartview=}
+
+\begin{document}
+    \frontmatter
+    \input{preface/01_frontespizio.tex}
+    \input{preface/02_copyright.tex}
+    \increasepagenumbering
+    \input{preface/03_ringraziamenti}
+    
+    \input{preface/04_sommario}
+    \input{preface/05_tabella_dei_contenuti}
+    
+    \mainmatter
+    \input{chapters/01_intro.tex}
+    \input{chapters/02_analisi_requisiti.tex}
+    \input{chapters/03_tecnologie.tex}
+    \input{chapters/04_sviluppo.tex}
+    \input{chapters/05_test.tex}
+    \input{chapters/06_conclusioni.tex}
+    
+    \backmatter
+    \printglossary[type=\acronymtype, title=Acronimi e abbreviazioni, toctitle=Acronimi e abbreviazioni]
+    \printglossary[type=main, title=Glossario, toctitle=Glossario]
+    
+    \input{references/bibliography}
+\end{document}

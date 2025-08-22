@@ -1,38 +1,94 @@
+% Pacchetti di base  
+\usepackage{colorprofiles}
+\usepackage[a-1a,mathxmp]{pdfx}[2018/12/22] % crea PDF/A-1a
+
+% Set di caratteri, lingua, grafica
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage[dvipsnames]{xcolor} 
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Layout di pagina
+\usepackage[
+  top=2.75cm,
+  bottom=2.75cm,
+  right=3.0cm,
+  left=3.75cm,
+  includehead,
+  includefoot
+]{geometry}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{emptypage}
+\usepackage{indentfirst}
+
+% Sezioni, titoli, citazioni
+\usepackage{titlesec}
+\usepackage{sectsty}
+\usepackage{quoting}[font=small]
+\usepackage{csquotes}
+
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{longtable}
+\usepackage{etoolbox}
+
+% -- centra automaticamente *ogni* longtable --
+\makeatletter
+\pretocmd\LT@start{%
+  \setlength{\LTleft}{\fill}%
+  \setlength{\LTright}{\fill}%
+}{}{}
+\makeatother
+
+\usepackage{tabularx}
+\usepackage{tabulary}
+\usepackage{adjustbox}
+
+% Landscape (reset centraggio dentro landscape)
+\usepackage{pdflscape}
+\AtBeginEnvironment{landscape}{%
+  \setlength{\LTleft}{0pt}%
+  \setlength{\LTright}{0pt}%
+}
+
+% Float & utilità
+\usepackage{placeins}   % \FloatBarrier
+\usepackage{tikz}
+
+
+% Struttura documento, riferimenti interni
+\usepackage{bookmark}
+\usepackage{nameref}
+\usepackage[italian]{varioref}
+\usepackage{zref-totpages}
+
+% extra
+\usepackage{comment}
+\usepackage{epigraph}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{float}
+%\usepackage{minted}
+
+% Biblio + glossario
+\usepackage[backend=biber, backref, style=numeric]{biblatex}
+\usepackage[toc, acronym]{glossaries}
+
+% Altro
+\usepackage{mparhack,relsize}
+\usepackage{chngpage, calc}
+\usepackage[bottom]{footmisc}
+\usepackage{pifont}
+
+% Hyperref 
+\usepackage{hyperref}
+
 \PassOptionsToPackage{dvipsnames}{xcolor} % colori PDF/A
 
 \usepackage{colorprofiles}
 % PDF/A
 % validate in https://www.pdf-online.com/osa/validate.aspx
-\usepackage[a-1a,mathxmp]{pdfx}[2018/12/22]
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[italian]{babel}
-\usepackage{bookmark}
-\usepackage{caption}
-\usepackage{comment}
-\usepackage{chngpage, calc} % centra il frontespizio
-\usepackage{emptypage} % pagine vuote senza testatina e piede di pagina
-\usepackage{epigraph} % per epigrafi
-\usepackage{indentfirst} % rientra il primo paragrafo di ogni sezione
-\usepackage{graphicx} % immagini
-\usepackage[pdfa]{hyperref} % collegamenti ipertestuali
-\usepackage{mparhack,relsize}  % finezze tipografiche
-\usepackage{nameref} % visualizza nome dei riferimenti
-\usepackage[font=small]{quoting} % citazioni
-\usepackage{subfig} % sottofigure, sottotabelle
-\usepackage[italian]{varioref} % riferimenti completi della pagina
-\usepackage{longtable} % tabelle su più pagine
-\usepackage[toc, acronym, automake]{glossaries}
-\usepackage[backend=biber, style=verbose-ibid, hyperref, backref]{biblatex}
-\usepackage{lmodern}
-\usepackage[top=2.75cm, bottom=2.75cm, right=3cm, left=3.75cm]{geometry} % 1in+17pt+0.6cm
-\usepackage{fancyhdr} %serve per mettere in alto i numeri di pagina
-\usepackage{lipsum}
-\usepackage{setspace}
-\usepackage{titlesec}
-\usepackage[cachedir=minted-caches]{minted} % https://it.overleaf.com/learn/latex/Code_Highlighting_with_minted
-\usepackage{xcolor}
-\usepackage{csquotes} % gestisce automaticamente i caratteri (")
-\usepackage{etoolbox}
-\usepackage[bottom]{footmisc}
-\usepackage{zref-totpages}

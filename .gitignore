@@ -27,6 +27,10 @@
 *.xdv
 *.xml
 *.xmpi
+*.xmpdata
+latexmkrc
+thesis.bbl-SAVE-ERROR
 
 # Directory generata da latexmk
 _build/
+#_minted/

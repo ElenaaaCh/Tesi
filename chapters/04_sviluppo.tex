@@ -1,0 +1,70 @@
+\chapter{Sviluppo}
+\label{chap:sviluppo}
+
+\section{Web design}
+Il design dell’estensione è stato sviluppato con un approccio desktop-first, in considerazione del target principale costituito da sviluppatori web che operano prevalentemente su schermi di grandi dimensioni. \\Tale scelta consente di privilegiare la chiarezza e l’ampiezza degli spazi di lavoro, garantendo una disposizione ottimale dei pannelli e delle funzionalità principali.\\
+\\ %\glslink{desktop-firstg}{\textit{desktop-first}}
+Particolare attenzione è stata posta all’accessibilità cromatica, mediante uno studio accurato dei contrasti tra testo, sfondo ed elementi interattivi, al fine di assicurare leggibilità anche in condizioni visive differenti. \\È stata inoltre implementata la possibilità di personalizzare l’esperienza visiva tramite un pulsante dedicato alla selezione della modalità giorno/notte, che permette all’utente di adattare l’interfaccia alle proprie preferenze e alle condizioni ambientali di utilizzo.\\
+Nonostante l’approccio iniziale privilegi i dispositivi desktop, il layout rimane responsivo grazie a soluzioni flessibili che mantengono l’usabilità anche su schermi di dimensioni ridotte. Questa scelta assicura un’esperienza coerente ed accessibile in diversi contesti d’uso.
+
+\section{Interazione con l'AI}
+L’estensione sviluppata prevede un’integrazione diretta con Ollama. Questa scelta garantisce all’utente il pieno controllo sui dati, riducendo i rischi legati alla trasmissione di informazioni sensibili verso servizi esterni e permettendo un utilizzo anche in assenza di connessione Internet stabile. L’interazione con l’intelligenza artificiale avviene attraverso chiamate HTTP a un endpoint locale, al quale vengono inviati prompt costruiti dinamicamente in base alle esigenze del flusso operativo.
+
+\begin{lstlisting}[language=JavaScript, caption={Funzione di interazione con Ollama}]
+async function inviaPrompt(prompt) {
+  const res = await fetch('http://localhost:11434/api/generate', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: "llama3.1:8b",
+      prompt,
+      stream: false
+    })
+  });
+  return await res.json();
+}
+\end{lstlisting}
+
+
+Sono stati definiti tre casi d’uso principali per la generazione dei prompt: 
+\begin{itemize}
+    \item l’invio congiunto del DOM della pagina e della domanda dell’utente, utile per ricevere spiegazioni e indicazioni sulle righe che verranno poi evidenziate in quanto utili alla comprensione della risposta; 
+    \begin{lstlisting}[language=JavaScript, caption={Prompt per la generazione di risposta e righe da evidenziare}]
+      const promptPrincipale =
+      `Sei un assistente che analizza codice HTML. Rispondi alla domanda in modo chiaro ma conciso, usando al massimo 5-6 frasi. ` +
+      `Evita ripetizioni o spiegazioni troppo generiche. ` +
+      `Alla fine della risposta, su una nuova riga, scrivi le righe eventualmente utilizzate per la risposta nel seguente formato:\n\n` +
+      `##RIGHE##\n{"righe": [elenco_di_numeri_di_riga]}\n\n` +
+      `Codice HTML:\n${codice}\n\nDomanda: ${domanda}`;
+    \end{lstlisting}
+    
+    \item l'invio della sola domanda per generare ulteriori domande piu' approfondite da consigliare all'utente;
+    \begin{lstlisting}[language=JavaScript, caption={Prompt per la generazione di domande successive}]
+    const promptSuccessiva =
+      `Suggerisci 1 o 2 domande piu' specifiche sull'accessibilita' o sull'analisi del codice, ` +
+      `partendo dalla seguente domanda:\n\n` +
+      `Rispondi solo con il seguente formato JSON:\n\n` +
+      `##DOMANDA##\n{ "domande": ["prima domanda", "seconda...", "terza..."] }\n\n` +
+      `Domanda iniziale: ${domanda}`;
+    \end{lstlisting}
+
+    
+    \item l’invio del DOM insieme alla richiesta di modifica, scenario in cui l’IA produce sia una risposta argomentata sia un blocco di codice pronto per essere inserito nel pannello centrale della pagina nella modalità di sviluppo guidato.
+    \begin{lstlisting}[language=JavaScript, caption={Prompt per la generazione di risposta e codice html accessibile}]
+    const promptCodice =
+      `Sei un assistente che aiuta a rendere accessibile il codice HTML. ` +
+      `Rispondi in massimo 5-6 frasi chiare e tecniche. ` +
+      `Se suggerisci del codice, racchiudilo tra i marcatori \`##CODICE##\` come mostrato di seguito:\n\n` +
+      `##CODICE##\n<codice HTML da inserire o modificare>\n##FINECODICE##\n\n` +
+      `Codice HTML:\n${codice}\n\nDomanda: ${domanda}`;
+    \end{lstlisting}
+
+\end{itemize}
+Questa diversificazione consente di mantenere un approccio modulare e adattabile, rendendo l’assistente in grado di rispondere a necessità differenti con un unico modello sottostante.
+
+
+\section{Filtraggio risposta generata}
+Un aspetto fondamentale del funzionamento dell'estensione riguarda il filtraggio e la rielaborazione della risposta generata dall’intelligenza artificiale. Le risposte restituite da Ollama, infatti, non vengono mostrate direttamente all’utente, ma sono sottoposte ad un processo di parsing e di pulizia.\\
+In primo luogo, l’estensione distingue le diverse tipologie di output attese: la risposta vera e propria alla domanda inserita, le eventuali domande suggerite e gli eventuali blocchi di codice generati da visualizzare e/o scaricare. A tal fine vengono utilizzati marcatori testuali inseriti nel prompt (ad esempio \texttt{\#\#DOMANDE\#\#} o \texttt{\#\#CODICE\#\#}), che consentono di individuare con precisione le sezioni rilevanti all’interno della risposta. \\Una volta ricevuto l’output, funzioni dedicate come \texttt{estraiRigheDaRisposta} ed \texttt{estraiDomandeSuggerite} applicano espressioni regolari per isolare le parti utili, scartando elementi ridondanti o formattazioni non necessarie.\\
+\\
+Il filtraggio consente anche di separare le informazioni in blocchi distinti, in modo che ciascun contenuto possa essere mostrato nella pagina web nel pannello appropriato (ad esempio, suggerimenti testuali nella chat e codice sorgente nel riquadro centrale). Questo approccio riduce il carico cognitivo per l’utente, che non si trova di fronte a una risposta grezza e complessa, ma ad un output strutturato e facilmente navigabile.\\ Inoltre la possibilità di visualizzare alcune righe di codice evidenziate consente una comprensione più immediata del codice sorgente analizzato rendendo più intuitivo il processo di revisione del codice.

@@ -1,0 +1,296 @@
+% Acronyms
+
+\newacronym{css}{CSS}{Cascading Style Sheets}
+\newacronym{dom}{DOM}{Document Object Model}
+\newacronym{js}{JS}{JavaScript}
+\newacronym{html}{HTML}{HyperText Markup Language}
+
+\newacronym{ui}{UI}{User Interface}
+\newacronym{aria}{ARIA}{Accessible Rich Internet Applications}
+\newacronym{wcag}{WCAG}{Web Content Accessibility Guidelines}
+\newacronym{mcag}{MCAG}{Mobile Content Accessibility Guidelines}
+\newacronym[description={\glslink{apig}{\textit{Application Program Interface}}}]
+    {api}{API}{\textit{Application Program Interface}}
+\newacronym{loc}{LOC}{Lines of Code}
+
+\newacronym[description={\glslink{iag}{\textit{Artificial Intelligence}}}]
+    {ai}{AI}{\textit{Artificial Intelligence}}
+
+\newacronym[description={\glslink{iag}{Intelligenza Artificiale}}]
+    {ia}{IA}{Intelligenza Artificiale}
+\newacronym[description={\glslink{llmg}{\textit{Large Language Model}}}]
+    {llm}{LLM}{\textit{Large Language Model}}
+\newacronym[description={\glslink{w3cg}{\textit{World Wide Web Consortium}}}]
+    {w3c}{W3C}{\textit{World Wide Web Consortium}}
+\newacronym[description={\glslink{xmlg}{\textit{Extensible Markup Language}}}]
+    {xml}{XML}{\textit{Extensible Markup Language}}
+\newacronym[description={\glslink{urlg}{\textit{Uniform Resource Locator}}}]
+    {url}{URL}{\textit{Uniform Resource Locator}}
+\newacronym[description={\glslink{gpug}{\textit{Graphics Processing Unit}}}]
+    {gpu}{GPU}{\textit{Graphics Processing Unit}}
+\newacronym{mv2}{MV2}{Manifest V2}
+\newacronym{mv3}{MV3}{Manifest V3}
+
+% Nuove entries glossario / acronimi:
+% - IA / AI (acronimo e definizione)
+% - WCAG (solo acronimo, definizione nell'introduzione)
+% - LLM (acronimo e definizione)
+% - W3C (acronimo e definizione)
+% - XML (acronimo e definizione)
+% - URL (acronimo e definizione)
+% - GPU (acronimo e definizione)
+% - chatbot (definizione)
+% - plugin (definizione)
+% - markup (definizione)
+% - form (definizione)
+% - browser (definizione)
+% - script (definizione)
+% - asincrono
+% - client-side
+% - server
+% - cloud computing
+% - latenza
+% - quantizzazione
+% - open source
+% - debugging
+
+% - desktop-first
+
+
+
+% Glossary
+
+\newglossaryentry{apig} {
+    name=\acrshort{api},
+    text=Application Program Interface,
+    sort=api,
+    description={in informatica con il termine \emph{Application Programming Interface} (ing. interfaccia di programmazione di un'applicazione) si indicano regole e specifiche per la comunicazione tra \textit{software}. \\
+    Tali regole fungono da interfaccia tra i vari \textit{software} e ne facilitano l’interazione, allo stesso modo in cui l’interfaccia utente facilita l’interazione tra uomo e \textit{computer}. \\
+    \cite{site:api-treccani}
+    }
+}
+
+\newglossaryentry{aig} {
+    name=\acrshort{ia},
+    text=Artificial Intelligence,
+    sort=ai,
+    description={insieme di studi e tecniche, pertinenti all’informatica, ma prossime alle ricerche di logica matematica e con profonde implicazioni sia filosofiche sia sociali, che mirano alla realizzazione di macchine o programmi in grado di risolvere problemi e di riprodurre attività proprie dell’intelligenza umana o che comunque ne simulino il comportamento. \\
+    \cite{site:ai-treccani}
+    }
+}
+
+\newglossaryentry{domg}{ 
+    name={\acrshort{dom}},
+    text={DOM},
+    sort=dom,
+    description={in informatica il Document Object Model (spesso abbreviato come \acrshort{dom}), lett. "modello a oggetti del documento", è una forma di rappresentazione dei documenti strutturati come modello orientato agli oggetti. È lo standard ufficiale del \acrshort{w3c} per la rappresentazione di documenti strutturati in maniera da essere neutrali sia per la lingua che per la piattaforma. \\
+    \cite{site: dom-wiki}}
+}
+
+\newglossaryentry{backendg}{
+    name=\textit{Backend},
+    text=\textit{Backend},
+    sort=back-end,
+    description= {con il termine \textit{"backend"} si intende la parte non visibile all'utente di un programma, che elabora e gestisce i dati generati dall'interfaccia grafica.\\
+    \cite{site:backend-wiki}
+    }
+}
+
+\newglossaryentry{llmg}{
+    name=\acrshort{llm},
+    text={LLM},
+    sort=llm,
+    description= {con il termine \textit{"Large Language Model"} si intende un algoritmo di intelligenza artificiale che, processando massivamente una grande quantità di dati, utilizza tecniche di \textit{deep learning} in vari ambiti dell’elaborazione del linguaggio naturale come la comprensione, la traduzione, la generazione e la previsione di nuovi contenuti.\\
+    \cite{site:llm-treccani}
+    }
+}
+
+
+\newglossaryentry{w3cg}{
+    name=\acrshort{w3c},
+    text={W3C},
+    sort=w3c,
+    description= {il \textit{World Wide Web Consortium}, anche conosciuto come \acrshort{w3c}, è un'organizzazione non governativa internazionale che ha come scopo quello di favorire lo sviluppo di tutte le potenzialità del \glslink{wwwg}{World Wide Web} e diffondere la cultura dell'accessibilità della Rete.\\
+    \cite{site:w3c-wiki}
+    }
+}
+
+\newglossaryentry{wwwg}{
+    name=\textit{World Wide Web},
+    text={World Wide Web},
+    sort=world-wide-web,
+    description= {il \textit{World Wide Web} (termine in lingua inglese traducibile in italiano come "rete di ampiezza mondiale" o "rete mondiale"), è uno dei principali servizi di Internet, che permette di navigare e usufruire di un insieme molto vasto di contenuti, multimediali e non, interrelati tramite collegamenti ipertestuali (\textit{link}), e di fruire di ulteriori servizi accessibili a tutti o ad una parte selezionata degli utenti di Internet (mediante autenticazione).\\
+    \cite{site:www-wiki}
+    }
+}
+
+\newglossaryentry{xmlg}{
+    name=\textit{eXtensible Markup Language},
+    text={eXtensible Markup Language},
+    sort=extensible-markup-language,
+    description= {in informatica, l'\acrshort{xml} (sigla di \textit{eXtensible Markup Language}, lett. "linguaggio di marcatura estendibile") è un metalinguaggio per la definizione di linguaggi di \glslink{markupg}{markup}, ovvero un linguaggio basato su un meccanismo sintattico che consente di definire e controllare il significato degli elementi contenuti in un documento o in un testo.\\
+    \cite{site:xml-wiki}
+    }
+}
+
+\newglossaryentry{urlg}{
+    name=\acrshort{url},
+    text={Uniform Resource Locator},
+    sort=url,
+    description= {nel linguaggio informatico, sigla dell’ingl.\textit{Uniform Resource Locator} «localizzatore unico della risorsa (informatica)», indirizzo di un sito web espresso in modo univoco e con una forma utilizzabile dal \glslink{browserg}{browser}.\\
+    \cite{site:url-treccani}
+    }
+}
+
+\newglossaryentry{gpug}{
+    name=\acrshort{gpu},
+    text={Graphics Processing Unit},
+    sort=gpu,
+    description= {l'unità di elaborazione grafica (in acronimo \acrshort{gpu}, dall'inglese \textit{Graphics Processing Unit}), è un processore progettato per accelerare la creazione di immagini in un frame buffer, destinato all'output su un dispositivo di visualizzazione. \\
+     \cite{site:gpu-wiki}
+    }
+}
+
+\newglossaryentry{chatbotg}{
+    name=\textit{Chatbot},
+    text={Chatbot},
+    sort=chatbot,
+    description= {è un software progettato per simulare una conversazione con un essere umano. \\
+     \cite{site:chatbot-wiki}
+    }
+}
+
+\newglossaryentry{pluging}{
+    name=\textit{Plugin},
+    text={Plugin},
+    sort=plugin,
+    description= {in campo informatico è un programma non autonomo che interagisce con un altro programma per ampliarne o estenderne le funzionalità originarie. \\
+     \cite{site:plugin-wiki}
+    }
+}
+
+\newglossaryentry{markupg}{
+    name=\textit{Markup},
+    text={Markup},
+    sort=markup,
+    description= {un linguaggio di \textit{markup} (in italiano linguaggio di marcatura o linguaggio di formattazione) è un insieme di regole che descrivono i meccanismi di rappresentazione (strutturali, semantici, presentazionali) o d'impaginazione di un testo. \\
+     \cite{site:markup-wiki}
+    }
+}
+
+\newglossaryentry{formg}{
+    name=\textit{Form},
+    text={Form},
+    sort=form,
+    description= {in Internet, modulo telematico a disposizione dell’utente per l’inserimento e l’invio di dati. \\
+     \cite{site:form-treccani}
+    }
+}
+
+\newglossaryentry{browserg}{
+    name=\textit{Browser},
+    text={Browser},
+    sort=browser,
+    description= {nel linguaggio informatico, programma di un computer che permette il collegamento alla rete Internet e mediante il quale si può navigare da un sito telematico all’altro. \\
+     \cite{site:browser-treccani}
+    }
+}
+
+\newglossaryentry{scriptg}{
+    name=\textit{Script},
+    text={Script},
+    sort=script,
+    description= {in informatica, programma o sequenza di istruzioni che viene interpretata o portata a termine da un altro programma. \\
+     \cite{site:script-treccani}
+    }
+}
+
+\newglossaryentry{asincronog}{
+    name=Asincrono,
+    text={Asincrono},
+    sort=asincrono,
+    description= {non sincrono, che non avviene o si manifesta cioè nel medesimo tempo, o, in senso più tecnico, che manca di sincronismo. \\
+     \cite{site:asincrono-treccani}
+    }
+}
+
+\newglossaryentry{client-sideg}{
+    name=\textit{Client-side},
+    text={Client-side},
+    sort=client-side,
+    description= {in informatica, nell'ambito delle reti di calcolatori, il termine lato client (client-side in inglese) indica le operazioni di elaborazione effettuate da un client in un'architettura client-server. \\
+     \cite{site:client_side-wiki}
+    }
+}
+
+\newglossaryentry{serverg}{
+    name=\textit{Server},
+    text={Server},
+    sort=server,
+    description= {in informatica (con riferimento a una rete di calcolatori), calcolatore che svolge funzioni di servizio per tutti i calcolatori collegati. \\
+     \cite{site:server-treccani}
+    }
+}
+
+\newglossaryentry{cloud-computingg}{
+    name=\textit{Cloud computing},
+    text={Cloud computing},
+    sort=cloud-computing,
+    description= {la tecnologia che, sotto forma di servizio offerto dal provider al cliente, permette di memorizzare e di elaborare i dati e i programmi di un utente grazie all’utilizzo di risorse hardware o software distribuite in rete. \\
+     \cite{site:cloud_computing-treccani}
+    }
+}
+
+\newglossaryentry{latenzag}{
+    name=Latenza,
+    text={Latenza},
+    sort=latenza,
+    description= {in informatica, il tempo impiegato da un’informazione per andare da un’unità all’altra di un sistema, in partic. da un sensore al relativo elaboratore (è detto anche l. di risposta). \\
+     \cite{site:latenza-treccani}
+    }
+}
+
+\newglossaryentry{quantizzazioneg}{
+    name=Quantizzazione,
+    text={Quantizzazione},
+    sort=quantizzazione,
+    description= {in elettronica e nella tecnica delle telecomunicazioni, l’operazione, attuata con un quantizzatore, consistente nel suddividere il campo di variabilità di una grandezza continua in un numero finito di intervalli (definiti a volte «quanti»), in ciascuno dei quali la grandezza è considerata costante e sostituita con un valore rappresentativo. \\
+     \cite{site:quantizzazione-treccani}
+    }
+}
+
+\newglossaryentry{open-sourceg}{
+    name=\textit{Open source},
+    text={Open source},
+    sort=open-source,
+    description= {in informatica, software non protetto da copyright, il cui codice sorgente è lasciato alla disponibilità degli utenti e quindi liberamente modificabile. \\
+     \cite{site:open_source-treccani}
+    }
+}
+
+\newglossaryentry{debuggingg}{
+    name=\textit{Debugging},
+    text={Debugging},
+    sort=debugging,
+    description= {nel linguaggio dell’informatica, operazione di messa a punto di un programma, un’applicazione, ecc., consistente nella ricerca (di norma effettuata dall’elaboratore) e nella correzione (talvolta automatica) degli errori di procedura, relativi al tipo di linguaggio impiegato, che impediscono o rendono difettosa l’elaborazione. \\
+     \cite{site:debugging-treccani}
+    }
+}
+
+\newglossaryentry{desktop-firstg}{
+    name=\textit{Desktop-first},
+    text={Desktop-first},
+    sort=desktop-first,
+    description= { significa progettare il sito web avendo come obiettivo principale l'esperienza su desktop. Sebbene sarebbe facile pensare che il desktop-first sia un approccio ormai superato, in realtà esistono diverse ragioni per cui molti scelgono ancora di partire in grande e poi ridimensionare. \\
+     \cite{site:desktop_first-hvdig}
+    }
+}
+
+\newglossaryentry{iag}{
+    name=\textit{Intelligenza Artificiale},
+    text={Intelligenza artificiale},
+    sort=ia,
+    description= { significa progettare il sito web avendo come obiettivo principale l'esperienza su desktop. Sebbene sarebbe facile pensare che il desktop-first sia un approccio ormai superato, in realtà esistono diverse ragioni per cui molti scelgono ancora di partire in grande e poi ridimensionare. \\
+     \cite{site:desktop_first-hvdig}
+    }
+}
