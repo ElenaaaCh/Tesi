@@ -1,11 +1,26 @@
-\chapter{Sviluppo}
+\chapter{Sviluppo del progetto di stage}
 \label{chap:sviluppo}
 
 \section{Web design}
-\noindent Il design dell’estensione è stato sviluppato con un approccio desktop-first, in considerazione del target principale costituito da sviluppatori web che operano prevalentemente su schermi di grandi dimensioni. \\Tale scelta consente di privilegiare la chiarezza e l’ampiezza degli spazi di lavoro, garantendo una disposizione ottimale dei pannelli e delle funzionalità principali.\\
-\\ %\glslink{desktop-firstg}{\textit{desktop-first}}
+\noindent Il design dell’estensione è stato sviluppato con un approccio \glslink{desktop-firstg}{\textit{desktop-first}}, in considerazione del target principale costituito da sviluppatori web che operano prevalentemente su schermi di grandi dimensioni. \\Tale scelta consente di privilegiare la chiarezza e l’ampiezza degli spazi di lavoro, garantendo una disposizione ottimale dei pannelli e delle funzionalità principali.\\
 Particolare attenzione è stata posta all’accessibilità cromatica, mediante uno studio accurato dei contrasti tra testo, sfondo ed elementi interattivi, al fine di assicurare leggibilità anche in condizioni visive differenti. \\È stata inoltre implementata la possibilità di personalizzare l’esperienza visiva tramite un pulsante dedicato alla selezione della modalità giorno/notte, che permette all’utente di adattare l’interfaccia alle proprie preferenze e alle condizioni ambientali di utilizzo.\\
 Nonostante l’approccio iniziale privilegi i dispositivi desktop, il layout rimane responsivo grazie a soluzioni flessibili che mantengono l’usabilità anche su schermi di dimensioni ridotte. Questa scelta assicura un’esperienza coerente ed accessibile in diversi contesti d’uso.
+
+\section{Sviluppo}
+\subsection{PoC}
+\noindent L’obiettivo iniziale era la realizzazione di un Proof of Concept (POC) che permettesse di verificare la fattibilità tecnica dell’estensione proposta. In questa fase preliminare, l’attenzione era rivolta principalmente a due aspetti fondamentali: il recupero del codice sorgente della pagina web e l’integrazione con un’API di intelligenza artificiale, necessaria per avviare i primi test di analisi e generazione di suggerimenti.\\
+Il POC non teneva conto di aspetti come la scalabilità, l’ottimizzazione delle performance o la gestione di casi d’uso complessi, ma si limitava a dimostrare che le funzionalità di base potessero essere effettivamente implementate. 
+\\La struttura iniziale era volutamente semplice in quanto conteneva solamente funzioni basilari per:
+\begin{itemize}
+  \item \texttt{script.js}: responsabile dell’avvio dell’estensione;
+  \item \texttt{analysis.js}: deputato all’estrazione del codice sorgente della pagina web e alla sua messa a disposizione per ulteriori elaborazioni;
+  \item \texttt{service\_worker.js}: gestisce le richieste verso il modello di intelligenza artificiale, inviando il codice recuperato e ricevendo in risposta i suggerimenti generati.
+\end{itemize}
+
+\noindent Questa versione sperimentale costituiva una base minima ma solida su cui successivamente è stato possibile costruire le funzionalità avanzate, affinare l’interfaccia e integrare logiche più complesse per la gestione dei risultati.
+
+\subsection{Prodotto finale}
+
 
 \section{Interazione con l'AI}
 \noindent L’estensione sviluppata prevede un’integrazione diretta con Ollama. Questa scelta garantisce all’utente il pieno controllo sui dati, riducendo i rischi legati alla trasmissione di informazioni sensibili verso servizi esterni e permettendo un utilizzo anche in assenza di connessione Internet stabile. L’interazione con l’intelligenza artificiale avviene attraverso chiamate HTTP a un endpoint locale, al quale vengono inviati prompt costruiti dinamicamente in base alle esigenze del flusso operativo.
@@ -24,7 +39,6 @@ async function inviaPrompt(prompt) {
   return await res.json();
 }
 \end{lstlisting}
-
 
 \noindent Sono stati definiti tre casi d’uso principali per la generazione dei prompt: 
 \begin{itemize}
@@ -68,3 +82,5 @@ Questa diversificazione consente di mantenere un approccio modulare e adattabile
 In primo luogo, l’estensione distingue le diverse tipologie di output attese: la risposta vera e propria alla domanda inserita, le eventuali domande suggerite e gli eventuali blocchi di codice generati da visualizzare e/o scaricare. A tal fine vengono utilizzati marcatori testuali inseriti nel prompt (ad esempio \texttt{\#\#DOMANDE\#\#} o \texttt{\#\#CODICE\#\#}), che consentono di individuare con precisione le sezioni rilevanti all’interno della risposta. \\Una volta ricevuto l’output, funzioni dedicate come \texttt{estraiRigheDaRisposta} ed \texttt{estraiDomandeSuggerite} applicano espressioni regolari per isolare le parti utili, scartando elementi ridondanti o formattazioni non necessarie.\\
 \\
 Il filtraggio consente anche di separare le informazioni in blocchi distinti, in modo che ciascun contenuto possa essere mostrato nella pagina web nel pannello appropriato (ad esempio, suggerimenti testuali nella chat e codice sorgente nel riquadro centrale). Questo approccio riduce il carico cognitivo per l’utente, che non si trova di fronte a una risposta grezza e complessa, ma ad un output strutturato e facilmente navigabile.\\ Inoltre la possibilità di visualizzare alcune righe di codice evidenziate consente una comprensione più immediata del codice sorgente analizzato rendendo più intuitivo il processo di revisione del codice.
+
+\section{Problematiche riscontrate}
