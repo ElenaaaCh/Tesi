@@ -30,6 +30,8 @@
     {gpu}{GPU}{\textit{Graphics Processing Unit}}
 \newacronym{mv2}{MV2}{Manifest V2}
 \newacronym{mv3}{MV3}{Manifest V3}
+\newacronym{poc}{PoC}{\glslink{pocg}{\textit{Proof of Concept}}}
+\newacronym{tcp}{TCP}{\glslink{tcpg}{\textit{Transmission Control Protocol}}}
 
 
 % Glossary
@@ -74,7 +76,7 @@
     name=\acrshort{llm},
     text={LLM},
     sort=llm,
-    description= {con il termine \textit{"Large Language Model"} si intende un algoritmo di intelligenza artificiale che, processando massivamente una grande quantità di dati, utilizza tecniche di \textit{deep learning} in vari ambiti dell’elaborazione del linguaggio naturale come la comprensione, la traduzione, la generazione e la previsione di nuovi contenuti.\\
+    description= {con il termine \textit{"Large Language Model"} si intende un algoritmo di \glslink{iag}{intelligenza artificiale} che, processando massivamente una grande quantità di dati, utilizza tecniche di \textit{deep learning} in vari ambiti dell’elaborazione del linguaggio naturale come la comprensione, la traduzione, la generazione e la previsione di nuovi contenuti.\\
     \cite{site:llm-treccani}
     }
 }
@@ -263,9 +265,9 @@
 \newglossaryentry{iag}{
     name=\textit{Intelligenza Artificiale},
     text={Intelligenza artificiale},
-    sort=ia,
-    description= { significa progettare il sito web avendo come obiettivo principale l'esperienza su desktop. Sebbene sarebbe facile pensare che il desktop-first sia un approccio ormai superato, in realtà esistono diverse ragioni per cui molti scelgono ancora di partire in grande e poi ridimensionare. \\
-     \cite{site:desktop_first-hvdig}
+    sort=intelligenza-artificiale,
+    description= { insieme di studi e tecniche, pertinenti all’informatica, ma prossime alle ricerche di logica matematica e con profonde implicazioni sia filosofiche sia sociali, che mirano alla realizzazione di macchine o programmi in grado di risolvere problemi e di riprodurre attività proprie dell’intelligenza umana o che comunque ne simulino il comportamento. \\
+     \cite{site:ai-treccani}
     }
 }
 
@@ -273,7 +275,7 @@
     name=\textit{ChatGPT},
     text=ChatGPT,
     sort=ChatGPT,
-    description={ implementazione del modello di intelligenza artificiale (IA) sviluppato da OpenAI, basato sull'architettura GPT-3 (Generative Pre-trained Transformer 3) e progettato per comprendere e generare testo in linguaggio naturale. \\
+    description={ implementazione del modello di intelligenza artificiale (\acrshort{ia}) sviluppato da OpenAI, basato sull'architettura GPT-3 (Generative Pre-trained Transformer 3) e progettato per comprendere e generare testo in linguaggio naturale. \\
     \cite{site:chatgpt-treccani}
     }
 }
@@ -282,6 +284,60 @@
     name=\textit{Chrome-based},
     text=Chrome-based,
     sort=Chrome-based,
-    description={ un \glslink{browserg}{browser} o software che utilizza la base del codice sorgente del progetto open-source Chromium, la stessa foundation di Google Chrome. \\
+    description={ un \glslink{browserg}{browser} o software che utilizza la base del codice sorgente del progetto \glslink{open-sourceg}{open-source} Chromium, la stessa foundation di Google Chrome.
+    }
+}
+
+\newglossaryentry{gitg} {
+    name=\textit{GIT},
+    text=GIT,
+    sort=GIT,
+    description={ è un'applicazione software per il controllo di versione distribuito utilizzabile da interfaccia a riga di comando, creato da Linus Torvalds nel 2005. \\
+    \cite{site:git-wiki}
+    }
+}
+
+\newglossaryentry{pocg} {
+    name=\acrshort{poc},
+    text=Proof of Concept,
+    sort=poc,
+    description={ è una realizzazione incompleta o abbozzata (sinopsi) di un determinato progetto o metodo per dimostrare la fattibilità o confermare la validità di alcuni principi o concetti fondamentali. Un esempio tipico è quello di un prototipo. \\
+    \cite{site:poc-wiki}
+    }
+}
+
+\newglossaryentry{webassemblyg} {
+    name=\textit{WebAssembly},
+    text=WebAssembly,
+    sort=webAssembly,
+    description={ è uno standard web che definisce un formato binario e un corrispondente formato testuale per la scrittura di codice eseguibile nelle pagine web. Ha lo scopo di abilitare l'esecuzione del codice quasi alla stessa velocità con cui esegue il codice macchina nativo. \\
+    \cite{site:webassembly-wiki}
+    }
+}
+
+\newglossaryentry{websocketg} {
+    name=\textit{WebSocket},
+    text=WebSocket,
+    sort=websocket,
+    description={ è un protocollo che fornisce canali di comunicazione full-duplex (trasmissione bidirezionale simultanea) attraverso una singola connessione \acrshort{tcp}. \\
+    \cite{site:websocket-wiki}
+    }
+}
+
+\newglossaryentry{tcpg} {
+    name=\acrshort{tcp},
+    text=Transmission Control Protocol,
+    sort=transmission-control-protocol,
+    description={ è un protocollo di rete a pacchetto di livello di trasporto, appartenente alla suite di protocolli Internet, che si occupa di controllo della trasmissione ovvero rendere affidabile la comunicazione dati in rete tra mittente e destinatario. \\
+    \cite{site:tcp-wiki}
+    }
+}
+
+\newglossaryentry{open-weightg} {
+    name=\textit{Open weight},
+    text=Open weight,
+    sort=open-weight,
+    description={ i modelli a peso aperto sono sistemi di \glslink{iag}{intelligenza artificiale} in cui i “pesi” effettivi, i numeri fondamentali che il modello ha appreso durante l’addestramento, sono resi pubblici. Questi pesi sono ciò che guida le previsioni, le risposte e il comportamento generale del modello. \\
+    \cite{site:open_weight-invezz}
     }
 }
