@@ -16,21 +16,21 @@
 Gli errori principali sono: 
 \begin{itemize}
     \item E913 - SC 2.4.6: Le etichette dei controlli dei form devono essere univoche. Utilizzare etichette univoche consente agli utenti di distinguere i vari controlli presenti sulla stessa pagina quando vengono letti da uno screen reader. In alternativa, è possibile inserirli all’interno di diversi <fieldset> con <legend> univoci, poiché il testo del <legend> viene letto insieme all’etichetta del controllo. Vedi WCAG2 Success Criterion 2.4.6.
-    \item E31 - Sono stati rilevati errori ortografici. Le parole non presenti nel dizionario vengono evidenziate e accompagnate da un elenco di possibili sostituzioni (in parentesi).
     \item P883 - SC 1.3.1: Nidificare correttamente le intestazioni (H1 > H2 > H3). Gli elementi di intestazione devono essere ordinati in modo gerarchico. Ad esempio, un elemento H2 dovrebbe seguire un H1, un H3 dovrebbe seguire un H2, e così via. Gli sviluppatori non devono saltare livelli né utilizzare le intestazioni solo per scopi di presentazione. Vedi WCAG2 Failure F43.
 \end{itemize}
 
 \subsubsection{Lighthouse}
-Lo strumento lighthouse mostra che accessibilità è al 100\% ... (figura ...)
+\noindent Il report generato dallo strumento Lighthouse ha restituito un punteggio di 100/100 nella sezione Accessibility, indicando che, secondo le metriche automatiche adottate, non sono stati rilevati errori o problematiche di conformità (vedi figura \ref{fig:Lighthouse_sudoku}).
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth, alt={Screenshot dell'analisi di Total Validator sul sito web SudokuWorld}]{img/TV_sudoku.png}
-    \caption{Analisi di Total Validator sul sito web SudokuWorld}\label{fig:TV_sudoku}
+    \includegraphics[width=0.7\linewidth, alt={Screenshot dell'analisi di Lighthouse sul sito web SudokuWorld}]{img/Lighthouse_sudoku.png}
+    \caption{Analisi di Lighthouse sul sito web SudokuWorld}\label{fig:Lighthouse_sudoku}
 \end{figure}
 
 \subsubsection{SviluppAbile}
 \noindent Di seguito vengono riportati i test effettuati con l'estensione \textit{SviluppAbile}.
 
+(pagina home.php)
 \subsubsection*{\texttt{Il mio codice HTML rispetta le linee guida WCAG?}}
 \begin{adjustwidth}{1cm}{1cm}
 \noindent {\footnotesize Il tuo codice HTML sembra essere in parte conforme alle linee guida WCAG (Web Content Accessibility Guidelines), ma potrebbe migliorare ulteriormente per garantire una maggiore accessibilità. Alcune aree che richiedono ulteriore attenzione includono:\\
@@ -41,11 +41,62 @@ Per garantire una maggiore accessibilità, considera di applicare ulteriormente 
 La pagina non rispetta la norma W3C WCAG 2.1 che richiede di nidificare correttamente le intestazioni. Non sono presenti elementi HTML con attributo "h1", mentre ci sono intestazioni con grado inferiore.}
 \end{adjustwidth}
 
-\subsubsection*{\texttt{xx}}
-\noindent {\footnotesize aaa}
+\subsubsection*{\texttt{Vi sono errori riguardanti i link?}}
+\begin{adjustwidth}{1cm}{1cm}
+\noindent {\footnotesize Il codice HTML contiene due carousel circolari:\\
+1.  Il primo è definito come "specialProductsCarousel" e si trova nella sezione `<main>`.\\
+2.  Il secondo è chiamato "bestSellersCarousel" ed è anch'esso presente all'interno della stessa sezione.\\
+Quanto ai controlli sui link visitati, non sono implementati controlli specifici per la traccia dei link visitati sul sito web.
+}
+\end{adjustwidth}
 
-\subsubsection*{\texttt{xx}}
-\noindent {\footnotesize aaa}
+(pagina sudoku.php)
+\subsubsection*{\texttt{Il mio codice HTML rispetta le linee guida WCAG?}} 
+\begin{adjustwidth}{1cm}{1cm}
+\noindent {\footnotesize Il tuo codice HTML non rispetta pienamente le linee guida WCAG (Web Content Accessibility Guidelines) per diverse ragioni:\\
+1.  **La navigazione è troppo complessa**: la barra di navigazione contiene molti elementi e link, potrebbe essere difficile per gli utenti disabili utilizzare l'interfaccia.\\
+2.  **L'accessibilità dei form è insufficiente**: non sono presenti attributi accessibili per i campi di input e submit, rendendo la navigazione dei form difficoltosa per gli utenti che usano dispositivi di assistenza.\\
+3.  **La lettura dei testi in basso risulta difficile**: alcuni elementi come il timer sono troppo piccoli per essere letti facilmente dagli schermi con alto contrasto o da dispositivi di assistenza.\\
+4.  **Non ci sono alternative al linguaggio naturale**: le immagini contengono solo icone e simboli, che potrebbero non essere compresi da utenti analfabetici.\\
+\\Aggiungere attributi accessibili ai campi input e submit:\\
+*   Modifica il codice HTML come segue:\\
+    \texttt{<form class="d-flex align-items-center my-2 my-lg-0 ms-auto" action="/amonaco/Sudokuworld/pages/search.php" method="GET">
+    <label for="searched-product" class="visually-hidden">Cerca</label>
+    <input class="form-control me-2" type="search" name="searched-product" id="searched-product" placeholder="Cerca" value="" aria-label="Search" />
+    <button class="btn btn-outline-success" type="submit" \textbf{aria-label="Submit the form"}>Cerca</button>
+</form>}\\
+\\Aggiungere tag alt alle immagini: assicurati di aggiungere il contenuto alternativo per ogni immagine.\\
+*   Modifica il codice HTML come segue:\\
+    \texttt{<a class="nav-link" href="/amonaco/Sudokuworld/pages/sudoku.php">
+    <i class="bi bi-grid-3x3-gap-fill"></i></a>}\\
+\\Aggiungere tag aria: per fornire informazioni aggiuntive alle pagine web, puoi utilizzare gli attributi aria.\\
+*   Modifica il codice HTML come segue:\\
+    \texttt{<h1 class="container border border-black p-2 mb-4 rounded text-center" id="sudokuTitle" role="heading" aria-level="1">!! Sudoku !!</h1>}\\
+\\Controlla l'accessibilità con strumenti di testing: prima della pubblicazione, assicurati di utilizzare strumenti come Lighthouse o WAVE per valutare la tua pagina web e risolvere eventuali problemi.\\
+Ricorda che un sito web accessibile è più facile da utilizzare per tutti gli utenti, compresi quelli con disabilità.\\
+\\
+\texttt{DOMANDE SUGGERITE: \\"Quale è il criterio WCAG 2.1 che riguarda la navigazione con tastiera?"
+\\"Come posso utilizzare gli strumenti di analisi del codice per identificare le aree dell'accessibilità da migliorare nel mio sito web HTML?"
+}}
+\end{adjustwidth}
+
+\paragraph*{\texttt{"Come posso utilizzare gli strumenti di analisi del codice per identificare le aree dell'accessibilità da migliorare nel mio sito web HTML?"}} 
+\begin{adjustwidth}{1cm}{1cm}
+\noindent {\footnotesize Per identificare le aree dell'accessibilità da migliorare nel tuo sito web HTML, puoi utilizzare gli strumenti di analisi come W3C Validator e Lighthouse. Il W3C Validator verifica la correttezza del codice HTML e fornisce suggerimenti per migliorare l'accessibilità. Lighthouse è uno strumento open-source che valuta l'accessibilità, le prestazioni e la sicurezza del tuo sito web.}
+\end{adjustwidth}
+
+\paragraph*{\texttt{"Come posso utilizzare le liste di controllo di WCAG (Web Content Accessibility Guidelines) per migliorare l'accessibilità nel mio sito web?"}} 
+\begin{adjustwidth}{1cm}{1cm}
+\noindent {\footnotesize Le Liste di Controllo (LC) di WCAG 2.1 forniscono un quadro dettagliato per valutare e migliorare l'accessibilità del tuo sito web.\\
+Per iniziare, leggi attentamente le LC relative alle sezioni più rilevanti per il tuo sito:\\
+* Guida per i fornitori di contenuti (G): informazioni generali sull'accessibilità.\\
+* Accessibilità delle pagine Web: principi e strategie per raggiungere l'accessibilità.\\
+\\In particolare, è importante analizzare le seguenti sezioni:\\
+- Principio 1 (Azienda responsabile): il tuo sito deve essere progettato in modo da non richiedere agli utenti di utilizzare dispositivi assistivi o attrezzature specializzate.\\
+- Principio 2 (Interfacce, componenti e layout di pagina): l'accesso alle funzionalità del tuo sito deve essere possibile con dispositivi e browser diversi.\\
+- Principio 3 (Informazioni e comunicazione): il contenuto del tuo sito deve essere chiaro, comprensibile ed accessibile a tutti.}
+\end{adjustwidth}
+
 
 \subsubsection{Resoconto finale}
 \noindent SviluppAbile riesce a riconoscere i principali problemi di struttura semantica e form.\\
@@ -66,7 +117,8 @@ Continuando a fare domande nella chat si possono approfondire man-mano i vari as
 \noindent \textbf{CONTRO:}\\
 \noindent Rispetto alla valutazione di TV e di un esperto di accessibilità web, \textit{SviluppAbile} non segnala alcuni dettagli di esperienza utente (ad esempio mancanza di presentazione del sito, estetica troppo predefinita, assenza di padding/margini); problemi di navigazione post-login/logout o di comportamento del carosello, che sono più legati alla logica di funzionamento che al solo HTML.\\
 \textit{SviluppAbile} necessita di domande specifiche e in alcuni casi del caricamento degli errori individuati da altri strumenti (Total Validator) per l’individuazioni di alcuni errori.\\
-Inoltre, essa non ha accesso al file di stile, quindi non può controllare la parte relativa ai colori/link visitati.
+Inoltre, essa non ha accesso al file di stile, quindi non può controllare la parte relativa ai colori/link visitati.\\
+Da notare che Ollama usa la parola "disabili", termonilogia nè esatta nè tantomeno rispettosa. Il termine corretto è utenti con disabilità.
 
 \vspace{0.5cm}
 \noindent \textbf{CONCLUSIONE:}\\
