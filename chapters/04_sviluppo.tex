@@ -7,8 +7,8 @@ Particolare attenzione è stata posta all’accessibilità cromatica, mediante u
 Nonostante l’approccio iniziale privilegi i dispositivi desktop, il layout rimane responsivo grazie a soluzioni flessibili che mantengono l’usabilità anche su schermi di dimensioni ridotte. Questa scelta assicura un’esperienza coerente ed accessibile in diversi contesti d’uso.
 
 \section{Sviluppo}
-\subsection{PoC}
-\noindent L’obiettivo iniziale era la realizzazione di un Proof of Concept (\acrshort{poc}) che permettesse di verificare la fattibilità tecnica dell’estensione proposta. In questa fase preliminare, l’attenzione era rivolta principalmente a due aspetti fondamentali: il recupero del codice sorgente della pagina web e l’integrazione con un’\acrshort{api} di \glslink{iag}{intelligenza artificiale}, necessaria per avviare i primi test di analisi e generazione di suggerimenti.\\
+\subsection{\acrshort{poc}}
+\noindent L’obiettivo iniziale era la realizzazione di un \glslink{pocg}{Proof of Concept} (\acrshort{poc}) che permettesse di verificare la fattibilità tecnica dell’estensione proposta. In questa fase preliminare, l’attenzione era rivolta principalmente a due aspetti fondamentali: il recupero del codice sorgente della pagina web e l’integrazione con un’\acrshort{api} di \glslink{iag}{intelligenza artificiale}, necessaria per avviare i primi test di analisi e generazione di suggerimenti.\\
 Il \acrshort{poc} non teneva conto di aspetti come la scalabilità, l’ottimizzazione delle performance o la gestione di casi d’uso complessi, ma si limitava a dimostrare che le funzionalità di base potessero essere effettivamente implementate. 
 \\La struttura iniziale era volutamente semplice in quanto conteneva solamente funzioni basilari per:
 \begin{itemize}
@@ -33,7 +33,7 @@ chrome.exe --disable-web-security --user-data-dir="C:\_temp\_chrome"}
 \end{figure}
 
 
-\section{Interazione con l'AI}
+\section{Interazione con l'\acrshort{ai}}
 \noindent L’estensione sviluppata prevede un’integrazione diretta con Ollama. Questa scelta garantisce all’utente il pieno controllo sui dati, riducendo i rischi legati alla trasmissione di informazioni sensibili verso servizi esterni e permettendo un utilizzo anche in assenza di connessione Internet stabile. L’interazione con l’\glslink{iag}{intelligenza artificiale} avviene attraverso chiamate HTTP a un endpoint locale, al quale vengono inviati prompt costruiti dinamicamente in base alle esigenze del flusso operativo.
 
 \begin{lstlisting}[language=JavaScript, caption={Funzione di interazione con Ollama}]
@@ -53,7 +53,7 @@ async function inviaPrompt(prompt) {
 
 \noindent Sono stati definiti tre casi d’uso principali per la generazione dei prompt: 
 \begin{itemize}
-    \item l’invio congiunto del DOM della pagina e della domanda dell’utente, utile per ricevere spiegazioni e indicazioni sulle righe che verranno poi evidenziate in quanto utili alla comprensione della risposta; 
+    \item l’invio congiunto del \acrshort{dom} della pagina e della domanda dell’utente, utile per ricevere spiegazioni e indicazioni sulle righe che verranno poi evidenziate in quanto utili alla comprensione della risposta; 
     \begin{lstlisting}[language=JavaScript, caption={Prompt per la generazione di risposta e righe da evidenziare}]
     const promptPrincipale =
     `Sei un assistente che analizza codice HTML. Rispondi alla domanda in modo chiaro ma conciso, usando al massimo 5-6 frasi. ` +
@@ -74,8 +74,8 @@ async function inviaPrompt(prompt) {
     \end{lstlisting}
 
     
-    \item l’invio del DOM insieme alla richiesta di modifica, scenario in cui l’IA produce sia una risposta argomentata sia un blocco di codice pronto per essere inserito nel pannello centrale della pagina nella modalità di sviluppo guidato.
-    \begin{lstlisting}[language=JavaScript, caption={Prompt per la generazione di risposta e codice html accessibile}]
+    \item l’invio del \acrshort{dom} insieme alla richiesta di modifica, scenario in cui l’IA produce sia una risposta argomentata sia un blocco di codice pronto per essere inserito nel pannello centrale della pagina nella modalità di sviluppo guidato.
+    \begin{lstlisting}[language=JavaScript, caption={Prompt per la generazione di risposta e codice \acrshort{html} accessibile}]
     const promptCodice =
       `Sei un assistente che aiuta a rendere accessibile il codice HTML. ` +
       `Rispondi in massimo 5-6 frasi chiare e tecniche. ` +

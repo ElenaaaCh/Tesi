@@ -12,10 +12,10 @@
     \caption{Analisi di Total Validator sul sito web SudokuWorld}\label{fig:TV_sudoku}
 \end{figure}
 
-\noindent Come visibile nella figura \ref{fig:TV_sudoku} è possibile vedere che lo strumento TV trova ben 15 errori di accessibilità.\\
+\noindent Come visibile nella figura \ref{fig:TV_sudoku} è possibile vedere che lo strumento \acrshort{tv} trova ben 15 errori di accessibilità.\\
 Gli errori principali sono: 
 \begin{itemize}
-    \item E913 - SC 2.4.6: Le etichette dei controlli dei form devono essere univoche. Utilizzare etichette univoche consente agli utenti di distinguere i vari controlli presenti sulla stessa pagina quando vengono letti da uno screen reader. In alternativa, è possibile inserirli all’interno di diversi <fieldset> con <legend> univoci, poiché il testo del <legend> viene letto insieme all’etichetta del controllo. Vedi WCAG2 Success Criterion 2.4.6.
+    \item E913 - SC 2.4.6: Le etichette dei controlli dei \glslink{formg}{form} devono essere univoche. Utilizzare etichette univoche consente agli utenti di distinguere i vari controlli presenti sulla stessa pagina quando vengono letti da uno screen reader. In alternativa, è possibile inserirli all’interno di diversi <fieldset> con <legend> univoci, poiché il testo del <legend> viene letto insieme all’etichetta del controllo. Vedi WCAG2 Success Criterion 2.4.6.
     \item P883 - SC 1.3.1: Nidificare correttamente le intestazioni (H1 > H2 > H3). Gli elementi di intestazione devono essere ordinati in modo gerarchico. Ad esempio, un elemento H2 dovrebbe seguire un H1, un H3 dovrebbe seguire un H2, e così via. Gli sviluppatori non devono saltare livelli né utilizzare le intestazioni solo per scopi di presentazione. Vedi WCAG2 Failure F43.
 \end{itemize}
 
@@ -28,9 +28,9 @@ Gli errori principali sono:
 \end{figure}
 
 \subsubsection{SviluppAbile}
-\noindent Di seguito vengono riportati i test effettuati con l'estensione \textit{SviluppAbile}.
-
-(pagina home.php)
+\noindent Di seguito vengono riportati i test effettuati con l'estensione \textit{SviluppAbile}. \newline
+\\ \vspace{-0.5cm}
+\noindent(pagina home.php)
 \subsubsection*{\texttt{Il mio codice HTML rispetta le linee guida WCAG?}}
 \begin{adjustwidth}{1cm}{1cm}
 \noindent {\footnotesize Il tuo codice HTML sembra essere in parte conforme alle linee guida WCAG (Web Content Accessibility Guidelines), ma potrebbe migliorare ulteriormente per garantire una maggiore accessibilità. Alcune aree che richiedono ulteriore attenzione includono:\\
@@ -47,10 +47,11 @@ La pagina non rispetta la norma W3C WCAG 2.1 che richiede di nidificare corretta
 1.  Il primo è definito come "specialProductsCarousel" e si trova nella sezione `<main>`.\\
 2.  Il secondo è chiamato "bestSellersCarousel" ed è anch'esso presente all'interno della stessa sezione.\\
 Quanto ai controlli sui link visitati, non sono implementati controlli specifici per la traccia dei link visitati sul sito web.
-}
+} \\
 \end{adjustwidth}
 
-(pagina sudoku.php)
+\noindent(pagina sudoku.php)
+\vspace{-0.5cm}
 \subsubsection*{\texttt{Il mio codice HTML rispetta le linee guida WCAG?}} 
 \begin{adjustwidth}{1cm}{1cm}
 \noindent {\footnotesize Il tuo codice HTML non rispetta pienamente le linee guida WCAG (Web Content Accessibility Guidelines) per diverse ragioni:\\
@@ -104,23 +105,23 @@ Per iniziare, leggi attentamente le LC relative alle sezioni più rilevanti per 
 
 
 \subsubsection{Resoconto finale}
-\noindent SviluppAbile riesce a riconoscere i principali problemi di struttura semantica e form.\\
-Ha individuato gli stessi problemi evidenziati da TV, in particolare:
+\noindent SviluppAbile riesce a riconoscere i principali problemi di struttura semantica e \glslink{formg}{form}.\\
+Ha individuato gli stessi problemi evidenziati da \acrshort{tv}, in particolare:
 \begin{enumerate}
     \item Struttura delle intestazioni (WCAG 1.3.1): in diverse pagine è stata rilevata la mancata nidificazione corretta degli heading (<h1> > <h2> > <h3>).
-    \item Accessibilità dei form: problemi relativi a etichette non uniche e campi privi di label/aria-label sono stati segnalati da entrambe le analisi.
+    \item Accessibilità dei \glslink{formg}{form}: problemi relativi a etichette non uniche e campi privi di label/aria-label sono stati segnalati da entrambe le analisi.
     \item Mancanza di pulsanti submit o pulsanti non correttamente etichettati.
 \end{enumerate}
 
 \vspace{0.5cm}
 \noindent \textbf{PRO:}\\
-\noindent Rispetto alla valutazione di TV, \textit{SviluppAbile} fornisce descrizioni dettagliate dei problemi e suggerimenti di correzione con esempi di codice, non limitandosi alla sola segnalazione dell’errore. Inoltre individua aspetti migliorabili non segnalati da TV, come L’uso non coerente di aria-label nei controlli di navigazione, etichette di pulsanti poco descrittive, mancanza di alternative testuali esaustive per immagini già dotate di alt.\\
+\noindent Rispetto alla valutazione di \acrshort{tv}, \textit{SviluppAbile} fornisce descrizioni dettagliate dei problemi e suggerimenti di correzione con esempi di codice, non limitandosi alla sola segnalazione dell’errore. Inoltre individua aspetti migliorabili non segnalati da \acrshort{tv}, come l’uso non coerente di aria-label nei controlli di navigazione, etichette di pulsanti poco descrittive, mancanza di alternative testuali esaustive per immagini già dotate di alt.\\
 Rispetto allo strumento Lighthouse, il quale assegna un punteggio del 100\% sull'accessibilità, \textit{SviluppAbile} individua errori e aiuta a correggerli.\\
 Continuando a fare domande nella chat si possono approfondire man-mano i vari aspetti dell’accessibilità, cosicché lo sviluppatore possa migliorare la propria pagina web.
 
 \vspace{0.5cm}
 \noindent \textbf{CONTRO:}\\
-\noindent Rispetto alla valutazione di TV e di un esperto di accessibilità web, \textit{SviluppAbile} non segnala alcuni dettagli di esperienza utente (ad esempio mancanza di presentazione del sito, estetica troppo predefinita, assenza di padding/margini); problemi di navigazione post-login/logout o di comportamento del carosello, che sono più legati alla logica di funzionamento che al solo HTML.\\
+\noindent Rispetto alla valutazione di \acrshort{tv} e di un esperto di accessibilità web, \textit{SviluppAbile} non segnala alcuni dettagli di esperienza utente (ad esempio mancanza di presentazione del sito, estetica troppo predefinita, assenza di padding/margini); problemi di navigazione post-login/logout o di comportamento del carosello, che sono più legati alla logica di funzionamento che al solo \acrshort{html}.\\
 \textit{SviluppAbile} necessita di domande specifiche e in alcuni casi del caricamento degli errori individuati da altri strumenti (Total Validator) per l’individuazioni di alcuni errori.\\
 Inoltre, essa non ha accesso al file di stile, quindi non può controllare la parte relativa ai colori/link visitati.\\
 Da notare che Ollama usa la parola "disabili", termonilogia nè esatta nè tantomeno rispettosa. Il termine corretto è utenti con disabilità.
@@ -133,11 +134,11 @@ La valutazione del sito web effettuata durante il concorso, seppur meno dettagli
 % qui devo aggiungere gli altri 3 siti testati?
 
 \section{Test ``Modalità guidata''}
-\noindent Per effettuare i test utili a dimostrare l'efficacia di \textit{SviluppAbile}, ho creato una semplice pagina HTML (vedi figura \ref{fig:pagina_test}).
+\noindent Per effettuare i test utili a dimostrare l'efficacia di \textit{SviluppAbile}, ho creato una semplice pagina \acrshort{html} (vedi figura \ref{fig:pagina_test}).
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth, alt={Pagina HTML basica per effettuare i test della modalità guidata}]{img/test_MG.png}
-    \caption{Pagina HTML basica per effettuare i test della modalità guidata}\label{fig:pagina_test}
+    \includegraphics[width=0.5\linewidth, alt={Pagina \acrshort{html} basica per effettuare i test della modalità guidata}]{img/test_MG.png}
+    \caption{Pagina \acrshort{html} basica per effettuare i test della modalità guidata}\label{fig:pagina_test}
 \end{figure}
 
 \subsubsection*{\texttt{Come si crea un <head> che contenga tutti gli elementi utili per una pagina accessibile?}}
