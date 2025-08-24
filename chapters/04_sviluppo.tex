@@ -17,9 +17,20 @@ Il \acrshort{poc} non teneva conto di aspetti come la scalabilità, l’ottimizz
   \item \texttt{service\_worker.js}: gestisce le richieste verso il modello di \glslink{iag}{intelligenza artificiale}, inviando il codice recuperato e ricevendo in risposta i suggerimenti generati.
 \end{itemize}
 
-\noindent Questa versione sperimentale costituiva una base minima ma solida su cui successivamente è stato possibile costruire le funzionalità avanzate, affinare l’interfaccia e integrare logiche più complesse per la gestione dei risultati.
+\noindent Questa versione sperimentale costituiva una base minima ma solida su cui successivamente è stato possibile costruire le funzionalità avanzate, affinare l’interfaccia e integrare logiche più complesse per la gestione dei risultati.\\
+
+\noindent Da notare il fatto che Chrome blocca l'esecuzione di Ollama nell'estensione. Per avviare correttamentel'estensione è quindi necessario aprire una pagina chrome da terminale utilizzando i seguenti comandi per disabilitare alcuni blocchi di chrome stesso.\\
+\texttt{cd Program Files\_Google\_Chrome\_Application\\
+chrome.exe --disable-web-security --user-data-dir="C:\_temp\_chrome"}
+
 
 \subsection{Prodotto finale}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.15\linewidth, alt={Logo dell'estensione \textit{SviluppAbile}}]{img/sviluppabile.png}
+    \caption{Logo dell'estensione \textit{SviluppAbile}}\label{fig:logo_sviluppabile}
+\end{figure}
 
 
 \section{Interazione con l'AI}

@@ -60,15 +60,20 @@ Quanto ai controlli sui link visitati, non sono implementati controlli specifici
 4.  **Non ci sono alternative al linguaggio naturale**: le immagini contengono solo icone e simboli, che potrebbero non essere compresi da utenti analfabetici.\\
 \\Aggiungere attributi accessibili ai campi input e submit:\\
 *   Modifica il codice HTML come segue:\\
-    \texttt{<form class="d-flex align-items-center my-2 my-lg-0 ms-auto" action="/amonaco/Sudokuworld/pages/search.php" method="GET">
-    <label for="searched-product" class="visually-hidden">Cerca</label>
-    <input class="form-control me-2" type="search" name="searched-product" id="searched-product" placeholder="Cerca" value="" aria-label="Search" />
-    <button class="btn btn-outline-success" type="submit" \textbf{aria-label="Submit the form"}>Cerca</button>
-</form>}\\
+    \texttt{<form class="d-flex align-items-center my-2 my-lg-0 ms-auto" \\ action="/amonaco/Sudokuworld/pages/search.php" method="GET"> 
+    \begin{adjustwidth}{1cm}{}  <label for="searched-product" class="visually-hidden">Cerca</label>\end{adjustwidth}
+    \begin{adjustwidth}{1cm}{} 
+        <input class="form-control me-2" type="search" name="searched-product" id="searched-product" placeholder="Cerca" value="" aria-label="Search" />
+    \end{adjustwidth}
+    \begin{adjustwidth}{1cm}{} 
+        <button class="btn btn-outline-success" type="submit" \textbf{aria-label="Submit the form"}>Cerca</button>
+    \end{adjustwidth}
+    </form>}\\
 \\Aggiungere tag alt alle immagini: assicurati di aggiungere il contenuto alternativo per ogni immagine.\\
 *   Modifica il codice HTML come segue:\\
-    \texttt{<a class="nav-link" href="/amonaco/Sudokuworld/pages/sudoku.php">
-    <i class="bi bi-grid-3x3-gap-fill"></i></a>}\\
+    \texttt{<a class="nav-link" href="/amonaco/Sudokuworld/pages/sudoku.php">\\
+    \indent <i class="bi bi-grid-3x3-gap-fill"></i>\\
+    </a>}\\
 \\Aggiungere tag aria: per fornire informazioni aggiuntive alle pagine web, puoi utilizzare gli attributi aria.\\
 *   Modifica il codice HTML come segue:\\
     \texttt{<h1 class="container border border-black p-2 mb-4 rounded text-center" id="sudokuTitle" role="heading" aria-level="1">!! Sudoku !!</h1>}\\
@@ -80,12 +85,12 @@ Ricorda che un sito web accessibile è più facile da utilizzare per tutti gli u
 }}
 \end{adjustwidth}
 
-\paragraph*{\texttt{"Come posso utilizzare gli strumenti di analisi del codice per identificare le aree dell'accessibilità da migliorare nel mio sito web HTML?"}} 
+\paragraph*{\texttt{"Come posso utilizzare gli strumenti di analisi del codice per \\ identificare le aree dell'accessibilità da migliorare nel mio sito web HTML?"}} 
 \begin{adjustwidth}{1cm}{1cm}
 \noindent {\footnotesize Per identificare le aree dell'accessibilità da migliorare nel tuo sito web HTML, puoi utilizzare gli strumenti di analisi come W3C Validator e Lighthouse. Il W3C Validator verifica la correttezza del codice HTML e fornisce suggerimenti per migliorare l'accessibilità. Lighthouse è uno strumento open-source che valuta l'accessibilità, le prestazioni e la sicurezza del tuo sito web.}
 \end{adjustwidth}
 
-\paragraph*{\texttt{"Come posso utilizzare le liste di controllo di WCAG (Web Content Accessibility Guidelines) per migliorare l'accessibilità nel mio sito web?"}} 
+\paragraph*{\texttt{"Come posso utilizzare le liste di controllo di WCAG (Web Content} \\ \texttt{Accessibility Guidelines) per migliorare l'accessibilità nel mio sito web?"}} 
 \begin{adjustwidth}{1cm}{1cm}
 \noindent {\footnotesize Le Liste di Controllo (LC) di WCAG 2.1 forniscono un quadro dettagliato per valutare e migliorare l'accessibilità del tuo sito web.\\
 Per iniziare, leggi attentamente le LC relative alle sezioni più rilevanti per il tuo sito:\\
@@ -125,5 +130,115 @@ Da notare che Ollama usa la parola "disabili", termonilogia nè esatta nè tanto
 \noindent Il confronto evidenzia che \textit{SviluppAbile} è efficace nell’individuare gran parte delle non conformità WCAG 2.1 di tipo tecnico e fornisce un supporto pratico agli sviluppatori grazie ai suggerimenti di modifica.\\
 La valutazione del sito web effettuata durante il concorso, seppur meno dettagliata sul piano tecnico, integra invece aspetti legati alla fruibilità reale del sito e alla presentazione dei contenuti, che attualmente richiedono ancora un’analisi manuale.
 
+% qui devo aggiungere gli altri 3 siti testati?
 
 \section{Test ``Modalità guidata''}
+\noindent Per effettuare i test utili a dimostrare l'efficacia di \textit{SviluppAbile}, ho creato una semplice pagina HTML (vedi figura \ref{fig:pagina_test}).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth, alt={Pagina HTML basica per effettuare i test della modalità guidata}]{img/test_MG.png}
+    \caption{Pagina HTML basica per effettuare i test della modalità guidata}\label{fig:pagina_test}
+\end{figure}
+
+\subsubsection*{\texttt{Come si crea un <head> che contenga tutti gli elementi utili per una pagina accessibile?}}
+\begin{adjustwidth}{1cm}{1cm}
+\noindent {\footnotesize Per creare un head accessibile, assicurati di includere i seguenti elementi:\\
+1.  **Metatag Titolo (title)**: Utilizzato dal browser come titolo della finestra della pagina.\\
+2.  **Metatag Descrizione (description)**: Descrive il contenuto della pagina e appare nella barra degli strumenti del browser e nei risultati dei motori di ricerca.\\
+3.  **Metatag Chiave (keywords)**: Non più importante come in passato, ma puoi utilizzarla se necessario per le ricerche.\\
+\\Inoltre, assicurati di utilizzare un markup semantico corretto per le sezioni della pagina. Ad esempio, puoi utilizzare `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `footer>` in luogo di semplici div.\\
+Infine, assicurati di aggiungere un elemento `alt` a tutte le immagini con una descrizione del contenuto dell'immagine.\\
+\\CODICE SUGGERITO:\\
+\texttt{1 <head>\\
+2 <title>Pagina di test</title>\\
+3 <meta charset="UTF-8">\\
+4 <meta name="viewport" content="width=device-width, initial-scale=1.0">\\
+5 <meta name="description" content="Pagina creata per testare l'estensione SviluppAbile">\\
+6 <meta name="keywords" content="test,sviluppo accessibile">\\
+7 </head>\\}}
+\end{adjustwidth}
+
+
+\subsubsection*{\texttt{Come posso ora creare dei paragrafi che rispettino le linee guida BEM?}}
+\begin{adjustwidth}{1cm}{1cm}
+\noindent {\footnotesize Per creare paragrafi in base alle linee guida BEM, puoi utilizzare la sintassi seguente:\\
+1. Definisci un classico `.block\_\_element` per il contenuto del paragrafo: `class="block\_\_element"`\\
+2. Utilizza `.block\_\_element--modificatore` per aggiungere modificatori: `class="block\_\_element --modificatore"`\\
+In questo modo, i paragrafi saranno distinti e facili da identificare tramite la tecnica BEM.\\
+\\Nota: Assicurati di sostituire `--modificatore` con il nome del modificatore effettivo nel tuo progetto.\\
+\\CODICE SUGGERITO:\\
+\texttt{1 <h1 class="block\_\_title">Titolo</h1>\\
+2 <p class="block\_\_text --grande">Testo di esempio con un modificatore per il colore.</p>\\
+3 <p class="block\_\_text --rosso">Testo di esempio con altro contenuto.</p>}\\
+}
+\end{adjustwidth}
+
+
+\subsubsection*{\texttt{Come posso inserire immagini accessibili?}}
+\begin{adjustwidth}{1cm}{1cm}
+\noindent {\footnotesize Inserire immagini accessibili significa garantire che le informazioni contenute nelle immagini siano anche disponibili ai utenti con disabilità visiva. Ciò può essere fatto utilizzando l'attributo `alt` all'interno dell'elemento `<img>`.\\
+In questo esempio, l'attributo `alt` contiene una descrizione breve e concisa della foto. Se il browser non è in grado di visualizzare l'immagine (ad esempio, se si utilizza un lettore schermo), la descrizione contenuta nell'attributo `alt` verrà visualizzata al posto dell'immagine.\\
+Inoltre, per immagini decorative o grafici che non contengono informazioni importanti, è consigliabile utilizzare l'attributo `alt=""`, in modo da eliminare il testo alternativo dalla navigazione.\\
+\\CODICE SUGGERITO:\\
+\texttt{1 <img src="immagine.jpg" alt="Descrizione della foto">}
+}
+\end{adjustwidth}
+
+\subsubsection*{\texttt{Come si crea una table rispettando le linee guida WCAG?}}
+\begin{adjustwidth}{1cm}{1cm}
+\noindent {\footnotesize Per creare una tabella accessibile secondo le linee guida WCAG, è importante fornire un'esperienza utente inclusiva e facilitare l'accessibilità a tutte le persone, in particolare alle persone con disabilità visive che utilizzano strumenti di lettura ad alta voce o tastiera. Ecco alcuni passaggi per creare una tabella accessibile:\\
+1.  **Istruzioni per l'utilizzo della tabella**: fornire un'introduzione sulle informazioni presentate nella tabella e quali sono le colonne principali, aiutando gli utenti che utilizzano strumenti di lettura ad alta voce.\\
+2.  **Tabella semantica con role="presentation" impostato su false**: questo ti permetterà a un assistente di lettura di comprendere il contenuto della tabella e fornirlo correttamente all'utente.\\
+\\Nota che ogni elemento della tabella (celle, intestazioni) deve avere un id o un attributo aria-*, per fornire una descrizione dell'elemento e aiutare gli utenti con disabilità visive a comprendere il contenuto.\\
+\\CODICE SUGGERITO:\\
+\texttt{1 <table>\\
+2 <caption>Esempio di tabella accessibile</caption>\\
+3 <thead>\\
+4 <tr role="row">\\
+5 <th scope="col" id="nome">Nome</th>\\
+6 <th scope="col" id="età">Età</th>\\
+7 </tr>\\
+8 </thead>\\
+9 <tbody>\\
+10 <tr role="row">\\
+11 <td headers="nome">Mario Rossi</td>\\
+12 <td headers="età">32 anni</td>\\
+13 </tr>\\
+14 <tr role="row">\\
+15 <td headers="nome">Giovanni Bianchi</td>\\
+16 <td headers="età">35 anni</td>\\
+17 </tr>\\
+18 </tbody>\\
+19 </table>}
+}
+\end{adjustwidth}
+
+
+\subsubsection*{\texttt{Come posso utilizzare gli attributi ARIA per migliorare l'accessibilità degli elementi interattivi?}}
+\begin{adjustwidth}{1cm}{1cm}
+\noindent {\footnotesize Gli attributi ARIA (Accessible Rich Internet Applications) sono stati sviluppati per rendere le applicazioni web accessibili a tutti, nonostante eventuali disabilità. Sono utilizzati per aggiungere funzionalità di navigazione e controllo agli elementi interattivi come i bottoni e gli elementi dropdown.\\
+Per migliorare l'accessibilità degli elementi interattivi tramite ARIA, ti suggerisco di utilizzare le seguenti strategie:\\
+1.  Utilizza il role di un elemento (ad esempio `button`, `menuitem`) per specificarne la funzione.\\
+2.  Aggiungi gli attributi aria-label e aria-describedby per fornire una descrizione dell'elemento interattivo.\\
+3.  Utilizza l'attributo aria-haspopup per indicare se un elemento è un menu o una lista.\\
+\\In questo modo, l'elemento interattivo sarà più facile da navigare e controllare tramite strumenti assistivi come screen reader e mouse navigator.\\
+Per ulteriori informazioni sugli attributi ARIA, ti consiglio di consultare la documentazione ufficiale dell'W3C.\\
+\\CODICE SUGGERITO:\\
+\texttt{1 <!DOCTYPE html>\\
+2 <html><head>\\
+3 <title>Pagina di test</title>\\
+4 </head>\\
+5 <body>\\
+6 <!-- Utilizzo del role e degli attributi ARIA per il bottone -->\\
+7 <button role="button" aria-label="Clicca per eseguire l'azione"> Esegui azione </button>\\
+8 <!-- Utilizzo del role e degli attributi ARIA per il menu -->\\
+9 <ul role="menu">\\
+10 <li role="presentation">\\
+11 <a href="\#" aria-label="Opzione 1" aria-haspopup="true">Opzione 1</a>\\
+12 <ul role="sottomenu">\\
+13 <li role="presentation"><a href="\#" aria-label="Sottopagina 1.1">Sottopagina 1.1</a></li>\\
+14 <li role="presentation"><a href="\#" aria-label="Sottopagina 1.2">Sottopagina 1.2</a></li>\\
+15 </ul></li></ul>\\
+16 </body></html>}
+}
+\end{adjustwidth}
