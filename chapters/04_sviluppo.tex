@@ -7,7 +7,7 @@ Particolare attenzione è stata posta all’accessibilità cromatica, mediante u
 Nonostante l’approccio iniziale privilegi i dispositivi desktop, il layout rimane responsivo grazie a soluzioni flessibili che mantengono l’usabilità anche su schermi di dimensioni ridotte. Questa scelta assicura un’esperienza coerente ed accessibile in diversi contesti d’uso.
 
 \section{Sviluppo}
-\subsection{\acrshort{poc}}
+\subsection{PoC}
 \noindent L’obiettivo iniziale era la realizzazione di un \glslink{pocg}{Proof of Concept} (\acrshort{poc}) che permettesse di verificare la fattibilità tecnica dell’estensione proposta. In questa fase preliminare, l’attenzione era rivolta principalmente a due aspetti fondamentali: il recupero del codice sorgente della pagina web e l’integrazione con un’\acrshort{api} di \glslink{iag}{intelligenza artificiale}, necessaria per avviare i primi test di analisi e generazione di suggerimenti.\\
 Il \acrshort{poc} non teneva conto di aspetti come la scalabilità, l’ottimizzazione delle performance o la gestione di casi d’uso complessi, ma si limitava a dimostrare che le funzionalità di base potessero essere effettivamente implementate. 
 \\La struttura iniziale era volutamente semplice in quanto conteneva solamente funzioni basilari per:
@@ -33,7 +33,7 @@ chrome.exe --disable-web-security --user-data-dir="C:\_temp\_chrome"}
 \end{figure}
 
 
-\section{Interazione con l'\acrshort{ai}}
+\section{Interazione con l'AI}
 \noindent L’estensione sviluppata prevede un’integrazione diretta con Ollama. Questa scelta garantisce all’utente il pieno controllo sui dati, riducendo i rischi legati alla trasmissione di informazioni sensibili verso servizi esterni e permettendo un utilizzo anche in assenza di connessione Internet stabile. L’interazione con l’\glslink{iag}{intelligenza artificiale} avviene attraverso chiamate HTTP a un endpoint locale, al quale vengono inviati prompt costruiti dinamicamente in base alle esigenze del flusso operativo.
 
 \begin{lstlisting}[language=JavaScript, caption={Funzione di interazione con Ollama}]
