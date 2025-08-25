@@ -9,24 +9,24 @@ Introdotto nel 1991 da Tim Berners-Lee, \acrshort{html} si è evoluto nel tempo 
 \\
 La struttura di un file \acrshort{html} si basa su una serie di elementi, rappresentati attraverso tag, che permettono di definire la natura e la funzione dei contenuti all'interno di una pagina web. Ogni tag descrive una tipologia specifica di contenuto o un comportamento associato, contribuendo all'organizzazione semantica del documento. I tag sono delimitati da parentesi angolari (\texttt{< >}) e, nella maggior parte dei casi, sono utilizzati in coppie: un tag di apertura e uno di chiusura, quest’ultimo contraddistinto da una barra (\texttt{</tag>}). Alcuni elementi, tuttavia, non necessitano di chiusura e sono detti auto-chiudenti, come ad esempio \texttt{<img>} per l’inserimento di immagini, o \texttt{<br>} per i ritorni a capo. Questa struttura gerarchica e nidificata consente al \glslink{browserg}{browser} di interpretare correttamente i contenuti, garantendo coerenza tra presentazione e significato.\\
 \\
-La versione attuale, HTML5, è stata rilasciata in modo stabile nel 2014.\\
+La versione attuale, HTML5 (logo in figura \ref{fig:logo_HTML5}), è stata rilasciata in modo stabile nel 2014.\\
 HTML5 rappresenta un’evoluzione del linguaggio di \glslink{markupg}{markup} con l’obiettivo di ridurre la dipendenza da \glslink{pluging}{plugin} esterni, introducendo nuove funzionalità native. Tra le principali novità vi sono gli elementi \texttt{<canvas>}, \texttt{<video>} e \texttt{<audio>}, nuovi tag semantici per strutturare i contenuti (come articoli, intestazioni, sezioni) e controlli avanzati per i \glslink{formg}{form} (email, \acrshort{url}, numeri, date, ricerca). 
 \\Vengono inoltre introdotti strumenti per la memorizzazione locale dei dati sul client tramite \texttt{localStorage} e \texttt{sessionStorage}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.25\textwidth]{img/html5.png}
-    \caption[Logo HTML5]{Logo HTML5}
+    \includegraphics[width=0.25\textwidth, alt={Logo HTML5}]{img/html5.png}
+    \caption[Logo HTML5]{Logo HTML5}\label{fig:logo_HTML5}
 \end{figure}
 
 \subsection{CSS}
 \noindent \acrshort{css} (\textit{Cascading Style Sheets}) è un linguaggio utilizzato per definire la presentazione dei documenti \acrshort{html} e \acrshort{xml}. Introdotto nel 1996 da Håkon Wium Lie, consente di separare la struttura dei contenuti dalla loro formattazione, migliorando la chiarezza del codice e facilitandone la manutenzione.\\ 
 I fogli di stile permettono di specificare, tramite regole composte da selettori, proprietà e valori, l’aspetto degli elementi \acrshort{html}: layout, colori, font, margini, spaziature, effetti visivi, animazioni e molto altro. Le regole di stile possono essere inline (tramite tag \texttt{<style>} o con attributi style) oppure riportate in file esterni .css riutilizzabili. La prima soluzione non mantiene però una netta separazione tra struttura e contenuto, non rispettando quindi le best-practice del settore.\\ 
-L'attuale versione, CSS3, è modulare e introduce importanti funzionalità come \texttt{flexbox}, \texttt{grid}, media query per il responsive design, transizioni, trasformazioni e nuovi selettori.
+L'attuale versione, CSS3 (logo in figura \ref{fig:logo_CSS3}), è modulare e introduce importanti funzionalità come \texttt{flexbox}, \texttt{grid}, media query per il responsive design, transizioni, trasformazioni e nuovi selettori.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.25\textwidth]{img/css3.png}
-    \caption[Logo CSS3]{Logo CSS3}
+    \includegraphics[width=0.25\textwidth, alt={Logo CSS3}]{img/css3.png}
+    \caption[Logo CSS3]{Logo CSS3}\label{fig:logo_CSS3}
 \end{figure}
 
 \subsection{Prism.js}
@@ -36,7 +36,7 @@ Grazie alla sua efficienza e semplicità di integrazione, viene utilizzata in mi
 Nella mia estensione, Prism.js è stato integrato per colorare il codice sorgente del \acrshort{dom}, facilitando l’analisi e la comprensione della struttura \acrshort{html}.
 
 \subsection{JavaScript}
-\noindent JavaScript è un linguaggio di programmazione dinamico, interpretato ed orientato agli oggetti, progettato originariamente per rendere le pagine web interattive.\\ 
+\noindent JavaScript (logo in figura \ref{fig:logo_JS}) è un linguaggio di programmazione dinamico, interpretato ed orientato agli oggetti, progettato originariamente per rendere le pagine web interattive.\\ 
 È stato sviluppato nel 1995 da Brendan Eich per Netscape con il nome LiveScript, e successivamente rinominato in JavaScript per motivi di marketing, pur non avendo legami diretti con il linguaggio Java. La sua standardizzazione è gestita da \textit{ECMA International}, sotto il nome ECMAScript.\\
 \\
 Concepito per essere eseguito direttamente all’interno del \glslink{browserg}{browser}, JavaScript consente di scrivere \glslink{scriptg}{script} incorporati nel codice \acrshort{html}, eseguibili senza compilazione al momento del caricamento della pagina. Questi \glslink{scriptg}{script} permettono di manipolare il \acrshort{dom} (Document Object Model), reagire agli eventi dell’utente (come click, input da tastiera o movimenti del mouse), modificare dinamicamente il contenuto della pagina e gestire funzionalità come validazioni, messaggi, animazioni, e interazioni \glslink{asincronog}{asincrone}.\\
@@ -46,8 +46,8 @@ JavaScript si è evoluto da semplice linguaggio \glslink{client-sideg}{client-si
 Oggi JavaScript rappresenta uno dei tre pilastri fondamentali del web, insieme a \acrshort{html} e \acrshort{css}, ed è completamente integrato con essi. Esistono anche linguaggi alternativi (come TypeScript o CoffeeScript) che vengono compilati in JavaScript, offrendo funzionalità aggiuntive mantenendo la compatibilità con l’ambiente JavaScript standard.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.2\textwidth]{img/javascript.png}
-    \caption[Logo JavaScript]{Logo JavaScript}
+    \includegraphics[width=0.2\textwidth, alt={Logo JS}]{img/javascript.png}
+    \caption[Logo JavaScript]{Logo JavaScript}\label{fig:logo_JS}
 \end{figure}
 
 \section{Tecnologie e strumenti}
@@ -57,7 +57,7 @@ Grazie ad esse è possibile modificare l’interfaccia utente, automatizzare att
 La distribuzione delle estensioni avviene principalmente tramite il \textit{Chrome Web Store}, ma durante le fasi di sviluppo è possibile installarle manualmente utilizzando la modalità sviluppatore disponibile nel \glslink{browserg}{browser}.
 
 \subsubsection{Manifest V3}
-\noindent Manifest V3 (\acrshort{mv3}) è la specifica più recente per la creazione di estensioni per Chrome e altri \glslink{browserg}{browser} basati su \textit{Chromium}. \\Rispetto alla precedente Manifest V2, l'ultima versione introduce diverse modifiche per migliorare la sicurezza, le prestazioni e la privacy delle estensioni.  \\
+\noindent Manifest V3 (\acrshort{mv3}) è la specifica più recente per la creazione di estensioni per Chrome e altri \glslink{browserg}{browser} basati su \textit{Chromium}. \\Rispetto alla precedente Manifest V2, l'ultima versione introduce diverse modifiche per migliorare la sicurezza, le prestazioni e la privacy delle estensioni. \cite{site:mv3-chrome} \\
 Questa nuova versione è una risposta alle criticità emerse con il Manifest V2, e introduce cambiamenti strutturali significativi nel modo in cui le estensioni interagiscono con il \glslink{browserg}{browser} e le pagine web.\\
 E' importante notare che Manifest V3 non è retrocompatibile con le estensioni V2 senza modifiche sostanziali e che la versione è tuttora in evoluzione, poiché alcune funzionalità sono ancora in fase di implementazione.\\
 Il file \texttt{manifest.json} in \acrshort{mv3} continua a rappresentare il cuore dell’estensione, definendo metadati fondamentali come nome, versione, permessi richiesti e \glslink{scriptg}{script} da eseguire. Tuttavia, rispetto a \acrshort{mv2}, \acrshort{mv3} impone restrizioni più rigide su quali \acrshort{api} possono essere utilizzate e introduce un modello di esecuzione più efficiente e sicuro.\\
@@ -82,14 +82,14 @@ Il file \texttt{manifest.json} in \acrshort{mv3} continua a rappresentare il cuo
 Tra i vantaggi più evidenti vi è il blocco del codice remoto, che impedisce alle estensioni di scaricare ed eseguire codice non verificato dopo l’installazione. Questa misura contribuisce a ridurre alcuni rischi di sicurezza, proteggendo gli utenti da esecuzioni di codice potenzialmente dannoso.\\
 \\
 \textbf{Aspetti critici}\\
-Il nuovo standard non elimina completamente i rischi: le \acrshort{api} continuano a consentire la raccolta di dati sensibili (come la cronologia di navigazione) lasciando alcune vulnerabilità inalterate. \\Dal punto di vista dello sviluppo, \acrshort{mv3} comporta limitazioni importanti: l'\acrshort{api} \texttt{webRequest}, utilizzata per modificare dinamicamente le richieste di rete, è stata sostituita da \texttt{declarativeNetRequest}, più rigida e meno flessibile, riducendo le possibilità di innovazione. \\Inoltre, le pagine background persistenti vengono sostituite dai service worker, che presentano vincoli sulle \acrshort{api} disponibili e problemi di compatibilità con funzioni avanzate ( come \glslink{websocketg}{WebSockets}, \glslink{webassemblyg}{WebAssembly} o la localizzazione delle estensioni). 
-\\La migrazione a \acrshort{mv3} si è dimostrata complessa e molte funzionalità di estensioni pre-esistenti rischiano di rompersi o di subire un peggioramento delle prestazioni. Infine, il processo decisionale di Google è stato percepito come scarsamente collaborativo, poiché l’implementazione del nuovo standard è stata imposta senza un reale dialogo con la comunità degli sviluppatori.\\
+Il nuovo standard non elimina completamente i rischi: le \acrshort{api} continuano a consentire la raccolta di dati sensibili (come la cronologia di navigazione) lasciando alcune vulnerabilità inalterate. \\Dal punto di vista dello sviluppo, \acrshort{mv3} comporta limitazioni importanti: l'\acrshort{api} \texttt{webRequest}, utilizzata per modificare dinamicamente le richieste di rete, è stata sostituita da \texttt{declarativeNetRequest}, più rigida e meno flessibile, riducendo le possibilità di innovazione. \\Inoltre, le pagine background persistenti vengono sostituite dai service worker, che presentano vincoli sulle \acrshort{api} disponibili e problemi di compatibilità con funzioni avanzate (come \glslink{websocketg}{WebSockets}, \glslink{webassemblyg}{WebAssembly} o la localizzazione delle estensioni). 
+\\La migrazione a \acrshort{mv3} si è dimostrata complessa e molte funzionalità di estensioni pre-esistenti rischiano di rompersi o di subire un peggioramento delle prestazioni. Infine, il processo decisionale di Google è stato percepito come scarsamente collaborativo, poiché l’implementazione del nuovo standard è stata imposta senza un reale dialogo con la comunità degli sviluppatori. \cite{site:mv3-eff}\\
 \\
 In sintesi, sebbene il blocco del codice remoto rappresenti un progresso in termini di sicurezza, Manifest V3 introduce restrizioni che limitano innovazione, privacy e performance, portando l’\textit{Electronic Frontier Foundation} a definirlo un atto ostile verso gli utenti, frutto di una posizione dominante di Google nell’ecosistema delle estensioni web.
 
 \subsection{Ollama}
-\noindent Ollama è una piattaforma che consente di eseguire localmente modelli di \glslink{iag}{intelligenza artificiale} avanzati, sviluppati in collaborazione con OpenAI e altri partner, mantenendo alte prestazioni anche senza l’uso del \glslink{cloud-computingg}{cloud computing}. 
-Oltre ai modelli gpt-oss-20B e gpt-oss-120B, progettati rispettivamente per scenari a bassa \glslink{latenzag}{latenza} o per applicazioni generali ad alto livello di ragionamento, Ollama supporta numerosi altri modelli \glslink{open-weightg}{open weight}, tra cui Mistral (utilizzato solo all’inizio a causa delle ridotte capacità del mio pc personale), Llama 3.1:8B e Llama 3.2:3B, che ho utilizzato nel mio progetto. Nella tabella sottostante ~\ref{tab:modelli-ollama} vengono messi a confronto i vari modelli di Ollama utilizzati nei test dell'estensione \textit{SviluppAbile}.\\ 
+\noindent Ollama (logo in figura \ref{fig:logo_ollama}) è una piattaforma che consente di eseguire localmente modelli di \glslink{iag}{intelligenza artificiale} avanzati, sviluppati in collaborazione con OpenAI e altri partner, mantenendo alte prestazioni anche senza l’uso del \glslink{cloud-computingg}{cloud computing}. 
+Oltre ai modelli gpt-oss-20B e gpt-oss-120B, progettati rispettivamente per scenari a bassa \glslink{latenzag}{latenza} o per applicazioni generali ad alto livello di ragionamento, Ollama supporta numerosi altri modelli \glslink{open-weightg}{open weight}, tra cui Mistral (utilizzato solo all’inizio a causa delle ridotte capacità del mio pc personale), Llama 3.1:8B e Llama 3.2:3B, che ho utilizzato nel mio progetto. Nella tabella sottostante ~\ref{tab:modelli-ollama} vengono messi a confronto i vari modelli di Ollama utilizzati nei test dell'estensione \textit{SviluppAbile}, sulla base di parametri quali la capacità di ragionamento complesso, la comprensione linguistica, la conoscenza generale, la velocità di risposta e i requisiti hardware.\.\\ 
 
 \begin{longtable}[c]{|C{3cm}||C{3.5cm}|C{3.5cm}|C{3.5cm}|}
 \caption{Confronto modelli Ollama utilizzati}
@@ -127,32 +127,32 @@ La licenza Apache 2.0 garantisce libertà di utilizzo e personalizzazione, mentr
 .
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.2\textwidth]{img/ollama.png}
-    \caption[Logo Ollama]{Logo Ollama}
+    \includegraphics[width=0.2\textwidth, alt={Logo Ollama}]{img/ollama.png}
+    \caption[Logo Ollama]{Logo Ollama}\label{fig:logo_ollama}
 \end{figure}
 
 
 \subsection{GitHub}
-\noindent GitHub è una piattaforma di hosting basata su \glslink{gitg}{Git}, il sistema di controllo di versione distribuito ideato da Linus Torvalds. Lanciata nel 2008, GitHub si è affermata come uno degli strumenti principali per la collaborazione nello sviluppo software, consentendo a sviluppatori di tutto il mondo di condividere, modificare e mantenere progetti in modo coordinato. \\La piattaforma offre funzionalità avanzate per il versionamento del codice, la gestione dei rami (branching), il tracciamento delle modifiche e la revisione collaborativa tramite pull request. \\Oltre a essere uno strumento tecnico, GitHub ha favorito la nascita di una vera e propria comunità \glslink{open-sourceg}{open source}, nella quale il codice è accessibile, riutilizzabile e migliorabile da chiunque.
+\noindent GitHub (logo in figura \ref{fig:logo_github}) è una piattaforma di hosting basata su \glslink{gitg}{Git}, il sistema di controllo di versione distribuito ideato da Linus Torvalds. Lanciata nel 2008, GitHub si è affermata come uno degli strumenti principali per la collaborazione nello sviluppo software, consentendo a sviluppatori di tutto il mondo di condividere, modificare e mantenere progetti in modo coordinato. \\La piattaforma offre funzionalità avanzate per il versionamento del codice, la gestione dei rami (branching), il tracciamento delle modifiche e la revisione collaborativa tramite pull request. \\Oltre a essere uno strumento tecnico, GitHub ha favorito la nascita di una vera e propria comunità \glslink{open-sourceg}{open source}, nella quale il codice è accessibile, riutilizzabile e migliorabile da chiunque.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.2\textwidth]{img/github.png}
-    \caption[Logo GitHub]{Logo GitHub}
+    \includegraphics[width=0.2\textwidth, alt={Logo GitHub}]{img/github.png}
+    \caption[Logo GitHub]{Logo GitHub}\label{fig:logo_github}
 \end{figure}
 
 \subsection{VSCode}
-\noindent Visual Studio Code, conosciuto semplicemente come VSCode, è un editor di codice sorgente sviluppato da Microsoft e distribuito gratuitamente. Introdotto nel 2015, ha rapidamente conquistato una posizione di rilievo tra gli strumenti preferiti dagli sviluppatori grazie alla sua combinazione di leggerezza, flessibilità e ricchezza di funzionalità. \\Compatibile con i principali sistemi operativi (Windows, macOS e Linux), VSCode supporta evidenziazione della sintassi per numerosi linguaggi, suggerimenti intelligenti e completamento automatico del codice, strumenti di \glslink{debuggingg}{debugging} integrati e gestione del controllo di versione tramite \glslink{gitg}{Git}. \\Inoltre, grazie a un vasto marketplace di estensioni, può essere facilmente personalizzato per adattarsi a diversi flussi di lavoro e tecnologie, rendendolo un ambiente di sviluppo versatile e ampiamente diffuso.
+\noindent Visual Studio Code (logo in figura \ref{fig:logo_vscode}), conosciuto semplicemente come VSCode, è un editor di codice sorgente sviluppato da Microsoft e distribuito gratuitamente. Introdotto nel 2015, ha rapidamente conquistato una posizione di rilievo tra gli strumenti preferiti dagli sviluppatori grazie alla sua combinazione di leggerezza, flessibilità e ricchezza di funzionalità. \\Compatibile con i principali sistemi operativi (Windows, macOS e Linux), VSCode supporta evidenziazione della sintassi per numerosi linguaggi, suggerimenti intelligenti e completamento automatico del codice, strumenti di \glslink{debuggingg}{debugging} integrati e gestione del controllo di versione tramite \glslink{gitg}{Git}. \\Inoltre, grazie a un vasto marketplace di estensioni, può essere facilmente personalizzato per adattarsi a diversi flussi di lavoro e tecnologie, rendendolo un ambiente di sviluppo versatile e ampiamente diffuso.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.25\textwidth]{img/vscode.jpg}
-    \caption[Logo VSCode]{Logo VSCode}
+    \includegraphics[width=0.25\textwidth, alt={Logo VSCode}]{img/vscode.jpg}
+    \caption[Logo VSCode]{Logo VSCode}\label{fig:logo_vscode}
 \end{figure}
 
 \subsection{Total Validator}
 \noindent ...
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.2\textwidth]{img/totalvalidator.png}
-    \caption[Logo Total Validator]{Logo Total Validator}
+    \includegraphics[width=0.2\textwidth, alt={Logo Total Validator}]{img/totalvalidator.png}
+    \caption[Logo Total Validator]{Logo Total Validator}\label{fig:logo_TV}
 \end{figure}
 \newpage

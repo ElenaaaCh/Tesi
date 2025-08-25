@@ -2,6 +2,20 @@
 \label{chap:test}
 
 \section{Test ``Analisi assistita''}
+\noindent Per effettuare i test dell’estensione sono stati utilizzati alcuni siti realizzati per l’ultima edizione del concorso \textit{Accattivante Accessibile}.\
+I test hanno preso in considerazione gli errori individuati da TV insieme a quelli segnalati dalla docente referente e sono stati messi a confronto con gli errori rilevati da \textit{SviluppAbile}.\
+Infine, ho confrontato i risultati elaborando un resoconto per ciascun sito analizzato e, successivamente, ho applicato la metrica F1-score per ottenere un report oggettivo.
+
+\subsection{F1-score} 
+\noindent La F$_1$-score è una metrica utilizzata per valutare i modelli di classificazione, sia binari che multi‐classe. 
+Essa combina in un unico valore la \textit{precision} (quanto le predizioni positive sono corrette) e il \textit{recall} (quanti casi positivi reali sono stati identificati), calcolandone la media armonica:
+
+\[
+F_{1} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
+\]
+
+\noindent Questa formulazione assicura che il punteggio sia elevato solo quando entrambe le metriche hanno valori alti, penalizzando fortemente gli squilibri. 
+La F$_1$-score risulta particolarmente utile in presenza di dati sbilanciati, poiché fornisce una valutazione più affidabile.
 
 \subsection{Sito web: SudokuWorld}
 

@@ -9,9 +9,9 @@ Nonostante ciò, spesso la realizzazione pratica di siti accessibili incontra di
 \section{L'idea del progetto}
 \noindent Il progetto sviluppato durante il mio stage si inserisce all’interno di un’iniziativa molto più ampia intitolata \textit{“Supporting Accessibility Auditing and HTML Validator using Large Language Models”} a cui partecipano e collaborano docenti e stagisti dell’Università di Padova e dell’Università di Bologna.\\
 Tale progetto nasce dall’esigenza di affrontare il problema dell’accessibilità web, diritto fondamentale per tutti i cittadini (in particolare per le persone con disabilità) che devono poter accedere alle informazioni sul web senza barriere.\\
-Nonostante le normative nazionali e internazionali (come la \textit{Direttiva Europea sull'Accessibilità Web} e l' \textit{European Accessibility Act}) impongano requisiti chiari, una buona parte dei siti web presenta ancora numerose criticità di accessibilità.\\
+Nonostante le normative nazionali e internazionali (come la \textit{Direttiva Europea sull'Accessibilità Web} e l' \textit{European Accessibility Act}) impongano requisiti chiari, una buona parte dei siti web presenta ancora numerose criticità di accessibilità. \cite{site:UE_accessibility_act}\\
 In questo contesto, il progetto mira a valutare, testare e sfruttare le capacità dei \textit{Large Language Models} (\acrshort{llm}) per supportare l’audit dell’accessibilità e la validazione del codice \acrshort{html}.\\
-L’obiettivo finale è sviluppare strumenti innovativi che utilizzino modelli di \glslink{iag}{intelligenza artificiale}, come \glslink{ChatGPTg}{ChatGPT}, per fornire un supporto interattivo agli sviluppatori, aiutandoli a identificare e correggere problematiche di accessibilità in modo più efficace e comprensibile rispetto ai metodi tradizionali. Attraverso questa integrazione, si intende migliorare la qualità e soprattutto la chiarezza dei risultati e favorire una cultura più diffusa sull’accessibilità digitale.\\
+L’obiettivo finale è sviluppare strumenti innovativi che utilizzino modelli di \glslink{iag}{intelligenza artificiale}, come \glslink{ChatGPTg}{ChatGPT}, per fornire un supporto interattivo agli sviluppatori, aiutandoli a identificare e correggere problematiche di accessibilità in modo più efficace e comprensibile rispetto ai metodi tradizionali. Attraverso questa integrazione, si intende migliorare la qualità e soprattutto la chiarezza dei risultati e favorire una cultura più diffusa sull’accessibilità digitale.\\ Inoltre, si vuole anche valutare se gli LLM siano effettivamente in grado di svolgere questo tipo di lavoro.\\
 \\
 L’estensione \textit{“SviluppAbile”} è un primo esempio di strumento per lo sviluppo guidato di pagine web accessibili.
 Essa nasce dall’esigenza di supportare gli sviluppatori web nel creare pagine accessibili in modo semplice e interattivo, sfruttando le potenzialità dell’\glslink{iag}{intelligenza artificiale}.\\
@@ -22,8 +22,8 @@ L’estensione \glslink{Chrome-basedg}{Chrome-based} sviluppata offre due modali
 Questo duplice approccio consente di integrare nel flusso di lavoro quotidiano degli sviluppatori un valido supporto basato su \acrshort{ai}, con l’obiettivo di facilitare il rispetto delle linee guida \acrshort{wcag} e migliorare la qualità complessiva del codice.
 
 \section{Analisi delle soluzioni già presenti}
-\noindent Sul mercato esistono diversi strumenti e \glslink{pluging}{plugin} dedicati alla verifica dell’accessibilità delle pagine web, come WAVE, Axe e Lighthouse, che offrono principalmente funzionalità di scansione automatica e generazione di report.\\ 
-Questi strumenti tuttavia spesso forniscono una panoramica statica e generica dei problemi riscontrati; i risultati tendono ad essere formulati in modo formale e talvolta poco comprensibile per l’utente, il quale è quindi costretto a interpretare autonomamente i dati, rischiando di applicare soluzioni non sempre pienamente conformi alle linee guida.\\ 
+\noindent Sul mercato esistono diversi strumenti e \glslink{pluging}{plugin} dedicati alla verifica dell’accessibilità delle pagine web, come WAVE, Total Validator e Lighthouse, che offrono principalmente funzionalità di scansione automatica e generazione di report.\\ 
+Questi strumenti, tuttavia, forniscono spesso una panoramica statica dei problemi riscontrati; indicano chiaramente dove si trova l’errore, ma i risultati sono generalmente formulati in modo formale e destinati ad un esperto di accessibilità. Di conseguenza, l’utente non specialista deve interpretare autonomamente le informazioni, con il rischio di applicare soluzioni non sempre pienamente conformi alle linee guida.\\ 
 Alcuni software integrano suggerimenti o tutorial, ma raramente utilizzano modelli di \glslink{iag}{intelligenza artificiale} in grado di interagire con lo sviluppatore in linguaggio naturale, rispondendo a domande specifiche o guidandolo direttamente nella scrittura del codice. \\
 \\
 \textit{“SviluppAbile”} si distingue per l’integrazione di una chat \acrshort{ia} che funge da assistente personale, e per la duplice modalità operativa che combina l’analisi in tempo reale con un supporto diretto allo sviluppo, colmando così una lacuna importante nelle soluzioni attualmente disponibili.
@@ -36,7 +36,7 @@ Alcuni software integrano suggerimenti o tutorial, ma raramente utilizzano model
     \item Il {\hyperref[chap:linguaggi-tecnologie]{terzo capitolo}} approfondisce le tecnologie e gli strumenti utilizzati per la realizzazione del progetto.
     \item Il {\hyperref[chap:sviluppo]{quarto capitolo}} descrive lo sviluppo dell’estensione, evidenziando le scelte progettuali e le soluzioni implementative.
     \item Il {\hyperref[chap:test]{ quinto capitolo}} presenta i test effettuati, volti a valutare l’effettiva utilità dell’estensione rispetto agli strumenti tradizionali di validazione del codice accessibile.
-    \item Il {\hyperref[chap:conclusioni]{ sesto capitolo}} riassume i risultati ottenuti e le possibili evoluzioni future del progetto. Fornirsce inoltre una valutazione personale dell’esperienza di stage interno.
+    \item Il {\hyperref[chap:conclusioni]{ sesto capitolo}} riassume i risultati ottenuti e le possibili evoluzioni future del progetto. 
 \end{description}
 
 \noindent Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:
@@ -44,7 +44,7 @@ Alcuni software integrano suggerimenti o tutorial, ma raramente utilizzano model
 	\item Gli acronimi, le abbreviazioni e i termini ambigui o di uso non comune menzionati vengono definiti nel glossario, situato alla fine del presente documento;
 	\item Per i termini riportati nel glossario viene utilizzata la seguente nomenclatura: \gls{apig};
 	\item I termini in lingua straniera o facenti parti del gergo tecnico sono evidenziati con il carattere \textit{corsivo};
-	\item Gli esempi e le righe di codice utilizzano il formato \texttt{monospace}.
+	\item Gli esempi di codice, le domande poste all'IA e le righe di codice utilizzano il formato \texttt{monospace}.
 \end{itemize}
 
 \newpage
