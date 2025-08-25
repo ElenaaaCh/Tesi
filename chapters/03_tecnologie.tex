@@ -91,6 +91,7 @@ In sintesi, sebbene il blocco del codice remoto rappresenti un progresso in term
 \noindent Ollama (logo in figura \ref{fig:logo_ollama}) è una piattaforma che consente di eseguire localmente modelli di \glslink{iag}{intelligenza artificiale} avanzati, sviluppati in collaborazione con OpenAI e altri partner, mantenendo alte prestazioni anche senza l’uso del \glslink{cloud-computingg}{cloud computing}. 
 Oltre ai modelli gpt-oss-20B e gpt-oss-120B, progettati rispettivamente per scenari a bassa \glslink{latenzag}{latenza} o per applicazioni generali ad alto livello di ragionamento, Ollama supporta numerosi altri modelli \glslink{open-weightg}{open weight}, tra cui Mistral (utilizzato solo all’inizio a causa delle ridotte capacità del mio pc personale), Llama 3.1:8B e Llama 3.2:3B, che ho utilizzato nel mio progetto. Nella tabella sottostante ~\ref{tab:modelli-ollama} vengono messi a confronto i vari modelli di Ollama utilizzati nei test dell'estensione \textit{SviluppAbile}, sulla base di parametri quali la capacità di ragionamento complesso, la comprensione linguistica, la conoscenza generale, la velocità di risposta e i requisiti hardware.\.\\ 
 
+\begin{small}
 \begin{longtable}[c]{|C{3cm}||C{3.5cm}|C{3.5cm}|C{3.5cm}|}
 \caption{Confronto modelli Ollama utilizzati}
 \label{tab:modelli-ollama}\\
@@ -120,6 +121,7 @@ Oltre ai modelli gpt-oss-20B e gpt-oss-120B, progettati rispettivamente per scen
 \textbf{Requisiti hardware} & Almeno 8 GB RAM + richiede \acrshort{gpu} di fascia media/alta & Almeno 4 GB RAM & Almeno 2 GB RAM \\
 \hline
 \end{longtable}
+\end{small}
 
 \noindent La piattaforma integra funzionalità avanzate (function calling, navigazione web integrata, esecuzione di codice Python, output strutturati), accesso completo al processo di ragionamento del modello, regolazione dello sforzo computazionale e possibilità di fine-tuning per personalizzare le prestazioni. 
 Grazie al supporto nativo per la \glslink{quantizzazioneg}{quantizzazione} in formato MXFP4, Ollama riesce a ridurre drasticamente il consumo di memoria, permettendo l’esecuzione di modelli molto grandi anche su sistemi con risorse limitate. 
@@ -149,10 +151,26 @@ La licenza Apache 2.0 garantisce libertà di utilizzo e personalizzazione, mentr
 \end{figure}
 
 \subsection{Total Validator}
-\noindent ...
+\noindent Total Validator (logo in figura \ref{fig:logo_TV}) è uno strumento di convalida web che permette di verificare contemporaneamente l’accessibilità secondo le linee guida WCAG 2.0, 2.1 e 2.2, la conformità alla Section 508 statunitense e alle specifiche ARIA. \\Consente inoltre di controllare la validità del codice HTML rispetto a numerosi standard, incluso l’HTML5, e la correttezza dei CSS in conformità con moltwe specifiche del W3C. \\Tra le sue funzioni principali rientrano anche la rilevazione di link interrotti e la verifica ortografica multilingue. Lo strumento permette di analizzare pagine offline, protette da autenticazione o generate dinamicamente tramite JavaScript, risultando così particolarmente flessibile. \\È disponibile per Windows, macOS e Linux e, dal suo lancio nel 2005, è stato adottato da milioni di siti web, comprese istituzioni pubbliche e governative.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.2\textwidth, alt={Logo Total Validator}]{img/totalvalidator.png}
+    \includegraphics[width=0.17\textwidth, alt={Logo Total Validator}]{img/totalvalidator.png}
     \caption[Logo Total Validator]{Logo Total Validator}\label{fig:logo_TV}
+\end{figure}
+
+\subsection{WAVE}
+\noindent WAVE (\textit{Web Accessibility Evaluation Tool}) è uno strumento sviluppato da WebAIM per supportare la valutazione dell’accessibilità dei siti web (logo in figura \ref{fig:logo_wave}). Consente di individuare automaticamente molte violazioni delle WCAG e, al tempo stesso, facilita l’analisi manuale da parte degli sviluppatori.\\ È disponibile come servizio online e come estensione per i principali browser, permettendo di testare anche pagine locali o protette. I risultati vengono visualizzati direttamente sulla pagina tramite icone e pannelli che segnalano errori, avvisi e caratteristiche accessibili, fornendo indicazioni utili per le correzioni. \\Per contesti più complessi, WAVE offre inoltre un’API che ne consente l’integrazione nei processi di sviluppo e di testing automatizzato.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\textwidth, alt={Logo WAVE}]{img/wave.png}
+    \caption[Logo WAVE]{Logo WAVE}\label{fig:logo_wave}
+\end{figure}
+
+\subsection{Lighthouse}
+\noindent Lighthouse (logo in figura \ref{fig:logo_lighthouse}) è uno strumento open-source sviluppato da Google per valutare la qualità delle pagine web. Esegue controlli automatici su performance, accessibilità, SEO e progressive web app, restituendo report dettagliati con punteggi e suggerimenti pratici. \\Si può utilizzare tramite Chrome DevTools, riga di comando (CLI), modulo Node o interfaccia web, consentendo anche audit su pagine protette o locali. Lighthouse quindi supporta gli sviluppatori nel miglioramento della velocità di caricamento, dell’usabilità e della visibilità dei siti.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.17\textwidth, alt={Logo Lighthouse}]{img/lighthouse.png}
+    \caption[Logo Lighthouse]{Logo Lighthouse}\label{fig:logo_lighthouse}
 \end{figure}
 \newpage
