@@ -4,6 +4,7 @@
 
 \section{Linguaggi}
 \subsection{HTML}
+\label{subsec:html}
 \noindent \acrshort{html} (\textit{HyperText Markup Language}) è il linguaggio di marcatura standard utilizzato per strutturare i contenuti delle pagine web. Non si tratta di un linguaggio di programmazione, ma di uno strumento che consente di definire gli elementi presenti su una pagina (come titoli, testi, immagini, link, \glslink{formg}{form}) assegnando loro un significato semantico tramite l’uso di tag. \\
 Introdotto nel 1991 da Tim Berners-Lee, \acrshort{html} si è evoluto nel tempo attraverso diverse versioni, fino a diventare uno standard globale supervisionato dal \textit{World Wide Web Consortium} (\acrshort{w3c}).\\
 \\
@@ -20,6 +21,7 @@ HTML5 rappresenta un’evoluzione del linguaggio di \glslink{markupg}{markup} co
 \end{figure}
 
 \subsection{CSS}
+\label{subsec:css}
 \noindent \acrshort{css} (\textit{Cascading Style Sheets}) è un linguaggio utilizzato per definire la presentazione dei documenti \acrshort{html} e \acrshort{xml}. Introdotto nel 1996 da Håkon Wium Lie, consente di separare la struttura dei contenuti dalla loro formattazione, migliorando la chiarezza del codice e facilitandone la manutenzione.\\ 
 I fogli di stile permettono di specificare, tramite regole composte da selettori, proprietà e valori, l’aspetto degli elementi \acrshort{html}: layout, colori, font, margini, spaziature, effetti visivi, animazioni e molto altro. Le regole di stile possono essere inline (tramite tag \texttt{<style>} o con attributi style) oppure riportate in file esterni .css riutilizzabili. La prima soluzione non mantiene però una netta separazione tra struttura e contenuto, non rispettando quindi le best-practice del settore.\\ 
 L'attuale versione, CSS3 (logo in figura \ref{fig:logo_CSS3}), è modulare e introduce importanti funzionalità come \texttt{flexbox}, \texttt{grid}, media query per il responsive design, transizioni, trasformazioni e nuovi selettori.
@@ -30,12 +32,14 @@ L'attuale versione, CSS3 (logo in figura \ref{fig:logo_CSS3}), è modulare e int
 \end{figure}
 
 \subsection{Prism.js}
+\label{subsec:prism}
 \noindent Prism.js è una libreria JavaScript leggera ed estensibile progettata per evidenziare la sintassi del codice sorgente in modo chiaro e leggibile, rispettando gli standard moderni del web. \\
 Supporta un’ampia gamma di linguaggi di programmazione e di \glslink{markupg}{markup}, ed è facilmente personalizzabile tramite temi e \glslink{pluging}{plugin}. \\
 Grazie alla sua efficienza e semplicità di integrazione, viene utilizzata in milioni di siti web per migliorare la leggibilità del codice, rendendolo più comprensibile sia a sviluppatori che a utenti. E’ disponibile in diverse varianti, sia per il white-mode che per il dark-mode.\\
 Nella mia estensione, Prism.js è stato integrato per colorare il codice sorgente del \acrshort{dom}, facilitando l’analisi e la comprensione della struttura \acrshort{html}.
 
 \subsection{JavaScript}
+\label{subsec:js}
 \noindent JavaScript (logo in figura \ref{fig:logo_JS}) è un linguaggio di programmazione dinamico, interpretato ed orientato agli oggetti, progettato originariamente per rendere le pagine web interattive.\\ 
 È stato sviluppato nel 1995 da Brendan Eich per Netscape con il nome LiveScript, e successivamente rinominato in JavaScript per motivi di marketing, pur non avendo legami diretti con il linguaggio Java. La sua standardizzazione è gestita da \textit{ECMA International}, sotto il nome ECMAScript.\\
 \\
@@ -52,11 +56,13 @@ Oggi JavaScript rappresenta uno dei tre pilastri fondamentali del web, insieme a
 
 \section{Tecnologie e strumenti}
 \subsection{Chrome Extension}
+\label{subsec:chromeExt}
 \noindent Le estensioni di Chrome sono piccoli programmi software che consentono di arricchire e personalizzare il \glslink{browserg}{browser}, aggiungendo funzionalità aggiuntive o migliorando quelle già esistenti.\\
 Grazie ad esse è possibile modificare l’interfaccia utente, automatizzare attività ripetitive, integrare servizi esterni e rendere più efficiente la navigazione sul web.\\ 
 La distribuzione delle estensioni avviene principalmente tramite il \textit{Chrome Web Store}, ma durante le fasi di sviluppo è possibile installarle manualmente utilizzando la modalità sviluppatore disponibile nel \glslink{browserg}{browser}.
 
 \subsubsection{Manifest V3}
+\label{subsec:mv3}
 \noindent Manifest V3 (\acrshort{mv3}) è la specifica più recente per la creazione di estensioni per Chrome e altri \glslink{browserg}{browser} basati su \textit{Chromium}. \\Rispetto alla precedente Manifest V2, l'ultima versione introduce diverse modifiche per migliorare la sicurezza, le prestazioni e la privacy delle estensioni. \cite{site:mv3-chrome} \\
 Questa nuova versione è una risposta alle criticità emerse con il Manifest V2, e introduce cambiamenti strutturali significativi nel modo in cui le estensioni interagiscono con il \glslink{browserg}{browser} e le pagine web.\\
 E' importante notare che Manifest V3 non è retrocompatibile con le estensioni V2 senza modifiche sostanziali e che la versione è tuttora in evoluzione, poiché alcune funzionalità sono ancora in fase di implementazione.\\
@@ -88,6 +94,7 @@ Il nuovo standard non elimina completamente i rischi: le \acrshort{api} continua
 In sintesi, sebbene il blocco del codice remoto rappresenti un progresso in termini di sicurezza, Manifest V3 introduce restrizioni che limitano innovazione, privacy e performance, portando l’\textit{Electronic Frontier Foundation} a definirlo un atto ostile verso gli utenti, frutto di una posizione dominante di Google nell’ecosistema delle estensioni web.
 
 \subsection{Ollama}
+\label{subsec:ollama}
 \noindent Ollama (logo in figura \ref{fig:logo_ollama}) è una piattaforma che consente di eseguire localmente modelli di \glslink{iag}{intelligenza artificiale} avanzati, sviluppati in collaborazione con OpenAI e altri partner, mantenendo alte prestazioni anche senza l’uso del \glslink{cloud-computingg}{cloud computing}. 
 Oltre ai modelli gpt-oss-20B e gpt-oss-120B, progettati rispettivamente per scenari a bassa \glslink{latenzag}{latenza} o per applicazioni generali ad alto livello di ragionamento, Ollama supporta numerosi altri modelli \glslink{open-weightg}{open weight}, tra cui Mistral (utilizzato solo all’inizio a causa delle ridotte capacità del mio pc personale), Llama 3.1:8B e Llama 3.2:3B, che ho utilizzato nel mio progetto. Nella tabella sottostante ~\ref{tab:modelli-ollama} vengono messi a confronto i vari modelli di Ollama utilizzati nei test dell'estensione \textit{SviluppAbile}, sulla base di parametri quali la capacità di ragionamento complesso, la comprensione linguistica, la conoscenza generale, la velocità di risposta e i requisiti hardware.\.\\ 
 
@@ -135,6 +142,7 @@ La licenza Apache 2.0 garantisce libertà di utilizzo e personalizzazione, mentr
 
 
 \subsection{GitHub}
+\label{subsec:github}
 \noindent GitHub (logo in figura \ref{fig:logo_github}) è una piattaforma di hosting basata su \glslink{gitg}{Git}, il sistema di controllo di versione distribuito ideato da Linus Torvalds. Lanciata nel 2008, GitHub si è affermata come uno degli strumenti principali per la collaborazione nello sviluppo software, consentendo a sviluppatori di tutto il mondo di condividere, modificare e mantenere progetti in modo coordinato. \\La piattaforma offre funzionalità avanzate per il versionamento del codice, la gestione dei rami (branching), il tracciamento delle modifiche e la revisione collaborativa tramite pull request. \\Oltre a essere uno strumento tecnico, GitHub ha favorito la nascita di una vera e propria comunità \glslink{open-sourceg}{open source}, nella quale il codice è accessibile, riutilizzabile e migliorabile da chiunque.
 \begin{figure}[H]
     \centering
@@ -143,6 +151,7 @@ La licenza Apache 2.0 garantisce libertà di utilizzo e personalizzazione, mentr
 \end{figure}
 
 \subsection{VSCode}
+\label{subsec:vscode}
 \noindent Visual Studio Code (logo in figura \ref{fig:logo_vscode}), conosciuto semplicemente come VSCode, è un editor di codice sorgente sviluppato da Microsoft e distribuito gratuitamente. Introdotto nel 2015, ha rapidamente conquistato una posizione di rilievo tra gli strumenti preferiti dagli sviluppatori grazie alla sua combinazione di leggerezza, flessibilità e ricchezza di funzionalità. \\Compatibile con i principali sistemi operativi (Windows, macOS e Linux), VSCode supporta evidenziazione della sintassi per numerosi linguaggi, suggerimenti intelligenti e completamento automatico del codice, strumenti di \glslink{debuggingg}{debugging} integrati e gestione del controllo di versione tramite \glslink{gitg}{Git}. \\Inoltre, grazie a un vasto marketplace di estensioni, può essere facilmente personalizzato per adattarsi a diversi flussi di lavoro e tecnologie, rendendolo un ambiente di sviluppo versatile e ampiamente diffuso.
 \begin{figure}[H]
     \centering
@@ -151,6 +160,7 @@ La licenza Apache 2.0 garantisce libertà di utilizzo e personalizzazione, mentr
 \end{figure}
 
 \subsection{Total Validator}
+\label{subsec:tv}
 \noindent Total Validator (logo in figura \ref{fig:logo_TV}) è uno strumento di convalida web che permette di verificare contemporaneamente l’accessibilità secondo le linee guida WCAG 2.0, 2.1 e 2.2, la conformità alla Section 508 statunitense e alle specifiche ARIA. \\Consente inoltre di controllare la validità del codice HTML rispetto a numerosi standard, incluso l’HTML5, e la correttezza dei CSS in conformità con moltwe specifiche del W3C. \\Tra le sue funzioni principali rientrano anche la rilevazione di link interrotti e la verifica ortografica multilingue. Lo strumento permette di analizzare pagine offline, protette da autenticazione o generate dinamicamente tramite JavaScript, risultando così particolarmente flessibile. \\È disponibile per Windows, macOS e Linux e, dal suo lancio nel 2005, è stato adottato da milioni di siti web, comprese istituzioni pubbliche e governative.
 \begin{figure}[H]
     \centering
@@ -159,6 +169,7 @@ La licenza Apache 2.0 garantisce libertà di utilizzo e personalizzazione, mentr
 \end{figure}
 
 \subsection{WAVE}
+\label{subsec:wave}
 \noindent WAVE (\textit{Web Accessibility Evaluation Tool}) è uno strumento sviluppato da WebAIM per supportare la valutazione dell’accessibilità dei siti web (logo in figura \ref{fig:logo_wave}). Consente di individuare automaticamente molte violazioni delle WCAG e, al tempo stesso, facilita l’analisi manuale da parte degli sviluppatori.\\ È disponibile come servizio online e come estensione per i principali browser, permettendo di testare anche pagine locali o protette. I risultati vengono visualizzati direttamente sulla pagina tramite icone e pannelli che segnalano errori, avvisi e caratteristiche accessibili, fornendo indicazioni utili per le correzioni. \\Per contesti più complessi, WAVE offre inoltre un’API che ne consente l’integrazione nei processi di sviluppo e di testing automatizzato.
 \begin{figure}[H]
     \centering
@@ -167,6 +178,7 @@ La licenza Apache 2.0 garantisce libertà di utilizzo e personalizzazione, mentr
 \end{figure}
 
 \subsection{Lighthouse}
+\label{subsec:lighthouse}
 \noindent Lighthouse (logo in figura \ref{fig:logo_lighthouse}) è uno strumento open-source sviluppato da Google per valutare la qualità delle pagine web. Esegue controlli automatici su performance, accessibilità, SEO e progressive web app, restituendo report dettagliati con punteggi e suggerimenti pratici. \\Si può utilizzare tramite Chrome DevTools, riga di comando (CLI), modulo Node o interfaccia web, consentendo anche audit su pagine protette o locali. Lighthouse quindi supporta gli sviluppatori nel miglioramento della velocità di caricamento, dell’usabilità e della visibilità dei siti.
 \begin{figure}[H]
     \centering
