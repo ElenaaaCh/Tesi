@@ -52,7 +52,10 @@ Gli errori principali sono:
 - Le etichette dei pulsanti "Cerca" e "Profilo" potrebbero essere più descrittive.\\
 Tuttavia, il tuo codice include molti elementi positivi come l'utilizzo di `alt` per immagini, la presenza di un titolo (`<title>`) e di metatag di descrizione (`<meta name="description">`). Questi sono passaggi fondamentali per migliorare la comprensione del contenuto da parte dei motori di ricerca e degli assistenti.\\
 Per garantire una maggiore accessibilità, considera di applicare ulteriormente le linee guida WCAG 2.1, che offrono standard e raccomandazioni per creare esperienze web più inclusive.\\
-La pagina non rispetta la norma W3C WCAG 2.1 che richiede di nidificare correttamente le intestazioni. Non sono presenti elementi HTML con attributo "h1", mentre ci sono intestazioni con grado inferiore.}
+La pagina non rispetta la norma W3C WCAG 2.1 che richiede di nidificare correttamente le intestazioni. Non sono presenti elementi HTML con attributo "h1", mentre ci sono intestazioni con grado inferiore.\\
+La situazione descritta viola la regola WCAG 1.3.1, che richiede la corretta gerarchia di intestazioni (H1 > H2 > H3). In questo caso, l'h2 non è diretto al figlio dell'H1.\\
+Vi è inoltre la presenza di due etichette (label) con il valore "Cerca" all'interno della stessa pagina HTML, ma con attributi id diversi ("searched-product" e "for"). Secondo la specifica SC 2.4.6, le etichette dei form control devono essere uniche.
+}
 \end{adjustwidth}
 
 \subsubsection*{\texttt{Vi sono errori riguardanti i link?}}
@@ -105,7 +108,7 @@ Ricorda che un sito web accessibile è più facile da utilizzare per tutti gli u
 \noindent {\footnotesize Per identificare le aree dell'accessibilità da migliorare nel tuo sito web HTML, puoi utilizzare gli strumenti di analisi come W3C Validator e Lighthouse. Il W3C Validator verifica la correttezza del codice HTML e fornisce suggerimenti per migliorare l'accessibilità. Lighthouse è uno strumento open-source che valuta l'accessibilità, le prestazioni e la sicurezza del tuo sito web.}
 \end{adjustwidth}
 
-\paragraph*{\texttt{"Come posso utilizzare le liste di controllo di WCAG (Web Content} \\ \texttt{Accessibility Guidelines) per migliorare l'accessibilità nel mio sito web?"}} 
+\paragraph*{\texttt{"Come posso utilizzare le liste di controllo di WCAG (Web Content Accessibility Guidelines) per migliorare l'accessibilità nel mio sito web?"}} 
 \begin{adjustwidth}{1cm}{1cm}
 \noindent {\footnotesize Le Liste di Controllo (LC) di WCAG 2.1 forniscono un quadro dettagliato per valutare e migliorare l'accessibilità del tuo sito web.\\
 Per iniziare, leggi attentamente le LC relative alle sezioni più rilevanti per il tuo sito:\\
@@ -137,7 +140,7 @@ Continuando a fare domande nella chat si possono approfondire man-mano i vari as
 \noindent \textbf{CONTRO:}\\
 \noindent Rispetto alla valutazione di \acrshort{tv} e di un esperto di accessibilità web, \textit{SviluppAbile} non segnala alcuni dettagli di esperienza utente (ad esempio mancanza di presentazione del sito, estetica troppo predefinita, assenza di padding/margini); problemi di navigazione post-login/logout o di comportamento del carosello, che sono più legati alla logica di funzionamento che al solo \acrshort{html}.\\
 \textit{SviluppAbile} necessita di domande specifiche e in alcuni casi del caricamento degli errori individuati da altri strumenti (Total Validator) per l’individuazioni di alcuni errori.\\
-Inoltre, essa non ha accesso al file di stile, quindi non può controllare la parte relativa ai colori/link visitati.\\
+Inoltre, l'estensione non ha accesso al file di stile, quindi non può controllare la parte relativa ai colori/link visitati.\\
 Da notare che Ollama usa la parola "disabili", termonilogia nè esatta nè tantomeno rispettosa. Il termine corretto è utenti con disabilità.
 
 \vspace{0.5cm}
