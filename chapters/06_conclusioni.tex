@@ -1,8 +1,39 @@
 \chapter{Conclusioni}
 \label{chap:conclusioni}
+\noindent Al termine dello stage, si può affermare che l’obiettivo principale del progetto è stato raggiunto. È stata infatti realizzata un’estensione web, denominata \textit{SviluppAbile}, capace di analizzare le pagine web e assistere gli sviluppatori nell’individuazione e correzione degli errori di accessibilità. L’attività ha richiesto più fasi, tra cui la progettazione dell’architettura dell’estensione, l’implementazione delle diverse funzionalità ed una consistente fase di testing finale. \\Particolare attenzione è stata posta all’integrazione del chatbot, concepito per fornire spiegazioni chiare e in linguaggio naturale, così da rendere i contenuti accessibili anche a chi non ha conoscenze avanzate delle linee guida WCAG per l'accessiilità web.
+
+\section{Raggiungimento degli obiettivi}
+\noindent Il progetto SviluppAbile ha raggiunto pienamente l’obiettivo primario di realizzare uno strumento interattivo per il supporto allo sviluppo accessibile. Sono state implementate con successo le funzionalità principali: la visualizzazione del codice sorgente delle pagine web e la possibilità di interagire con un chatbot integrato per analizzare la pagina web, ricevere chiarimenti e suggerimenti personalizzati.\\
+Un ulteriore traguardo è stato il completamento della modalità guidata, che affianca all’analisi automatica un ambiente di sviluppo interattivo, composto da tre pannelli, in cui l’utente può sperimentare correzioni assistite del codice e scaricare direttamente i blocchi proposti in formato HTML. Questa funzionalità ha permesso di unire l’aspetto correttivo con quello formativo, rendendo lo strumento utile sia come validatore che come supporto didattico.\\
+L’architettura basata esclusivamente su tecnologie web standard, conforme a Manifest V3, ha garantito la compatibilità con i browser moderni e la facilità di distribuzione dell’estensione. Inoltre, la progettazione modulare e la struttura del codice consentono di estendere le funzionalità in maniera agevole, favorendo futuri sviluppi e aggiornamenti.
+In sintesi, il sistema ha dimostrato di soddisfare gli obiettivi stabiliti: fornire uno strumento intuitivo, accessibile e formativo, capace di supportare in tempo reale lo sviluppatore nella produzione di pagine web più accessibili.
+
+\subsection{Misurazione quantitativa dei requisiti soddisfatti}
+Il confronto con i requisiti inizialmente definiti (vedi paragrafo \ref{sec:req}) evidenzia quanto segue:
+\begin{itemize}
+    \item Requisiti obbligatori: n/n implementati (n\%)
+    \item Requisiti desiderabili: n/n soddisfatti (n\%)
+    \item Requisiti facoltativi: n/n rispettati (n\%)
+\end{itemize}
+Quindi il tasso di completamento complessivo è di n/n requisiti (n\%).
+
+\section{Sviluppi futuri}
+\noindent L’estensione web SviluppAbile costituisce una base solida su cui innestare ulteriori miglioramenti: grazie alla struttura modulare, sarà possibile introdurre nuove funzionalità senza compromettere la stabilità del sistema.\\
+Un primo ambito di sviluppo riguarda l’integrazione di modelli di intelligenza artificiale più avanzati (come ChatGPT o sistemi analoghi), in grado di fornire risposte più precise, complete e soprattutto rapide. Questo permetterebbe di aumentare l’affidabilità del chatbot e di garantire un supporto sempre più accurato agli sviluppatori.\\
+Dal punto di vista dell’interfaccia utente, potrebbe essere introdotta una scansione automatica iniziale del DOM, che mostri subito eventuali errori in un pannello dedicato, prendendo spunto da strumenti consolidati come WAVE.\\
+\\
+Un’evoluzione significativa riguarda inoltre l’integrazione di tecniche di \textit{Computer Vision}, che consentirebbero di estendere l’analisi anche agli aspetti visivi della pagina, come il contrasto cromatico, la leggibilità dei testi e le proporzioni degli elementi grafici.\\
+Altri sviluppi possibili includono il collegamento con validatori esterni (WAVE, Lighthouse), l’introduzione di un versionamento dei suggerimenti generati per facilitare il confronto tra diverse soluzioni e l’ottimizzazione delle prestazioni tramite caching o caricamento progressivo del DOM.
+In prospettiva, \textit{SviluppAbile} potrebbe evolvere in un vero e proprio laboratorio per l’accessibilità, capace di coniugare analisi automatica, supporto interattivo e verifica visiva, offrendo agli sviluppatori uno strumento ancora più completo e formativo.
 
 \section{Consuntivo finale}
 
 \section{Competenze acquisite}
+Il progetto di stage ha rappresentato un’importante occasione di crescita tecnica e professionale, permettendo di acquisire competenze trasversali fondamentali. Dal punto di vista dello sviluppo web, l’esperienza ha consolidato la conoscenza di HTML, sia nella struttura delle pagine che nella gestione degli elementi interattivi, e delle tecniche per produrre codice accessibile e semanticamente corretto. L’uso di strumenti di validazione del codice, come Total Validator, ha permesso di comprendere a fondo le problematiche legate all’accessibilità e di applicare concretamente le linee guida WCAG durante lo sviluppo.\\
+Particolare attenzione è stata posta all’integrazione di funzionalità complesse in un ambiente modulare e compatibile con Manifest V3, comprendendo lo sviluppo di pannelli interattivi, la comunicazione tra script di background e content script e l’uso iniziale delle API di Chrome. L’implementazione del chatbot ha richiesto la selezione di un’IA utilizzabile, la cui scelta è ricaduta su Ollama, nonché la generazione dinamica di domande suggerite, il filtraggio delle risposte prodotte e la sincronizzazione con il codice visualizzato nei pannelli.\\
+Il progetto ha avuto un carattere sperimentale, quindi non tutte le funzionalità da sviluppare erano definite fin dall’inizio; di conseguenza, non tutte le soluzioni ipotizzate sono state realizzabili, soprattutto a causa della complessità tecnica e dei vincoli di tempo. Questa esperienza ha comunque permesso di sviluppare capacità di problem solving, adattamento e gestione autonoma delle priorità, affrontando le difficoltà tipiche della sperimentazione.\\
+Lo stage ha richiesto la gestione autonoma di circa 300 ore, pianificando in modo indipendente le attività giornaliere e settimanali, senza orari prefissati come in un contesto aziendale, e organizzando con cura il lavoro e le priorità per portare avanti l’intero progetto, affrontando così la sfida di un’organizzazione completamente autonoma dei tempi di lavoro.\\
+Infine, il progetto ha permesso di sviluppare un approccio critico all’accessibilità digitale, comprendendo a fondo le linee guida WCAG e le strategie per guidare gli sviluppatori nel miglioramento della qualità dei propri siti. 
+\\In sintesi, l’esperienza ha combinato conoscenze teoriche e pratiche, fornendo strumenti concreti per la realizzazione di applicazioni web interattive, performanti e inclusive.
 
 \section{Valutazione personale}
