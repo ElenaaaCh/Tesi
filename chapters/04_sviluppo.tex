@@ -36,8 +36,9 @@ chrome.exe --disable-web-security --user-data-dir="C:_temp_chrome"
 \end{figure}
 
 \subsection{Guida all'utilizzo}
-\noindent La presente sezione illustra le funzionalità dell’estensione attraverso una dimostrazione pratica guidata, supportata da screenshot dell’interfaccia per mostrare concretamente le modalità di utilizzo. Ogni sottosezione è dedicata a una specifica funzionalità.
-Si ricorda che, per un corretto funzionamento dell'estensione, è necessario utilizzare il browser Chrome disabilitanto temporaneamente alcuni vincoli di sicurezza (vedi paragrafo \ref{subsec:NB}).
+\noindent La presente sezione illustra le funzionalità dell’estensione attraverso una dimostrazione pratica guidata, supportata da screenshot dell’interfaccia per mostrare concretamente le modalità di utilizzo. Ogni sottosezione è dedicata a una specifica funzionalità. Si tenga presente che l'estensione è disponibile anche in modalità notte, cliccando l'apposito pulsante in alto a destra \raisebox{-0.2\height}{\includegraphics[height=1.5em]{toggletheme.png}}.
+
+\noindent Si ricorda che, per un corretto funzionamento dell'estensione, è necessario utilizzare il browser Chrome disabilitanto temporaneamente alcuni vincoli di sicurezza (vedi paragrafo \ref{subsec:NB}).
 
 \subsubsection{Avvio dell'estensione}
 \noindent All’avvio, cliccando sull’icona dell’estensione \textit{SviluppAbile} nella barra del browser, viene visualizzato un popup (figura \ref{fig:popup}) che consente di scegliere tra due modalità operative:
@@ -55,12 +56,18 @@ Si ricorda che, per un corretto funzionamento dell'estensione, è necessario uti
 \noindent Questa scelta iniziale permette all’utente di adattare lo strumento al proprio flusso di lavoro: analizzare passo-passo una pagina già esistente o sviluppare in maniera assistita un nuovo contenuto.
 
 \subsubsection{Analisi assistita}
-\noindent Nella modalità di analisi assistita (vedi figura \ref{fig:aass}), l’interfaccia dell’estensione si presenta suddivisa in due pannelli principali: sulla sinistra viene visualizzato il DOM della pagina web analizzata, mentre sulla destra compare la finestra della chat. Quest’ultima, inizialmente vuota, offre già due domande suggerite (\textit{"Come posso migliorare l'accessibilità della pagina web?"} e \textit{"Il mio codice rispetta le linee guida WCAG?"}), pensate per orientare l’utente nel primo utilizzo e stimolare un’interazione immediata. Oltre a tali suggerimenti, è disponibile un form in cui l’utente può inserire manualmente le proprie domande o richieste di chiarimento.\\
+\noindent Nella modalità di analisi assistita (vedi figure \ref{fig:aass} e \ref{fig:aass_notte}), l’interfaccia dell’estensione si presenta suddivisa in due pannelli principali: sulla sinistra viene visualizzato il DOM della pagina web analizzata, mentre sulla destra compare la finestra della chat. Quest’ultima, inizialmente vuota, offre già due domande suggerite (\textit{"Come posso migliorare l'accessibilità della pagina web?"} e \textit{"Il mio codice rispetta le linee guida WCAG?"}), pensate per orientare l’utente nel primo utilizzo e stimolare un’interazione immediata. Oltre a tali suggerimenti, è disponibile un form in cui l’utente può inserire manualmente le proprie domande o richieste di chiarimento.\\
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth, alt={Modalità di analisi assistita}]{img/analisi_ass.png}
     \caption{Modalità: analisi assistita}\label{fig:aass}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth, alt={Modalità di analisi assistita - modalità notte}]{img/analisi_ass_dark.png}
+    \caption{Modalità: analisi assistita - modalità notte}\label{fig:aass_notte}
 \end{figure}
 
 \noindent L’interazione vera e propria inizia quando l’utente formula la prima domanda: a questo punto il chatbot genera una risposta in linguaggio naturale, adattata al contesto del DOM analizzato. Per facilitare la comprensione delle spiegazioni, l’estensione è in grado di evidenziare automaticamente le porzioni di codice rilevanti all’interno del DOM, così da collegare visivamente l’errore o la soluzione proposta con la parte effettiva di codice interessata.\\
@@ -74,7 +81,7 @@ Ad ogni scambio successivo, il sistema arricchisce la conversazione proponendo u
 \end{figure}
 
 \subsubsection{Modalità guidata}
-\noindent La modalità di sviluppo guidato (vedi figura \ref{fig:mg}) si differenzia dall’analisi assistita per la presenza di un’interfaccia composta da tre pannelli distinti. Sulla sinistra rimane visibile il DOM della pagina mentre sulla destra è presente la finestra della chat. La novità è costituita dal pannello centrale, dedicato alla visualizzazione dei frammenti di codice suggeriti dal chatbot.\\
+\noindent La modalità di sviluppo guidato (vedi figure \ref{fig:mg} e \ref{fig:mg_notte}) si differenzia dall’analisi assistita per la presenza di un’interfaccia composta da tre pannelli distinti. Sulla sinistra rimane visibile il DOM della pagina mentre sulla destra è presente la finestra della chat. La novità è costituita dal pannello centrale, dedicato alla visualizzazione dei frammenti di codice suggeriti dal chatbot.\\
 \\
 Inizialmente, quest’area centrale appare vuota e contiene soltanto un messaggio in grigio, con caratteri a richiamo “informatico”, che riporta la dicitura \texttt{eventuale codice suggerito}. Come nella modalità assistita, anche qui la chat propone due domande iniziali suggerite per avviare l’interazione: \textit{"Come si crea un <head> che contenga tutti gli elementi utili per una pagina accessibile?"} e \textit{"Come rendo accessibili le immagini?"}.\\
 
@@ -82,6 +89,12 @@ Inizialmente, quest’area centrale appare vuota e contiene soltanto un messaggi
     \centering
     \includegraphics[width=1\linewidth, alt={Modalità di sviluppo guidato}]{img/mg.png}
     \caption{Modalità: sviluppo guidato, pagina iniziale}\label{fig:mg}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth, alt={Modalità di sviluppo guidato}]{img/mg_dark.png}
+    \caption{Modalità: sviluppo guidato - modalità notte}\label{fig:mg_notte}
 \end{figure}
 
 \noindent Quando l’utente seleziona una domanda, il chatbot non solo produce una risposta testuale, ma genera anche un blocco di codice che viene immediatamente visualizzato nel pannello centrale. Questa caratteristica rende la modalità guidata particolarmente utile in fase di sviluppo, poiché consente di osservare concretamente le soluzioni suggerite e di integrarle facilmente nel proprio progetto.\\
