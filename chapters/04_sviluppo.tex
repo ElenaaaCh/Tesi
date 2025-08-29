@@ -18,9 +18,12 @@ Il \acrshort{poc} non teneva conto di aspetti come la scalabilità, l’ottimizz
 
 \noindent Questa versione sperimentale costituiva una base minima ma solida su cui successivamente è stato possibile costruire le funzionalità avanzate, affinare l’interfaccia e integrare logiche più complesse per la gestione dei risultati.\\
 
-\noindent Da notare il fatto che Chrome blocca l'esecuzione di Ollama nell'estensione. Per avviare correttamentel'estensione è quindi necessario aprire una pagina chrome da terminale utilizzando i seguenti comandi per disabilitare alcuni blocchi di chrome stesso.\\
-\texttt{cd Program Files\_Google\_Chrome\_Application\\
-chrome.exe --disable-web-security --user-data-dir="C:\_temp\_chrome"}
+\noindent \label{subsec:NB}È importante sottolineare che Chrome, per ragioni di sicurezza, blocca di default l’esecuzione di chiamate esterne da parte delle estensioni, impedendo quindi il corretto funzionamento dell’integrazione con Ollama. Per avviare correttamente l’estensione è necessario aprire Chrome da terminale e disabilitare temporaneamente alcuni vincoli di sicurezza. \\
+Ecco il comando utilizzato:
+
+\begin{verbatim}
+chrome.exe --disable-web-security --user-data-dir="C:_temp_chrome"
+\end{verbatim}
 
 
 \section{Prodotto finale}
@@ -34,12 +37,13 @@ chrome.exe --disable-web-security --user-data-dir="C:\_temp\_chrome"}
 
 \subsection{Guida all'utilizzo}
 \noindent La presente sezione illustra le funzionalità dell’estensione attraverso una dimostrazione pratica guidata, supportata da screenshot dell’interfaccia per mostrare concretamente le modalità di utilizzo. Ogni sottosezione è dedicata a una specifica funzionalità.
+Si ricorda che, per un corretto funzionamento dell'estensione, è necessario utilizzare il browser Chrome disabilitanto temporaneamente alcuni vincoli di sicurezza (vedi paragrafo \ref{subsec:NB}).
 
 \subsubsection{Avvio dell'estensione}
-\noindent All’avvio, SviluppAbile presenta un’interfaccia semplice (figura \ref{fig:popup}) che consente di scegliere tra due modalità operative:
+\noindent All’avvio, cliccando sull’icona dell’estensione \textit{SviluppAbile} nella barra del browser, viene visualizzato un popup (figura \ref{fig:popup}) che consente di scegliere tra due modalità operative:
 \begin{itemize}
-  \item \textbf{Analisi assistita}: dedicata alla scansione automatica della pagina web attualmente aperta, con restituzione di un report sintetico degli errori di accessibilità riscontrati;
-  \item \textbf{Modalità guidata}: pensata come ambiente di sviluppo interattivo, in cui il codice sorgente è affiancato dal chatbot che fornisce suggerimenti in tempo reale.
+  \item \textbf{Analisi assistita}: visualizza il DOM della pagina web e mette a disposizione una chat in cui l’utente può porre domande sull’accessibilità e ricevere risposte contestualizzate, con evidenziazione delle porzioni di codice rilevanti; 
+  \item \textbf{Modalità guidata}: presenta oltre alla chat, un pannello in cui verranno inseriti frammenti di codice accessibile e scaricabili in formato HTML.
 \end{itemize}
 
 \begin{figure}[H]
@@ -48,19 +52,25 @@ chrome.exe --disable-web-security --user-data-dir="C:\_temp\_chrome"}
     \caption{Popup di avvio dell'estensione \textit{SviluppAbile}}\label{fig:popup}
 \end{figure}
 
-\noindent Questa scelta iniziale permette all’utente di adattare lo strumento al proprio flusso di lavoro: ricevere rapidamente un’analisi di una pagina già esistente o sviluppare in maniera assistita un nuovo contenuto.
+\noindent Questa scelta iniziale permette all’utente di adattare lo strumento al proprio flusso di lavoro: analizzare passo-passo una pagina già esistente o sviluppare in maniera assistita un nuovo contenuto.
 
 \subsubsection{Analisi assistita}
-\noindent Nella modalità di analisi assistita (vedi figura \ref{fig_aass}), l’interfaccia dell’estensione si presenta suddivisa in due pannelli principali: sulla sinistra viene visualizzato il DOM della pagina web analizzata, mentre sulla destra compare la finestra della chat. Quest’ultima, inizialmente vuota, offre già due domande suggerite (\textit{"Come posso migliorare l'accessibilità della pagina web?"} e \textit{"Il mio codice rispetta le linee guida WCAG?"}), pensate per orientare l’utente nel primo utilizzo e stimolare un’interazione immediata. Oltre a tali suggerimenti, è disponibile un form in cui l’utente può inserire manualmente le proprie domande o richieste di chiarimento.\\
-\\
-L’interazione vera e propria inizia quando l’utente formula la prima domanda: a questo punto il chatbot genera una risposta in linguaggio naturale, adattata al contesto del DOM analizzato. Per facilitare la comprensione delle spiegazioni, l’estensione è in grado di evidenziare automaticamente le porzioni di codice rilevanti all’interno del DOM, così da collegare visivamente l’errore o la soluzione proposta con la parte effettiva di codice interessata.\\
-\\
-Ad ogni scambio successivo, il sistema arricchisce la conversazione proponendo una o due nuove domande suggerite, collegate al tema trattato nella risposta precedente. Questa dinamica consente di mantenere la chat scorrevole e guidata, riducendo lo sforzo cognitivo dell’utente e favorendo un approccio progressivo alla comprensione delle problematiche di accessibilità della pagina web.
+\noindent Nella modalità di analisi assistita (vedi figura \ref{fig:aass}), l’interfaccia dell’estensione si presenta suddivisa in due pannelli principali: sulla sinistra viene visualizzato il DOM della pagina web analizzata, mentre sulla destra compare la finestra della chat. Quest’ultima, inizialmente vuota, offre già due domande suggerite (\textit{"Come posso migliorare l'accessibilità della pagina web?"} e \textit{"Il mio codice rispetta le linee guida WCAG?"}), pensate per orientare l’utente nel primo utilizzo e stimolare un’interazione immediata. Oltre a tali suggerimenti, è disponibile un form in cui l’utente può inserire manualmente le proprie domande o richieste di chiarimento.\\
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth, alt={Modalità di analisi assistita}]{img/analisi_ass.png}
     \caption{Modalità: analisi assistita}\label{fig:aass}
+\end{figure}
+
+\noindent L’interazione vera e propria inizia quando l’utente formula la prima domanda: a questo punto il chatbot genera una risposta in linguaggio naturale, adattata al contesto del DOM analizzato. Per facilitare la comprensione delle spiegazioni, l’estensione è in grado di evidenziare automaticamente le porzioni di codice rilevanti all’interno del DOM, così da collegare visivamente l’errore o la soluzione proposta con la parte effettiva di codice interessata.\\
+\\
+Ad ogni scambio successivo, il sistema arricchisce la conversazione proponendo una o due nuove domande suggerite, collegate al tema trattato nella risposta precedente. Questa dinamica consente di mantenere la chat scorrevole e guidata, riducendo lo sforzo cognitivo dell’utente e favorendo un approccio progressivo alla comprensione delle problematiche di accessibilità della pagina web (vedi figura \ref{fig:aass2}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth, alt={Modalità di analisi assistita, dopo la prima interazione}]{img/analisi_ass2.png}
+    \caption{Modalità: analisi assistita dopo un'interazione}\label{fig:aass2}
 \end{figure}
 
 \subsubsection{Modalità guidata}
@@ -71,20 +81,20 @@ Inizialmente, quest’area centrale appare vuota e contiene soltanto un messaggi
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth, alt={Modalità di sviluppo guidato}]{img/mg.png}
-    \caption{Modalità: sviluppo guidato, pagina iniziale}\label{fig:aass}
+    \caption{Modalità: sviluppo guidato, pagina iniziale}\label{fig:mg}
 \end{figure}
 
 \noindent Quando l’utente seleziona una domanda, il chatbot non solo produce una risposta testuale, ma genera anche un blocco di codice che viene immediatamente visualizzato nel pannello centrale. Questa caratteristica rende la modalità guidata particolarmente utile in fase di sviluppo, poiché consente di osservare concretamente le soluzioni suggerite e di integrarle facilmente nel proprio progetto.\\
-Per agevolare l’utilizzo pratico, ogni codice prodotto può essere scaricato direttamente tramite l’apposito pulsante “Scarica codice” (vedi figura \ref{fig:mg_2}). L’estensione genera automaticamente un file HTML contenente i blocchi di codice proposti, consentendo allo sviluppatore di salvare e riutilizzare le soluzioni in maniera rapida e strutturata.
+Per agevolare l’utilizzo pratico, ogni codice prodotto può essere scaricato direttamente tramite l’apposito pulsante “Scarica codice” (vedi figura \ref{fig:mg2}). L’estensione genera automaticamente un file HTML contenente i blocchi di codice proposti, consentendo allo sviluppatore di salvare e riutilizzare le soluzioni in maniera rapida e strutturata.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth, alt={Modalità di sviluppo guidato, dopo un'interazione}]{img/mg2.png}
-    \caption{Modalità: sviluppo guidato, dopo alcune interazioni}\label{fig:aass}
+    \caption{Modalità: sviluppo guidato, dopo alcune interazioni}\label{fig:mg2}
 \end{figure}
 
 \subsection{Interazione con l'AI}
-\noindent L’estensione sviluppata prevede un’integrazione diretta con Ollama (\ref{subsec:ollama}). Questa scelta garantisce all’utente il pieno controllo sui dati, riducendo i rischi legati alla trasmissione di informazioni sensibili verso servizi esterni e permettendo un utilizzo anche in assenza di connessione Internet stabile. L’interazione con l’\glslink{iag}{intelligenza artificiale} avviene attraverso chiamate HTTP a un endpoint locale, al quale vengono inviati prompt costruiti dinamicamente in base alle esigenze del flusso operativo.
+\noindent L’estensione sviluppata prevede un’integrazione diretta con Ollama (vedi paragrafo \ref{subsec:ollama}). Questa scelta garantisce all’utente il pieno controllo sui dati, riducendo i rischi legati alla trasmissione di informazioni sensibili verso servizi esterni e permettendo un utilizzo anche in assenza di connessione Internet stabile. L’interazione con l’\glslink{iag}{intelligenza artificiale} avviene attraverso chiamate HTTP ad un endpoint locale, al quale vengono inviati prompt costruiti dinamicamente in base alle esigenze del flusso operativo.
 
 \begin{lstlisting}[language=JavaScript, caption={Funzione di interazione con Ollama}]
 async function inviaPrompt(prompt) {
@@ -140,8 +150,10 @@ Questa diversificazione consente di mantenere un approccio modulare e adattabile
 
 \subsection{Filtraggio risposta generata}
 \noindent Un aspetto fondamentale del funzionamento dell'estensione riguarda il filtraggio e la rielaborazione della risposta generata dall’\glslink{iag}{intelligenza artificiale}. Le risposte restituite da Ollama, infatti, non vengono mostrate direttamente all’utente, ma sono sottoposte ad un processo di parsing e di pulizia.\\
-In primo luogo, l’estensione distingue le diverse tipologie di output attese: la risposta vera e propria alla domanda inserita, le eventuali domande suggerite e gli eventuali blocchi di codice generati da visualizzare e/o scaricare. A tal fine vengono utilizzati marcatori testuali inseriti nel prompt (ad esempio \texttt{\#\#DOMANDE\#\#} o \texttt{\#\#CODICE\#\#}), che consentono di individuare con precisione le sezioni rilevanti all’interno della risposta. \\Una volta ricevuto l’output, funzioni dedicate come \texttt{estraiRigheDaRisposta} ed \texttt{estraiDomandeSuggerite} applicano espressioni regolari per isolare le parti utili, scartando elementi ridondanti o formattazioni non necessarie.\\
+In primo luogo, l’estensione distingue le diverse tipologie di output attese: la risposta vera e propria alla domanda inserita, le eventuali domande suggerite e gli eventuali blocchi di codice generati da visualizzare e/o scaricare. A tal fine vengono utilizzati marcatori testuali inseriti nel prompt (ad esempio \texttt{\#\#DOMANDE\#\#} o \texttt{\#\#CODICE\#\#}), che consentono di individuare con precisione le sezioni rilevanti all’interno della risposta. \\Una volta ricevuto l’output, funzioni dedicate come \texttt{estraiRigheDaRisposta} ed \\ \texttt{estraiDomandeSuggerite} applicano espressioni regolari per isolare le parti utili, scartando elementi ridondanti o formattazioni non necessarie.\\
 \\
 Il filtraggio consente anche di separare le informazioni in blocchi distinti, in modo che ciascun contenuto possa essere mostrato nella pagina web nel pannello appropriato (ad esempio, suggerimenti testuali nella chat e codice sorgente nel riquadro centrale). Questo approccio riduce il carico cognitivo per l’utente, che non si trova di fronte a una risposta grezza e complessa, ma ad un output strutturato e facilmente navigabile.\\ Inoltre la possibilità di visualizzare alcune righe di codice evidenziate consente una comprensione più immediata del codice sorgente analizzato rendendo più intuitivo il processo di revisione del codice.
 
 \section{Problematiche riscontrate}
+\noindent Durante lo sviluppo del progetto sono emerse alcune criticità di natura tecnica. In primo luogo, la scelta dell’IA da integrare si è rivelata complessa: le API gratuite disponibili online presentavano forti limitazioni legate al numero di token, rendendole inadeguate per un utilizzo continuativo. Successivamente è stata valutata l’adozione di Ollama, la cui installazione, tuttavia, non è risultata possibile sul computer personale a causa delle risorse hardware insufficienti. L’ostacolo è stato superato grazie alla disponibilità di un computer fornito dall’università, che ha consentito l’utilizzo stabile della piattaforma.\\\\
+Un’ulteriore problematica si è manifestata dopo l’integrazione dell’IA nell’estensione: l’invio delle richieste tramite la chat restituiva sistematicamente il messaggio \texttt{“Errore durante l’elaborazione: Risposta vuota dal server”}. Attraverso un’attenta fase di debug, supportata dall’inserimento di log per tracciare l’esecuzione, è stato possibile individuare la causa: non un malfunzionamento dell’IA o dell'estensione, bensì le restrizioni imposte da Chrome, che limita l’interazione delle estensioni con API esterne, bloccando di fatto la corretta trasmissione delle richieste.\\Il problema è stato infine risolto avviando Chrome da terminale con parametri specifici che disabilitano i blocchi di sicurezza predefiniti, permettendo così all’estensione di comunicare correttamente con l’IA.
