@@ -2,14 +2,14 @@
 \label{chap:sviluppo}
 
 \section{Web design}
-\noindent Il design dell’estensione è stato sviluppato con un approccio \glslink{desktop-firstg}{\textit{desktop-first}}, in considerazione del target principale costituito da sviluppatori web che operano prevalentemente su schermi di grandi dimensioni. \\Tale scelta consente di privilegiare la chiarezza e l’ampiezza degli spazi di lavoro, garantendo una disposizione ottimale dei pannelli e delle funzionalità principali.\\
+\noindent L’estensione è stata progettata con un approccio \glslink{desktop-firstg}{\textit{desktop-first}}, in considerazione del target principale costituito da sviluppatori web che operano prevalentemente su schermi di grandi dimensioni. \\Tale scelta consente di privilegiare la chiarezza e l’ampiezza degli spazi di lavoro, garantendo una disposizione ottimale dei pannelli e delle funzionalità principali.\\
 Particolare attenzione è stata posta all’accessibilità cromatica, mediante uno studio accurato dei contrasti tra testo, sfondo ed elementi interattivi, al fine di assicurare leggibilità anche in condizioni visive differenti. \\È stata inoltre implementata la possibilità di personalizzare l’esperienza visiva tramite un pulsante dedicato alla selezione della modalità giorno/notte, che permette all’utente di adattare l’interfaccia alle proprie preferenze e alle condizioni ambientali di utilizzo.\\
 Nonostante l’approccio iniziale privilegi i dispositivi desktop, il layout rimane responsivo grazie a soluzioni flessibili che mantengono l’usabilità anche su schermi di dimensioni ridotte. Questa scelta assicura un’esperienza coerente ed accessibile in diversi contesti d’uso.
 
 \section{PoC}
 \noindent L’obiettivo iniziale era la realizzazione di un \glslink{pocg}{Proof of Concept} (\acrshort{poc}) che permettesse di verificare la fattibilità tecnica dell’estensione proposta. In questa fase preliminare, l’attenzione era rivolta principalmente a due aspetti fondamentali: il recupero del codice sorgente della pagina web e l’integrazione con un’\acrshort{api} di \glslink{iag}{intelligenza artificiale}, necessaria per avviare i primi test di analisi e generazione di suggerimenti.\\
 Il \acrshort{poc} non teneva conto di aspetti come la scalabilità, l’ottimizzazione delle performance o la gestione di casi d’uso complessi, ma si limitava a dimostrare che le funzionalità di base potessero essere effettivamente implementate. 
-\\La struttura iniziale era volutamente semplice in quanto conteneva solamente funzioni basilari per:
+\\La struttura iniziale era volutamente semplice in quanto conteneva solamente funzioni basilari nei file:
 \begin{itemize}
   \item \texttt{script.js}: responsabile dell’avvio dell’estensione;
   \item \texttt{analysis.js}: deputato all’estrazione del codice sorgente della pagina web e alla sua messa a disposizione per ulteriori elaborazioni;
@@ -27,7 +27,7 @@ chrome.exe --disable-web-security --user-data-dir="C:_temp_chrome"
 
 
 \section{Prodotto finale}
-\noindent In questo paragrafo viene illustrato il risultato concreto del progetto: l’estensione web \textit{SviluppAbile} (logo in figura \ref{fig:logo_sviluppabile}), uno strumento progettato per supportare gli sviluppatori nell’individuazione e nella correzione degli errori di accessibilità nelle pagine web. Viene descritta l’estensione realizzata e vengono analizzate le funzionalità implementate, mettendo in evidenza l’integrazione con il chatbot e le modalità di interazione con l’utente.
+\noindent In questo paragrafo viene illustrato il risultato concreto del progetto: l’estensione web \textit{SviluppAbile} (logo in figura \ref{fig:logo_sviluppabile}), uno strumento progettato per supportare gli sviluppatori nell’individuazione e nella correzione degli errori di accessibilità nelle pagine web. Di seguito, viene descritta l’estensione realizzata e vengono analizzate le funzionalità implementate, mettendo in evidenza l’integrazione con il \glslink{chatbotg}{chatbot} e le modalità di interazione con l’utente.
 
 \begin{figure}[H]
     \centering
@@ -38,13 +38,13 @@ chrome.exe --disable-web-security --user-data-dir="C:_temp_chrome"
 \subsection{Guida all'utilizzo}
 \noindent La presente sezione illustra le funzionalità dell’estensione attraverso una dimostrazione pratica guidata, supportata da screenshot dell’interfaccia per mostrare concretamente le modalità di utilizzo. Ogni sottosezione è dedicata a una specifica funzionalità. Si tenga presente che l'estensione è disponibile anche in modalità notte, cliccando l'apposito pulsante in alto a destra \raisebox{-0.2\height}{\includegraphics[height=1.5em]{toggletheme.png}}.
 
-\noindent Si ricorda che, per un corretto funzionamento dell'estensione, è necessario utilizzare il browser Chrome disabilitanto temporaneamente alcuni vincoli di sicurezza (vedi paragrafo \ref{subsec:NB}).
+\noindent Si ricorda che, per un corretto funzionamento dell'estensione, è necessario utilizzare il \glslink{browserg}{browser} Chrome disabilitanto temporaneamente alcuni vincoli di sicurezza (vedi paragrafo \ref{subsec:NB}).
 
 \subsubsection{Avvio dell'estensione}
-\noindent All’avvio, cliccando sull’icona dell’estensione \textit{SviluppAbile} nella barra del browser, viene visualizzato un popup (figura \ref{fig:popup}) che consente di scegliere tra due modalità operative:
+\noindent All’avvio, cliccando sull’icona dell’estensione \textit{SviluppAbile} nella barra del \glslink{browserg}{browser}, viene visualizzato un popup (figura \ref{fig:popup}) che consente di scegliere tra due modalità operative:
 \begin{itemize}
-  \item \textbf{Analisi assistita}: visualizza il DOM della pagina web e mette a disposizione una chat in cui l’utente può porre domande sull’accessibilità e ricevere risposte contestualizzate, con evidenziazione delle porzioni di codice rilevanti; 
-  \item \textbf{Modalità guidata}: presenta oltre alla chat, un pannello in cui verranno inseriti frammenti di codice accessibile e scaricabili in formato HTML.
+  \item \textbf{Analisi assistita}: visualizza il \acrshort{dom} della pagina web e mette a disposizione una chat in cui l’utente può porre domande sull’accessibilità e ricevere risposte contestualizzate, con evidenziazione delle porzioni di codice rilevanti; 
+  \item \textbf{Modalità guidata}: presenta, oltre alla chat, un pannello in cui verranno inseriti frammenti di codice accessibile e scaricabili in formato \acrshort{html}.
 \end{itemize}
 
 \begin{figure}[H]
@@ -56,7 +56,7 @@ chrome.exe --disable-web-security --user-data-dir="C:_temp_chrome"
 \noindent Questa scelta iniziale permette all’utente di adattare lo strumento al proprio flusso di lavoro: analizzare passo-passo una pagina già esistente o sviluppare in maniera assistita un nuovo contenuto.
 
 \subsubsection{Analisi assistita}
-\noindent Nella modalità di analisi assistita (vedi figure \ref{fig:aass} e \ref{fig:aass_notte}), l’interfaccia dell’estensione si presenta suddivisa in due pannelli principali: sulla sinistra viene visualizzato il DOM della pagina web analizzata, mentre sulla destra compare la finestra della chat. Quest’ultima, inizialmente vuota, offre già due domande suggerite (\textit{"Come posso migliorare l'accessibilità della pagina web?"} e \textit{"Il mio codice rispetta le linee guida WCAG?"}), pensate per orientare l’utente nel primo utilizzo e stimolare un’interazione immediata. Oltre a tali suggerimenti, è disponibile un form in cui l’utente può inserire manualmente le proprie domande o richieste di chiarimento.\\
+\noindent Nella modalità di analisi assistita (vedi figure \ref{fig:aass} e \ref{fig:aass_notte}), l’interfaccia dell’estensione si presenta suddivisa in due pannelli principali: sulla sinistra viene visualizzato il \acrshort{dom} della pagina web analizzata, mentre sulla destra compare la finestra della chat. Quest’ultima, inizialmente vuota, offre già due domande (\textit{"Come posso migliorare l'accessibilità della pagina web?"} e \textit{"Il mio codice rispetta le linee guida WCAG?"}), pensate per orientare l’utente nel primo utilizzo e stimolare un’interazione immediata. Oltre a tali suggerimenti, è disponibile un \glslink{formg}{form} in cui l’utente può inserire manualmente le proprie domande o richieste di chiarimento.\\
 
 \begin{figure}[H]
     \centering
@@ -70,7 +70,7 @@ chrome.exe --disable-web-security --user-data-dir="C:_temp_chrome"
     \caption{Modalità: analisi assistita - modalità notte}\label{fig:aass_notte}
 \end{figure}
 
-\noindent L’interazione vera e propria inizia quando l’utente formula la prima domanda: a questo punto il chatbot genera una risposta in linguaggio naturale, adattata al contesto del DOM analizzato. Per facilitare la comprensione delle spiegazioni, l’estensione è in grado di evidenziare automaticamente le porzioni di codice rilevanti all’interno del DOM, così da collegare visivamente l’errore o la soluzione proposta con la parte effettiva di codice interessata.\\
+\noindent L’interazione vera e propria inizia quando l’utente formula la prima domanda: a questo punto il \glslink{chatbotg}{chatbot} genera una risposta in linguaggio naturale, adattata al contesto del \acrshort{dom} analizzato. Per facilitare la comprensione delle spiegazioni, l’estensione è in grado di evidenziare automaticamente le porzioni di codice rilevanti all’interno del \acrshort{dom}, così da collegare visivamente l’errore o la soluzione proposta con la parte effettiva di codice interessata.\\
 \\
 Ad ogni scambio successivo, il sistema arricchisce la conversazione proponendo una o due nuove domande suggerite, collegate al tema trattato nella risposta precedente. Questa dinamica consente di mantenere la chat scorrevole e guidata, riducendo lo sforzo cognitivo dell’utente e favorendo un approccio progressivo alla comprensione delle problematiche di accessibilità della pagina web (vedi figura \ref{fig:aass2}).
 
@@ -81,7 +81,7 @@ Ad ogni scambio successivo, il sistema arricchisce la conversazione proponendo u
 \end{figure}
 
 \subsubsection{Modalità guidata}
-\noindent La modalità di sviluppo guidato (vedi figure \ref{fig:mg} e \ref{fig:mg_notte}) si differenzia dall’analisi assistita per la presenza di un’interfaccia composta da tre pannelli distinti. Sulla sinistra rimane visibile il DOM della pagina mentre sulla destra è presente la finestra della chat. La novità è costituita dal pannello centrale, dedicato alla visualizzazione dei frammenti di codice suggeriti dal chatbot.\\
+\noindent La modalità di sviluppo guidato (vedi figure \ref{fig:mg} e \ref{fig:mg_notte}) si differenzia dall’analisi assistita per la presenza di un’interfaccia composta da tre pannelli distinti. Sulla sinistra rimane visibile il \acrshort{dom} della pagina mentre sulla destra è presente la finestra della chat. La novità è costituita dal pannello centrale, dedicato alla visualizzazione dei frammenti di codice suggeriti dal \glslink{chatbotg}{chatbot}.\\
 \\
 Inizialmente, quest’area centrale appare vuota e contiene soltanto un messaggio in grigio, con caratteri a richiamo “informatico”, che riporta la dicitura \texttt{eventuale codice suggerito}. Come nella modalità assistita, anche qui la chat propone due domande iniziali suggerite per avviare l’interazione: \textit{"Come si crea un <head> che contenga tutti gli elementi utili per una pagina accessibile?"} e \textit{"Come rendo accessibili le immagini?"}.\\
 
@@ -97,8 +97,8 @@ Inizialmente, quest’area centrale appare vuota e contiene soltanto un messaggi
     \caption{Modalità: sviluppo guidato - modalità notte}\label{fig:mg_notte}
 \end{figure}
 
-\noindent Quando l’utente seleziona una domanda, il chatbot non solo produce una risposta testuale, ma genera anche un blocco di codice che viene immediatamente visualizzato nel pannello centrale. Questa caratteristica rende la modalità guidata particolarmente utile in fase di sviluppo, poiché consente di osservare concretamente le soluzioni suggerite e di integrarle facilmente nel proprio progetto.\\
-Per agevolare l’utilizzo pratico, ogni codice prodotto può essere scaricato direttamente tramite l’apposito pulsante “Scarica codice” (vedi figura \ref{fig:mg2}). L’estensione genera automaticamente un file HTML contenente i blocchi di codice proposti, consentendo allo sviluppatore di salvare e riutilizzare le soluzioni in maniera rapida e strutturata.
+\noindent Quando l’utente seleziona una domanda, il \glslink{chatbotg}{chatbot} non solo produce una risposta testuale, ma genera anche un blocco di codice che viene immediatamente visualizzato nel pannello centrale. Questa caratteristica rende la modalità guidata particolarmente utile in fase di sviluppo, poiché consente di osservare concretamente le soluzioni suggerite e di integrarle facilmente nel proprio progetto.\\
+Per agevolare l’utilizzo pratico, ogni codice prodotto può essere scaricato direttamente tramite l’apposito pulsante “Scarica codice” (vedi figura \ref{fig:mg2}). L’estensione genera automaticamente un file \acrshort{html} contenente i blocchi di codice proposti, consentendo allo sviluppatore di salvare e riutilizzare le soluzioni in maniera rapida e strutturata.
 
 \begin{figure}[H]
     \centering
@@ -147,7 +147,7 @@ async function inviaPrompt(prompt) {
     \end{lstlisting}
 
     
-    \item l’invio del \acrshort{dom} insieme alla richiesta di modifica, scenario in cui l’IA produce sia una risposta argomentata sia un blocco di codice pronto per essere inserito nel pannello centrale della pagina nella modalità di sviluppo guidato.
+    \item l’invio del \acrshort{dom} insieme alla richiesta di modifica, scenario in cui l’\acrshort{ia} produce sia una risposta argomentata sia un blocco di codice pronto per essere inserito nel pannello centrale della pagina nella modalità di sviluppo guidato.
     \begin{lstlisting}[language=JavaScript, caption={Prompt per la generazione di risposta e codice \acrshort{html} accessibile}]
     const promptCodice =
       `Sei un assistente che aiuta a rendere accessibile il codice HTML. ` +
@@ -162,11 +162,11 @@ Questa diversificazione consente di mantenere un approccio modulare e adattabile
 
 
 \subsection{Filtraggio risposta generata}
-\noindent Un aspetto fondamentale del funzionamento dell'estensione riguarda il filtraggio e la rielaborazione della risposta generata dall’\glslink{iag}{intelligenza artificiale}. Le risposte restituite da Ollama, infatti, non vengono mostrate direttamente all’utente, ma sono sottoposte ad un processo di parsing e di pulizia.\\
+\noindent Un aspetto fondamentale del funzionamento dell'estensione riguarda il filtraggio e la rielaborazione della risposta generata dall’\glslink{iag}{intelligenza artificiale}. Le risposte restituite da Ollama, infatti, non vengono mostrate direttamente all’utente, ma sono sottoposte ad un processo di \glslink{parsingg}{parsing} e di pulizia.\\
 In primo luogo, l’estensione distingue le diverse tipologie di output attese: la risposta vera e propria alla domanda inserita, le eventuali domande suggerite e gli eventuali blocchi di codice generati da visualizzare e/o scaricare. A tal fine vengono utilizzati marcatori testuali inseriti nel prompt (ad esempio \texttt{\#\#DOMANDE\#\#} o \texttt{\#\#CODICE\#\#}), che consentono di individuare con precisione le sezioni rilevanti all’interno della risposta. \\Una volta ricevuto l’output, funzioni dedicate come \texttt{estraiRigheDaRisposta} ed \\ \texttt{estraiDomandeSuggerite} applicano espressioni regolari per isolare le parti utili, scartando elementi ridondanti o formattazioni non necessarie.\\
 \\
 Il filtraggio consente anche di separare le informazioni in blocchi distinti, in modo che ciascun contenuto possa essere mostrato nella pagina web nel pannello appropriato (ad esempio, suggerimenti testuali nella chat e codice sorgente nel riquadro centrale). Questo approccio riduce il carico cognitivo per l’utente, che non si trova di fronte a una risposta grezza e complessa, ma ad un output strutturato e facilmente navigabile.\\ Inoltre la possibilità di visualizzare alcune righe di codice evidenziate consente una comprensione più immediata del codice sorgente analizzato rendendo più intuitivo il processo di revisione del codice.
 
 \section{Problematiche riscontrate}
-\noindent Durante lo sviluppo del progetto sono emerse alcune criticità di natura tecnica. In primo luogo, la scelta dell’IA da integrare si è rivelata complessa: le API gratuite disponibili online presentavano forti limitazioni legate al numero di token, rendendole inadeguate per un utilizzo continuativo. Successivamente è stata valutata l’adozione di Ollama, la cui installazione, tuttavia, non è risultata possibile sul computer personale a causa delle risorse hardware insufficienti. L’ostacolo è stato superato grazie alla disponibilità di un computer fornito dall’università, che ha consentito l’utilizzo stabile della piattaforma.\\\\
-Un’ulteriore problematica si è manifestata dopo l’integrazione dell’IA nell’estensione: l’invio delle richieste tramite la chat restituiva sistematicamente il messaggio \texttt{“Errore durante l’elaborazione: Risposta vuota dal server”}. Attraverso un’attenta fase di debug, supportata dall’inserimento di log per tracciare l’esecuzione, è stato possibile individuare la causa: non un malfunzionamento dell’IA o dell'estensione, bensì le restrizioni imposte da Chrome, che limita l’interazione delle estensioni con API esterne, bloccando di fatto la corretta trasmissione delle richieste.\\Il problema è stato infine risolto avviando Chrome da terminale con parametri specifici che disabilitano i blocchi di sicurezza predefiniti, permettendo così all’estensione di comunicare correttamente con l’IA.
+\noindent Durante lo sviluppo del progetto sono emerse alcune criticità di natura tecnica. In primo luogo, la scelta dell’\acrshort{ia} da integrare si è rivelata complessa: le \acrshort{api} gratuite disponibili online presentavano forti limitazioni legate al numero di token, rendendole inadeguate per un utilizzo continuativo. Successivamente è stata valutata l’adozione di Ollama, la cui installazione, tuttavia, non è risultata possibile sul computer personale a causa delle risorse hardware insufficienti. L’ostacolo è stato superato grazie alla disponibilità di un computer fornito dall’università, che ha consentito l’utilizzo stabile della piattaforma.\\\\
+Un’ulteriore problematica si è manifestata dopo l’integrazione dell’\acrshort{ia} nell’estensione: l’invio delle richieste tramite la chat restituiva sistematicamente il messaggio \texttt{“Errore durante l’elaborazione: Risposta vuota dal server”}. Attraverso un’attenta fase di \glslink{debuggingg}{debug}, supportata dall’inserimento di log per tracciare l’esecuzione, è stato possibile individuare la causa: non un malfunzionamento dell’\acrshort{ia} o dell'estensione, bensì le restrizioni imposte da Chrome, che limita l’interazione delle estensioni con \acrshort{api} esterne, bloccando di fatto la corretta trasmissione delle richieste.\\Il problema è stato infine risolto avviando Chrome da terminale con parametri specifici che disabilitano i blocchi di sicurezza predefiniti, permettendo così all’estensione di comunicare correttamente con l’\acrshort{ia}.
