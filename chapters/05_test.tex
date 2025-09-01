@@ -6,16 +6,31 @@
 I test hanno preso in considerazione gli errori individuati da TV insieme a quelli segnalati dalla docente referente e sono stati messi a confronto con gli errori rilevati da \textit{SviluppAbile}.
 Infine, ho confrontato i risultati elaborando un resoconto per ciascun sito analizzato e, successivamente, ho applicato la metrica F1-score per ottenere un report oggettivo.
 
-\subsection{F1-score} 
-\noindent La F$_1$-score è una metrica utilizzata per valutare i modelli di classificazione, sia binari che multi‐classe. 
-Essa combina in un unico valore la \textit{precision} (quanto le predizioni positive sono corrette) e il \textit{recall} (quanti casi positivi reali sono stati identificati), calcolandone la media armonica:
+\subsection{F1-score}
+\noindent La F\textsubscript{1}-score è una metrica utilizzata per valutare modelli di classificazione, sia binari che multi‐classe. Essa combina in un unico valore la \textit{precision} (quanto le predizioni positive sono corrette) e il \textit{recall} (quanti casi positivi reali vengono identificati), calcolati come:
+
+\[
+\text{Precision} = \frac{TP}{TP + FP}, 
+\qquad
+\text{Recall} = \frac{TP}{TP + FN}
+\]
+
+\vspace{0.5cm}
+\noindent L’F\textsubscript{1}-score è definita come la media armonica di tali valori:
 
 \[
 F_{1} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
+ = \frac{2 \cdot TP}{2 \cdot TP + FP + FN}
 \]
+\vspace{0.1cm}
 
-\noindent Questa formulazione assicura che il punteggio sia elevato solo quando entrambe le metriche hanno valori alti, penalizzando fortemente gli squilibri. 
-La F$_1$-score risulta particolarmente utile in presenza di dati sbilanciati, poiché fornisce una valutazione più affidabile.
+\noindent Questo significa che nel calcolo verranno utilizzati i tre dati rilevati nel presente lavoro:
+"errori trovati" come \(TP\) (veri positivi), "errori non trovati" come \(FN\) (falsi negativi), e \(FP\) (falsi positivi).
+In questo modo, l’F\textsubscript{1}-score riflette in modo equilibrato sia la capacità di individuare correttamente errori reali, sia il controllo sui falsi allarmi.\\
+
+\noindent L’F\textsubscript{1}-score assume valori compresi tra 0 e 1. Il valore minimo, \(0\), indica prestazioni pessime (almeno una delle due metriche è nulla), mentre il valore massimo, \(1\), corrisponde a prestazioni perfette (precisione e recall entrambi pari a 1).\\
+Valori prossimi a 1 indicano quindi un buon funzionamento del sistema, mentre valori vicini a 0 segnalano performance insoddisfacenti.
+
 
 % SUDOKU WORLD
 \subsection{Sito web: SudokuWorld}
@@ -44,98 +59,36 @@ Gli errori principali sono:
 \end{figure}
 
 \subsubsection{SviluppAbile}
-\noindent Di seguito vengono riportate alcune domande fatte e risposte ricevute dall'estensione \textit{SviluppAbile}. \newline
-\\ \vspace{-0.5cm}
-\noindent(pagina home.php)\\
-\subsubsection*{\texttt{Il mio codice HTML rispetta le linee guida WCAG?}}
-\begin{adjustwidth}{1cm}{1cm}
-\noindent {\footnotesize Il tuo codice HTML sembra essere in parte conforme alle linee guida WCAG (Web Content Accessibility Guidelines), ma potrebbe migliorare ulteriormente per garantire una maggiore accessibilità. Alcune aree che richiedono ulteriore attenzione includono:\\
-- L'attributo `aria-label` non è utilizzato in modo coerente nei controlli di navigazione.\\
-- Le etichette dei pulsanti "Cerca" e "Profilo" potrebbero essere più descrittive.\\
-Tuttavia, il tuo codice include molti elementi positivi come l'utilizzo di `alt` per immagini, la presenza di un titolo (`<title>`) e di metatag di descrizione (`<meta name="description">`). Questi sono passaggi fondamentali per migliorare la comprensione del contenuto da parte dei motori di ricerca e degli assistenti.\\
-Per garantire una maggiore accessibilità, considera di applicare ulteriormente le linee guida WCAG 2.1, che offrono standard e raccomandazioni per creare esperienze web più inclusive.\\
-La pagina non rispetta la norma W3C WCAG 2.1 che richiede di nidificare correttamente le intestazioni. Non sono presenti elementi HTML con attributo "h1", mentre ci sono intestazioni con grado inferiore.\\
-La situazione descritta viola la regola WCAG 1.3.1, che richiede la corretta gerarchia di intestazioni (H1 > H2 > H3). In questo caso, l'h2 non è diretto al figlio dell'H1.\\
-Vi è inoltre la presenza di due etichette (label) con il valore "Cerca" all'interno della stessa pagina HTML, ma con attributi id diversi ("searched-product" e "for"). Secondo la specifica SC 2.4.6, le etichette dei form control devono essere uniche.
-}
-\end{adjustwidth}
-
-\subsubsection*{\texttt{Vi sono errori riguardanti i link?}}
-\begin{adjustwidth}{1cm}{1cm}
-\noindent {\footnotesize Il codice HTML contiene due carousel circolari:\\
-1.  Il primo è definito come "specialProductsCarousel" e si trova nella sezione `<main>`.\\
-2.  Il secondo è chiamato "bestSellersCarousel" ed è anch'esso presente all'interno della stessa sezione.\\
-Quanto ai controlli sui link visitati, non sono implementati controlli specifici per la traccia dei link visitati sul sito web.
-} \\
-\end{adjustwidth}
-
-\noindent(pagina sudoku.php)
-\vspace{-0.5cm}
-\subsubsection*{\texttt{Il mio codice HTML rispetta le linee guida WCAG?}} 
-\begin{adjustwidth}{1cm}{1cm}
-\noindent {\footnotesize Il tuo codice HTML non rispetta pienamente le linee guida WCAG (Web Content Accessibility Guidelines) per diverse ragioni:\\
-1.  **La navigazione è troppo complessa**: la barra di navigazione contiene molti elementi e link, potrebbe essere difficile per gli utenti disabili utilizzare l'interfaccia.\\
-2.  **L'accessibilità dei form è insufficiente**: non sono presenti attributi accessibili per i campi di input e submit, rendendo la navigazione dei form difficoltosa per gli utenti che usano dispositivi di assistenza.\\
-3.  **La lettura dei testi in basso risulta difficile**: alcuni elementi come il timer sono troppo piccoli per essere letti facilmente dagli schermi con alto contrasto o da dispositivi di assistenza.\\
-4.  **Non ci sono alternative al linguaggio naturale**: le immagini contengono solo icone e simboli, che potrebbero non essere compresi da utenti analfabetici.\\
-\\Aggiungere attributi accessibili ai campi input e submit:\\
-*   Modifica il codice HTML come segue:\\
-    \texttt{<form class="d-flex align-items-center my-2 my-lg-0 ms-auto" \\ action="/amonaco/Sudokuworld/pages/search.php" method="GET"> 
-    \begin{adjustwidth}{1cm}{}  <label for="searched-product" class="visually-hidden">Cerca</label>\end{adjustwidth}
-    \begin{adjustwidth}{1cm}{} 
-        <input class="form-control me-2" type="search" name="searched-product" id="searched-product" placeholder="Cerca" value="" aria-label="Search" />
-    \end{adjustwidth}
-    \begin{adjustwidth}{1cm}{} 
-        <button class="btn btn-outline-success" type="submit" \textbf{aria-label="Submit the form"}>Cerca</button>
-    \end{adjustwidth}
-    </form>}\\
-\\Aggiungere tag alt alle immagini: assicurati di aggiungere il contenuto alternativo per ogni immagine.\\
-*   Modifica il codice HTML come segue:\\
-    \texttt{<a class="nav-link" href="/amonaco/Sudokuworld/pages/sudoku.php">\\
-    \indent <i class="bi bi-grid-3x3-gap-fill"></i>\\
-    </a>}\\
-\\Aggiungere tag aria: per fornire informazioni aggiuntive alle pagine web, puoi utilizzare gli attributi aria.\\
-*   Modifica il codice HTML come segue:\\
-    \texttt{<h1 class="container border border-black p-2 mb-4 rounded text-center" id="sudokuTitle" role="heading" aria-level="1">!! Sudoku !!</h1>}\\
-\\Controlla l'accessibilità con strumenti di testing: prima della pubblicazione, assicurati di utilizzare strumenti come Lighthouse o WAVE per valutare la tua pagina web e risolvere eventuali problemi.\\
-Ricorda che un sito web accessibile è più facile da utilizzare per tutti gli utenti, compresi quelli con disabilità.\\
-\\
-\texttt{DOMANDE SUGGERITE: \\"Quale è il criterio WCAG 2.1 che riguarda la navigazione con tastiera?"
-\\"Come posso utilizzare gli strumenti di analisi del codice per identificare le aree dell'accessibilità da migliorare nel mio sito web HTML?"
-}}
-\end{adjustwidth}
-
-\paragraph*{\texttt{"Come posso utilizzare gli strumenti di analisi del codice per \\ identificare le aree dell'accessibilità da migliorare nel mio sito web HTML?"}} 
-\begin{adjustwidth}{1cm}{1cm}
-\noindent {\footnotesize Per identificare le aree dell'accessibilità da migliorare nel tuo sito web HTML, puoi utilizzare gli strumenti di analisi come W3C Validator e Lighthouse. Il W3C Validator verifica la correttezza del codice HTML e fornisce suggerimenti per migliorare l'accessibilità. Lighthouse è uno strumento open-source che valuta l'accessibilità, le prestazioni e la sicurezza del tuo sito web.}
-\end{adjustwidth}
 
 \subsubsection{Resoconto finale}
-\noindent SviluppAbile riesce a riconoscere i principali problemi di struttura semantica e \glslink{formg}{form}.\\
-Ha individuato gli stessi problemi evidenziati da \acrshort{tv}, in particolare:
-\begin{enumerate}
-    \item Struttura delle intestazioni (WCAG 1.3.1): in diverse pagine è stata rilevata la mancata nidificazione corretta degli heading (<h1> > <h2> > <h3>).
-    \item Accessibilità dei \glslink{formg}{form}: problemi relativi a etichette non uniche e campi privi di label/aria-label sono stati segnalati da entrambe le analisi.
-    \item Mancanza di pulsanti submit o pulsanti non correttamente etichettati.
-\end{enumerate}
+\noindent Nella tabella \ref{tab:sudokuWorld} viene fatto un riassunto/resoconto degli errori trovati
 
-\vspace{0.5cm}
-\noindent \textbf{PRO:}\\
-\noindent Rispetto alla valutazione di \acrshort{tv}, \textit{SviluppAbile} fornisce descrizioni dettagliate dei problemi e suggerimenti di correzione con esempi di codice, non limitandosi alla sola segnalazione dell’errore. Inoltre individua aspetti migliorabili non segnalati da \acrshort{tv}, come l’uso non coerente di aria-label nei controlli di navigazione, etichette di pulsanti poco descrittive, mancanza di alternative testuali esaustive per immagini già dotate di alt.\\
-Rispetto allo strumento Lighthouse, il quale assegna un punteggio del 100\% sull'accessibilità, \textit{SviluppAbile} individua errori e aiuta a correggerli.\\
-Continuando a fare domande nella chat si possono approfondire man-mano i vari aspetti dell’accessibilità, cosicché lo sviluppatore possa migliorare la propria pagina web.
+\begin{footnotesize}
+\begin{longtable}[c]{|C{2.85cm}|C{8cm}|C{2.85cm}|}
+\caption{Tabella riassuntiva analisi \textit{SudokuWorld} tramite \textit{SviluppAbile}}
+\label{tab:sudokuWorld}\\
+\hline
+\textbf{Errori trovati} & \textbf{Errori non trovati} & \textbf{Falsi positivi}\\
+\hline
+\endfirsthead
+\multicolumn{3}{c}%
+{{\bfseries Tabella \thetable\ -- continua dalla pagina precedente}} \\
+\hline
+\textbf{Errori trovati} & \textbf{Errori non trovati} & \textbf{Falsi positivi}\\
+\hline
+\endhead
+\hline
+\multicolumn{3}{r}{{ -- continua nella pagina successiva}} \\
+\endfoot
+\hline
+\endlastfoot
+\textbf{RD-01} & xx & UC xx\\
+\hline
+\textbf{RD-02} & xx & UC xx\\
+\hline
+\end{longtable}
+\end{footnotesize}
 
-\vspace{0.5cm}
-\noindent \textbf{CONTRO:}\\
-\noindent Rispetto alla valutazione di \acrshort{tv} e di un esperto di accessibilità web, \textit{SviluppAbile} non segnala alcuni dettagli di esperienza utente (ad esempio mancanza di presentazione del sito, estetica troppo predefinita, assenza di padding/margini); problemi di navigazione post-login/logout o di comportamento del carosello, che sono più legati alla logica di funzionamento che al solo \acrshort{html}.\\
-\textit{SviluppAbile} necessita di domande specifiche e in alcuni casi del caricamento degli errori individuati da altri strumenti (Total Validator) per l’individuazioni di alcuni errori.\\
-Inoltre, l'estensione non ha accesso al file di stile, quindi non può controllare la parte relativa ai colori/link visitati.\\
-Da notare che Ollama usa la parola "disabili", termonilogia nè esatta nè tantomeno rispettosa. Il termine corretto è utenti con disabilità.
-
-\vspace{0.5cm}
-\noindent \textbf{CONCLUSIONE:}\\
-\noindent Il confronto evidenzia che \textit{SviluppAbile} è efficace nell’individuare gran parte delle non conformità WCAG 2.1 di tipo tecnico e fornisce un supporto pratico agli sviluppatori grazie ai suggerimenti di modifica.\\
-La valutazione del sito web effettuata durante il concorso, seppur meno dettagliata sul piano tecnico, integra invece aspetti legati alla fruibilità reale del sito e alla presentazione dei contenuti, che attualmente richiedono ancora un’analisi manuale.
 
 % DOLCE RISVEGLIO
 \subsection{Sito web: Dolce Risveglio}
@@ -144,7 +97,7 @@ La valutazione del sito web effettuata durante il concorso, seppur meno dettagli
 \subsubsection{Total Validator}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth, alt={Screenshot dell'analisi di Total Validator sul sito web Dolce Risveglio}]{img/TV_sudoku.png}
+    \includegraphics[width=0.8\linewidth, alt={Screenshot dell'analisi di Total Validator sul sito web Dolce Risveglio}]{img/TV_sudoku.png}
     \caption{Analisi di Total Validator sul sito web \textit{Dolce Risveglio}}\label{fig:TV_sudoku}
 \end{figure}
 
@@ -182,11 +135,115 @@ Gli errori principali sono:
 
 % BOOKOVERFLOW
 \subsection{Sito web: BookOverflow}
-\noindent Di seguito vengono riportati alcuni dei test effettuati sul sito \href{https://caa.studenti.math.unipd.it/lribon/}{BookOverflow}.
+\noindent Di seguito vengono riportati alcuni dei test effettuati sul sito \href{https://caa.studenti.math.unipd.it/lribon/}{BookOverflow}, sito web vincitore del concorso.
+\subsubsection{Total Validator}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth, alt={Screenshot dell'analisi di Total Validator sul sito web BookOverflow}]{img/TV_bookoverflow.png}
+    \caption{Analisi di Total Validator sul sito web \textit{BookOverflow}}\label{fig:TV_bookoverflow}
+\end{figure}
+
+\noindent Come visibile in figura \ref{fig:TV_bookoverflow}, non vi sono errori di accessibilità.
+
+\subsubsection{Lighthouse}
+\noindent Il report generato dallo strumento Lighthouse ha restituito un punteggio di 100/100 nella sezione Accessibility, indicando che, secondo le metriche automatiche adottate, non sono stati rilevati errori o problematiche di conformità (vedi figura \ref{fig:Lighthouse_bookoverflow}).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth, alt={Screenshot dell'analisi di Lighthouse sul sito web BookOverflow}]{img/Lighthouse_bookoverflow.png}
+    \caption{Analisi di Lighthouse sul sito web \textit{BookOverflow}}\label{fig:Lighthouse_bookoverflow}
+\end{figure}
+
+\subsubsection{SviluppAbile}
+\noindent Nella tabella \ref{tab:bookoverflow} vengono riportati i risultati ottenuti utilizzando l'estensione \textit{SviluppAbile}.
+\begin{footnotesize}
+\begin{longtable}[c]{|C{4.6cm}|C{4.6cm}|C{4.6cm}|}
+\caption{Tabella riassuntiva analisi \textit{BookOverflow} tramite \textit{SviluppAbile}}
+\label{tab:bookoverflow}\\
+\hline
+\textbf{Errori trovati} & \textbf{Errori non trovati} & \textbf{Falsi positivi}\\
+\hline
+\endfirsthead
+\multicolumn{3}{c}%
+{{\bfseries Tabella \thetable\ -- continua dalla pagina precedente}} \\
+\hline
+\textbf{Errori trovati} & \textbf{Errori non trovati} & \textbf{Falsi positivi}\\
+\hline
+\endhead
+\hline
+\multicolumn{3}{r}{{ -- continua nella pagina successiva}} \\
+\endfoot
+\hline
+\endlastfoot
+ & 
+\begin{itemize}
+    \item Contrasto insufficiente link visitati/non
+\end{itemize}
+ & \begin{itemize}
+    \item Tabindex non adeguato
+\end{itemize}\\
+\hhline{|=|=|=|} 
+0 & 1 & 1 \\
+\end{longtable}
+\end{footnotesize}
+
+\noindent L'F\textsubscript{1}-score calcolato è $F_{1}=0$, valore che indica prestazioni non soddisfacenti in questo caso specifico. 
+Ciò evidenzia la necessità di ulteriori miglioramenti nell’identificazione degli errori, soprattutto per quanto riguarda i falsi positivi.
 
 % LUZZAUTO
 \subsection{Sito web: LuzzAuto}
 \noindent Di seguito vengono riportati alcuni dei test effettuati sul sito \href{https://caa.studenti.math.unipd.it/eartusi/index.php}{LuzzAuto}.
+\subsubsection{Total Validator}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth, alt={Screenshot dell'analisi di Total Validator sul sito web LuzzAuto}]{img/TV_luzzauto.png}
+    \caption{Analisi di Total Validator sul sito web \textit{LuzzAuto}}\label{fig:TV_luzzauto}
+\end{figure}
+
+\noindent Come visibile in figura \ref{fig:TV_luzzauto}, sono segnalati solamente alcuni "Warning". Non sono quindi presenti veri e propri errori di accessibilità.
+
+\subsubsection{Lighthouse}
+\noindent Il report generato dallo strumento Lighthouse ha restituito un punteggio di 100/100 nella sezione Accessibility, indicando che, secondo le metriche automatiche adottate, non sono stati rilevati errori o problematiche di conformità (vedi figura \ref{fig:Lighthouse_luzzauto}).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth, alt={Screenshot dell'analisi di Lighthouse sul sito web LuzzAuto}]{img/Lighthouse_luzzauto.png}
+    \caption{Analisi di Lighthouse sul sito web \textit{LuzzAuto}}\label{fig:Lighthouse_luzzauto}
+\end{figure}
+
+\subsubsection{SviluppAbile}
+\noindent Nella tabella \ref{tab:luzzauto} vengono riportati i risultati ottenuti utilizzando l'estensione \textit{SviluppAbile}.
+\begin{footnotesize}
+\begin{longtable}[c]{|C{4.6cm}|C{4.6cm}|C{4.6cm}|}
+\caption{Tabella riassuntiva analisi \textit{LuzzAuto} tramite \textit{SviluppAbile}}
+\label{tab:luzzauto}\\
+\hline
+\textbf{Errori trovati} & \textbf{Errori non trovati} & \textbf{Falsi positivi}\\
+\hline
+\endfirsthead
+\multicolumn{3}{c}%
+{{\bfseries Tabella \thetable\ -- continua dalla pagina precedente}} \\
+\hline
+\textbf{Errori trovati} & \textbf{Errori non trovati} & \textbf{Falsi positivi}\\
+\hline
+\endhead
+\hline
+\multicolumn{3}{r}{{ -- continua nella pagina successiva}} \\
+\endfoot
+\hline
+\endlastfoot
+ & 
+\begin{itemize}
+    \item Contrasto insufficiente link visitati/non
+\end{itemize}
+ & \begin{itemize}
+    \item Tabindex non adeguato
+\end{itemize}\\
+\hhline{|=|=|=|} 
+0 & 1 & 1 \\
+\end{longtable}
+\end{footnotesize}
+
+\noindent L'F\textsubscript{1}-score calcolato è $F_{1}=0$, valore che indica prestazioni non soddisfacenti in questo caso specifico. 
+Ciò evidenzia la necessità di ulteriori miglioramenti nell’identificazione degli errori, soprattutto per quanto riguarda i falsi positivi.
 
 
 \section{Test ``Modalità guidata''}
