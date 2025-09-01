@@ -61,10 +61,9 @@ Gli errori principali sono:
 \subsubsection{SviluppAbile}
 
 \subsubsection{Resoconto finale}
-\noindent Nella tabella \ref{tab:sudokuWorld} viene fatto un riassunto/resoconto degli errori trovati
-
+\noindent Nella tabella \ref{tab:sudokuWorld} vengono riportati i risultati ottenuti utilizzando l'estensione \textit{SviluppAbile}.
 \begin{footnotesize}
-\begin{longtable}[c]{|C{2.85cm}|C{8cm}|C{2.85cm}|}
+\begin{longtable}[c]{|C{4.8cm}|C{4.8cm}|C{4.8cm}|}
 \caption{Tabella riassuntiva analisi \textit{SudokuWorld} tramite \textit{SviluppAbile}}
 \label{tab:sudokuWorld}\\
 \hline
@@ -82,58 +81,108 @@ Gli errori principali sono:
 \endfoot
 \hline
 \endlastfoot
-\textbf{RD-01} & xx & UC xx\\
-\hline
-\textbf{RD-02} & xx & UC xx\\
-\hline
+ & 
+\begin{itemize}
+    \item 
+\end{itemize}
+ & \begin{itemize}
+    \item 
+\end{itemize}\\
+\hhline{|=|=|=|} 
+x & x & x \\
 \end{longtable}
 \end{footnotesize}
 
 
 % DOLCE RISVEGLIO
 \subsection{Sito web: Dolce Risveglio}
-\noindent Di seguito vengono riportati alcuni dei test effettuati sul sito \href{https://caa.studenti.math.unipd.it/gchecchi/}{DolceRisveglio}.
+\noindent Di seguito vengono riportati alcuni dei test effettuati sul sito web \href{https://caa.studenti.math.unipd.it/gchecchi/}{DolceRisveglio}.
 
 \subsubsection{Total Validator}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth, alt={Screenshot dell'analisi di Total Validator sul sito web Dolce Risveglio}]{img/TV_sudoku.png}
-    \caption{Analisi di Total Validator sul sito web \textit{Dolce Risveglio}}\label{fig:TV_sudoku}
+    \includegraphics[width=0.9\linewidth, alt={Screenshot dell'analisi di Total Validator sul sito web Dolce Risveglio}]{img/TV_dolcerisveglio.png}
+    \caption{Analisi di Total Validator sul sito web \textit{Dolce Risveglio}}\label{fig:TV_dolcerisveglio}
 \end{figure}
 
-\noindent Come visibile nella figura \ref{fig:TV_sudoku} è possibile vedere che lo strumento \acrshort{tv} trova ben 15 errori di accessibilità.\\
-Gli errori principali sono: 
-\begin{itemize}
-    \item E913 - SC 2.4.6: Le etichette dei controlli dei \glslink{formg}{form} devono essere univoche. Utilizzare etichette univoche consente agli utenti di distinguere i vari controlli presenti sulla stessa pagina quando vengono letti da uno screen reader. In alternativa, è possibile inserirli all’interno di diversi <fieldset> con <legend> univoci, poiché il testo del <legend> viene letto insieme all’etichetta del controllo. Vedi WCAG2 Success Criterion 2.4.6.
-    \item P883 - SC 1.3.1: Nidificare correttamente le intestazioni (H1 > H2 > H3). Gli elementi di intestazione devono essere ordinati in modo gerarchico. Ad esempio, un elemento H2 dovrebbe seguire un H1, un H3 dovrebbe seguire un H2, e così via. Gli sviluppatori non devono saltare livelli né utilizzare le intestazioni solo per scopi di presentazione. Vedi WCAG2 Failure F43.
-\end{itemize}
+\noindent L'analisi (vedi figura \ref{fig:TV_dolcerisveglio}) ha rilevato 2 errori relativi ai link e 1 warning. 
+Gli errori comprendono un URL con richiesta non valida e un problema lato server da verificare nei log. 
+Il warning riguarda la necessità di distinguere tra più aree di navigazione tramite un'etichetta ARIA. 
+Questi risultati suggeriscono di controllare manualmente i link problematici e di migliorare l'accessibilità delle barre di navigazione.
 
 \subsubsection{Lighthouse}
-\noindent Il report generato dallo strumento Lighthouse ha restituito un punteggio di 100/100 nella sezione Accessibility, indicando che, secondo le metriche automatiche adottate, non sono stati rilevati errori o problematiche di conformità (vedi figura \ref{fig:Lighthouse_sudoku}).
+\noindent Il report ha restituito un punteggio di 100/100 nella sezione \textit{Accessibility}, indicando che, secondo le metriche automatiche adottate, non sono stati rilevati errori o problematiche di conformità (vedi figura \ref{fig:Lighthouse_dolcerisveglio}).
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth, alt={Screenshot dell'analisi di Lighthouse sul sito web SudokuWorld}]{img/Lighthouse_sudoku.png}
-    \caption{Analisi di Lighthouse sul sito web \textit{Dolce Risveglio}}\label{fig:Lighthouse_sudoku}
+    \includegraphics[width=0.6\linewidth, alt={Screenshot dell'analisi di Lighthouse sul sito web DolceRisveglio}]{img/Lighthouse_dolcerisveglio.png}
+    \caption{Analisi di Lighthouse sul sito web \textit{Dolce Risveglio}}\label{fig:Lighthouse_dolcerisveglio}
 \end{figure}
 
 \subsubsection{SviluppAbile}
-\noindent Di seguito vengono riportate alcune domande fatte e risposte ricevute dall'estensione \textit{SviluppAbile}. \newline
-\\ \vspace{-0.5cm}
-\noindent(pagina home.php)\\
-\subsubsection*{\texttt{Il mio codice HTML rispetta le linee guida WCAG?}}
-\begin{adjustwidth}{1cm}{1cm}
-\noindent {\footnotesize xxx }
-\end{adjustwidth}
 
-% E-LIXIRIUM
+
+% === E-LIXIRIUM ===
 \subsection{Sito web: E-lixirium}
-\noindent Di seguito vengono riportati alcuni dei test effettuati sul sito \href{https://caa.studenti.math.unipd.it/abaldazz/?page=home}{E-lixirium}.
+\noindent Di seguito vengono riportati alcuni dei test effettuati sul sito web \href{https://caa.studenti.math.unipd.it/abaldazz/?page=home}{E-lixirium}.
+\subsubsection{Total Validator}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth, alt={Screenshot dell'analisi di Total Validator sul sito web E-lixirium}]{img/TV_elixirium.png}
+    \caption{Analisi di Total Validator sul sito web \textit{E-lixirium}}\label{fig:TV_elixirium}
+\end{figure}
 
-% CORSA IDEALE
+\noindent L'analisi (vedi figura \ref{fig:TV_elixirium}) ha rilevato 2 errori principali e 44 warning. 
+Gli errori riguardano principalmente elementi con ruoli ARIA a cui non è stato associato un nome accessibile e testi alternativi non significativi. Tra i warning, i più frequenti sono duplicazioni di testo alternativo per immagini, nomi accessibili generati da attributi \texttt{title}, link adiacenti con testi diversi e l’assenza di link di navigazione rapida. 
+
+\subsubsection{Lighthouse}
+\noindent Il report ha restituito un punteggio di 96/100 nella sezione \textit{Accessibility} (vedi figura \ref{fig:Lighthouse_elixirium}). 
+Il problema segnalato riguarda il contrasto insufficiente tra colori di sfondo e primo piano, che può ridurre la leggibilità per alcuni utenti. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth, alt={Screenshot dell'analisi di Lighthouse sul sito web E-lixirium}]{img/Lighthouse_elixirium.png}
+    \caption{Analisi di Lighthouse sul sito web \textit{E-lixirium}}\label{fig:Lighthouse_elixirium}
+\end{figure}
+
+\subsubsection{SviluppAbile}
+\noindent Nella tabella \ref{tab:elixirium} vengono riportati i risultati ottenuti utilizzando l'estensione \textit{SviluppAbile}.
+\begin{footnotesize}
+\begin{longtable}[c]{|C{4.8cm}|C{4.8cm}|C{4.8cm}|}
+\caption{Tabella riassuntiva analisi \textit{E-lixirium} tramite \textit{SviluppAbile}}
+\label{tab:elixirium}\\
+\hline
+\textbf{Errori trovati} & \textbf{Errori non trovati} & \textbf{Falsi positivi}\\
+\hline
+\endfirsthead
+\multicolumn{3}{c}%
+{{\bfseries Tabella \thetable\ -- continua dalla pagina precedente}} \\
+\hline
+\textbf{Errori trovati} & \textbf{Errori non trovati} & \textbf{Falsi positivi}\\
+\hline
+\endhead
+\hline
+\multicolumn{3}{r}{{ -- continua nella pagina successiva}} \\
+\endfoot
+\hline
+\endlastfoot
+ & 
+\begin{itemize}
+    \item 
+\end{itemize}
+ & \begin{itemize}
+    \item 
+\end{itemize}\\
+\hhline{|=|=|=|} 
+x & x & x \\
+\end{longtable}
+\end{footnotesize}
+
+\noindent L'F\textsubscript{1}-score calcolato è $F_{1}=xx$, 
+
+% === CORSA IDEALE ===
 \subsection{Sito web: Corsa Ideale}
-\noindent Di seguito vengono riportati alcuni dei test effettuati sul sito \href{https://caa.studenti.math.unipd.it/epinarel/}{Corsa Ideale}.
+\noindent Di seguito vengono riportati alcuni dei test effettuati sul sito web \href{https://caa.studenti.math.unipd.it/epinarel/}{Corsa Ideale}.
 
-% BOOKOVERFLOW
+% === BOOKOVERFLOW ===
 \subsection{Sito web: BookOverflow}
 \noindent Di seguito vengono riportati alcuni dei test effettuati sul sito \href{https://caa.studenti.math.unipd.it/lribon/}{BookOverflow}, sito web vincitore del concorso.
 \subsubsection{Total Validator}
@@ -146,7 +195,7 @@ Gli errori principali sono:
 \noindent Come visibile in figura \ref{fig:TV_bookoverflow}, non vi sono errori di accessibilità.
 
 \subsubsection{Lighthouse}
-\noindent Il report generato dallo strumento Lighthouse ha restituito un punteggio di 100/100 nella sezione Accessibility, indicando che, secondo le metriche automatiche adottate, non sono stati rilevati errori o problematiche di conformità (vedi figura \ref{fig:Lighthouse_bookoverflow}).
+\noindent Il report ha restituito un punteggio di 100/100 nella sezione \textit{Accessibility}, indicando che, secondo le metriche automatiche adottate, non sono stati rilevati errori o problematiche di accessibilità (vedi figura \ref{fig:Lighthouse_bookoverflow}).
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\linewidth, alt={Screenshot dell'analisi di Lighthouse sul sito web BookOverflow}]{img/Lighthouse_bookoverflow.png}
@@ -156,7 +205,7 @@ Gli errori principali sono:
 \subsubsection{SviluppAbile}
 \noindent Nella tabella \ref{tab:bookoverflow} vengono riportati i risultati ottenuti utilizzando l'estensione \textit{SviluppAbile}.
 \begin{footnotesize}
-\begin{longtable}[c]{|C{4.6cm}|C{4.6cm}|C{4.6cm}|}
+\begin{longtable}[c]{|C{4.8cm}|C{4.8cm}|C{4.8cm}|}
 \caption{Tabella riassuntiva analisi \textit{BookOverflow} tramite \textit{SviluppAbile}}
 \label{tab:bookoverflow}\\
 \hline
@@ -189,9 +238,9 @@ Gli errori principali sono:
 \noindent L'F\textsubscript{1}-score calcolato è $F_{1}=0$, valore che indica prestazioni non soddisfacenti in questo caso specifico. 
 Ciò evidenzia la necessità di ulteriori miglioramenti nell’identificazione degli errori, soprattutto per quanto riguarda i falsi positivi.
 
-% LUZZAUTO
+% === LUZZAUTO ===
 \subsection{Sito web: LuzzAuto}
-\noindent Di seguito vengono riportati alcuni dei test effettuati sul sito \href{https://caa.studenti.math.unipd.it/eartusi/index.php}{LuzzAuto}.
+\noindent Di seguito vengono riportati alcuni dei test effettuati sul sito web \href{https://caa.studenti.math.unipd.it/eartusi/index.php}{LuzzAuto}.
 \subsubsection{Total Validator}
 \begin{figure}[H]
     \centering
@@ -199,10 +248,12 @@ Ciò evidenzia la necessità di ulteriori miglioramenti nell’identificazione d
     \caption{Analisi di Total Validator sul sito web \textit{LuzzAuto}}\label{fig:TV_luzzauto}
 \end{figure}
 
-\noindent Come visibile in figura \ref{fig:TV_luzzauto}, sono segnalati solamente alcuni "Warning". Non sono quindi presenti veri e propri errori di accessibilità.
+\noindent Nella pagina \texttt{home.php} non sono presenti errori di accessibilità, ma solamente un "Warning" riguardante testi alternativi (\texttt{alt}) troppo lunghi. 
+Nella pagina \texttt{listino.php} (come visibile in figura \ref{fig:TV_luzzauto}), sono segnalati due errori principali: 
+uno relativo all'associazione corretta delle etichette ai rispettivi controlli e uno di struttura HTML, dovuto all'uso di tag non consentiti o a un errato annidamento degli stessi. 
 
 \subsubsection{Lighthouse}
-\noindent Il report generato dallo strumento Lighthouse ha restituito un punteggio di 100/100 nella sezione Accessibility, indicando che, secondo le metriche automatiche adottate, non sono stati rilevati errori o problematiche di conformità (vedi figura \ref{fig:Lighthouse_luzzauto}).
+\noindent Il report ha restituito un punteggio di 100/100 nella sezione \textit{Accessibility}, indicando che, secondo le metriche automatiche adottate, non sono stati rilevati errori o problematiche di accessibilità (vedi figura \ref{fig:Lighthouse_luzzauto}).
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\linewidth, alt={Screenshot dell'analisi di Lighthouse sul sito web LuzzAuto}]{img/Lighthouse_luzzauto.png}
@@ -212,7 +263,7 @@ Ciò evidenzia la necessità di ulteriori miglioramenti nell’identificazione d
 \subsubsection{SviluppAbile}
 \noindent Nella tabella \ref{tab:luzzauto} vengono riportati i risultati ottenuti utilizzando l'estensione \textit{SviluppAbile}.
 \begin{footnotesize}
-\begin{longtable}[c]{|C{4.6cm}|C{4.6cm}|C{4.6cm}|}
+\begin{longtable}[c]{|C{4.8cm}|C{4.8cm}|C{4.8cm}|}
 \caption{Tabella riassuntiva analisi \textit{LuzzAuto} tramite \textit{SviluppAbile}}
 \label{tab:luzzauto}\\
 \hline
@@ -230,21 +281,20 @@ Ciò evidenzia la necessità di ulteriori miglioramenti nell’identificazione d
 \endfoot
 \hline
 \endlastfoot
- & 
 \begin{itemize}
-    \item Contrasto insufficiente link visitati/non
+    \item Le etichette dei controlli non sono state associate correttamente ai rispettivi elementi.
+\end{itemize} & 
+\begin{itemize}
+    \item Tag o contenuto non consentito. 
 \end{itemize}
- & \begin{itemize}
-    \item Tabindex non adeguato
-\end{itemize}\\
+ & \\
 \hhline{|=|=|=|} 
-0 & 1 & 1 \\
+1 & 1 & 0 \\
 \end{longtable}
 \end{footnotesize}
 
-\noindent L'F\textsubscript{1}-score calcolato è $F_{1}=0$, valore che indica prestazioni non soddisfacenti in questo caso specifico. 
-Ciò evidenzia la necessità di ulteriori miglioramenti nell’identificazione degli errori, soprattutto per quanto riguarda i falsi positivi.
-
+\noindent L'F\textsubscript{1}-score calcolato è $F_{1} \approx 0.67$, un valore intermedio che evidenzia un discreto equilibrio tra errori rilevati e mancati. 
+Pur non trattandosi di un risultato ottimale, esso mostra la capacità dell’estensione di individuare correttamente una parte significativa dei problemi, lasciando spazio a ulteriori miglioramenti.
 
 \section{Test ``Modalità guidata''}
 \noindent Per effettuare i test utili a dimostrare l'efficacia di \textit{SviluppAbile}, ho creato una semplice pagina \acrshort{html} (vedi figura \ref{fig:pagina_test}).
