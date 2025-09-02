@@ -36,12 +36,16 @@ chrome.exe --disable-web-security --user-data-dir="C:_temp_chrome"
 \end{figure}
 
 \subsection{Guida all'utilizzo}
-\noindent La presente sezione illustra le funzionalità dell’estensione attraverso una dimostrazione pratica guidata, supportata da screenshot dell’interfaccia per mostrare concretamente le modalità di utilizzo. Ogni sottosezione è dedicata a una specifica funzionalità. Si tenga presente che l'estensione è disponibile anche in modalità notte, cliccando l'apposito pulsante in alto a destra \raisebox{-0.2\height}{\includegraphics[height=1.5em]{toggletheme.png}}.
+\noindent La presente sezione illustra le funzionalità dell’estensione attraverso una dimostrazione pratica guidata, supportata da screenshot dell’interfaccia per mostrare concretamente le modalità di utilizzo. Ogni sottosezione è dedicata a una specifica funzionalità. Si tenga presente che l'estensione è disponibile anche in modalità notturna, cliccando l'apposito pulsante in alto a destra (vedi figura \ref{fig:notte}).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.1\linewidth, alt={Pulsante per il cambio modalità diurna-notturna}]{img/toggletheme.png}
+    \caption{Pulsante per il cambio modalità diurna-notturna}\label{fig:notte}
+\end{figure}
 
-\noindent Si ricorda che, per un corretto funzionamento dell'estensione, è necessario utilizzare il \glslink{browserg}{browser} Chrome disabilitanto temporaneamente alcuni vincoli di sicurezza (vedi paragrafo \ref{subsec:NB}).
 
 \subsubsection{Avvio dell'estensione}
-\noindent All’avvio, cliccando sull’icona dell’estensione \textit{SviluppAbile} nella barra del \glslink{browserg}{browser}, viene visualizzato un popup (figura \ref{fig:popup}) che consente di scegliere tra due modalità operative:
+\noindent All’avvio, cliccando sull’icona dell’estensione \textit{SviluppAbile} (figura \ref{fig:logo_sviluppabile}) nella barra del \glslink{browserg}{browser}, viene visualizzato un popup (figura \ref{fig:popup}) che consente di scegliere tra due modalità operative:
 \begin{itemize}
   \item \textbf{Analisi assistita}: visualizza il \acrshort{dom} della pagina web e mette a disposizione una chat in cui l’utente può porre domande sull’accessibilità e ricevere risposte contestualizzate, con evidenziazione delle porzioni di codice rilevanti; 
   \item \textbf{Modalità guidata}: presenta, oltre alla chat, un pannello in cui verranno inseriti frammenti di codice accessibile e scaricabili in formato \acrshort{html}.
@@ -56,7 +60,7 @@ chrome.exe --disable-web-security --user-data-dir="C:_temp_chrome"
 \noindent Questa scelta iniziale permette all’utente di adattare lo strumento al proprio flusso di lavoro: analizzare passo-passo una pagina già esistente o sviluppare in maniera assistita un nuovo contenuto.
 
 \subsubsection{Analisi assistita}
-\noindent Nella modalità di analisi assistita (vedi figure \ref{fig:aass} e \ref{fig:aass_notte}), l’interfaccia dell’estensione si presenta suddivisa in due pannelli principali: sulla sinistra viene visualizzato il \acrshort{dom} della pagina web analizzata, mentre sulla destra compare la finestra della chat. Quest’ultima, inizialmente vuota, offre già due domande (\textit{"Come posso migliorare l'accessibilità della pagina web?"} e \textit{"Il mio codice rispetta le linee guida WCAG?"}), pensate per orientare l’utente nel primo utilizzo e stimolare un’interazione immediata. Oltre a tali suggerimenti, è disponibile un \glslink{formg}{form} in cui l’utente può inserire manualmente le proprie domande o richieste di chiarimento.\\
+\noindent Nella modalità di analisi assistita (vedi figure \ref{fig:aass} e \ref{fig:aass_notte}), l’interfaccia dell’estensione si presenta suddivisa in due pannelli principali: sulla sinistra viene visualizzato il \acrshort{dom} della pagina web analizzata, mentre sulla destra compare la finestra della chat. Quest’ultima, inizialmente vuota, offre già due domande (\textit{"Come posso migliorare l'accessibilità della pagina web?"} e \textit{"Il mio codice rispetta le linee guida WCAG?"}), pensate per orientare l’utente nel primo utilizzo e stimolare un’interazione immediata. Oltre a tali suggerimenti, è disponibile un campo di testo in cui l’utente può inserire manualmente le proprie domande o richieste di chiarimento.\\
 
 \begin{figure}[H]
     \centering
@@ -66,8 +70,8 @@ chrome.exe --disable-web-security --user-data-dir="C:_temp_chrome"
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth, alt={Modalità di analisi assistita - modalità notte}]{img/analisi_ass_dark.png}
-    \caption{Modalità: analisi assistita - modalità notte}\label{fig:aass_notte}
+    \includegraphics[width=1\linewidth, alt={Modalità di analisi assistita - modalità notturna}]{img/analisi_ass_dark.png}
+    \caption{Modalità: analisi assistita - modalità notturna}\label{fig:aass_notte}
 \end{figure}
 
 \noindent L’interazione vera e propria inizia quando l’utente formula la prima domanda: a questo punto il \glslink{chatbotg}{chatbot} genera una risposta in linguaggio naturale, adattata al contesto del \acrshort{dom} analizzato. Per facilitare la comprensione delle spiegazioni, l’estensione è in grado di evidenziare automaticamente le porzioni di codice rilevanti all’interno del \acrshort{dom}, così da collegare visivamente l’errore o la soluzione proposta con la parte effettiva di codice interessata.\\
@@ -93,8 +97,8 @@ Inizialmente, quest’area centrale appare vuota e contiene soltanto un messaggi
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth, alt={Modalità di sviluppo guidato}]{img/mg_dark.png}
-    \caption{Modalità: sviluppo guidato - modalità notte}\label{fig:mg_notte}
+    \includegraphics[width=1\linewidth, alt={Modalità di sviluppo guidato - modalità notturna}]{img/mg_dark.png}
+    \caption{Modalità: sviluppo guidato - modalità notturna}\label{fig:mg_notte}
 \end{figure}
 
 \noindent Quando l’utente seleziona una domanda, il \glslink{chatbotg}{chatbot} non solo produce una risposta testuale, ma genera anche un blocco di codice che viene immediatamente visualizzato nel pannello centrale. Questa caratteristica rende la modalità guidata particolarmente utile in fase di sviluppo, poiché consente di osservare concretamente le soluzioni suggerite e di integrarle facilmente nel proprio progetto.\\
@@ -107,9 +111,9 @@ Per agevolare l’utilizzo pratico, ogni codice prodotto può essere scaricato d
 \end{figure}
 
 \subsection{Interazione con l'AI}
-\noindent L’estensione sviluppata prevede un’integrazione diretta con Ollama (vedi paragrafo \ref{subsec:ollama}). Questa scelta garantisce all’utente il pieno controllo sui dati, riducendo i rischi legati alla trasmissione di informazioni sensibili verso servizi esterni e permettendo un utilizzo anche in assenza di connessione Internet stabile. L’interazione con l’\glslink{iag}{intelligenza artificiale} avviene attraverso chiamate HTTP ad un endpoint locale, al quale vengono inviati prompt costruiti dinamicamente in base alle esigenze del flusso operativo.
+\noindent L’estensione sviluppata prevede un’integrazione diretta con Ollama (come descritto in precedenza). Questa scelta garantisce all’utente il pieno controllo sui dati, riducendo i rischi legati alla trasmissione di informazioni sensibili verso servizi esterni e permettendo un utilizzo anche in assenza di connessione Internet stabile. L’interazione con l’\glslink{iag}{intelligenza artificiale} avviene attraverso chiamate HTTP ad un endpoint locale, al quale vengono inviati prompt costruiti dinamicamente in base alle esigenze del flusso operativo. Il codice \ref{lst:funzOllama} mostra tale interazione.
 
-\begin{lstlisting}[language=JavaScript, caption={Funzione di interazione con Ollama}]
+\begin{lstlisting}[language=JavaScript, caption={Funzione di interazione con Ollama}, label={lst:funzOllama}]
 async function inviaPrompt(prompt) {
   const res = await fetch('http://localhost:11434/api/generate', {
     method: 'POST',
@@ -126,8 +130,8 @@ async function inviaPrompt(prompt) {
 
 \noindent Sono stati definiti tre casi d’uso principali per la generazione dei prompt: 
 \begin{itemize}
-    \item l’invio congiunto del \acrshort{dom} della pagina e della domanda dell’utente, utile per ricevere spiegazioni e indicazioni sulle righe che verranno poi evidenziate in quanto utili alla comprensione della risposta; 
-    \begin{lstlisting}[language=JavaScript, caption={Prompt per la generazione di risposta e righe da evidenziare}]
+    \item l’invio congiunto del \acrshort{dom} della pagina e della domanda dell’utente, utile per ricevere spiegazioni e indicazioni sulle righe che verranno poi evidenziate in quanto utili alla comprensione della risposta. Tale prompt è visibile nel codice \ref{lst:rr}; 
+    \begin{lstlisting}[language=JavaScript, caption={Prompt per la generazione di risposta e righe da evidenziare}, label={lst:rr}]
     const promptPrincipale =
     `Sei un assistente che analizza codice HTML. Rispondi alla domanda in modo chiaro ma conciso, usando al massimo 5-6 frasi. ` +
     `Evita ripetizioni o spiegazioni troppo generiche. ` +
@@ -136,8 +140,8 @@ async function inviaPrompt(prompt) {
     `Codice HTML:\n${codice}\n\nDomanda: ${domanda}`;
     \end{lstlisting}
     
-    \item l'invio della sola domanda per generare ulteriori domande piu' approfondite da consigliare all'utente;
-    \begin{lstlisting}[language=JavaScript, caption={Prompt per la generazione di domande successive}]
+    \item l'invio della sola domanda per generare ulteriori domande più approfondite da consigliare all'utente, come visibile nel codice \ref{lst:dsucc};
+    \begin{lstlisting}[language=JavaScript, caption={Prompt per la generazione di domande successive}, label={lst:dsucc}]
     const promptSuccessiva =
     `Suggerisci 1 o 2 domande piu' specifiche sull'accessibilita' o sull'analisi del codice, ` +
     `partendo dalla seguente domanda:\n\n` +
@@ -147,8 +151,8 @@ async function inviaPrompt(prompt) {
     \end{lstlisting}
 
     
-    \item l’invio del \acrshort{dom} insieme alla richiesta di modifica, scenario in cui l’\acrshort{ia} produce sia una risposta argomentata sia un blocco di codice pronto per essere inserito nel pannello centrale della pagina nella modalità di sviluppo guidato.
-    \begin{lstlisting}[language=JavaScript, caption={Prompt per la generazione di risposta e codice \acrshort{html} accessibile}]
+    \item l’invio del \acrshort{dom} insieme alla richiesta di modifica, scenario in cui l’\acrshort{ia} produce sia una risposta argomentata sia un blocco di codice pronto per essere inserito nel pannello centrale della pagina nella modalità di sviluppo guidato (vedi codice \ref{lst:rc}).
+    \begin{lstlisting}[language=JavaScript, caption={Prompt per la generazione di risposta e codice \acrshort{html} accessibile}, label={lst:rc}]
     const promptCodice =
       `Sei un assistente che aiuta a rendere accessibile il codice HTML. ` +
       `Rispondi in massimo 5-6 frasi chiare e tecniche. ` +
@@ -162,7 +166,7 @@ Questa diversificazione consente di mantenere un approccio modulare e adattabile
 
 
 \subsection{Filtraggio risposta generata}
-\noindent Un aspetto fondamentale del funzionamento dell'estensione riguarda il filtraggio e la rielaborazione della risposta generata dall’\glslink{iag}{intelligenza artificiale}. Le risposte restituite da Ollama, infatti, non vengono mostrate direttamente all’utente, ma sono sottoposte ad un processo di \glslink{parsingg}{parsing} e di pulizia.\\
+\noindent Un aspetto fondamentale del funzionamento dell'estensione riguarda il filtraggio e la rielaborazione della risposta generata dall’intelligenza artificiale. Le risposte restituite da Ollama, infatti, non vengono mostrate direttamente all’utente, ma sono sottoposte ad un processo di \glslink{parsingg}{parsing} e di pulizia.\\
 In primo luogo, l’estensione distingue le diverse tipologie di output attese: la risposta vera e propria alla domanda inserita, le eventuali domande suggerite e gli eventuali blocchi di codice generati da visualizzare e/o scaricare. A tal fine vengono utilizzati marcatori testuali inseriti nel prompt (ad esempio \texttt{\#\#DOMANDE\#\#} o \texttt{\#\#CODICE\#\#}), che consentono di individuare con precisione le sezioni rilevanti all’interno della risposta. \\Una volta ricevuto l’output, funzioni dedicate come \texttt{estraiRigheDaRisposta} ed \\ \texttt{estraiDomandeSuggerite} applicano espressioni regolari per isolare le parti utili, scartando elementi ridondanti o formattazioni non necessarie.\\
 \\
 Il filtraggio consente anche di separare le informazioni in blocchi distinti, in modo che ciascun contenuto possa essere mostrato nella pagina web nel pannello appropriato (ad esempio, suggerimenti testuali nella chat e codice sorgente nel riquadro centrale). Questo approccio riduce il carico cognitivo per l’utente, che non si trova di fronte a una risposta grezza e complessa, ma ad un output strutturato e facilmente navigabile.\\ Inoltre la possibilità di visualizzare alcune righe di codice evidenziate consente una comprensione più immediata del codice sorgente analizzato rendendo più intuitivo il processo di revisione del codice.
