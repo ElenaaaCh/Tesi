@@ -4,7 +4,7 @@
 \section{Test ``Analisi assistita''}
 \noindent Per effettuare i test dell’estensione sono stati utilizzati alcuni siti realizzati per l’ultima edizione del concorso \textit{Accattivante Accessibile}.\
 I test hanno preso in considerazione gli errori individuati da TV insieme a quelli segnalati dalla docente referente e sono stati messi a confronto con gli errori rilevati da \textit{SviluppAbile}.
-Infine, ho confrontato i risultati elaborando un resoconto per ciascun sito analizzato e, successivamente, ho applicato la metrica F1-score per ottenere un report oggettivo.
+Infine, ho confrontato i risultati elaborando un resoconto tabellare per ciascun sito analizzato e, successivamente, ho applicato la metrica F1-score per ottenere un report oggettivo.
 
 \subsection{F1-score}
 \noindent La F\textsubscript{1}-score è una metrica utilizzata per valutare modelli di classificazione, sia binari che multi‐classe. Essa combina in un unico valore la \textit{precision} (quanto le predizioni positive sono corrette) e il \textit{recall} (quanti casi positivi reali vengono identificati), calcolati come:
@@ -59,9 +59,74 @@ Gli errori principali sono:
 \end{figure}
 
 \subsubsection{SviluppAbile}
+\noindent Di seguito vengono riportate alcune domande fatte e risposte ricevute dall'estensione \textit{SviluppAbile}. \newline
+\\ \vspace{-0.5cm}
+\noindent(pagina home.php)\\
+\subsubsection*{\texttt{Il mio codice HTML rispetta le linee guida WCAG?}}
+\begin{adjustwidth}{1cm}{1cm}
+\noindent {\footnotesize Il tuo codice HTML sembra essere in parte conforme alle linee guida WCAG (Web Content Accessibility Guidelines), ma potrebbe migliorare ulteriormente per garantire una maggiore accessibilità. Alcune aree che richiedono ulteriore attenzione includono:\\
+- L'attributo `aria-label` non è utilizzato in modo coerente nei controlli di navigazione.\\
+- Le etichette dei pulsanti "Cerca" e "Profilo" potrebbero essere più descrittive.\\
+Tuttavia, il tuo codice include molti elementi positivi come l'utilizzo di `alt` per immagini, la presenza di un titolo (`<title>`) e di metatag di descrizione (`<meta name="description">`). Questi sono passaggi fondamentali per migliorare la comprensione del contenuto da parte dei motori di ricerca e degli assistenti.\\
+Per garantire una maggiore accessibilità, considera di applicare ulteriormente le linee guida WCAG 2.1, che offrono standard e raccomandazioni per creare esperienze web più inclusive.\\
+La pagina non rispetta la norma W3C WCAG 2.1 che richiede di nidificare correttamente le intestazioni. Non sono presenti elementi HTML con attributo "h1", mentre ci sono intestazioni con grado inferiore.\\
+La situazione descritta viola la regola WCAG 1.3.1, che richiede la corretta gerarchia di intestazioni (H1 > H2 > H3). In questo caso, l'h2 non è diretto al figlio dell'H1.\\
+Vi è inoltre la presenza di due etichette (label) con il valore "Cerca" all'interno della stessa pagina HTML, ma con attributi id diversi ("searched-product" e "for"). Secondo la specifica SC 2.4.6, le etichette dei form control devono essere uniche.
+}
+\end{adjustwidth}
 
-\subsubsection{Resoconto finale}
-\noindent Nella tabella \ref{tab:sudokuWorld} vengono riportati i risultati ottenuti utilizzando l'estensione \textit{SviluppAbile}.
+\subsubsection*{\texttt{Vi sono errori riguardanti i link?}}
+\begin{adjustwidth}{1cm}{1cm}
+\noindent {\footnotesize Il codice HTML contiene due carousel circolari:\\
+1.  Il primo è definito come "specialProductsCarousel" e si trova nella sezione `<main>`.\\
+2.  Il secondo è chiamato "bestSellersCarousel" ed è anch'esso presente all'interno della stessa sezione.\\
+Quanto ai controlli sui link visitati, non sono implementati controlli specifici per la traccia dei link visitati sul sito web.
+} \\
+\end{adjustwidth}
+
+\noindent(pagina sudoku.php)
+\vspace{-0.5cm}
+\subsubsection*{\texttt{Il mio codice HTML rispetta le linee guida WCAG?}} 
+\begin{adjustwidth}{1cm}{1cm}
+\noindent {\footnotesize Il tuo codice HTML non rispetta pienamente le linee guida WCAG (Web Content Accessibility Guidelines) per diverse ragioni:\\
+1.  **La navigazione è troppo complessa**: la barra di navigazione contiene molti elementi e link, potrebbe essere difficile per gli utenti disabili utilizzare l'interfaccia.\\
+2.  **L'accessibilità dei form è insufficiente**: non sono presenti attributi accessibili per i campi di input e submit, rendendo la navigazione dei form difficoltosa per gli utenti che usano dispositivi di assistenza.\\
+3.  **La lettura dei testi in basso risulta difficile**: alcuni elementi come il timer sono troppo piccoli per essere letti facilmente dagli schermi con alto contrasto o da dispositivi di assistenza.\\
+4.  **Non ci sono alternative al linguaggio naturale**: le immagini contengono solo icone e simboli, che potrebbero non essere compresi da utenti analfabetici.\\
+\\Aggiungere attributi accessibili ai campi input e submit:\\
+*   Modifica il codice HTML come segue:\\
+    \texttt{<form class="d-flex align-items-center my-2 my-lg-0 ms-auto" \\ action="/amonaco/Sudokuworld/pages/search.php" method="GET"> 
+    \begin{adjustwidth}{1cm}{}  <label for="searched-product" class="visually-hidden">Cerca</label>\end{adjustwidth}
+    \begin{adjustwidth}{1cm}{} 
+        <input class="form-control me-2" type="search" name="searched-product" id="searched-product" placeholder="Cerca" value="" aria-label="Search" />
+    \end{adjustwidth}
+    \begin{adjustwidth}{1cm}{} 
+        <button class="btn btn-outline-success" type="submit" \textbf{aria-label="Submit the form"}>Cerca</button>
+    \end{adjustwidth}
+    </form>}\\
+\\Aggiungere tag alt alle immagini: assicurati di aggiungere il contenuto alternativo per ogni immagine.\\
+*   Modifica il codice HTML come segue:\\
+    \texttt{<a class="nav-link" href="/amonaco/Sudokuworld/pages/sudoku.php">\\
+    \indent <i class="bi bi-grid-3x3-gap-fill"></i>\\
+    </a>}\\
+\\Aggiungere tag aria: per fornire informazioni aggiuntive alle pagine web, puoi utilizzare gli attributi aria.\\
+*   Modifica il codice HTML come segue:\\
+    \texttt{<h1 class="container border border-black p-2 mb-4 rounded text-center" id="sudokuTitle" role="heading" aria-level="1">!! Sudoku !!</h1>}\\
+\\Controlla l'accessibilità con strumenti di testing: prima della pubblicazione, assicurati di utilizzare strumenti come Lighthouse o WAVE per valutare la tua pagina web e risolvere eventuali problemi.\\
+Ricorda che un sito web accessibile è più facile da utilizzare per tutti gli utenti, compresi quelli con disabilità.\\
+\\
+\texttt{DOMANDE SUGGERITE: \\"Quale è il criterio WCAG 2.1 che riguarda la navigazione con tastiera?"
+\\"Come posso utilizzare gli strumenti di analisi del codice per identificare le aree dell'accessibilità da migliorare nel mio sito web HTML?"
+}}
+\end{adjustwidth}
+
+\paragraph*{\texttt{"Come posso utilizzare gli strumenti di analisi del codice per \\ identificare le aree dell'accessibilità da migliorare nel mio sito web HTML?"}} 
+\begin{adjustwidth}{1cm}{1cm}
+\noindent {\footnotesize Per identificare le aree dell'accessibilità da migliorare nel tuo sito web HTML, puoi utilizzare gli strumenti di analisi come W3C Validator e Lighthouse. Il W3C Validator verifica la correttezza del codice HTML e fornisce suggerimenti per migliorare l'accessibilità. Lighthouse è uno strumento open-source che valuta l'accessibilità, le prestazioni e la sicurezza del tuo sito web.}
+\end{adjustwidth}
+
+\vspace{0.5cm}
+\noindent Nella tabella \ref{tab:sudokuWorld} vengono riassunti i risultati ottenuti.
 \begin{footnotesize}
 \begin{longtable}[c]{|C{4.8cm}|C{4.8cm}|C{4.8cm}|}
 \caption{Tabella riassuntiva analisi \textit{SudokuWorld} tramite \textit{SviluppAbile}}
@@ -81,20 +146,32 @@ Gli errori principali sono:
 \endfoot
 \hline
 \endlastfoot
- & 
 \begin{itemize}
-    \item 
+    \item h1 > h2 > h3
+    \item Etichette dei form non univoche
+    \item Errori con gli alt
+    \item Errore button "registrati" 
+    \item Link circolari
+    \item Manca controllo link già visitati 
 \end{itemize}
  & \begin{itemize}
-    \item 
+    \item Contrasti dei colori
+    \item Skip navigation link
+\end{itemize}
+ & \begin{itemize}
+    \item Tag ARIA (suggerimenti errati)
+    \item Suggerimenti alt errati
 \end{itemize}\\
 \hhline{|=|=|=|} 
-x & x & x \\
+6 & 2 & 2 \\
 \end{longtable}
 \end{footnotesize}
 
+\noindent L'F\textsubscript{1}-score calcolato è $F_{1}=0.75$, un valore piuttosto buono che indica una capacità complessiva soddisfacente di individuare gli errori reali, pur con la presenza di alcuni mancati rilevamenti e di falsi positivi. 
+Ciò suggerisce che l’estensione riesce a fornire risultati utili e affidabili, anche se rimane margine per ulteriori miglioramenti nella precisione e nella completezza dell’analisi.
 
-% DOLCE RISVEGLIO
+\newpage
+% === DOLCE RISVEGLIO ===
 \subsection{Sito web: Dolce Risveglio}
 \noindent Di seguito vengono riportati alcuni dei test effettuati sul sito web \href{https://caa.studenti.math.unipd.it/gchecchi/}{DolceRisveglio}.
 
@@ -119,7 +196,45 @@ Questi risultati suggeriscono di controllare manualmente i link problematici e d
 \end{figure}
 
 \subsubsection{SviluppAbile}
+\noindent Nella tabella \ref{tab:dolcerisveglio} vengono riportati i risultati ottenuti utilizzando l'estensione \textit{SviluppAbile}.
+\begin{footnotesize}
+\begin{longtable}[c]{|C{4.8cm}|C{4.8cm}|C{4.8cm}|}
+\caption{Tabella riassuntiva analisi \textit{Dolce Risveglio} tramite \textit{SviluppAbile}}
+\label{tab:dolcerisveglio}\\
+\hline
+\textbf{Errori trovati} & \textbf{Errori non trovati} & \textbf{Falsi positivi}\\
+\hline
+\endfirsthead
+\multicolumn{3}{c}%
+{{\bfseries Tabella \thetable\ -- continua dalla pagina precedente}} \\
+\hline
+\textbf{Errori trovati} & \textbf{Errori non trovati} & \textbf{Falsi positivi}\\
+\hline
+\endhead
+\hline
+\multicolumn{3}{r}{{ -- continua nella pagina successiva}} \\
+\endfoot
+\hline
+\endlastfoot
+\begin{itemize}
+    \item Trovato solo da \textit{SviluppAbile}: alt non corretti delle img
+    \item Etichette dei form non univoche
+    \item Suggerisce l'aggiunta di label e id per gli elementi input
+    \item Errore required e aria-required utilizzati insieme
+\end{itemize}
+ & 
+\begin{itemize}
+    \item Alcuni alt mancanti
+\end{itemize}
+ & \begin{itemize}
+    \item Suggerisce un eccessivo uso di ARIA
+\end{itemize}\\
+\hhline{|=|=|=|} 
+4 & 1 & 1 \\
+\end{longtable}
+\end{footnotesize}
 
+\noindent L'F\textsubscript{1}-score calcolato è $F_{1}=0.8$, un risultato positivo che evidenzia una buona capacità di individuazione degli errori effettivi, con un numero limitato di falsi positivi e pochi elementi mancati.
 
 % === E-LIXIRIUM ===
 \subsection{Sito web: E-lixirium}
@@ -164,23 +279,89 @@ Il problema segnalato riguarda il contrasto insufficiente tra colori di sfondo e
 \endfoot
 \hline
 \endlastfoot
+\begin{itemize}
+    \item Errori di gestione della navigazione
+    \item "display: none" da sostituire con "visibility: hidden"
+    \item Link adiacenti identici con testi diversi
+    \item Testo alternativo duplicato
+\end{itemize}
  & 
 \begin{itemize}
-    \item 
+    \item Skip navigation link
+    \item Link circolari nella navbar
+    \item Logo con reindirizzamento nella home anche in home stesso
 \end{itemize}
- & \begin{itemize}
-    \item 
-\end{itemize}\\
+ & \\
 \hhline{|=|=|=|} 
-x & x & x \\
+4 & 3 & 0 \\
 \end{longtable}
 \end{footnotesize}
 
-\noindent L'F\textsubscript{1}-score calcolato è $F_{1}=xx$, 
+\noindent L'F\textsubscript{1}-score calcolato è $F_{1}=0.73$, un risultato positivo che evidenzia come l’estensione abbia individuato correttamente la maggior parte degli errori presenti, pur lasciando tre problemi non rilevati. Non sono stati generati falsi positivi, il che indica un buon equilibrio tra precisione e completezza dell’analisi.
+
 
 % === CORSA IDEALE ===
 \subsection{Sito web: Corsa Ideale}
 \noindent Di seguito vengono riportati alcuni dei test effettuati sul sito web \href{https://caa.studenti.math.unipd.it/epinarel/}{Corsa Ideale}.
+\subsubsection{Total Validator}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth, alt={Screenshot dell'analisi di Total Validator sul sito web Corsa Ideale}]{img/TV_corsaideale.png}
+    \caption{Analisi di Total Validator sul sito web \textit{Corsa Ideale}}\label{fig:TV_corsaideale}
+\end{figure}
+
+\noindent \noindent L’analisi ha evidenziato un solo errore riguardante i link, dovuto a una richiesta non valida (\textit{Bad Request}), e quattro avvisi relativi all’uso improprio della marcatura tipografica (testi interamente in grassetto o corsivo che dovrebbero essere definiti come intestazioni). Questi warning non compromettono direttamente l’accessibilità, ma indicano buone pratiche di struttura da rispettare per garantire una corretta interpretazione da parte degli strumenti assistivi.
+
+\subsubsection{Lighthouse}
+\noindent Il report ha restituito un punteggio di 100/100 nella sezione \textit{Accessibility}, indicando che, secondo le metriche automatiche adottate, non sono stati rilevati errori o problematiche di accessibilità (vedi figura \ref{fig:Lighthouse_corsaideale}). 
+Il problema segnalato riguarda il contrasto insufficiente tra colori di sfondo e primo piano, che può ridurre la leggibilità per alcuni utenti. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth, alt={Screenshot dell'analisi di Lighthouse sul sito web Corsa Ideale}]{img/Lighthouse_corsaideale.png}
+    \caption{Analisi di Lighthouse sul sito web \textit{Corsa Ideale}}\label{fig:Lighthouse_corsaideale}
+\end{figure}
+
+\subsubsection{SviluppAbile}
+\noindent Nella tabella \ref{tab:corsaideale} vengono riportati i risultati ottenuti utilizzando l'estensione \textit{SviluppAbile}.
+\begin{footnotesize}
+\begin{longtable}[c]{|C{4.8cm}|C{4.8cm}|C{4.8cm}|}
+\caption{Tabella riassuntiva analisi \textit{Corsa Ideale} tramite \textit{SviluppAbile}}
+\label{tab:corsaideale}\\
+\hline
+\textbf{Errori trovati} & \textbf{Errori non trovati} & \textbf{Falsi positivi}\\
+\hline
+\endfirsthead
+\multicolumn{3}{c}%
+{{\bfseries Tabella \thetable\ -- continua dalla pagina precedente}} \\
+\hline
+\textbf{Errori trovati} & \textbf{Errori non trovati} & \textbf{Falsi positivi}\\
+\hline
+\endhead
+\hline
+\multicolumn{3}{r}{{ -- continua nella pagina successiva}} \\
+\endfoot
+\hline
+\endlastfoot
+\begin{itemize}
+    \item Alt immagini vuoti
+    \item Attributi id senza valore valido 
+    \item Chiusura tag p erroneamente con tag h3 
+    \item Label non univoca 
+    \item Nomi attributi in maiuscolo anziché in minuscolo
+\end{itemize}
+ & \begin{itemize}
+    \item Contrasto colori
+\end{itemize}
+ & \begin{itemize}
+    \item Tag di heading usati in maniera scorretta
+\end{itemize}\\
+\hhline{|=|=|=|} 
+5 & 1 & 1 \\
+\end{longtable}
+\end{footnotesize}
+
+\noindent L'F\textsubscript{1}-score calcolato è $F_{1}=0.83$, un risultato positivo che evidenzia come l’estensione abbia rilevato correttamente la maggior parte degli errori presenti, lasciando un solo problema non individuato e generando un solo falso positivo.
+
 
 % === BOOKOVERFLOW ===
 \subsection{Sito web: BookOverflow}

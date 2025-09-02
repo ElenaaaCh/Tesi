@@ -113,7 +113,7 @@ Per agevolare l’utilizzo pratico, ogni codice prodotto può essere scaricato d
 \subsection{Interazione con l'AI}
 \noindent L’estensione sviluppata prevede un’integrazione diretta con Ollama (come descritto in precedenza). Questa scelta garantisce all’utente il pieno controllo sui dati, riducendo i rischi legati alla trasmissione di informazioni sensibili verso servizi esterni e permettendo un utilizzo anche in assenza di connessione Internet stabile. L’interazione con l’\glslink{iag}{intelligenza artificiale} avviene attraverso chiamate HTTP ad un endpoint locale, al quale vengono inviati prompt costruiti dinamicamente in base alle esigenze del flusso operativo. Il codice \ref{lst:funzOllama} mostra tale interazione.
 
-\begin{lstlisting}[language=JavaScript, caption={Funzione di interazione con Ollama}, label={lst:funzOllama}]
+\begin{lstlisting}[style=jsStyle, caption={Funzione di interazione con Ollama}, label={lst:funzOllama}]
 async function inviaPrompt(prompt) {
   const res = await fetch('http://localhost:11434/api/generate', {
     method: 'POST',
@@ -131,7 +131,7 @@ async function inviaPrompt(prompt) {
 \noindent Sono stati definiti tre casi d’uso principali per la generazione dei prompt: 
 \begin{itemize}
     \item l’invio congiunto del \acrshort{dom} della pagina e della domanda dell’utente, utile per ricevere spiegazioni e indicazioni sulle righe che verranno poi evidenziate in quanto utili alla comprensione della risposta. Tale prompt è visibile nel codice \ref{lst:rr}; 
-    \begin{lstlisting}[language=JavaScript, caption={Prompt per la generazione di risposta e righe da evidenziare}, label={lst:rr}]
+    \begin{lstlisting}[style=jsStyle, caption={Prompt per la generazione di risposta e righe da evidenziare}, label={lst:rr}]
     const promptPrincipale =
     `Sei un assistente che analizza codice HTML. Rispondi alla domanda in modo chiaro ma conciso, usando al massimo 5-6 frasi. ` +
     `Evita ripetizioni o spiegazioni troppo generiche. ` +
@@ -141,7 +141,7 @@ async function inviaPrompt(prompt) {
     \end{lstlisting}
     
     \item l'invio della sola domanda per generare ulteriori domande più approfondite da consigliare all'utente, come visibile nel codice \ref{lst:dsucc};
-    \begin{lstlisting}[language=JavaScript, caption={Prompt per la generazione di domande successive}, label={lst:dsucc}]
+    \begin{lstlisting}[style=jsStyle, caption={Prompt per la generazione di domande successive}, label={lst:dsucc}]
     const promptSuccessiva =
     `Suggerisci 1 o 2 domande piu' specifiche sull'accessibilita' o sull'analisi del codice, ` +
     `partendo dalla seguente domanda:\n\n` +
@@ -152,7 +152,7 @@ async function inviaPrompt(prompt) {
 
     
     \item l’invio del \acrshort{dom} insieme alla richiesta di modifica, scenario in cui l’\acrshort{ia} produce sia una risposta argomentata sia un blocco di codice pronto per essere inserito nel pannello centrale della pagina nella modalità di sviluppo guidato (vedi codice \ref{lst:rc}).
-    \begin{lstlisting}[language=JavaScript, caption={Prompt per la generazione di risposta e codice \acrshort{html} accessibile}, label={lst:rc}]
+    \begin{lstlisting}[style=jsStyle, caption={Prompt per la generazione di risposta e codice \acrshort{html} accessibile}, label={lst:rc}]
     const promptCodice =
       `Sei un assistente che aiuta a rendere accessibile il codice HTML. ` +
       `Rispondi in massimo 5-6 frasi chiare e tecniche. ` +

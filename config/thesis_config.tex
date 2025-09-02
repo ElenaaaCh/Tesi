@@ -165,67 +165,73 @@
 \setcounter{bottomnumber}{3}           % Default 1
 \setcounter{totalnumber}{5}            % Default 3
 
-% Code listings configuration
-\definecolor{codeBackground}{HTML}{F5F5F7}
-\definecolor{codeKeyword}{HTML}{CF222E}
-\definecolor{codeString}{HTML}{0550AE}
-\definecolor{codeComment}{HTML}{6E7781}
+% Enhanced color definitions for code
+\definecolor{codeBackground}{HTML}{F8F9FA}
+\definecolor{codeBorder}{HTML}{DEE2E6}
+\definecolor{jsKeyword}{HTML}{D73A49}        % Red for keywords
+\definecolor{jsString}{HTML}{0A3B78}         % Dark blue for strings
+\definecolor{jsComment}{HTML}{6A737D}        % Gray for comments
+\definecolor{jsNumber}{HTML}{005CC5}         % Blue for numbers
+\definecolor{jsFunction}{HTML}{008052}       % Emerald for functions
+\definecolor{jsVariable}{HTML}{E36209}       % Orange for variables
+\definecolor{jsOperator}{HTML}{D73A49}       % Red for operators
+\definecolor{lineNumbers}{HTML}{6A737D}      % Gray for line numbers
 
-\lstset{
-    basicstyle=\ttfamily\small,
-    backgroundcolor=\color{codeBackground},
-    commentstyle=\color{codeComment},
-    keywordstyle=\color{codeKeyword}\bfseries,
-    stringstyle=\color{codeString},
-    numbers=left,
-    numberstyle=\tiny\color{codeComment},
-    numbersep=10pt,
-    frame=single,
-    framesep=2mm,
-    xleftmargin=25pt,
-    breaklines=true,
-    breakatwhitespace=true,
-    showstringspaces=false,
-    tabsize=2,
-    captionpos=b,
-    float=htbp
-}
-
-% per colorare codice JS
+% Enhanced JavaScript language definition
 \lstdefinelanguage{JavaScript}{
-  keywords={const, async, typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
-  keywordstyle=\color{blue}\bfseries,
-  ndkeywords={class, export, boolean, throw, implements, import, this},
-  ndkeywordstyle=\color{darkgray}\bfseries,
-  identifierstyle=\color{black},
-  sensitive=false,
+  keywords={
+    % Control flow
+    if, else, switch, case, default, break, continue, return,
+    % Loops
+    for, while, do, 
+    % Functions and classes
+    function, async, await, class, constructor, extends, super,
+    % Variables
+    var, let, const,
+    % Types and values
+    true, false, null, undefined, typeof, instanceof,
+    % Error handling
+    try, catch, finally, throw,
+    % Others
+    new, this, delete, in, of, with, debugger, export, import, from, as
+  },
+  keywordstyle=\color{jsKeyword}\bfseries,
+  % Secondary keywords (built-in objects and methods)
+  ndkeywords={
+    % Built-in objects
+    Array, Object, String, Number, Boolean, Date, RegExp, Math, JSON,
+    console, window, document, setTimeout, setInterval, clearTimeout, clearInterval,
+    Promise, Error, TypeError, ReferenceError,
+    % Common methods
+    log, push, pop, shift, unshift, slice, splice, map, filter, reduce, forEach,
+    getElementById, querySelector, addEventListener, fetch, then, catch
+  },
+  ndkeywordstyle=\color{jsFunction}\bfseries,
+  % Strings
+  stringstyle=\color{jsString},
+  morestring=[b]",
+  morestring=[b]',
+  morestring=[b]`,
+  % Comments
   comment=[l]{//},
   morecomment=[s]{/*}{*/},
-  commentstyle=\color{purple}\ttfamily,
-  stringstyle=\color{red}\ttfamily,
-  morestring=[b]',
-  morestring=[b]"
+  commentstyle=\color{jsComment}\itshape,
+  % Numbers
+  sensitive=true,
+  % Additional styling
+  identifierstyle=\color{black},
+  % Operators
+  otherkeywords={
+    =, +, -, *, /, \%, ==, ===, !=, !==, <, >, <=, >=, &&, ||, !, 
+    +=, -=, *=, /=, ++, --, =>, ?, :, ;, \{, \}, [, ], (, )
+  },
+  % Special handling for template literals
+  moredelim=[s][\color{jsString}]{`}{`}
 }
 
-\lstset{
-   language=JavaScript,
-   backgroundcolor=\color{lightgray},
-   extendedchars=true,
-   basicstyle=\footnotesize\ttfamily,
-   showstringspaces=false,
-   showspaces=false,
-   numbers=left,
-   numberstyle=\tiny,
-   numbersep=9pt,
-   tabsize=1,
-   breaklines=true,
-   showtabs=false,
-   captionpos=b
-}
-
-% per colorare codice HTML
+% Enhanced HTML5 language definition (keeping your existing one but with better colors)
 \lstdefinelanguage{HTML5}{
-            language=html,
+    language=html,
             sensitive=true, 
             alsoletter={<>=-},
             otherkeywords={
@@ -345,9 +351,9 @@
             </video, <video, </video>,
             </wbr, <wbr, </wbr>,
             />, <!
-            },  
-            ndkeywords={
-            % General
+  },  
+  ndkeywords={
+    % General
             =,
             % HTML attributes
             accept=, accept-charset=, accesskey=, action=, align=, alt=, async=, autocomplete=, autofocus=, autoplay=, autosave=, bgcolor=, border=, buffered=, challenge=, charset=, checked=, cite=, class=, code=, codebase=, color=, cols=, colspan=, content=, contenteditable=, contextmenu=, controls=, coords=, data=, datetime=, default=, defer=, dir=, dirname=, disabled=, download=, draggable=, dropzone=, enctype=, for=, form=, formaction=, headers=, height=, hidden=, high=, href=, hreflang=, http-equiv=, icon=, id=, ismap=, itemprop=, keytype=, kind=, label=, lang=, language=, list=, loop=, low=, manifest=, max=, maxlength=, media=, method=, min=, multiple=, name=, novalidate=, open=, optimum=, pattern=, ping=, placeholder=, poster=, preload=, pubdate=, radiogroup=, readonly=, rel=, required=, reversed=, rows=, rowspan=, sandbox=, scope=, scoped=, seamless=, selected=, shape=, size=, sizes=, span=, spellcheck=, src=, srcdoc=, srclang=, start=, step=, style=, summary=, tabindex=, target=, title=, type=, usemap=, value=, width=, wrap=,
@@ -402,47 +408,79 @@
             unicode-bidi:,-use-link-source:,vertical-align:,visibility:,
             voice-family:,volume:,white-space:,widows:,width:,word-break:,
             word-spacing:,word-wrap:,writing-mode:,z-index:,zoom:
-            },  
-            morecomment=[s]{<!--}{-->},
-            tag=[s]
-    }
-
-\lstset{%
-    % Basic design
-    backgroundcolor=\color{editorGray},
-    basicstyle={\footnotesize\ttfamily},   
-    frame=l,
-    % Line numbers
-    xleftmargin={0.5cm},
-    numbers=left,
-    stepnumber=1,
-    firstnumber=1,
-    numberfirstline=true,
-    % Code design   
-    keywordstyle=\color{blue}\bfseries,
-    commentstyle=\color{darkgray}\ttfamily,
-    ndkeywordstyle=\color{editorGreen}\bfseries,
-    stringstyle=\color{editorOcher},
-    % Code
-    language=HTML5,
-    alsolanguage=JavaScript,
-    alsodigit={.:;},
-    tabsize=2,
-    showtabs=false,
-    showspaces=false,
-    showstringspaces=false,
-    extendedchars=true,
-    breaklines=true,        
-    % Support for German umlauts
-    literate=%
-    {Ö}{{\"O}}1
-    {Ä}{{\"A}}1
-    {Ü}{{\"U}}1
-    {ß}{{\ss}}1
-    {ü}{{\"u}}1
-    {ä}{{\"a}}1
-    {ö}{{\"o}}1
+  },
+  keywordstyle=\color{jsKeyword}\bfseries,
+  ndkeywordstyle=\color{jsFunction},
+  morecomment=[s]{<!--}{-->},
+  commentstyle=\color{jsComment}\itshape,
+  stringstyle=\color{jsString},
+  tag=[s]
 }
 
+% Enhanced global lstset configuration
+\lstset{
+  % Basic styling
+  basicstyle=\ttfamily\footnotesize,
+  backgroundcolor=\color{codeBackground},
+  % Frame and spacing
+  frame=single,
+  framerule=0.5pt,
+  rulecolor=\color{codeBorder},
+  framesep=4pt,
+  framexleftmargin=6pt,
+  framextopmargin=4pt,
+  framexbottommargin=4pt,
+  % Line numbers
+  numbers=left,
+  numberstyle=\tiny\color{lineNumbers},
+  numbersep=12pt,
+  stepnumber=1,
+  % Text formatting
+  showstringspaces=false,
+  showspaces=false,
+  showtabs=false,
+  tabsize=2,
+  % Line breaking
+  breaklines=true,
+  breakatwhitespace=true,
+  prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+  postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookrightarrow\space}},
+  % Margins and positioning
+  xleftmargin=20pt,
+  xrightmargin=5pt,
+  % Caption positioning
+  captionpos=b,
+  % Language settings
+  language=JavaScript,
+  alsolanguage=HTML5,
+  % Extended character support
+  extendedchars=true,
+  inputencoding=utf8,
+  % Special character handling
+  literate=%
+    {à}{{\'a}}1 {è}{{\'e}}1 {ì}{{\'i}}1 {ò}{{\'o}}1 {ù}{{\'u}}1
+    {À}{{\'A}}1 {È}{{\'E}}1 {Ì}{{\'I}}1 {Ò}{{\'O}}1 {Ù}{{\'U}}1
+    {Ã¤}{{\"{a}}}1 {Ã¶}{{\"{o}}}1 {Ã¼}{{\"{u}}}1
+    {Ã„}{{\"{A}}}1 {Ã–}{{\"{O}}}1 {Ãœ}{{\"{U}}}1 {ÃŸ}{{\ss}}1
+    {€}{{\euro}}1
+}
 
+% Specialized settings for different code types
+\lstdefinestyle{jsStyle}{
+  language=JavaScript,
+  keywordstyle=\color{jsKeyword}\bfseries,
+  stringstyle=\color{jsString},
+  commentstyle=\color{jsComment}\itshape,
+  numberstyle=\tiny\color{lineNumbers},
+  identifierstyle=\color{black},
+  emphstyle=\color{jsFunction}\bfseries
+}
 
+\lstdefinestyle{htmlStyle}{
+  language=HTML5,
+  keywordstyle=\color{jsKeyword}\bfseries,
+  ndkeywordstyle=\color{jsFunction},
+  stringstyle=\color{jsString},
+  commentstyle=\color{jsComment}\itshape,
+  numberstyle=\tiny\color{lineNumbers}
+}
