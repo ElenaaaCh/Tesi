@@ -43,13 +43,9 @@ Valori prossimi a 1 indicano quindi un buon funzionamento del sistema, mentre va
     \caption{Analisi di Total Validator sul sito web \textit{SudokuWorld}}\label{fig:TV_sudoku}
 \end{figure}
 
-\noindent Come visibile nella figura \ref{fig:TV_sudoku} è possibile vedere che lo strumento \acrshort{tv} trova ben 15 errori di accessibilità.\\
-Gli errori principali sono: 
-\begin{itemize}
-    \item E913 - SC 2.4.6: Le etichette dei controlli dei \glslink{formg}{form} devono essere univoche. Utilizzare etichette univoche consente agli utenti di distinguere i vari controlli presenti sulla stessa pagina quando vengono letti da uno screen reader. In alternativa, è possibile inserirli all’interno di diversi <fieldset> con <legend> univoci, poiché il testo del <legend> viene letto insieme all’etichetta del controllo. Vedi WCAG2 Success Criterion 2.4.6.
-    \item P883 - SC 1.3.1: Nidificare correttamente le intestazioni (H1 > H2 > H3). Gli elementi di intestazione devono essere ordinati in modo gerarchico. Ad esempio, un elemento H2 dovrebbe seguire un H1, un H3 dovrebbe seguire un H2, e così via. Gli sviluppatori non devono saltare livelli né utilizzare le intestazioni solo per scopi di presentazione. Vedi WCAG2 Failure F43.
-\end{itemize}
-
+\noindent L'analisi (vedi figura \ref{fig:TV_sudoku}) ha evidenziato due errori principali: etichette dei controlli dei form non univoche e intestazioni nidificate in modo non corretto. 
+È stato inoltre segnalato un warning relativo all’assenza di un link di navigazione rapida. 
+ 
 \subsubsection{Lighthouse}
 \noindent Il report generato dallo strumento Lighthouse ha restituito un punteggio di 100/100 nella sezione Accessibility, indicando che, secondo le metriche automatiche adottate, non sono stati rilevati errori o problematiche di conformità (vedi figura \ref{fig:Lighthouse_sudoku}).
 \begin{figure}[H]
@@ -59,7 +55,7 @@ Gli errori principali sono:
 \end{figure}
 
 \subsubsection{SviluppAbile}
-\noindent Di seguito vengono riportate alcune domande fatte e risposte ricevute dall'estensione \textit{SviluppAbile}. \newline
+\noindent Di seguito vengono riportati alcuni esempi di domande poste all’estensione \textit{SviluppAbile} e delle relative risposte ricevute. \newline
 \\ \vspace{-0.5cm}
 \noindent(pagina home.php)\\
 \subsubsection*{\texttt{Il mio codice HTML rispetta le linee guida WCAG?}}
@@ -173,7 +169,7 @@ Ciò suggerisce che l’estensione riesce a fornire risultati utili e affidabili
 \newpage
 % === DOLCE RISVEGLIO ===
 \subsection{Sito web: Dolce Risveglio}
-\noindent Di seguito vengono riportati alcuni dei test effettuati sul sito web \href{https://caa.studenti.math.unipd.it/gchecchi/}{DolceRisveglio}.
+\noindent Di seguito vengono riportati alcuni dei test effettuati sul sito web \href{https://caa.studenti.math.unipd.it/gchecchi/}{Dolce Risveglio}.
 
 \subsubsection{Total Validator}
 \begin{figure}[H]
@@ -185,7 +181,6 @@ Ciò suggerisce che l’estensione riesce a fornire risultati utili e affidabili
 \noindent L'analisi (vedi figura \ref{fig:TV_dolcerisveglio}) ha rilevato 2 errori relativi ai link e 1 warning. 
 Gli errori comprendono un URL con richiesta non valida e un problema lato server da verificare nei log. 
 Il warning riguarda la necessità di distinguere tra più aree di navigazione tramite un'etichetta ARIA. 
-Questi risultati suggeriscono di controllare manualmente i link problematici e di migliorare l'accessibilità delle barre di navigazione.
 
 \subsubsection{Lighthouse}
 \noindent Il report ha restituito un punteggio di 100/100 nella sezione \textit{Accessibility}, indicando che, secondo le metriche automatiche adottate, non sono stati rilevati errori o problematiche di conformità (vedi figura \ref{fig:Lighthouse_dolcerisveglio}).
