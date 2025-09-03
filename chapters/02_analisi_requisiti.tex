@@ -19,31 +19,31 @@
 Nel caso dell’estensione \textit{SviluppAbile}, l’attore identificato è lo sviluppatore web, interessato a migliorare la qualità del codice prodotto e a garantire che i siti realizzati siano accessibili ad un pubblico ampio e diversificato.
 
 \subsection{Elenco e descrizione dei casi d'uso}
-\subsubsection*{UC0: Navigazione prompt iniziale}
-\addcontentsline{toc}{paragraph}{UC0: Navigazione sezioni principali}
+\subsubsection*{UC0: Visualizzazione prompt iniziale}
+\addcontentsline{toc}{paragraph}{UC0: Visualizzazione prompt iniziale}
 \noindent \textbf{Attori principali}: Sviluppatore web.\\
 \textbf{Precondizioni}: L'utente ha avviato l’estensione.\\
 \textbf{Descrizione}: L’estensione offre la possibilità di scegliere tra l’analisi assistita e la modalità guidata.\\
 \textbf{Postcondizioni}: L’estensione è pronta per visualizzare il risultato della modalità scelta.\\
 
 \subsubsection*{UC1: Modalità analisi assistita}
-\addcontentsline{toc}{paragraph}{UC1: Modalità analisi assistita}
+\addcontentsline{toc}{paragraph}{UC1: Analisi assistita}
 \noindent \textbf{Attori principali}: Sviluppatore web.\\
 \textbf{Precondizioni}: L’utente ha selezionato la modalità di analisi assistita.\\
-\textbf{Descrizione}: L’estensione esegue la scansione del \acrshort{dom} della pagina web e permette all’utente di porre domande di accessibilità all’\acrshort{ia}. Le risposte includono riferimenti puntuali al codice e domande suggerite per proseguire l’analisi.\\
-\textbf{Postcondizioni}: L’utente ottiene un supporto mirato nella valutazione dell’accessibilità della pagina corrente.\\
+\textbf{Descrizione}: L’estensione esegue la scansione del \acrshort{dom} della pagina web e mostra il codice sul pannello a sinistra. Nel pannello a destra è visibile la chat vuota con due domande suggerite e un campo di testo per l'inserimento di domande.\\
+\textbf{Postcondizioni}: L’utente ottiene un supporto mirato per la valutazione dell’accessibilità della pagina corrente.\\
 
 \subsubsection*{UC1.1: Utilizzo delle domande suggerite}
 \noindent \textbf{Attori principali}: Sviluppatore web.\\
-\textbf{Precondizioni}: L’utente ha aperto la chat in modalità assistita.\\
-\textbf{Descrizione}: L’estensione propone domande suggerite per guidare l’interazione con l’\acrshort{ia}, ad esempio su contrasto, testi alternativi o struttura semantica.\\
-\textbf{Postcondizioni}: L’utente può approfondire l’analisi anche senza formulare manualmente ogni domanda.\\
+\textbf{Precondizioni}: L’utente ha avviato la modalità di analisi assistita.\\
+\textbf{Descrizione}: L’utente clicca su una domanda suggerita e la invia all'IA.\\
+\textbf{Postcondizioni}: L’utente riceve una risposta contestualizzata, con eventuali riferimenti alle righe del DOM e suggerimenti per approfondire l’analisi.
 
-\subsubsection*{UC1.2: Evidenziazione delle righe del DOM}
+\subsubsection*{UC1.2: Inserimento domanda}
 \noindent \textbf{Attori principali}: Sviluppatore web.\\
-\textbf{Precondizioni}: L’utente ha posto una domanda in chat.\\
-\textbf{Descrizione}: L’estensione genera una risposta ed evidenzia le righe pertinenti del codice sorgente, facilitando l’individuazione visiva dell’elemento analizzato.\\
-\textbf{Postcondizioni}: L’utente visualizza la risposta e il frammento di codice di interesse.\\
+\textbf{Precondizioni}: L’utente ha aperto la chat in modalità di analisi assistita.\\
+\textbf{Descrizione}: L’utente inserisce manualmente una domanda nel form dedicato della chat e la invia all'IA.\\
+\textbf{Postcondizioni}: L’utente riceve una risposta risposta contestualizzata, eventualmente evidenziando le righe pertinenti del DOM e suggerendo ulteriori domande correlate.
 
 
 \subsubsection*{UC2: Modalità sviluppo guidato}
