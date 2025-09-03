@@ -14,6 +14,79 @@
 \section{Casi d'uso}
 \label{sec:uc}
 
+\subsection{Attori}
+\noindent Un attore rappresenta un elemento esterno al sistema, che può essere una persona o un altro sistema software, che interagisce con esso per il raggiungimento di un determinato obiettivo. L’attore non coincide quindi con un singolo utente specifico, ma con una categoria di utenti che condividono lo stesso ruolo nell’utilizzo del sistema.\\
+Nel caso dell’estensione \textit{SviluppAbile}, l’attore identificato è lo sviluppatore web, interessato a migliorare la qualità del codice prodotto e a garantire che i siti realizzati siano accessibili ad un pubblico ampio e diversificato.
+
+\subsection{Elenco e descrizione dei casi d'uso}
+\subsubsection*{UC0: Navigazione prompt iniziale}
+\addcontentsline{toc}{paragraph}{UC0: Navigazione sezioni principali}
+\noindent \textbf{Attori principali}: Sviluppatore web.\\
+\textbf{Precondizioni}: L'utente ha avviato l’estensione.\\
+\textbf{Descrizione}: L’estensione offre la possibilità di scegliere tra l’analisi assistita e la modalità guidata.\\
+\textbf{Postcondizioni}: L’estensione è pronta per visualizzare il risultato della modalità scelta.\\
+
+\subsubsection*{UC1: Modalità analisi assistita}
+\addcontentsline{toc}{paragraph}{UC1: Modalità analisi assistita}
+\noindent \textbf{Attori principali}: Sviluppatore web.\\
+\textbf{Precondizioni}: L’utente ha selezionato la modalità di analisi assistita.\\
+\textbf{Descrizione}: L’estensione esegue la scansione del \acrshort{dom} della pagina web e permette all’utente di porre domande di accessibilità all’\acrshort{ia}. Le risposte includono riferimenti puntuali al codice e domande suggerite per proseguire l’analisi.\\
+\textbf{Postcondizioni}: L’utente ottiene un supporto mirato nella valutazione dell’accessibilità della pagina corrente.\\
+
+\subsubsection*{UC1.1: Utilizzo delle domande suggerite}
+\noindent \textbf{Attori principali}: Sviluppatore web.\\
+\textbf{Precondizioni}: L’utente ha aperto la chat in modalità assistita.\\
+\textbf{Descrizione}: L’estensione propone domande suggerite per guidare l’interazione con l’\acrshort{ia}, ad esempio su contrasto, testi alternativi o struttura semantica.\\
+\textbf{Postcondizioni}: L’utente può approfondire l’analisi anche senza formulare manualmente ogni domanda.\\
+
+\subsubsection*{UC1.2: Evidenziazione delle righe del DOM}
+\noindent \textbf{Attori principali}: Sviluppatore web.\\
+\textbf{Precondizioni}: L’utente ha posto una domanda in chat.\\
+\textbf{Descrizione}: L’estensione genera una risposta ed evidenzia le righe pertinenti del codice sorgente, facilitando l’individuazione visiva dell’elemento analizzato.\\
+\textbf{Postcondizioni}: L’utente visualizza la risposta e il frammento di codice di interesse.\\
+
+
+\subsubsection*{UC2: Modalità sviluppo guidato}
+\addcontentsline{toc}{paragraph}{UC2: Modalità sviluppo guidato}
+\noindent \textbf{Attori principali}: Sviluppatore web.\\
+\textbf{Precondizioni}: L’utente ha selezionato la modalità di sviluppo guidato.\\
+\textbf{Descrizione}: L’estensione mostra il \acrshort{dom}, il pannello centrale di output del codice e la chat interattiva. L’\acrshort{ia} risponde alle domande poste dall’utente e propone suggerimenti di codice HTML accessibile, organizzati in blocchi numerati e progressivi.\\
+\textbf{Postcondizioni}: L’utente dispone di uno spazio di sviluppo assistito, in cui riceve sia chiarimenti teorici sia frammenti di codice riutilizzabile.\\
+
+\subsubsection*{UC2.1: Utilizzo delle domande suggerite}
+\noindent \textbf{Attori principali}: Sviluppatore web.\\
+\textbf{Precondizioni}: L’utente ha aperto la chat in modalità guidata.\\
+\textbf{Descrizione}: L’estensione propone domande suggerite per facilitare il dialogo con l’\acrshort{ia}, ad esempio su come rendere accessibile un form, una tabella o un’immagine.\\
+\textbf{Postcondizioni}: L’utente può approfondire il processo di sviluppo senza dover formulare manualmente ogni domanda.\\
+
+\subsubsection*{UC2.2: Generazione e copia di un blocco di codice}
+\noindent \textbf{Attori principali}: Sviluppatore web.\\
+\textbf{Precondizioni}: L’utente ha ricevuto almeno una risposta dall’\acrshort{ia} contenente codice.\\
+\textbf{Descrizione}: L’estensione visualizza un blocco di codice numerato. L’utente può copiarlo negli appunti per riutilizzarlo immediatamente.\\
+\textbf{Postcondizioni}: Il frammento selezionato è disponibile negli appunti dell’utente.\\
+
+\subsubsection*{UC2.3: Download del codice generato}
+\noindent \textbf{Attori principali}: Sviluppatore web.\\
+\textbf{Precondizioni}: In modalità guidata sono stati generati uno o più blocchi di codice.\\
+\textbf{Descrizione}: L’utente clicca su \textit{“Scarica codice”}. L’estensione concatena tutti i blocchi generati e produce un file HTML scaricabile.\\
+\textbf{Postcondizioni}: L’utente ottiene un file contenente i suggerimenti di codice prodotti dall’\acrshort{ia}.\\
+
+
+\subsubsection*{UC3: Blocco estensione su pagine di sistema}
+\addcontentsline{toc}{paragraph}{UC3: Blocco estensione su pagine di sistema}
+\noindent \textbf{Attori principali}: Sviluppatore web.\\
+\textbf{Precondizioni}: L’utente tenta di avviare l’estensione mentre è aperta una pagina di sistema del browser (es. \texttt{chrome://}, \texttt{edge://}, \texttt{about:}, nuova scheda).\\
+\textbf{Descrizione}: L’estensione rileva che la pagina corrente appartiene alle aree riservate del browser, non accessibili alle estensioni. In questo caso sostituisce l’icona attiva con una versione disabilitata e apre un popup informativo che comunica all’utente l’impossibilità di utilizzare \textit{SviluppAbile} in quella pagina.\\
+\textbf{Postcondizioni}: L’utente è informato del blocco e comprende che l’estensione può essere utilizzata solo su pagine web ordinarie.\\
+
+\subsubsection*{UC4: Gestione errori di comunicazione con l’IA}
+\addcontentsline{toc}{paragraph}{UC4: Gestione errori di comunicazione con l’IA}
+\noindent \textbf{Attori principali}: Sviluppatore web.\\
+\textbf{Precondizioni}: L’utente ha inviato una richiesta all’\acrshort{ia} tramite chat (in modalità analisi assistita o sviluppo guidato).\\
+\textbf{Descrizione}: Durante la comunicazione con il server dell’\acrshort{ia}, l’estensione può ricevere risposte non valide (es. stringa vuota) oppure errori di parsing del formato JSON. In tali casi, viene generato un messaggio di errore che informa l’utente del problema riscontrato. L’estensione utilizza inoltre log di debug per facilitare l’individuazione della causa.\\
+\textbf{Postcondizioni}: L’utente è consapevole dell’errore di comunicazione e può ripetere la richiesta o verificare la configurazione del sistema.\\
+
+
 \section{Tracciamento dei requisiti}
 \label{sec:req}
 \noindent Dall’analisi dei requisiti e degli UC effettuata sono emersi dei requisiti di diverso tipo, ai quali è stato associato un codice identificativo per distinguerli. Si farà riferimento ai requisiti secondo la seguente classificazione:
