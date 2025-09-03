@@ -1,11 +1,22 @@
 \definecolor{emerald}{RGB}{0, 168, 107}
-\hypersetup{linkcolor=emerald}
+\definecolor{darkblue}{RGB}{0,0,139}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,   % sezioni, figure, tabelle in blu
+  citecolor=blue,   % bibliografia
+  urlcolor=darkblue  % link esterni
+}
+
+\DeclareRobustCommand{\wcagref}[2][]{%
+  \hyperref[#1]{\textcolor{emerald}{#2}}%
+}
 
 \chapter{Test}
 \label{chap:test}
 
 \section{Test ``Analisi assistita''}
-\noindent Per effettuare i test dell’estensione sono stati utilizzati alcuni siti realizzati per l’ultima edizione del concorso \textit{Accattivante Accessibile}.\
+\noindent Per effettuare i test dell’estensione sono stati utilizzati alcuni siti realizzati per l'edizione 2025 del concorso \textit{Accattivante Accessibile}.\
 I test hanno preso in considerazione gli errori individuati da TV insieme a quelli segnalati dalla docente referente e sono stati messi a confronto con gli errori rilevati da \textit{SviluppAbile}.
 Infine, ho confrontato i risultati elaborando un resoconto tabellare per ciascun sito analizzato e, successivamente, ho applicato la metrica F1-score per ottenere un report oggettivo.
 
@@ -130,31 +141,31 @@ Ricorda che un sito web accessibile è più facile da utilizzare per tutti gli u
 \noindent Di seguito viene illustrato il processo di test effettuato da \textit{SviluppAbile} confrontando i risultati ottenuti dagli altri strumenti di validazione e integrando anche un controllo manuale basato sulle Web Content Accessibility Guidelines (WCAG 2.1). Lo studio è stato articolato sulle principali pagine del sito, inclusa l’area riservata.\\
 
 \noindent \textbf{Pagina home.php}\\
-L’estensione \textit{SviluppAbile} ha rilevato la mancanza di una gerarchia corretta delle intestazioni: non è presente un elemento <h1>, mentre compaiono direttamente intestazioni di livello inferiore. Questo comportamento viola il criterio {\hyperref[wcag:1.3.1]{\textit{1.3.1 - Info and Relationships}}}, che prescrive una corretta nidificazione semantica. Inoltre, sono state individuate etichette duplicate per i campi di ricerca, contrarie al criterio {\hyperref[wcag:2.4.6]{\textit{2.4.6 - Headings and Labels}}}, ed un utilizzo incoerente di aria-label nei controlli di navigazione, che può generare confusione negli screenreader.
-L’analisi manuale ha permesso di osservare ulteriori criticità, tra cui la mancanza di un meccanismo di bypass (skip link) in violazione del criterio {\hyperref[wcag:2.4.1]{\textit{2.4.1 - Bypass Blocks}}}, e l’assenza di landmark semantici <main> e <nav>.\\
+L’estensione \textit{SviluppAbile} ha rilevato la mancanza di una gerarchia corretta delle intestazioni: non è presente un elemento <h1>, mentre compaiono direttamente intestazioni di livello inferiore. Questo comportamento viola il criterio {\wcagref[wcag:1.3.1]{\textit{1.3.1 - Info and Relationships}}}, che prescrive una corretta nidificazione semantica. Inoltre, sono state individuate etichette duplicate per i campi di ricerca, contrarie al criterio {\wcagref[wcag:2.4.6]{\textit{2.4.6 - Headings and Labels}}}, ed un utilizzo incoerente di aria-label nei controlli di navigazione, che può generare confusione negli screenreader.
+L’analisi manuale ha permesso di osservare ulteriori criticità, tra cui la mancanza di un meccanismo di bypass (skip link) in violazione del criterio {\wcagref[wcag:2.4.1]{\textit{2.4.1 - Bypass Blocks}}}, e l’assenza di landmark semantici <main> e <nav>.\\
 
 \noindent \textbf{Pagina sudoku.php}\\
-In questa pagina è stato rilevato che i form risultano privi di etichette accessibili e che i pulsanti non sono sufficientemente descrittivi, in contrasto con i criteri {\hyperref[wcag:3.3.2]{\textit{3.3.2 - Labels or Instructions}}} e {\hyperref[wcag:4.1.2]{\textit{4.1.2 - Name, Role, Value}}}. È stata inoltre segnalata l’assenza di testi alternativi per le icone, che viola il criterio {\hyperref[wcag:1.1.1]{\textit{1.1.1 - Non-text Content}}}. Alcuni elementi testuali, come il timer, presentano dimensioni ridotte e difficilmente leggibili, con possibili ricadute sul criterio {\hyperref[wcag:1.4.4]{\textit{1.4.4 - Resize Text}}}.
-Un’osservazione manuale ha evidenziato che i contrasti cromatici non sempre soddisfano il rapporto minimo richiesto dal criterio {\hyperref[wcag:1.4.3]{\textit{1.4.3 - Contrast (Minimum)}}} e che non è garantita la piena navigabilità da tastiera ({\hyperref[wcag:2.1.1]{\textit{2.1.1}}}).\\
+In questa pagina è stato rilevato che i form risultano privi di etichette accessibili e che i pulsanti non sono sufficientemente descrittivi, in contrasto con i criteri {\wcagref[wcag:3.3.2]{\textit{3.3.2 - Labels or Instructions}}} e {\wcagref[wcag:4.1.2]{\textit{4.1.2 - Name, Role, Value}}}. È stata inoltre segnalata l’assenza di testi alternativi per le icone, che viola il criterio {\wcagref[wcag:1.1.1]{\textit{1.1.1 - Non-text Content}}}. Alcuni elementi testuali, come il timer, presentano dimensioni ridotte e difficilmente leggibili, con possibili ricadute sul criterio {\wcagref[wcag:1.4.4]{\textit{1.4.4 - Resize Text}}}.
+Un’osservazione manuale ha evidenziato che i contrasti cromatici non sempre soddisfano il rapporto minimo richiesto dal criterio {\wcagref[wcag:1.4.3]{\textit{1.4.3 - Contrast (Minimum)}}} e che non è garantita la piena navigabilità da tastiera ({\wcagref[wcag:2.1.1]{\textit{2.1.1}}}).\\
 
 \noindent \textbf{Pagina search.php}\\
 La pagina di ricerca consente agli utenti di filtrare e visualizzare i prodotti disponibili. 
-L’estensione \textit{SviluppAbile} ha rilevato alcune criticità principali: assenza di intestazione <h1>, che viola il criterio {\hyperref[wcag:1.3.1]{\textit{1.3.1}}}, etichette duplicate nei campi di ricerca ({\hyperref[wcag:2.4.6]{\textit{2.4.6}}}) e uso incoerente di aria-label nei controlli di navigazione. Inoltre, il contrasto di alcuni elementi testuali non soddisfa il rapporto minimo previsto ({\hyperref[wcag:1.4.3]{\textit{1.4.3}}}).\\
-L’analisi manuale ha evidenziato ulteriori problematiche: mancata navigabilità completa da tastiera ({\hyperref[wcag:2.1.1]{\textit{2.1.1}}}), assenza di landmark semantici come <main> e <nav> e testi alternativi mancanti per le icone o immagini illustrative ({\hyperref[wcag:1.1.1]{\textit{1.1.1}}}).\\
+L’estensione \textit{SviluppAbile} ha rilevato alcune criticità principali: assenza di intestazione <h1>, che viola il criterio {\wcagref[wcag:1.3.1]{\textit{1.3.1}}}, etichette duplicate nei campi di ricerca ({\wcagref[wcag:2.4.6]{\textit{2.4.6}}}) e uso incoerente di aria-label nei controlli di navigazione. Inoltre, il contrasto di alcuni elementi testuali non soddisfa il rapporto minimo previsto ({\wcagref[wcag:1.4.3]{\textit{1.4.3}}}).\\
+L’analisi tramite strumenti di accessibilità ha evidenziato ulteriori problematiche: mancata navigabilità completa da tastiera ({\wcagref[wcag:2.1.1]{\textit{2.1.1}}}) e testi alternativi mancanti per le icone o immagini illustrative ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}).\\
 
 \noindent \textbf{Pagine product.php?id=…}\\
-Le schede prodotto, come quelle relative alla tazza “I love sudoku” e alla maglia “commit sudoku”, hanno mostrato ulteriori problematiche. \textit{SviluppAbile} ha rilevato la mancanza di testi alternativi per le immagini ({\hyperref[wcag:1.1.1]{\textit{1.1.1}}}), l’assenza di titoli significativi nei tag <title> ({\hyperref[wcag:2.4.2]{\textit{2.4.2 - Page Titled}}}) e l’utilizzo non semantico del markup per i prezzi scontati ({\hyperref[wcag:1.3.1]{\textit{1.3.1}}}). Sono stati inoltre segnalati link privi di indicazioni chiare di stato focus o visited ({\hyperref[wcag:2.4.7]{\textit{2.4.7 - Focus Visible}}}) e la mancanza di attributi ARIA utili a descrivere pulsanti generici come “Aggiungi al carrello” ({\hyperref[wcag:4.1.2]{\textit{4.1.2}}}).
-L’analisi manuale ha messo in luce ulteriori difetti: contrasti di colore insufficienti ({\hyperref[wcag:1.4.3]{\textit{1.4.3}}}), assenza di skip link ({\hyperref[wcag:2.4.1]{\textit{2.4.1}}}) e mancanza di landmark semantici ({\hyperref[wcag:1.3.1]{\textit{1.3.1}}}).\\
+Le schede prodotto, come quelle relative alla tazza “I love sudoku” e alla maglia “commit sudoku”, hanno mostrato ulteriori problematiche. \textit{SviluppAbile} ha rilevato la mancanza di testi alternativi per le immagini ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}), l’assenza di titoli significativi nei tag <title> ({\wcagref[wcag:2.4.2]{\textit{2.4.2 - Page Titled}}}) e l’utilizzo non semantico del markup per i prezzi scontati ({\wcagref[wcag:1.3.1]{\textit{1.3.1}}}). Sono stati inoltre segnalati link privi di indicazioni chiare di stato focus o visited ({\wcagref[wcag:2.4.7]{\textit{2.4.7 - Focus Visible}}}) e la mancanza di attributi ARIA utili a descrivere pulsanti generici come “Aggiungi al carrello” ({\wcagref[wcag:4.1.2]{\textit{4.1.2}}}).
+L’analisi tramite strumenti di accessibilità ha messo in luce ulteriori difetti: contrasti di colore insufficienti ({\wcagref[wcag:1.4.3]{\textit{1.4.3}}}), assenza di skip link ({\wcagref[wcag:2.4.1]{\textit{2.4.1}}}) e mancanza di landmark semantici ({\wcagref[wcag:1.3.1]{\textit{1.3.1}}}).\\
 
 \noindent \textbf{Pagina carrello.php}\\
-Sebbene l’estensione non abbia segnalato particolari criticità nella struttura della pagina, un’analisi manuale rivela che i prodotti nel carrello non sono accompagnati da testi alternativi adeguati per le immagini ({\hyperref[wcag:1.1.1]{\textit{1.1.1}}}), né da descrizioni sufficientemente univoche per i pulsanti di azione, come “Rimuovi” o “Procedi al pagamento”. La mancanza di etichette descrittive viola i criteri {\hyperref[wcag:2.4.6]{\textit{2.4.6}}} e {\hyperref[wcag:3.3.2]{\textit{3.3.2}}}. Inoltre, i controlli del carrello non garantiscono un chiaro stato di focus, contravvenendo al criterio {\hyperref[wcag:2.4.7]{\textit{2.4.7}}}.\\
+Sebbene l’estensione non abbia segnalato particolari criticità nella struttura della pagina, un’analisi manuale rivela che i prodotti nel carrello non sono accompagnati da testi alternativi adeguati per le immagini ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}), né da descrizioni sufficientemente univoche per i pulsanti di azione, come “Rimuovi” o “Procedi al pagamento”. La mancanza di etichette descrittive viola i criteri {\wcagref[wcag:2.4.6]{\textit{2.4.6}}} e {\wcagref[wcag:3.3.2]{\textit{3.3.2}}}. Inoltre, i controlli del carrello non garantiscono un chiaro stato di focus, contravvenendo al criterio {\wcagref[wcag:2.4.7]{\textit{2.4.7}}}.\\
 
 \noindent \textbf{Pagina login.php}\\
-L’accesso alla pagina di login con credenziali di test ha permesso di individuare alcune criticità: i campi di input risultano privi di etichette esplicite e i pulsanti sono generici, compromettendo la fruibilità per chi utilizza tecnologie assistive ({\hyperref[wcag:3.3.2]{\textit{3.3.2}}} e {\hyperref[wcag:4.1.2]{\textit{4.1.2}}}). Inoltre, non sono presenti attributi \texttt{aria-label} sui controlli di autenticazione.\\
-L’analisi manuale ha messo in luce ulteriori problematiche non rilevate dallo strumento: la mancanza di messaggi di errore in caso di inserimento di credenziali errate ({\hyperref[wcag:3.3.1]{\textit{3.3.1 - Error Identification}}}), link come “Registrati” privi di testo descrittivo contestuale ({\hyperref[wcag:2.4.4]{\textit{2.4.4 - Link Purpose (In Context)}}}), e la mancanza di informazioni semantiche aggiuntive che faciliterebbero la navigazione da tastiera ({\hyperref[wcag:2.1.1]{\textit{2.1.1}}}). Queste osservazioni confermano che l’integrazione tra analisi automatica e verifica manuale è essenziale per una valutazione completa dell’accessibilità.\\
+L’accesso alla pagina di login con credenziali di test ha permesso di individuare alcune criticità: i campi di input risultano privi di etichette esplicite e i pulsanti sono generici, compromettendo la fruibilità per chi utilizza tecnologie assistive ({\wcagref[wcag:3.3.2]{\textit{3.3.2}}} e {\wcagref[wcag:4.1.2]{\textit{4.1.2}}}). Inoltre, non sono presenti attributi \texttt{aria-label} sui controlli di autenticazione.\\
+L’analisi manuale ha messo in luce ulteriori problematiche non rilevate dallo strumento: la mancanza di messaggi di errore in caso di inserimento di credenziali errate ({\wcagref[wcag:3.3.1]{\textit{3.3.1 - Error Identification}}}), link come “Registrati” privi di testo descrittivo contestuale ({\wcagref[wcag:2.4.4]{\textit{2.4.4 - Link Purpose (In Context)}}}), e la mancanza di informazioni semantiche aggiuntive che faciliterebbero la navigazione da tastiera ({\wcagref[wcag:2.1.1]{\textit{2.1.1}}}). Queste osservazioni confermano che l’integrazione tra analisi automatica e verifica manuale è essenziale per una valutazione completa dell’accessibilità.\\
 
 \noindent \textbf{Conclusioni}\\
-Il confronto tra i risultati di SviluppAbile e l’analisi manuale basata sulle WCAG mostra come l’estensione sia efficace nell’individuare errori comuni e strutturali – quali la mancanza di testi alternativi, etichette duplicate, heading disordinati e pulsanti privi di descrizione – ma non riesca a rilevare altri aspetti fondamentali per l’accessibilità, come i contrasti cromatici, la presenza di skip link, la piena navigabilità da tastiera e l’utilizzo di landmark semantici.\\
+Il confronto tra i risultati di \textit{SviluppAbile} e l’analisi manuale basata sulle WCAG mostra come l’estensione sia efficace nell’individuare errori comuni e strutturali – quali la mancanza di testi alternativi, etichette duplicate, heading disordinati e pulsanti privi di descrizione – ma non riesca a rilevare altri aspetti fondamentali per l’accessibilità, come i contrasti cromatici, la presenza di skip link, la piena navigabilità da tastiera e l’utilizzo di landmark semantici.\\
 Questo dimostra che uno strumento automatico, pur costituendo un valido supporto, deve ancora essere integrato con una verifica manuale alla luce delle linee guida ufficiali del W3C.
 
 \paragraph{F1-score} \mbox{}\\
@@ -226,24 +237,24 @@ Il warning riguarda la necessità di distinguere tra più aree di navigazione tr
 \end{figure}
 
 \subsubsection{Sviluppabile}
-\noindent Di seguito viene illustrato il processo di test effettuato da \textit{SviluppAbile}, confrontando i risultati ottenuti dagli altri strumenti di validazione e integrando anche un controllo manuale basato sulle Web Content Accessibility Guidelines (WCAG 2.1). Lo studio è stato condotto sulle principali pagine del sito, inclusi i form di login, registrazione e le pagine informative.\\
+\noindent Di seguito viene illustrato il processo di test effettuato da \textit{SviluppAbile} confrontando i risultati ottenuti dagli altri strumenti di validazione e integrando anche un controllo manuale basato sulle Web Content Accessibility Guidelines (WCAG 2.1). Lo studio è stato articolato sulle principali pagine del sito.\\
 
 \noindent \textbf{Pagina home.php}\\
-La pagina \texttt{home.php} presenta una panoramica della caffetteria, con sezioni dedicate alla storia del locale, ai prodotti offerti e link al menù. L’estensione ha rilevato alcune criticità principali: immagini prive di testi alternativi ({\hyperref[wcag:1.1.1]{\textit{1.1.1 - Non-text Content}}}), uso di intestazioni senza gerarchia coerente ({\hyperref[wcag:1.3.1]{\textit{1.3.1 - Info and Relationships}}}) e suggerimenti per aggiungere label agli elementi interattivi eventualmente presenti nel footer ({\hyperref[wcag:2.4.6]{\textit{2.4.6 - Headings and Labels}}}).\\
-L’analisi tramite strumenti automatici ha evidenziato ulteriori problemi: contrasto insufficiente in alcune aree di testo o link ({\hyperref[wcag:1.4.3]{\textit{1.4.3}}}), assenza di landmark semantici principali (\texttt{<main>} e \texttt{<nav>}) ({\hyperref[wcag:1.3.1]{1.3.1}}) e mancanza di skip link alternativi per navigare rapidamente al contenuto principale ({\hyperref[wcag:2.4.1]{\textit{2.4.1 - Bypass Blocks}}}).\\
+La pagina \texttt{home.php} presenta una panoramica della caffetteria, con sezioni dedicate alla storia del locale, ai prodotti offerti e link al menù. L’estensione ha rilevato alcune criticità principali: immagini prive di testi alternativi ({\wcagref[wcag:1.1.1]{\textit{1.1.1 - Non-text Content}}}), uso di intestazioni senza gerarchia coerente ({\wcagref[wcag:1.3.1]{\textit{1.3.1 - Info and Relationships}}}) e suggerimenti per aggiungere label agli elementi interattivi eventualmente presenti nel footer ({\wcagref[wcag:2.4.6]{\textit{2.4.6 - Headings and Labels}}}).\\
+L’analisi tramite strumenti automatici ha evidenziato ulteriori problemi: contrasto insufficiente in alcune aree di testo o link ({\wcagref[wcag:1.4.3]{\textit{1.4.3}}}), assenza di landmark semantici principali (\texttt{<main>} e \texttt{<nav>}) ({\wcagref[wcag:1.3.1]{\textit{1.3.1}}}) e mancanza di skip link alternativi per navigare rapidamente al contenuto principale ({\wcagref[wcag:2.4.1]{\textit{2.4.1 - Bypass Blocks}}}).\\
 
 \noindent \textbf{Pagina menu.php}\\
 La pagina \texttt{menu.php} presenta il menù della caffetteria, con sezioni dedicate a bevande, pietanze e dolci, strutturate in liste e tabelle descrittive (\texttt{<dl>}). 
-L’estensione \textit{SviluppAbile} ha rilevato alcune criticità principali: immagini dei piatti prive di testi alternativi significativi ({\hyperref[wcag:1.1.1]{1.1.1}}), bottoni per la selezione dei menu senza chiara indicazione dello stato attivo tramite attributi ARIA ({\hyperref[wcag:4.1.2]{\textit{4.1.2 - Name, Role, Value}}}) e suggerimenti per aggiungere label agli elementi interattivi ({\hyperref[wcag:2.4.6]{2.4.6}}).\\
-Ulteriori controlli con strumenti automatici hanno evidenziato problemi come contrasti insufficienti tra testo e sfondo in alcune aree del menù ({\hyperref[wcag:1.4.3]{1.4.3}}) e assenza di skip link funzionanti per navigare rapidamente tra le sezioni del menù ({\hyperref[wcag:2.4.1]{2.4.1}}).\\
+L’estensione \textit{SviluppAbile} ha rilevato alcune criticità principali: immagini dei piatti prive di testi alternativi significativi ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}), bottoni per la selezione dei menu senza chiara indicazione dello stato attivo tramite attributi ARIA ({\wcagref[wcag:4.1.2]{\textit{4.1.2 - Name, Role, Value}}}) e suggerimenti per aggiungere label agli elementi interattivi ({\wcagref[wcag:2.4.6]{\textit{2.4.6}}}).\\
+Ulteriori controlli con strumenti automatici hanno evidenziato problemi come contrasti insufficienti tra testo e sfondo in alcune aree del menù ({\wcagref[wcag:1.4.3]{\textit{1.4.3}}}) e assenza di skip link funzionanti per navigare rapidamente tra le sezioni del menù ({\wcagref[wcag:2.4.1]{\textit{2.4.1}}}).\\
 
 \noindent \textbf{Pagina contatti.php}\\
-La pagina \texttt{contatti.php} consente agli utenti di inviare richieste o informazioni tramite un modulo di contatto, presentando campi per nome, email, telefono e messaggio. L’estensione ha rilevato alcune criticità principali: immagini prive di testi alternativi ({\hyperref[wcag:1.1.1]{1.1.1}}), campi del modulo senza indicazioni ARIA aggiuntive per facilitare la navigazione e la comprensione ({\hyperref[wcag:4.1.2]{4.1.2}}) e suggerimenti per aggiungere label più descrittive agli elementi interattivi presenti nel footer ({\hyperref[wcag:2.4.6]{2.4.6}}).\\
-L’analisi tramite strumenti automatici ha evidenziato ulteriori problemi: contrasto insufficiente tra testo e sfondo in alcune aree ({\hyperref[wcag:1.4.3]{1.4.3}}), assenza di landmark semantici principali (\texttt{<main>} e \texttt{<nav>}) ({\hyperref[wcag:1.3.1]{1.3.1}}) e mancanza di skip link alternativi per navigare rapidamente al contenuto principale ({\hyperref[wcag:2.4.1]{2.4.1}}).\\
+La pagina \texttt{contatti.php} consente agli utenti di inviare richieste o informazioni tramite un modulo di contatto, presentando campi per nome, email, telefono e messaggio. L’estensione ha rilevato alcune criticità principali: immagini prive di testi alternativi ({\wcagref[wcag:1.1.1]{1.1.1}}), campi del modulo senza indicazioni ARIA aggiuntive per facilitare la navigazione e la comprensione ({\wcagref[wcag:4.1.2]{\textit{4.1.2}}}) e suggerimenti per aggiungere label più descrittive agli elementi interattivi presenti nel footer ({\wcagref[wcag:2.4.6]{\textit{2.4.6}}}).\\
+L’analisi tramite strumenti automatici ha evidenziato ulteriori problemi: contrasto insufficiente tra testo e sfondo in alcune aree ({\wcagref[wcag:1.4.3]{\textit{1.4.3}}}), assenza di landmark semantici principali (\texttt{<main>} e \texttt{<nav>}) ({\wcagref[wcag:1.3.1]{\textit{1.3.1}}}) e mancanza di skip link alternativi per navigare rapidamente al contenuto principale ({\wcagref[wcag:2.4.1]{\textit{2.4.1}}}).\\
 
 \noindent \textbf{Pagina prenotazioni.php}\\
-La pagina \texttt{prenotazioni.php} permette agli utenti di prenotare un tavolo, specificando nome, email, telefono, giorno, orario e tavolo desiderato tramite un modulo strutturato. L’estensione ha rilevato alcune criticità principali: immagini prive di testi alternativi ({\hyperref[wcag:1.1.1]{1.1.1}}), campi del modulo senza indicazioni ARIA aggiuntive per facilitare la comprensione e l’interazione ({\hyperref[wcag:4.1.2]{4.1.2}}) e suggerimenti per aggiungere label più descrittive agli elementi interattivi presenti nel footer ({\hyperref[wcag:2.4.6]{2.4.6}}).\\
-L’analisi tramite strumenti automatici ha evidenziato ulteriori problemi: contrasto insufficiente in alcune aree di testo ({\hyperref[wcag:1.4.3]{1.4.3}}), assenza di landmark semantici principali (\texttt{<main>} e \texttt{<nav>}) ({\hyperref[wcag:1.3.1]{1.3.1}}) e mancanza di skip link alternativi per navigare rapidamente al contenuto principale ({\hyperref[wcag:2.4.1]{2.4.1}}).\\
+La pagina \texttt{prenotazioni.php} permette agli utenti di prenotare un tavolo, specificando nome, email, telefono, giorno, orario e tavolo desiderato tramite un modulo strutturato. L’estensione ha rilevato alcune criticità principali: immagini prive di testi alternativi ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}), campi del modulo senza indicazioni ARIA aggiuntive per facilitare la comprensione e l’interazione ({\wcagref[wcag:4.1.2]{\textit{4.1.2}}}) e suggerimenti per aggiungere label più descrittive agli elementi interattivi presenti nel footer ({\wcagref[wcag:2.4.6]{\textit{2.4.6}}}).\\
+L’analisi tramite strumenti automatici ha evidenziato ulteriori problemi: contrasto insufficiente in alcune aree di testo ({\wcagref[wcag:1.4.3]{\textit{1.4.3}}}), assenza di landmark semantici principali (\texttt{<main>} e \texttt{<nav>}) ({\wcagref[wcag:1.3.1]{\textit{1.3.1}}}) e mancanza di skip link alternativi per navigare rapidamente al contenuto principale ({\wcagref[wcag:2.4.1]{\textit{2.4.1}}}).\\
 
 \noindent \textbf{Conclusioni}\\
 Il confronto tra i risultati di \textit{SviluppAbile} e le verifiche effettuate con strumenti automatici mostra che l’estensione è efficace nell’individuare errori comuni di struttura e contenuto, come testi alternativi mancanti, etichette non descrittive e incongruenze tra attributi \texttt{required} e \texttt{aria-required}. Tuttavia, l’estensione non rileva completamente problematiche relative al contrasto cromatico, landmark semantici, skip link e piena navigabilità da tastiera.\\
@@ -272,7 +283,7 @@ Per ottenere una valutazione completa dell’accessibilità del sito, è necessa
 \hline
 \endlastfoot
 \begin{itemize}
-    \item Trovato solo da \textit{SviluppAbile}: alt non corretti delle img
+    \item Alt non corretti delle img
     \item Etichette dei form non univoche
     \item Suggerisce l'aggiunta di label e id per gli elementi input
     \item Errore required e aria-required utilizzati insieme
@@ -314,17 +325,19 @@ Il problema segnalato riguarda il contrasto insufficiente tra colori di sfondo e
 \end{figure}
 
 \subsubsection{SviluppAbile}
+\noindent Di seguito viene illustrato il processo di test effettuato da \textit{SviluppAbile} confrontando i risultati ottenuti dagli altri strumenti di validazione e integrando anche un controllo manuale basato sulle Web Content Accessibility Guidelines (WCAG 2.1). Lo studio è stato articolato sulle principali pagine del sito.\\
+
 \noindent \textbf{Pagina home}\\
-La pagina \texttt{home} presenta la home page di \textit{E-lixirium}, con sezioni dedicate al logo, alla navigazione e alla presentazione di categorie e prodotti. L’estensione ha rilevato alcune criticità principali: immagini dei prodotti prive di testi alternativi significativi ({\hyperref[wcag:1.1.1]{\textit{1.1.1 - Non-text Content}}}), logo con link circolare verso la home anche quando l’utente è già sulla home ({\hyperref[wcag:2.4.4]{\textit{2.4.4 - Link Purpose (In Context)}}}), link adiacenti con testi diversi ma comportamento simile ({\hyperref[wcag:2.4.4]{2.4.4}}) e duplicazione di testi alternativi nelle stelle di valutazione dei prodotti ({\hyperref[wcag:1.1.1]{1.1.1}}).\\
-L’analisi tramite strumenti automatici ha evidenziato ulteriori problemi: assenza di skip link per saltare la navigazione ({\hyperref[wcag:2.4.1]{\textit{2.4.1 - Bypass Blocks}}}), elementi della navbar nascosti tramite \texttt{display:none} invece di \texttt{visibility:hidden} ({\hyperref[wcag:2.1.1]{\textit{2.1.1 - Keyboard}}}), e link duplicati o circolari nella barra di navigazione ({\hyperref[wcag:2.4.4]{2.4.4}}).\\
+La pagina \texttt{home} presenta la home page di \textit{E-lixirium}, con sezioni dedicate al logo, alla navigazione e alla presentazione di categorie e prodotti. L’estensione ha rilevato alcune criticità principali: immagini dei prodotti prive di testi alternativi significativi ({\wcagref[wcag:1.1.1]{\textit{1.1.1 - Non-text Content}}}), logo con link circolare verso la home anche quando l’utente è già sulla home ({\wcagref[wcag:2.4.4]{\textit{2.4.4 - Link Purpose (In Context)}}}), link adiacenti con testi diversi ma comportamento simile ({\wcagref[wcag:2.4.4]{\textit{2.4.4}}}) e duplicazione di testi alternativi nelle stelle di valutazione dei prodotti ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}).\\
+L’analisi tramite strumenti automatici ha evidenziato ulteriori problemi: assenza di skip link per saltare la navigazione ({\wcagref[wcag:2.4.1]{\textit{2.4.1 - Bypass Blocks}}}), elementi della navbar nascosti tramite \texttt{display:none} invece di \texttt{visibility:hidden} ({\wcagref[wcag:2.1.1]{\textit{2.1.1 - Keyboard}}}), e link duplicati o circolari nella barra di navigazione ({\wcagref[wcag:2.4.4]{\textit{2.4.4}}}).\\
 
 \noindent \textbf{Pagina products}\\
-La pagina \texttt{products} mostra l’elenco completo dei prodotti disponibili nel negozio E-lixirium. Come per la home page, si riscontrano criticità di accessibilità significative: le immagini dei prodotti utilizzano come testo alternativo il nome del file ({\hyperref[wcag:1.1.1]{1.1.1}}), le stelle di valutazione dei prodotti hanno alt duplicati o poco descrittivi ({\hyperref[wcag:1.1.1]{1.1.1}}), e non è presente uno skip link per saltare la navigazione ({\hyperref[wcag:2.4.1]{2.4.1}}).\\
-Ulteriori problemi rilevati includono link duplicati o circolari nella barra di navigazione ({\hyperref[wcag:2.4.4]{2.4.4}}) e elementi nascosti tramite \texttt{display:none} invece di \texttt{visibility:hidden} ({\hyperref[wcag:2.1.1]{2.1.1}}). Alcuni link della navbar hanno testo identico ma conducono a destinazioni diverse ({\hyperref[wcag:2.4.4]{2.4.4}}), generando confusione per utenti con ausili assistivi.\\
+La pagina \texttt{products} mostra l’elenco completo dei prodotti disponibili nel negozio E-lixirium. Come per la home page, si riscontrano criticità di accessibilità significative: le immagini dei prodotti utilizzano come testo alternativo il nome del file ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}), le stelle di valutazione dei prodotti hanno alt duplicati o poco descrittivi ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}), e non è presente uno skip link per saltare la navigazione ({\wcagref[wcag:2.4.1]{\textit{2.4.1}}}).\\
+Ulteriori problemi rilevati includono link duplicati o circolari nella barra di navigazione ({\wcagref[wcag:2.4.4]{\textit{2.4.4}}}) e elementi nascosti tramite \texttt{display:none} invece di \texttt{visibility:hidden} ({\wcagref[wcag:2.1.1]{\textit{2.1.1}}}). Alcuni link della navbar hanno testo identico ma conducono a destinazioni diverse ({\wcagref[wcag:2.4.4]{\textit{2.4.4}}}), generando confusione per utenti con ausili assistivi.\\
 
 \noindent \textbf{Pagina about}\\
-La pagina \texttt{about} presenta informazioni sull’azienda E-lixirium e la sua missione, con testo descrittivo e un’immagine illustrativa. Dal punto di vista dell’accessibilità, si riscontrano le stesse criticità delle pagine precedenti: l’immagine ha un testo alternativo generico (\texttt{About E-lixirium}) che non descrive il contenuto visivo in dettaglio ({\hyperref[wcag:1.1.1]{1.1.1}}).\\
-La struttura della pagina non prevede skip link per saltare la navigazione principale ({\hyperref[wcag:2.4.1]{2.4.1}}) e non tutti i link sono chiaramente descrittivi nel contesto ({\hyperref[wcag:2.4.4]{2.4.4}}). Inoltre, non vengono forniti attributi ARIA aggiuntivi per migliorare la fruibilità tramite lettori di schermo, e i pulsanti hanno colori e contrasto che potrebbero risultare insufficienti per utenti con difficoltà visive ({\hyperref[wcag:1.4.3]{\textit{1.4.3 - Contrast (Minimum)}}}).\\
+La pagina \texttt{about} presenta informazioni sull’azienda E-lixirium e la sua missione, con testo descrittivo e un’immagine illustrativa. Dal punto di vista dell’accessibilità, si riscontrano le stesse criticità delle pagine precedenti: l’immagine ha un testo alternativo generico (\texttt{About E-lixirium}) che non descrive il contenuto visivo in dettaglio ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}).\\
+La struttura della pagina non prevede skip link per saltare la navigazione principale ({\wcagref[wcag:2.4.1]{\textit{2.4.1}}}) e non tutti i link sono chiaramente descrittivi nel contesto ({\wcagref[wcag:2.4.4]{\textit{2.4.4}}}). Inoltre, non vengono forniti attributi ARIA aggiuntivi per migliorare la fruibilità tramite lettori di schermo, e i pulsanti hanno colori e contrasto che potrebbero risultare insufficienti per utenti con difficoltà visive ({\wcagref[wcag:1.4.3]{\textit{1.4.3 - Contrast (Minimum)}}}).\\
 
 \noindent \textbf{Conclusioni}\\
 L’analisi complessiva delle tre pagine principali di \textit{E-lixirium} evidenzia una serie di criticità ricorrenti, in particolare relative ai testi alternativi delle immagini, alla gestione della navigazione e al contrasto visivo degli elementi interattivi. Le problematiche riscontrate potrebbero ostacolare l’accesso al sito da parte di utenti con disabilità visive o che utilizzano ausili tecnologici. Si consiglia di intervenire su testi alternativi più descrittivi, implementare skip link e migliorare il contrasto dei pulsanti e dei link, oltre a garantire una gestione coerente della navigazione e dei link duplicati, in linea con le linee guida WCAG 2.1.
@@ -393,25 +406,27 @@ Il problema segnalato riguarda il contrasto insufficiente tra colori di sfondo e
 \end{figure}
 
 \subsubsection{SviluppAbile}
+\noindent Di seguito viene illustrato il processo di test effettuato da \textit{SviluppAbile} confrontando i risultati ottenuti dagli altri strumenti di validazione e integrando anche un controllo manuale basato sulle Web Content Accessibility Guidelines (WCAG 2.1). Lo studio è stato articolato sulle principali pagine del sito.\\
+
 \noindent \textbf{Pagina home}\\
-La pagina \texttt{home} presenta il sito \texttt{CorsaIdeale}, con sezioni dedicate alla navigazione, alla presentazione delle ultime uscite, ai servizi offerti e ai ruoli dei corridori. Dal punto di vista dell’accessibilità, si riscontrano le seguenti criticità principali: immagini dei prodotti e del logo prive di testi alternativi significativi ({\hyperref[wcag:1.1.1]{\textit{1.1.1 - Non-text Content}}}), attributi \texttt{id} senza valore descrittivo o duplicati ({\hyperref[wcag:2.4.4]{\textit{2.4.4 - Link Purpose (In Context)}}}), etichette \texttt{label} non univoche ({\hyperref[wcag:3.3.2]{\textit{3.3.2 - Labels or Instructions}}}), chiusura di tag \texttt{p} erroneamente con \texttt{h3} ({\hyperref[wcag:1.3.1]{\textit{1.3.1 - Info and Relationships}}}) e nomi di attributi in maiuscolo anziché in minuscolo ({\hyperref[wcag:4.1.1]{\textit{4.1.1 - Parsing}}}).\\
-La struttura della pagina prevede uno skip link per saltare la navigazione ({\hyperref[wcag:2.4.1]{2.4.1}}), ma non tutti i link della navbar sono chiaramente descrittivi nel contesto ({\hyperref[wcag:2.4.4]{2.4.4}}). Inoltre, non vengono utilizzati attributi ARIA aggiuntivi per migliorare la fruibilità tramite lettori di schermo, e alcune immagini decorative o informative non hanno alt appropriato ({\hyperref[wcag:1.1.1]{1.1.1}}).\\
-Non sono stati riscontrati problemi relativi al contrasto dei colori ({\hyperref[wcag:1.4.3]{\textit{1.4.3 - Contrast (Minimum)}}}).\\
+La pagina \texttt{home} presenta il sito \texttt{CorsaIdeale}, con sezioni dedicate alla navigazione, alla presentazione delle ultime uscite, ai servizi offerti e ai ruoli dei corridori. Dal punto di vista dell’accessibilità, si riscontrano le seguenti criticità principali: immagini dei prodotti e del logo prive di testi alternativi significativi ({\wcagref[wcag:1.1.1]{\textit{1.1.1 - Non-text Content}}}), attributi \texttt{id} senza valore descrittivo o duplicati ({\wcagref[wcag:2.4.4]{\textit{2.4.4 - Link Purpose (In Context)}}}), etichette \texttt{label} non univoche ({\wcagref[wcag:3.3.2]{\textit{3.3.2 - Labels or Instructions}}}), chiusura di tag \texttt{p} erroneamente con \texttt{h3} ({\wcagref[wcag:1.3.1]{\textit{1.3.1 - Info and Relationships}}}) e nomi di attributi in maiuscolo anziché in minuscolo ({\wcagref[wcag:4.1.1]{\textit{4.1.1 - Parsing}}}).\\
+La struttura della pagina prevede uno skip link per saltare la navigazione ({\wcagref[wcag:2.4.1]{\textit{2.4.1}}}), ma non tutti i link della navbar sono chiaramente descrittivi nel contesto ({\wcagref[wcag:2.4.4]{\textit{2.4.4}}}). Inoltre, non vengono utilizzati attributi ARIA aggiuntivi per migliorare la fruibilità tramite lettori di schermo, e alcune immagini decorative o informative non hanno alt appropriato ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}).\\
+Non sono stati riscontrati problemi relativi al contrasto dei colori ({\wcagref[wcag:1.4.3]{\textit{1.4.3 - Contrast (Minimum)}}}).\\
 
 \noindent \textbf{Pagina lista.php}\\
 La pagina \texttt{lista.php} mostra l’elenco delle scarpe con funzionalità di ricerca, filtro e ordinamento. 
-L’estensione \textit{SviluppAbile} ha rilevato alcune criticità principali: assenza di testo alternativo significativo per le immagini delle scarpe e per il logo della navbar ({\hyperref[wcag:1.1.1]{1.1.1}}), utilizzo di \texttt{onclick} su interi blocchi cliccabili senza alternative da tastiera ({\hyperref[wcag:2.1.1]{\textit{2.1.1 - Keyboard}}}).\\
-L’analisi tramite strumenti automatici ha evidenziato ulteriori problematiche: mancanza di landmark semantici coerenti come <main> e <nav> per ciascun blocco funzionale ({\hyperref[wcag:1.3.1]{1.3.1}}), etichette ridondanti o generiche nei pulsanti di filtro ({\hyperref[wcag:2.4.6]{\textit{2.4.6 - Headings and Labels}}}) e testi alternativi vuoti per le icone (menu, ricerca, like) ({\hyperref[wcag:1.1.1]{1.1.1}}).\\
+L’estensione \textit{SviluppAbile} ha rilevato alcune criticità principali: assenza di testo alternativo significativo per le immagini delle scarpe e per il logo della navbar ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}), utilizzo di \texttt{onclick} su interi blocchi cliccabili senza alternative da tastiera ({\wcagref[wcag:2.1.1]{\textit{2.1.1 - Keyboard}}}).\\
+L’analisi tramite strumenti automatici ha evidenziato ulteriori problematiche: mancanza di landmark semantici coerenti come <main> e <nav> per ciascun blocco funzionale ({\wcagref[wcag:1.3.1]{\textit{1.3.1}}}), etichette ridondanti o generiche nei pulsanti di filtro ({\wcagref[wcag:2.4.6]{\textit{2.4.6 - Headings and Labels}}}) e testi alternativi vuoti per le icone (menu, ricerca, like) ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}).\\
 
 \noindent \textbf{Pagina chi-siamo.php}\\
 La pagina \texttt{chi-siamo.php} presenta informazioni sull’azienda, i valori e il team di CorsaIdeale. 
-L’estensione ha rilevato alcune criticità principali: immagini senza testo alternativo significativo, compreso il logo e le foto dei membri del team ({\hyperref[wcag:1.1.1]{1.1.1}}), uso di \texttt{onclick} sui link del menu mobile senza alternative da tastiera ({\hyperref[wcag:2.1.1]{2.1.1}}).\\
-L’analisi tramite strumenti automatici ha evidenziato ulteriori problematiche: mancanza di landmark semantici coerenti e completi per ciascun blocco di contenuto ({\hyperref[wcag:1.3.1]{1.3.1}}), etichette generiche o mancanti per alcuni link e pulsanti ({\hyperref[wcag:2.4.6]{2.4.6}}) e testi alternativi vuoti o poco descrittivi per le icone e immagini illustrative ({\hyperref[wcag:1.1.1]{1.1.1}}).\\
+L’estensione ha rilevato alcune criticità principali: immagini senza testo alternativo significativo, compreso il logo e le foto dei membri del team ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}), uso di \texttt{onclick} sui link del menu mobile senza alternative da tastiera ({\wcagref[wcag:2.1.1]{\textit{2.1.1}}}).\\
+L’analisi tramite strumenti automatici ha evidenziato ulteriori problematiche: mancanza di landmark semantici coerenti e completi per ciascun blocco di contenuto ({\wcagref[wcag:1.3.1]{\textit{1.3.1}}}), etichette generiche o mancanti per alcuni link e pulsanti ({\wcagref[wcag:2.4.6]{\textit{2.4.6}}}) e testi alternativi vuoti o poco descrittivi per le icone e immagini illustrative ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}).\\
 
 \noindent \textbf{Pagina accedi.php}\\
 La pagina \texttt{accedi.php} consente agli utenti di autenticarsi e accedere alle funzionalità del sito CorsaIdeale. 
-L’estensione \textit{SviluppAbile} ha rilevato alcune criticità principali: immagini del logo e del pulsante "torna su" prive di testo alternativo significativo ({\hyperref[wcag:1.1.1]{1.1.1}}), assenza di skip link per saltare direttamente al contenuto principale ({\hyperref[wcag:2.4.1]{2.4.1}}) e campi del form con placeholder utilizzati come unica indicazione ({\hyperref[wcag:2.4.6]{2.4.6}}).\\
-L’analisi ha evidenziato ulteriori problemi: il form di login non è completamente fruibile tramite tastiera a causa di eventi \texttt{onblur} e \texttt{onclick} non sempre accessibili ({\hyperref[wcag:2.1.1]{2.1.1}}), la gestione dei messaggi di validazione non è semanticamente associata ai campi e alcuni link presentano testi generici ("Crea un nuovo account") senza indicare chiaramente la destinazione ({\hyperref[wcag:2.4.4]{2.4.4}}).\\
+L’estensione \textit{SviluppAbile} ha rilevato alcune criticità principali: immagini del logo e del pulsante "torna su" prive di testo alternativo significativo ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}), assenza di skip link per saltare direttamente al contenuto principale ({\wcagref[wcag:2.4.1]{\textit{2.4.1}}}) e campi del form con placeholder utilizzati come unica indicazione ({\wcagref[wcag:2.4.6]{\textit{2.4.6}}}).\\
+L’analisi ha evidenziato ulteriori problemi: il form di login non è completamente fruibile tramite tastiera a causa di eventi \texttt{onblur} e \texttt{onclick} non sempre accessibili ({\wcagref[wcag:2.1.1]{\textit{2.1.1}}}), la gestione dei messaggi di validazione non è semanticamente associata ai campi e alcuni link presentano testi generici ("Crea un nuovo account") senza indicare chiaramente la destinazione ({\wcagref[wcag:2.4.4]{\textit{2.4.4}}}).\\
 
 \noindent \textbf{Conclusioni}\\
 L’analisi complessiva delle principali pagine di \textit{CorsaIdeale} evidenzia criticità ricorrenti, in particolare relative ai testi alternativi delle immagini, alla gestione della navigazione e all’accessibilità dei form e dei link. Le problematiche riscontrate potrebbero ostacolare l’accesso al sito da parte di utenti con disabilità visive o che utilizzano ausili tecnologici. Si consiglia di intervenire su testi alternativi più descrittivi, implementare skip link e garantire la fruibilità completa tramite tastiera, oltre a migliorare la gestione coerente della navigazione e dei link duplicati, in linea con le linee guida WCAG 2.1.
@@ -479,19 +494,21 @@ L’analisi complessiva delle principali pagine di \textit{CorsaIdeale} evidenzi
 \end{figure}
 
 \subsubsection{SviluppAbile}
+\noindent Di seguito viene illustrato il processo di test effettuato da \textit{SviluppAbile} confrontando i risultati ottenuti dagli altri strumenti di validazione e integrando anche un controllo manuale basato sulle Web Content Accessibility Guidelines (WCAG 2.1). Lo studio è stato articolato sulle principali pagine del sito.\\
+
 \noindent \textbf{Pagina home.php}\\
 La pagina \texttt{home.php} di BookOverflo introduce la piattaforma e mostra i libri più scambiati. 
-L’estensione \textit{SviluppAbile} un uso inappropriato del tabindex sugli elementi interattivi ({\hyperref[wcag:2.1.1]{2.1.1}}).\\
-L’analisi ha confermato invece che tutti gli elementi interattivi sono correttamente accessibili, l'analisi manuale invece si può notare che sembra non esservi un contrasto sufficiente tra link visitati e non visitati ({\hyperref[wcag:1.4.3]{1.4.3}}).
+L’estensione \textit{SviluppAbile} un uso inappropriato del tabindex sugli elementi interattivi ({\wcagref[wcag:2.1.1]{\textit{2.1.1}}}).\\
+L’analisi ha confermato invece che tutti gli elementi interattivi sono correttamente accessibili, l'analisi manuale invece si può notare che sembra non esservi un contrasto sufficiente tra link visitati e non visitati ({\wcagref[wcag:1.4.3]{\textit{1.4.3}}}).\\
 
 \noindent \textbf{Pagina esplora.php}\\
 La pagina \texttt{esplora.php} consente agli utenti di scoprire nuovi libri, visualizzare i titoli più popolari e accedere a contenuti personalizzati dopo il login. 
-L’estensione \textit{SviluppAbile} ha segnalato falsi positivi per uso inappropriato del tabindex sugli elementi interattivi ({\hyperref[wcag:2.1.1]{2.1.1}}).\\
-L’analisi manuale ha confermato che tutti i link e i pulsanti sono etichettati in modo chiaro tramite attributi aria-label o testo visibilee tutte le immagini decorative o informative dispongono di testo alternativo appropriato ({\hyperref[wcag:1.1.1]{1.1.1}}, {\hyperref[wcag:1.3.1]{1.3.1}}, {\hyperref[wcag:2.4.6]{2.4.6}}). Inoltre, i contenuti personalizzati richiedono il login, ma i messaggi indicano chiaramente come accedere, senza compromettere l’accessibilità.\\
+L’estensione \textit{SviluppAbile} ha segnalato falsi positivi per uso inappropriato del tabindex sugli elementi interattivi ({\wcagref[wcag:2.1.1]{\textit{2.1.1}}}).\\
+L’analisi manuale ha confermato che tutti i link e i pulsanti sono etichettati in modo chiaro tramite attributi aria-label o testo visibilee tutte le immagini decorative o informative dispongono di testo alternativo appropriato ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}, {\wcagref[wcag:1.3.1]{\textit{1.3.1}}}, {\wcagref[wcag:2.4.6]{\textit{2.4.6}}}). Inoltre, i contenuti personalizzati richiedono il login, ma i messaggi indicano chiaramente come accedere, senza compromettere l’accessibilità.\\
 
 \noindent \textbf{Pagina come-funziona.php}\\
 La pagina \texttt{come-funziona.php} illustra il funzionamento della piattaforma BookOverflow, spiegando agli utenti i vantaggi dello scambio libri e guidandoli passo passo attraverso la creazione della libreria, la selezione dei desideri e le modalità di spedizione. 
-L’estensione \textit{SviluppAbile} non segnala alcun tipo di errore.
+L’estensione \textit{SviluppAbile} non segnala alcun tipo di errore.\\
 
 \noindent \textbf{Conclusioni}\\
 In sintesi, la pagina risulta pienamente accessibile; le criticità segnalate da \textit{SviluppAbile} costituiscono falsi positivi dovuti alle ristrette capacità di analisi dell'IA alla base dell'estensione.\\
@@ -556,6 +573,22 @@ uno relativo all'associazione corretta delle etichette ai rispettivi controlli e
 \end{figure}
 
 \subsubsection{SviluppAbile}
+\noindent Di seguito viene illustrato il processo di test effettuato da \textit{SviluppAbile} confrontando i risultati ottenuti dagli altri strumenti di validazione e integrando anche un controllo manuale basato sulle Web Content Accessibility Guidelines (WCAG 2.1). Lo studio è stato articolato sulle principali pagine del sito.\\
+
+\noindent \textbf{Pagina home.php}\\
+L’analisi della pagina tramite l’estensione \textit{SviluppAbile} non ha rilevato errori di accessibilità critici. L’unico avviso segnalato riguarda testi alternativi (\texttt{alt}) troppo lunghi per alcune immagini, ma queste descrizioni dettagliate non compromettono la fruibilità dei contenuti per utenti con disabilità visive ({\wcagref[wcag:1.1.1]{\textit{1.1.1 - Non-text Content}}}).  
+SviluppAbile ha individuato correttamente che tutti gli elementi interattivi, come i link e i campi del form, risultano etichettati e navigabili tramite tastiera ({\wcagref[wcag:2.1.1]{\textit{2.1.1 - Keyboard}}}). Tuttavia, l’estensione non è stata in grado di rilevare eventuali problemi di struttura HTML o tag non consentiti ({\wcagref[wcag:4.1.1]{\textit{4.1.1 - Parsing}}}), che, se presenti, dovrebbero essere valutati manualmente.\\
+
+\noindent \textbf{Pagina about.php}\\
+L’analisi della pagina non ha evidenziato errori di accessibilità critici. Sono stati correttamente individuati gli elementi interattivi come link e pulsanti, che risultano etichettati e navigabili tramite tastiera ({\wcagref[wcag:2.1.1]{\textit{2.1.1}}}), garantendo la conformità ai requisiti WCAG relativi all’accessibilità da tastiera e alla comprensibilità dei contenuti testuali.  
+La pagina presenta una struttura semantica chiara ({\wcagref[wcag:1.3.1]{\textit{1.3.1 - Info and Relationships}}}), immagini corredate da testi alternativi descrittivi ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}) e informazioni accessibili sulle sezioni del sito.\\
+
+\noindent \textbf{Pagina test\_drive.php}\\
+L’analisi della pagina tramite l’estensione \textit{SviluppAbile} non ha rilevato errori di accessibilità significativi. Tutti i campi dei form risultano etichettati e navigabili tramite tastiera ({\wcagref[wcag:2.1.1]{\textit{2.1.1}}}), e le immagini hanno testi alternativi appropriati ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}). Si raccomanda comunque una verifica manuale della struttura dei tag HTML per garantire la corretta semantica e la compatibilità con lettori di schermo ({\wcagref[wcag:4.1.1]{\textit{4.1.1}}}).\\
+
+\noindent \textbf{Conclusioni}\\
+L’analisi complessiva delle pagine principali tramite \textit{SviluppAbile} mostra che l’estensione è efficace nell’individuare problemi comuni come testi alternativi mancanti o troppo lunghi e garantire la navigabilità da tastiera degli elementi interattivi. Tuttavia, alcune criticità relative alla struttura HTML, all’uso corretto dei tag semantici e alla compatibilità con lettori di schermo non vengono completamente rilevate.  
+Si consiglia pertanto di integrare l’uso di \textit{SviluppAbile} con controlli manuali e verifiche basate sulle WCAG 2.1 ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}, {\wcagref[wcag:1.3.1]{\textit{1.3.1}}}, {\wcagref[wcag:2.1.1]{\textit{2.1.1}}}, {\wcagref[wcag:4.1.1]{\textit{4.1.1}}}) per ottenere una valutazione completa dell’accessibilità del sito.
 
 
 \paragraph{F1-score} \mbox{}\\
@@ -707,21 +740,23 @@ Per ulteriori informazioni sugli attributi ARIA, ti consiglio di consultare la d
 
 \section{Lista WCAG citate}
 \begin{itemize}
-    \item \label{wcag:1.1.1} 1.1.1 - Non-text Content
-    \item \label{wcag:1.3.1} 1.3.1 - Info and Relationships
-    \item \label{wcag:1.4.3} 1.4.3 - Contrast (Minimum)
-    \item \label{wcag:1.4.4} 1.4.4 - Resize Text
-    \item \label{wcag:2.1.1} 2.1.1 - Keyboard
-    \item \label{wcag:2.4.1} 2.4.1 - Bypass Blocks
-    \item \label{wcag:2.4.2} 2.4.2 - Page Titled
-    \item \label{wcag:2.4.4} 2.4.4 - Link Purpose (In Context)
-    \item \label{wcag:2.4.6} 2.4.6 - Headings and Labels
-    \item \label{wcag:2.4.7} 2.4.7 - Focus Visible
-    \item \label{wcag:2.4.8} 2.4.8 - Location
-    \item \label{wcag:2.4.9} 2.4.9 - Link Purpose (Link Only)
-    \item \label{wcag:3.3.1} 3.3.1 - Error Identification
-    \item \label{wcag:3.3.2} 3.3.2 - Labels or Instructions
-    \item \label{wcag:4.1.2} 4.1.2 - Name, Role, Value
+    \item \label{wcag:1.1.1} \href{https://www.w3.org/TR/WCAG21/#non-text-content}{1.1.1 - Non-text Content}
+    \item \label{wcag:1.3.1} \href{https://www.w3.org/TR/WCAG21/#info-and-relationships}{1.3.1 - Info and Relationships}
+    \item \label{wcag:1.4.3} \href{https://www.w3.org/TR/WCAG21/#contrast-minimum}{1.4.3 - Contrast (Minimum)}
+    \item \label{wcag:1.4.4} \href{https://www.w3.org/TR/WCAG21/#resize-text}{1.4.4 - Resize Text}
+    \item \label{wcag:2.1.1} \href{https://www.w3.org/TR/WCAG21/#keyboard}{2.1.1 - Keyboard}
+    \item \label{wcag:2.4.1} \href{https://www.w3.org/TR/WCAG21/#bypass-blocks}{2.4.1 - Bypass Blocks}
+    \item \label{wcag:2.4.2} \href{https://www.w3.org/TR/WCAG21/#page-titled}{2.4.2 - Page Titled}
+    \item \label{wcag:2.4.4} \href{https://www.w3.org/TR/WCAG21/#link-purpose-in-context}{2.4.4 - Link Purpose (In Context)}
+    \item \label{wcag:2.4.6} \href{https://www.w3.org/TR/WCAG21/#headings-and-labels}{2.4.6 - Headings and Labels}
+    \item \label{wcag:2.4.7} \href{https://www.w3.org/TR/WCAG21/#focus-visible}{2.4.7 - Focus Visible}
+    \item \label{wcag:2.4.8} \href{https://www.w3.org/TR/WCAG21/#location}{2.4.8 - Location}
+    \item \label{wcag:2.4.9} \href{https://www.w3.org/TR/WCAG21/#link-purpose-link-only}{2.4.9 - Link Purpose (Link Only)}
+    \item \label{wcag:3.3.1} \href{https://www.w3.org/TR/WCAG21/#error-identification}{3.3.1 - Error Identification}
+    \item \label{wcag:3.3.2} \href{https://www.w3.org/TR/WCAG21/#labels-or-instructions}{3.3.2 - Labels or Instructions}
+    \item \label{wcag:4.1.1} \href{https://www.w3.org/TR/WCAG21/#parsing}{4.1.1 - Parsing}
+    \item \label{wcag:4.1.2} \href{https://www.w3.org/TR/WCAG21/#name-role-value}{4.1.2 - Name, Role, Value}
 \end{itemize}
+
 
 
