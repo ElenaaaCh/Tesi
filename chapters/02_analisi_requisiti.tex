@@ -118,10 +118,15 @@ Nel caso dell’estensione \textit{SviluppAbile}, l’attore identificato è lo 
 \endfoot
 \hline
 \endlastfoot
-\textbf{RO-01} & xx & UC xx\\
+\textbf{RO-01} & L’estensione deve offrire un prompt iniziale che consenta la scelta tra modalità analisi assistita e modalità sviluppo guidato. & UC0\\
 \hline
-\textbf{RO-02} & xx & UC xx\\
+\textbf{RO-02} & In modalità analisi assistita, l’estensione deve permettere di analizzare il DOM della pagina e porre domande all’IA. & UC1\\
 \hline
+\textbf{RO-03} & In modalità sviluppo guidato, l’estensione deve mostrare il DOM, il pannello centrale con i suggerimenti di codice e la chat laterale. & UC2 \\
+\hline
+\textbf{RO-04} & L’estensione deve impedire l’avvio su pagine di sistema (es. chrome://, about:blank, newtab).  & UC3\\
+\hline
+\textbf{RO-05} & L’estensione deve gestire errori di comunicazione con l’IA mostrando un messaggio esplicativo & UC4\\
 \end{longtable}
 \end{footnotesize}
 
@@ -145,9 +150,13 @@ Nel caso dell’estensione \textit{SviluppAbile}, l’attore identificato è lo 
 \endfoot
 \hline
 \endlastfoot
-\textbf{RD-01} & xx & UC xx\\
+\textbf{RD-01} & L’estensione deve proporre domande suggerite per agevolare l’interazione in entrambe le modalità. & UC1.1, UC2.1\\
 \hline
-\textbf{RD-02} & xx & UC xx\\
+\textbf{RD-02} & In modalità analisi assistita, l’estensione deve evidenziare nel codice le righe pertinenti alla risposta dell’IA & UC1.2\\
+\hline
+\textbf{RD-03} & In modalità sviluppo guidato, l’IA deve generare suggerimenti di codice accessibile numerati e separati in blocchi. & UC2\\
+\hline
+\textbf{RD-04} & L’utente deve poter scaricare un file HTML contenente i blocchi di codice generati. & UC2.1\\
 \hline
 \end{longtable}
 \end{footnotesize}
@@ -172,9 +181,11 @@ Nel caso dell’estensione \textit{SviluppAbile}, l’attore identificato è lo 
 \endfoot
 \hline
 \endlastfoot
-\textbf{RF-01} & xx & UC xx\\
+\textbf{RF-01} & L’estensione deve supportare una modalità “notte” per migliorare la leggibilità e ridurre l’affaticamento visivo. & \\
 \hline
-\textbf{RF-02} & xx & UC xx\\
+\textbf{RF-02} & L’estensione deve integrare eventuali strumenti di validazione automatica del codice (es. HTML Validator o simili). & \\
+\hline
+\textbf{RF-03} & L’estensione deve mantenere la cronologia delle interazioni con l’IA nella sessione corrente. & \\
 \hline
 \end{longtable}
 \end{footnotesize}
