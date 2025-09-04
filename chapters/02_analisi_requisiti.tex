@@ -11,6 +11,8 @@
     \item Facilitare il miglioramento della qualità e dell’accessibilità dei siti web, promuovendo buone pratiche di progettazione inclusiva.
 \end{itemize}
 
+\noindent Ulteriore obiettivo del progetto è l’individuazione del modello LLM più adatto a soddisfare le esigenze dell’estensione.
+
 \section{Casi d'uso}
 \label{sec:uc}
 
@@ -77,7 +79,6 @@ Nel caso dell’estensione \textit{SviluppAbile}, l’attore identificato è lo 
 \textbf{Descrizione}: L’utente clicca i pulsante \textit{“Scarica codice”}; l’estensione concatena tutti i blocchi generati e produce un file HTML scaricabile.\\
 \textbf{Postcondizioni}: L’utente ottiene un file contenente tutti i suggerimenti di codice prodotti dall’IA.\\
 
-
 \subsubsection*{UC3: Blocco estensione su pagine di sistema}
 \addcontentsline{toc}{paragraph}{UC3: Blocco estensione su pagine di sistema}
 \noindent \textbf{Attori principali}: Sviluppatore web.\\
@@ -91,6 +92,7 @@ Nel caso dell’estensione \textit{SviluppAbile}, l’attore identificato è lo 
 \textbf{Precondizioni}: L’utente ha inviato una richiesta all’IA tramite chat (in modalità analisi assistita o sviluppo guidato).\\
 \textbf{Descrizione}: L’estensione gestisce risposte non valide o errori di parsing JSON provenienti dal server dell’IA notificando l’utente.\\
 \textbf{Postcondizioni}: L’utente è consapevole dell’errore e può ripetere la richiesta o verificare la configurazione del sistema.\\
+
 
 
 \section{Tracciamento dei requisiti}
@@ -133,6 +135,8 @@ Nel caso dell’estensione \textit{SviluppAbile}, l’attore identificato è lo 
 \textbf{RO-04} & L’estensione deve impedire l’avvio su pagine di sistema del browser (es. chrome://, about:blank, nuova scheda). & UC3\\
 \hline
 \textbf{RO-05} & L’estensione deve gestire eventuali errori di comunicazione con l’IA mostrando messaggi esplicativi all’utente. & UC4\\
+\hline
+\textbf{RO-06} & Individuazione dell'LLM più congrua alle necessità dell'estensione. & Obiettivo progetto \\
 \hline
 \end{longtable}
 \end{footnotesize}

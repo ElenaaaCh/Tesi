@@ -1,12 +1,4 @@
 \definecolor{emerald}{RGB}{0, 168, 107}
-\definecolor{darkblue}{RGB}{0,0,139}
-
-\hypersetup{
-  colorlinks=true,
-  linkcolor=blue,   % sezioni, figure, tabelle in blu
-  citecolor=blue,   % bibliografia
-  urlcolor=darkblue  % link esterni
-}
 
 \DeclareRobustCommand{\wcagref}[2][]{%
   \hyperref[#1]{\textcolor{emerald}{#2}}%
@@ -57,11 +49,11 @@ Valori prossimi a 1 indicano quindi un buon funzionamento del sistema, mentre va
     \caption{Analisi di Total Validator sul sito web \textit{SudokuWorld}}\label{fig:TV_sudoku}
 \end{figure}
 
-\noindent L'analisi (vedi figura \ref{fig:TV_sudoku}) ha evidenziato due errori principali: etichette dei controlli dei form non univoche e intestazioni nidificate in modo non corretto. 
+\noindent L'analisi (vedi figura \ref{fig:TV_sudoku} per il report della homepage) ha evidenziato due errori principali: etichette dei controlli dei form non univoche e intestazioni nidificate in modo non corretto. 
 È stato inoltre segnalato un warning relativo all’assenza di un link di navigazione rapida. 
  
 \subsubsection{Lighthouse}
-\noindent Il report generato dallo strumento Lighthouse ha restituito un punteggio di 100/100 nella sezione Accessibility, indicando che, secondo le metriche automatiche adottate, non sono stati rilevati errori o problematiche di conformità (vedi figura \ref{fig:Lighthouse_sudoku}).
+\noindent Il report generato nelle varie pagine dallo strumento Lighthouse ha restituito un punteggio di 100/100 nella sezione Accessibility, indicando che, secondo le metriche automatiche adottate, non sono stati rilevati errori o problematiche di conformità (vedi figura \ref{fig:Lighthouse_sudoku}).
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\linewidth, alt={Screenshot dell'analisi di Lighthouse sul sito web SudokuWorld}]{img/Lighthouse_sudoku.png}
@@ -224,12 +216,12 @@ Ciò suggerisce che l’estensione riesce a fornire risultati utili e affidabili
     \caption{Analisi di Total Validator sul sito web \textit{Dolce Risveglio}}\label{fig:TV_dolcerisveglio}
 \end{figure}
 
-\noindent L'analisi (vedi figura \ref{fig:TV_dolcerisveglio}) ha rilevato 2 errori relativi ai link e 1 warning. 
+\noindent L'analisi (vedi figura \ref{fig:TV_dolcerisveglio} per il report della homepage) ha rilevato 2 errori relativi ai link e 1 warning. 
 Gli errori comprendono un URL con richiesta non valida e un problema lato server da verificare nei log. 
 Il warning riguarda la necessità di distinguere tra più aree di navigazione tramite un'etichetta ARIA. 
 
 \subsubsection{Lighthouse}
-\noindent Il report ha restituito un punteggio di 100/100 nella sezione \textit{Accessibility}, indicando che, secondo le metriche automatiche adottate, non sono stati rilevati errori o problematiche di conformità (vedi figura \ref{fig:Lighthouse_dolcerisveglio}).
+\noindent Il report delle varie pagine ha sempre restituito un punteggio di 100/100 nella sezione \textit{Accessibility}, indicando che, secondo le metriche automatiche adottate, non sono stati rilevati errori o problematiche di conformità (vedi figura \ref{fig:Lighthouse_dolcerisveglio}).
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\linewidth, alt={Screenshot dell'analisi di Lighthouse sul sito web DolceRisveglio}]{img/Lighthouse_dolcerisveglio.png}
@@ -312,11 +304,11 @@ Per ottenere una valutazione completa dell’accessibilità del sito, è necessa
     \caption{Analisi di Total Validator sul sito web \textit{E-lixirium}}\label{fig:TV_elixirium}
 \end{figure}
 
-\noindent L'analisi (vedi figura \ref{fig:TV_elixirium}) ha rilevato 2 errori principali e 44 warning. 
+\noindent L'analisi (vedi figura \ref{fig:TV_elixirium} per il report della homepage) ha rilevato 2 errori principali e 44 warning. 
 Gli errori riguardano principalmente elementi con ruoli ARIA a cui non è stato associato un nome accessibile e testi alternativi non significativi. Tra i warning, i più frequenti sono duplicazioni di testo alternativo per immagini, nomi accessibili generati da attributi \texttt{title}, link adiacenti con testi diversi e l’assenza di link di navigazione rapida. 
 
 \subsubsection{Lighthouse}
-\noindent Il report ha restituito un punteggio di 96/100 nella sezione \textit{Accessibility} (vedi figura \ref{fig:Lighthouse_elixirium}). 
+\noindent Il report delle varie pagine ha restituito un punteggio di 96/100 nella sezione \textit{Accessibility} (vedi figura \ref{fig:Lighthouse_elixirium}). 
 Il problema segnalato riguarda il contrasto insufficiente tra colori di sfondo e primo piano, che può ridurre la leggibilità per alcuni utenti. 
 \begin{figure}[H]
     \centering
@@ -394,7 +386,7 @@ L’analisi complessivamente evidenzia una serie di criticità ricorrenti, in pa
     \caption{Analisi di Total Validator sul sito web \textit{Corsa Ideale}}\label{fig:TV_corsaideale}
 \end{figure}
 
-\noindent \noindent L’analisi ha evidenziato un solo errore riguardante i link, dovuto a una richiesta non valida (\textit{Bad Request}), e quattro avvisi relativi all’uso improprio della marcatura tipografica (testi interamente in grassetto o corsivo che dovrebbero essere definiti come intestazioni). Questi warning non compromettono direttamente l’accessibilità, ma indicano buone pratiche di struttura da rispettare per garantire una corretta interpretazione da parte degli strumenti assistivi.
+\noindent \noindent L’analisi (vedi figura \ref{fig:TV_corsaideale} per il report della homepage) ha evidenziato un solo errore riguardante i link, dovuto a una richiesta non valida (\textit{Bad Request}), e quattro avvisi relativi all’uso improprio della marcatura tipografica (testi interamente in grassetto o corsivo che dovrebbero essere definiti come intestazioni). Questi warning non compromettono direttamente l’accessibilità, ma indicano buone pratiche di struttura da rispettare per garantire una corretta interpretazione da parte degli strumenti assistivi.
 
 \subsubsection{Lighthouse}
 \noindent Il report ha restituito un punteggio di 100/100 nella sezione \textit{Accessibility}, indicando che, secondo le metriche automatiche adottate, non sono stati rilevati errori o problematiche di accessibilità (vedi figura \ref{fig:Lighthouse_corsaideale}). 
@@ -482,7 +474,7 @@ L’analisi complessiva delle principali pagine di \textit{CorsaIdeale} evidenzi
     \caption{Analisi di Total Validator sul sito web \textit{BookOverflow}}\label{fig:TV_bookoverflow}
 \end{figure}
 
-\noindent Come visibile in figura \ref{fig:TV_bookoverflow}, non vi sono errori di accessibilità.
+\noindent Come visibile in figura \ref{fig:TV_bookoverflow} (che riporta, a titolo di esempio, il report della homepage), non vi sono errori di accessibilità.
 
 \subsubsection{Lighthouse}
 \noindent Il report ha restituito un punteggio di 100/100 nella sezione \textit{Accessibility}, indicando che, secondo le metriche automatiche adottate, non sono stati rilevati errori o problematiche di accessibilità (vedi figura \ref{fig:Lighthouse_bookoverflow}).
@@ -735,26 +727,3 @@ Per ulteriori informazioni sugli attributi ARIA, ti consiglio di consultare la d
 16 </body></html>}
 }
 \end{adjustwidth}
-
-\section{Lista WCAG citate}
-\begin{itemize}
-    \item \label{wcag:1.1.1} \href{https://www.w3.org/TR/WCAG21/#non-text-content}{1.1.1 - Non-text Content}
-    \item \label{wcag:1.3.1} \href{https://www.w3.org/TR/WCAG21/#info-and-relationships}{1.3.1 - Info and Relationships}
-    \item \label{wcag:1.4.3} \href{https://www.w3.org/TR/WCAG21/#contrast-minimum}{1.4.3 - Contrast (Minimum)}
-    \item \label{wcag:1.4.4} \href{https://www.w3.org/TR/WCAG21/#resize-text}{1.4.4 - Resize Text}
-    \item \label{wcag:2.1.1} \href{https://www.w3.org/TR/WCAG21/#keyboard}{2.1.1 - Keyboard}
-    \item \label{wcag:2.4.1} \href{https://www.w3.org/TR/WCAG21/#bypass-blocks}{2.4.1 - Bypass Blocks}
-    \item \label{wcag:2.4.2} \href{https://www.w3.org/TR/WCAG21/#page-titled}{2.4.2 - Page Titled}
-    \item \label{wcag:2.4.4} \href{https://www.w3.org/TR/WCAG21/#link-purpose-in-context}{2.4.4 - Link Purpose (In Context)}
-    \item \label{wcag:2.4.6} \href{https://www.w3.org/TR/WCAG21/#headings-and-labels}{2.4.6 - Headings and Labels}
-    \item \label{wcag:2.4.7} \href{https://www.w3.org/TR/WCAG21/#focus-visible}{2.4.7 - Focus Visible}
-    \item \label{wcag:2.4.8} \href{https://www.w3.org/TR/WCAG21/#location}{2.4.8 - Location}
-    \item \label{wcag:2.4.9} \href{https://www.w3.org/TR/WCAG21/#link-purpose-link-only}{2.4.9 - Link Purpose (Link Only)}
-    \item \label{wcag:3.3.1} \href{https://www.w3.org/TR/WCAG21/#error-identification}{3.3.1 - Error Identification}
-    \item \label{wcag:3.3.2} \href{https://www.w3.org/TR/WCAG21/#labels-or-instructions}{3.3.2 - Labels or Instructions}
-    \item \label{wcag:4.1.1} \href{https://www.w3.org/TR/WCAG21/#parsing}{4.1.1 - Parsing}
-    \item \label{wcag:4.1.2} \href{https://www.w3.org/TR/WCAG21/#name-role-value}{4.1.2 - Name, Role, Value}
-\end{itemize}
-
-
-
