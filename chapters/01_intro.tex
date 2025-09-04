@@ -1,7 +1,7 @@
 \chapter{Introduzione}
 \label{chap:intro}
 
-\noindent L’accessibilità web rappresenta un aspetto fondamentale per garantire che tutte le persone, indipendentemente dalle loro abilità o disabilità, possano utilizzare i contenuti digitali in modo efficace. Le linee guida \acrshort{wcag} (\textit{Web Content Accessibility Guidelines}) sono uno standard internazionale, esse definiscono i criteri tecnici per migliorare l’accessibilità dei siti web, intervenendo su aspetti quali la struttura semantica, la navigazione tramite tastiera, il contrasto cromatico dei colori e la compatibilità con tecnologie assistive.\\ 
+\noindent L’accessibilità web rappresenta un aspetto fondamentale per garantire che tutte le persone, indipendentemente dalle loro abilità o disabilità, possano utilizzare i contenuti digitali in modo efficace. Le linee guida \glslink{wcag}{\acrshort{wcag}\glox} (\textit{Web Content Accessibility Guidelines}) sono uno standard internazionale, esse definiscono i criteri tecnici per migliorare l’accessibilità dei siti web, intervenendo su aspetti quali la struttura semantica, la navigazione tramite tastiera, il contrasto cromatico dei colori e la compatibilità con tecnologie assistive.\\ 
 Un sito accessibile non solo migliora l’esperienza d’uso per persone con disabilità visive, motorie o cognitive, ma estende anche la fruibilità a un pubblico più ampio, contribuendo a un web più inclusivo e universale.\\ 
 Nonostante ciò, spesso la realizzazione pratica di siti accessibili incontra difficoltà dovute a scarsa conoscenza delle best-practices dello sviluppo web accessibile, delle normative in questione e della scarsa diffusione di strumenti automatizzati efficaci.
 
@@ -10,19 +10,19 @@ Nonostante ciò, spesso la realizzazione pratica di siti accessibili incontra di
 \noindent Il progetto sviluppato durante il mio stage si inserisce all’interno di un’iniziativa molto più ampia intitolata \textit{“Supporting Accessibility Auditing and HTML Validator using Large Language Models”} a cui partecipano e collaborano docenti e stagisti dell’Università di Padova e dell’Università di Bologna.\\
 Tale progetto nasce dall’esigenza di affrontare il problema dell’accessibilità web, diritto fondamentale per tutti i cittadini (in particolare per le persone con disabilità) che devono poter accedere alle informazioni sul web senza barriere.\\
 Nonostante le normative nazionali e internazionali (come la \textit{Direttiva Europea sull'Accessibilità Web} e l' \textit{European Accessibility Act}) impongano requisiti chiari, una buona parte dei siti web presenta ancora numerose criticità di accessibilità. \cite{site:UE_accessibility_act}\\
-In questo contesto, il progetto mira a valutare, testare e sfruttare le capacità dei \textit{Large Language Models} (\acrshort{llm}) per supportare l’audit dell’accessibilità e la validazione del codice \acrshort{html}.\\
-L’obiettivo finale è sviluppare strumenti innovativi che utilizzino modelli di \glslink{iag}{intelligenza artificiale}, come \glslink{ChatGPTg}{ChatGPT}, per fornire un supporto interattivo agli sviluppatori, aiutandoli a identificare e correggere problematiche di accessibilità in modo più efficace e comprensibile rispetto ai metodi tradizionali. Attraverso questa integrazione, si intende migliorare la qualità e soprattutto la chiarezza dei risultati e favorire una cultura più diffusa sull’accessibilità digitale.\\ Inoltre, si vuole anche valutare se gli LLM siano effettivamente in grado di svolgere questo tipo di lavoro.\\
+In questo contesto, il progetto mira a valutare, testare e sfruttare le capacità dei \textit{Large Language Models} (\glslink{llm}{\acrshort{llm}\glox}) per supportare l’audit dell’accessibilità e la validazione del codice \glslink{html}{\acrshort{html}\glox}.\\
+L’obiettivo finale è sviluppare strumenti innovativi che utilizzino modelli di \glslink{iag}{intelligenza artificiale\glox}, come \glslink{ChatGPTg}{ChatGPT\glox}, per fornire un supporto interattivo agli sviluppatori, aiutandoli a identificare e correggere problematiche di accessibilità in modo più efficace e comprensibile rispetto ai metodi tradizionali. Attraverso questa integrazione, si intende migliorare la qualità e soprattutto la chiarezza dei risultati e favorire una cultura più diffusa sull’accessibilità digitale.\\ Inoltre, si vuole anche valutare se gli LLM siano effettivamente in grado di svolgere questo tipo di lavoro.\\
 \\
 L’estensione \textit{“SviluppAbile”} è un primo esempio di strumento per lo sviluppo guidato di pagine web accessibili.
 Essa nasce dall’esigenza di supportare gli sviluppatori web nel creare pagine accessibili in modo semplice e interattivo, sfruttando le potenzialità dell’\glslink{iag}{intelligenza artificiale}.\\
 L’estensione \glslink{Chrome-basedg}{Chrome-based} sviluppata offre due modalità principali: \begin{itemize}
-    \item una modalità di analisi assistita, che permette di ispezionare il \acrshort{dom} di una pagina web e di porre domande specifiche sull’accessibilità, ottenendo risposte chiare e contestualizzate; 
+    \item una modalità di analisi assistita, che permette di ispezionare il \glslink{dom}{\acrshort{dom}\glox} di una pagina web e di porre domande specifiche sull’accessibilità, ottenendo risposte chiare e contestualizzate; 
     \item una modalità di sviluppo guidato, in cui l’utente riceve suggerimenti di codice accessibile in tempo reale, visualizzati in una colonna centrale e pronti per essere copiati o scaricati.
 \end{itemize}
 Questo duplice approccio consente di integrare nel flusso di lavoro quotidiano degli sviluppatori un valido supporto basato sull'\acrshort{ia}, con l’obiettivo di facilitare il rispetto delle linee guida \acrshort{wcag} e migliorare la qualità complessiva del codice.
 
 \section{Analisi delle soluzioni già presenti}
-\noindent Sul mercato esistono diversi strumenti e \glslink{pluging}{plugin} dedicati alla verifica dell’accessibilità delle pagine web, come Total Validator (vedi paragrafo \ref{subsec:tv}), WAVE (vedi paragrafo \ref{subsec:wave}) e Lighthouse (vedi paragrafo \ref{subsec:lighthouse}), che offrono principalmente funzionalità di scansione automatica e generazione di report.\\ 
+\noindent Sul mercato esistono diversi strumenti e \glslink{pluging}{plugin\glox} dedicati alla verifica dell’accessibilità delle pagine web, come Total Validator (vedi paragrafo \ref{subsec:tv}), WAVE (vedi paragrafo \ref{subsec:wave}) e Lighthouse (vedi paragrafo \ref{subsec:lighthouse}), che offrono principalmente funzionalità di scansione automatica e generazione di report.\\ 
 Questi strumenti, tuttavia, forniscono spesso una panoramica statica dei problemi riscontrati; indicano chiaramente dove si trova l’errore, ma i risultati sono generalmente formulati in modo formale e destinati ad un esperto di accessibilità. Di conseguenza, l’utente non specialista deve interpretare autonomamente le informazioni, con il rischio di applicare soluzioni non sempre pienamente conformi alle linee guida.\\ 
 Alcuni software integrano suggerimenti o tutorial, ma raramente utilizzano modelli di \glslink{iag}{intelligenza artificiale} in grado di interagire con lo sviluppatore in linguaggio naturale, rispondendo a domande specifiche o guidandolo direttamente nella scrittura del codice. \\
 \\
@@ -42,7 +42,7 @@ Alcuni software integrano suggerimenti o tutorial, ma raramente utilizzano model
 \noindent Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:
 \begin{itemize}
 	\item Gli acronimi, le abbreviazioni e i termini ambigui o di uso non comune menzionati vengono definiti nel glossario, situato alla fine del presente documento;
-	\item Per i termini riportati nel glossario viene utilizzata la seguente nomenclatura: \gls{apig};
+	\item Per i termini riportati nel glossario viene utilizzata la seguente nomenclatura: \glslink{apig}{Application Programming Interface\glox};
 	\item I termini in lingua straniera o facenti parti del gergo tecnico sono evidenziati con il carattere \textit{corsivo};
 	\item Gli esempi di codice, le domande poste all'IA e le righe di codice utilizzano il formato \texttt{monospace}.
 \end{itemize}
