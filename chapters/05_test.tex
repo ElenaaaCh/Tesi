@@ -49,7 +49,7 @@ Valori prossimi a 1 indicano quindi un buon funzionamento del sistema, mentre va
     \caption{Analisi di Total Validator sul sito web \textit{SudokuWorld}}\label{fig:TV_sudoku}
 \end{figure}
 
-\noindent L'analisi (vedi figura \ref{fig:TV_sudoku} per il report della homepage) ha evidenziato due errori principali: etichette dei controlli dei form non univoche e intestazioni nidificate in modo non corretto. 
+\noindent L'analisi (vedi figura \ref{fig:TV_sudoku} per il report della homepage) ha evidenziato due errori principali: etichette dei controlli dei \glslink{formg}{form} non univoche e intestazioni nidificate in modo non corretto. 
 È stato inoltre segnalato un warning relativo all’assenza di un link di navigazione rapida. 
  
 \subsubsection{Lighthouse}
@@ -61,9 +61,11 @@ Valori prossimi a 1 indicano quindi un buon funzionamento del sistema, mentre va
 \end{figure}
 
 \subsubsection{SviluppAbile}
-\noindent Di seguito vengono riportati alcuni esempi di domande poste all’estensione \textit{SviluppAbile} e delle relative risposte ricevute. \newline
-\\ \vspace{-0.5cm}
-\noindent(pagina home.php)\\
+\noindent Di seguito vengono riportati alcuni esempi di domande poste all’estensione \textit{SviluppAbile} e delle relative risposte ricevute. 
+
+\vspace{0.5cm}
+\noindent(pagina home.php)
+\vspace{-0.5cm}
 \subsubsection*{\texttt{Il mio codice HTML rispetta le linee guida WCAG?}}
 \begin{adjustwidth}{1cm}{1cm}
 \noindent {\footnotesize Il tuo codice HTML sembra essere in parte conforme alle linee guida WCAG (Web Content Accessibility Guidelines), ma potrebbe migliorare ulteriormente per garantire una maggiore accessibilità. Alcune aree che richiedono ulteriore attenzione includono:\\
@@ -122,15 +124,15 @@ Ricorda che un sito web accessibile è più facile da utilizzare per tutti gli u
 }}
 \end{adjustwidth}
 
-\paragraph*{\texttt{"Come posso utilizzare gli strumenti di analisi del codice per \\ identificare le aree dell'accessibilità da migliorare nel mio sito web HTML?"}} 
+\paragraph*{\texttt{"Come posso utilizzare gli strumenti di analisi del codice per \\ identificare le aree dell'accessibilità da migliorare nel mio sito web?"}} 
 \begin{adjustwidth}{1cm}{1cm}
-\noindent {\footnotesize Per identificare le aree dell'accessibilità da migliorare nel tuo sito web HTML, puoi utilizzare gli strumenti di analisi come W3C Validator e Lighthouse. Il W3C Validator verifica la correttezza del codice HTML e fornisce suggerimenti per migliorare l'accessibilità. Lighthouse è uno strumento open-source che valuta l'accessibilità, le prestazioni e la sicurezza del tuo sito web.}
+\noindent {\footnotesize Per identificare le aree dell'accessibilità da migliorare nel tuo sito web HTML, puoi utilizzare gli strumenti di analisi come \acrshort{w3c} Validator e Lighthouse. Il \acrshort{w3c} Validator verifica la correttezza del codice HTML e fornisce suggerimenti per migliorare l'accessibilità. Lighthouse è uno strumento open-source che valuta l'accessibilità, le prestazioni e la sicurezza del tuo sito web.}
 \end{adjustwidth}
 
 \vspace{0.8cm}
 
 \noindent \textbf{Resoconto finale dei test}\\
-\noindent Di seguito viene illustrato il processo di test effettuato da \textit{SviluppAbile} confrontando i risultati ottenuti dagli altri strumenti di validazione e integrando anche un controllo manuale basato sulle Web Content Accessibility Guidelines (WCAG 2.1). Lo studio è stato articolato sulle principali pagine del sito, inclusa l’area riservata.\\
+\noindent Di seguito viene illustrato il processo di test effettuato da \textit{SviluppAbile} confrontando i risultati ottenuti dagli altri strumenti di validazione e integrando anche un controllo manuale basato sulle Web Content Accessibility Guidelines (\acrshort{wcag} 2.1). Lo studio è stato articolato sulle principali pagine del sito, inclusa l’area riservata.\\
 
 \noindent \textbf{Pagina home.php}\\
 L’estensione \textit{SviluppAbile} ha rilevato la mancanza di una gerarchia corretta delle intestazioni: non è presente un elemento <h1>, mentre compaiono direttamente intestazioni di livello inferiore. Questo comportamento viola il criterio {\wcagref[wcag:1.3.1]{\textit{1.3.1 - Info and Relationships}}}, che prescrive una corretta nidificazione semantica. Inoltre, sono state individuate etichette duplicate per i campi di ricerca, contrarie al criterio {\wcagref[wcag:2.4.6]{\textit{2.4.6 - Headings and Labels}}}, ed un utilizzo incoerente di aria-label nei controlli di navigazione, che può generare confusione negli screenreader.
@@ -146,19 +148,19 @@ L’estensione \textit{SviluppAbile} ha rilevato alcune criticità principali: a
 L’analisi tramite strumenti di accessibilità ha evidenziato ulteriori problematiche: mancata navigabilità completa da tastiera ({\wcagref[wcag:2.1.1]{\textit{2.1.1}}}), testi alternativi mancanti per le icone o immagini illustrative ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}) e che il contrasto di alcuni elementi testuali non soddisfa il rapporto minimo previsto ({\wcagref[wcag:1.4.3]{\textit{1.4.3}}}).\\
 
 \noindent \textbf{Pagine product.php?id=…}\\
-Le schede prodotto (analizzando quelle relative alla tazza “I love sudoku” e alla maglia “commit sudoku”) hanno mostrato ulteriori problematiche. \textit{SviluppAbile} ha rilevato la mancanza di testi alternativi per le immagini ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}), l’assenza di titoli significativi nei tag <title> ({\wcagref[wcag:2.4.2]{\textit{2.4.2 - Page Titled}}}) e l’utilizzo non semantico del markup per i prezzi scontati ({\wcagref[wcag:1.3.1]{\textit{1.3.1}}}). Sono stati inoltre segnalati link privi di indicazioni chiare di stato focus o visited ({\wcagref[wcag:2.4.7]{\textit{2.4.7 - Focus Visible}}}) e la mancanza di attributi ARIA utili a descrivere pulsanti generici come “Aggiungi al carrello” ({\wcagref[wcag:4.1.2]{\textit{4.1.2}}}). Ques'ultimo errore rappresenta un falso negativo, in quanto il pulsante è definito correttamente.
+Le schede prodotto (analizzando quelle relative alla tazza “I love sudoku” e alla maglia “commit sudoku”) hanno mostrato ulteriori problematiche. \textit{SviluppAbile} ha rilevato la mancanza di testi alternativi per le immagini ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}), l’assenza di titoli significativi nei tag <title> ({\wcagref[wcag:2.4.2]{\textit{2.4.2 - Page Titled}}}) e l’utilizzo non semantico del \glslink{markupg}{markup} per i prezzi scontati ({\wcagref[wcag:1.3.1]{\textit{1.3.1}}}). Sono stati inoltre segnalati link privi di indicazioni chiare di stato focus o visited ({\wcagref[wcag:2.4.7]{\textit{2.4.7 - Focus Visible}}}) e la mancanza di attributi ARIA utili a descrivere pulsanti generici come “Aggiungi al carrello” ({\wcagref[wcag:4.1.2]{\textit{4.1.2}}}). Ques'ultimo errore rappresenta un falso negativo, in quanto il pulsante è definito correttamente.
 L’analisi tramite strumenti di accessibilità ha messo in luce ulteriori difetti: contrasti di colore insufficienti ({\wcagref[wcag:1.4.3]{\textit{1.4.3}}}), assenza di skip link ({\wcagref[wcag:2.4.1]{\textit{2.4.1}}}) e mancanza di landmark semantici ({\wcagref[wcag:1.3.1]{\textit{1.3.1}}}).\\
 
 \noindent \textbf{Pagina carrello.php}\\
 Sebbene l’estensione non abbia segnalato particolari criticità nella struttura della pagina, un’analisi manuale rivela che i prodotti nel carrello non sono accompagnati da testi alternativi adeguati per le immagini ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}), né da descrizioni sufficientemente univoche per i pulsanti di azione, come “Rimuovi” o “Procedi al pagamento”. La mancanza di etichette descrittive viola i criteri {\wcagref[wcag:2.4.6]{\textit{2.4.6}}} e {\wcagref[wcag:3.3.2]{\textit{3.3.2}}}.\\
 
 \noindent \textbf{Pagina login.php}\\
-L’accesso alla pagina di login con credenziali di test ha permesso all'estensioene di segnalare alcune criticità: i campi di input risultano privi di etichette esplicite e i pulsanti sono generici, compromettendo la fruibilità per chi utilizza tecnologie assistive ({\wcagref[wcag:3.3.2]{\textit{3.3.2}}} e {\wcagref[wcag:4.1.2]{\textit{4.1.2}}}). Inoltre viene segnalata l'assenza di attributi \texttt{aria-label} sui controlli di autenticazione. Quest'ultimo errore in realtà è un falso negativo, derivante dalla capacità ridotta di analisi dell'IA alla base dell'estensione.\\
+L’accesso alla pagina di login con credenziali di test ha permesso all'estensioene di segnalare alcune criticità: i campi di input risultano privi di etichette esplicite e i pulsanti sono generici, compromettendo la fruibilità per chi utilizza tecnologie assistive ({\wcagref[wcag:3.3.2]{\textit{3.3.2}}} e {\wcagref[wcag:4.1.2]{\textit{4.1.2}}}). Inoltre viene segnalata l'assenza di attributi \texttt{aria-label} sui controlli di autenticazione. Quest'ultimo errore in realtà è un falso negativo, derivante dalla capacità ridotta di analisi dell'\acrshort{ia} alla base dell'estensione.\\
 L’analisi manuale ha messo in luce ulteriori problematiche non rilevate dallo strumento: la mancanza di messaggi di errore in caso di inserimento di credenziali errate ({\wcagref[wcag:3.3.1]{\textit{3.3.1 - Error Identification}}}), link come “Registrati” privi di testo descrittivo contestuale ({\wcagref[wcag:2.4.4]{\textit{2.4.4 - Link Purpose (In Context)}}}), e la mancanza di informazioni semantiche aggiuntive che faciliterebbero la navigazione da tastiera ({\wcagref[wcag:2.1.1]{\textit{2.1.1}}}). \\
 
 \noindent \textbf{Conclusioni}\\
-Il confronto tra i risultati di \textit{SviluppAbile} e l’analisi tramite strumenti di convalida (integrata con un'analisi manuale) basati sulle WCAG mostra come l’estensione sia efficace nell’individuare errori comuni e strutturali – quali la mancanza di testi alternativi, etichette duplicate, heading disordinati e pulsanti privi di descrizione – ma non riesca a rilevare altri aspetti fondamentali per l’accessibilità, come i contrasti cromatici e la presenza di skip link. Inoltre l'estensione suggerisce modifiche non conformi, come ad esempio attributi alt non idonei.\\
-Questo dimostra che uno strumento automatico, pur costituendo un valido supporto, deve al giorno d'oggi ancora essere integrato con una verifica manuale alla luce delle linee guida ufficiali del W3C.
+Il confronto tra i risultati di \textit{SviluppAbile} e l’analisi tramite strumenti di convalida (integrata con un'analisi manuale) basati sulle \acrshort{wcag} mostra come l’estensione sia efficace nell’individuare errori comuni e strutturali – quali la mancanza di testi alternativi, etichette duplicate, heading disordinati e pulsanti privi di descrizione – ma non riesca a rilevare altri aspetti fondamentali per l’accessibilità, come i contrasti cromatici e la presenza di skip link. Inoltre l'estensione suggerisce modifiche non conformi, come ad esempio attributi alt non idonei.\\
+Questo dimostra che uno strumento automatico, pur costituendo un valido supporto, deve al giorno d'oggi ancora essere integrato con una verifica manuale alla luce delle linee guida ufficiali del \acrshort{w3c}.
 
 \paragraph{F1-score} \mbox{}\\
 \noindent Nella tabella \ref{tab:sudokuWorld} vengono riassunti i risultati ottenuti.
@@ -181,7 +183,7 @@ Questo dimostra che uno strumento automatico, pur costituendo un valido supporto
 \endfoot
 \hline
 \endlastfoot
-\begin{itemize}
+\begin{itemize}[left=0pt, itemsep=0pt, topsep=0pt]
     \item h1 > h2 > h3
     \item Etichette dei form non univoche
     \item Errori con gli alt
@@ -189,11 +191,11 @@ Questo dimostra che uno strumento automatico, pur costituendo un valido supporto
     \item Link circolari
     \item Manca controllo link già visitati 
 \end{itemize}
- & \begin{itemize}
+ & \begin{itemize}[left=0pt, itemsep=0pt, topsep=0pt]
     \item Contrasti dei colori
     \item Skip navigation link
 \end{itemize}
- & \begin{itemize}
+ & \begin{itemize}[left=0pt, itemsep=0pt, topsep=0pt]
     \item Tag ARIA (suggerimenti errati)
     \item Suggerimenti alt errati
 \end{itemize}\\
@@ -205,6 +207,7 @@ Questo dimostra che uno strumento automatico, pur costituendo un valido supporto
 \noindent L'F\textsubscript{1}-score calcolato è $F_{1}=0.75$, un valore piuttosto buono che indica una capacità complessiva soddisfacente di individuare gli errori reali, pur con la presenza di alcuni mancati rilevamenti e di falsi positivi. 
 Ciò suggerisce che l’estensione riesce a fornire risultati utili e affidabili, anche se rimane margine per ulteriori miglioramenti nella precisione e nella completezza dell’analisi.
 
+\vspace{0.5cm}
 % === DOLCE RISVEGLIO ===
 \subsection{Sito web: Dolce Risveglio}
 \noindent Di seguito vengono riportati alcuni dei test effettuati sul sito web \href{https://caa.studenti.math.unipd.it/gchecchi/}{Dolce Risveglio}.
@@ -217,7 +220,7 @@ Ciò suggerisce che l’estensione riesce a fornire risultati utili e affidabili
 \end{figure}
 
 \noindent L'analisi (vedi figura \ref{fig:TV_dolcerisveglio} per il report della homepage) ha rilevato 2 errori relativi ai link e 1 warning. 
-Gli errori comprendono un URL con richiesta non valida e un problema lato server da verificare nei log. 
+Gli errori comprendono un \acrshort{url} con richiesta non valida e un problema lato \glslink{serverg}{server} da verificare nei log. 
 Il warning riguarda la necessità di distinguere tra più aree di navigazione tramite un'etichetta ARIA. 
 
 \subsubsection{Lighthouse}
@@ -229,7 +232,7 @@ Il warning riguarda la necessità di distinguere tra più aree di navigazione tr
 \end{figure}
 
 \subsubsection{Sviluppabile}
-\noindent Di seguito viene illustrato il processo di test effettuato da \textit{SviluppAbile} confrontando i risultati ottenuti dagli altri strumenti di validazione e integrando anche un controllo manuale basato sulle Web Content Accessibility Guidelines (WCAG 2.1). Lo studio è stato articolato sulle principali pagine del sito.\\
+\noindent Di seguito viene illustrato il processo di test effettuato da \textit{SviluppAbile} confrontando i risultati ottenuti dagli altri strumenti di validazione e integrando anche un controllo manuale basato sulle Web Content Accessibility Guidelines (\acrshort{wcag} 2.1). Lo studio è stato articolato sulle principali pagine del sito.\\
 
 \noindent \textbf{Pagina home.php}\\
 La pagina presenta una panoramica della caffetteria, con sezioni dedicate alla storia del locale, ai prodotti offerti e link al menù. L’estensione ha rilevato alcune criticità principali: immagini prive di testi alternativi ({\wcagref[wcag:1.1.1]{\textit{1.1.1 - Non-text Content}}}), uso di intestazioni senza gerarchia coerente ({\wcagref[wcag:1.3.1]{\textit{1.3.1 - Info and Relationships}}}) e suggerimenti per aggiungere label ed id negli elementi di input ({\wcagref[wcag:2.4.6]{\textit{2.4.6 - Headings and Labels}}}).\\
@@ -237,7 +240,7 @@ L’analisi tramite strumenti automatici ha evidenziato ulteriori problemi: cont
 
 \noindent \textbf{Pagina menu.php}\\
 La pagina presenta il menù della caffetteria, con sezioni dedicate a bevande, pietanze e dolci, strutturate in liste e tabelle descrittive (\texttt{<dl>}). 
-L’estensione \textit{SviluppAbile} ha rilevato alcune criticità principali: immagini dei piatti prive di testi alternativi significativi ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}), bottoni per la selezione dei menu senza chiara indicazione dello stato attivo tramite attributi ARIA ({\wcagref[wcag:4.1.2]{\textit{4.1.2 - Name, Role, Value}}}) e suggerimenti per aggiungere label agli elementi interattivi ({\wcagref[wcag:2.4.6]{\textit{2.4.6}}}). L'estensione suggerisce inoltre una modifica delle tabelle descrittive; tale modifica è purtroppo errata in quanto l'IA attualmente non è in grado di creare correttamente tabelle accessibili.\\
+L’estensione \textit{SviluppAbile} ha rilevato alcune criticità principali: immagini dei piatti prive di testi alternativi significativi ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}), bottoni per la selezione dei menu senza chiara indicazione dello stato attivo tramite attributi ARIA ({\wcagref[wcag:4.1.2]{\textit{4.1.2 - Name, Role, Value}}}) e suggerimenti per aggiungere label agli elementi interattivi ({\wcagref[wcag:2.4.6]{\textit{2.4.6}}}). L'estensione suggerisce inoltre una modifica delle tabelle descrittive; tale modifica è purtroppo errata in quanto l'\acrshort{ia} attualmente non è in grado di creare correttamente tabelle accessibili.\\
 Ulteriori controlli con strumenti automatici hanno evidenziato problemi come contrasti insufficienti tra testo e sfondo in alcune aree del menù ({\wcagref[wcag:1.4.3]{\textit{1.4.3}}}) e assenza di skip link funzionanti per navigare rapidamente tra le sezioni del menù ({\wcagref[wcag:2.4.1]{\textit{2.4.1}}}).\\
 
 \noindent \textbf{Pagina contatti.php}\\
@@ -250,7 +253,7 @@ L’analisi tramite strumenti automatici non ha evidenziato ulteriori problemi.\
 
 \noindent \textbf{Conclusioni}\\
 Il confronto tra i risultati di \textit{SviluppAbile} e le verifiche effettuate con strumenti automatici mostra che l’estensione è efficace nell’individuare errori di struttura e contenuto, come testi alternativi mancanti, etichette non descrittive e incongruenze tra attributi \texttt{required} e \texttt{aria-required}. Tuttavia, l’estensione non rileva completamente problematiche relative al contrasto cromatico, landmark semantici, skip link e piena navigabilità da tastiera.\\
-Per ottenere una valutazione completa dell’accessibilità del sito, è necessario integrare l’uso di \textit{SviluppAbile} con controlli aggiuntivi basati sulle WCAG, assicurando che tutti i form abbiano label univoche, id coerenti e indicazioni ARIA appropriate.
+Per ottenere una valutazione completa dell’accessibilità del sito, è necessario integrare l’uso di \textit{SviluppAbile} con controlli aggiuntivi basati sulle \acrshort{wcag}, assicurando che tutti i \glslink{formg}{form} abbiano label univoche, id coerenti e indicazioni ARIA appropriate.
 
 
 \paragraph{F1-score} \mbox{}\\
@@ -274,17 +277,17 @@ Per ottenere una valutazione completa dell’accessibilità del sito, è necessa
 \endfoot
 \hline
 \endlastfoot
-\begin{itemize}
+\begin{itemize}[left=0pt, itemsep=0pt, topsep=0pt]
     \item Alt non corretti delle img
     \item Etichette dei form non univoche
     \item Suggerisce l'aggiunta di label e id per gli elementi input
     \item Errore required e aria-required utilizzati insieme
 \end{itemize}
  & 
-\begin{itemize}
+\begin{itemize}[left=0pt, itemsep=0pt, topsep=0pt]
     \item Alcuni alt mancanti
 \end{itemize}
- & \begin{itemize}
+ & \begin{itemize}[left=0pt, itemsep=0pt, topsep=0pt]
     \item Suggerisce un eccessivo uso di ARIA
 \end{itemize}\\
 \hhline{|=|=|=|} 
@@ -294,6 +297,7 @@ Per ottenere una valutazione completa dell’accessibilità del sito, è necessa
 
 \noindent L'F\textsubscript{1}-score calcolato è $F_{1}=0.8$, un risultato positivo che evidenzia una buona capacità di individuazione degli errori effettivi, con un numero limitato di falsi positivi e pochi elementi mancati.
 
+\vspace{0.5cm}
 % === E-LIXIRIUM ===
 \subsection{Sito web: E-lixirium}
 \noindent Di seguito vengono riportati alcuni dei test effettuati sul sito web \href{https://caa.studenti.math.unipd.it/abaldazz/?page=home}{E-lixirium}.
@@ -317,7 +321,7 @@ Il problema segnalato riguarda il contrasto insufficiente tra colori di sfondo e
 \end{figure}
 
 \subsubsection{SviluppAbile}
-\noindent Di seguito viene illustrato il processo di test effettuato da \textit{SviluppAbile} confrontando i risultati ottenuti dagli altri strumenti di validazione e integrando anche un controllo manuale basato sulle Web Content Accessibility Guidelines (WCAG 2.1). Lo studio è stato articolato sulle principali pagine del sito.\\
+\noindent Di seguito viene illustrato il processo di test effettuato da \textit{SviluppAbile} confrontando i risultati ottenuti dagli altri strumenti di validazione e integrando anche un controllo manuale basato sulle Web Content Accessibility Guidelines (\acrshort{wcag} 2.1). Lo studio è stato articolato sulle principali pagine del sito.\\
 
 \noindent \textbf{Pagina home}\\
 La pagina contiene sezioni dedicate al logo, alla navigazione e alla presentazione di categorie e prodotti. L’estensione ha rilevato alcune criticità principali: immagini dei prodotti prive di testi alternativi significativi ({\wcagref[wcag:1.1.1]{\textit{1.1.1 - Non-text Content}}}), link adiacenti con testi diversi ma comportamento simile ({\wcagref[wcag:2.4.4]{\textit{2.4.4}}}) ed elementi della navbar nascosti tramite \texttt{display:none} invece di \texttt{visibility:hidden} ({\wcagref[wcag:2.1.1]{\textit{2.1.1 - Keyboard}}}).\\
@@ -355,14 +359,14 @@ L’analisi complessivamente evidenzia una serie di criticità ricorrenti, in pa
 \endfoot
 \hline
 \endlastfoot
-\begin{itemize}
+\begin{itemize}[left=0pt, itemsep=0pt, topsep=0pt]
     \item Errori di gestione della navigazione
     \item "display: none" da sostituire con "visibility: hidden"
     \item Link adiacenti identici con testi diversi
     \item Testo alternativo duplicato
 \end{itemize}
  & 
-\begin{itemize}
+\begin{itemize}[left=0pt, itemsep=0pt, topsep=0pt]
     \item Skip navigation link
     \item Link circolari nella navbar
     \item Logo con reindirizzamento nella home anche in home stesso
@@ -375,7 +379,7 @@ L’analisi complessivamente evidenzia una serie di criticità ricorrenti, in pa
 
 \noindent L'F\textsubscript{1}-score calcolato è $F_{1}=0.73$, un risultato positivo che evidenzia come l’estensione abbia individuato correttamente la maggior parte degli errori presenti, pur lasciando tre problemi non rilevati. Non sono stati generati falsi positivi, il che indica un buon equilibrio tra precisione e completezza dell’analisi.
 
-
+\newpage
 % === CORSA IDEALE ===
 \subsection{Sito web: Corsa Ideale}
 \noindent Di seguito vengono riportati alcuni dei test effettuati sul sito web \href{https://caa.studenti.math.unipd.it/epinarel/}{Corsa Ideale}.
@@ -398,7 +402,7 @@ Il problema segnalato riguarda il contrasto insufficiente tra colori di sfondo e
 \end{figure}
 
 \subsubsection{SviluppAbile}
-\noindent Di seguito viene illustrato il processo di test effettuato da \textit{SviluppAbile} confrontando i risultati ottenuti dagli altri strumenti di validazione e integrando anche un controllo manuale basato sulle Web Content Accessibility Guidelines (WCAG 2.1). Lo studio è stato articolato sulle principali pagine del sito.\\
+\noindent Di seguito viene illustrato il processo di test effettuato da \textit{SviluppAbile} confrontando i risultati ottenuti dagli altri strumenti di validazione e integrando anche un controllo manuale basato sulle Web Content Accessibility Guidelines (\acrshort{wcag} 2.1). Lo studio è stato articolato sulle principali pagine del sito.\\
 
 \noindent \textbf{Pagina home}\\
 La pagina presenta il sito \texttt{CorsaIdeale}, con sezioni dedicate alla navigazione, alla presentazione delle ultime uscite, ai servizi offerti e ai ruoli dei corridori. Dal punto di vista dell’accessibilità, si riscontrano le seguenti criticità principali: immagini dei prodotti e del logo prive di testi alternativi significativi ({\wcagref[wcag:1.1.1]{\textit{1.1.1 - Non-text Content}}}), attributi \texttt{id} senza valore descrittivo o duplicati ({\wcagref[wcag:2.4.4]{\textit{2.4.4 - Link Purpose (In Context)}}}) ed etichette \texttt{label} non univoche ({\wcagref[wcag:3.3.2]{\textit{3.3.2 - Labels or Instructions}}}), .\\
@@ -417,7 +421,7 @@ L’analisi tramite strumenti automatici ha evidenziato ulteriori problematiche:
 
 \noindent \textbf{Pagina registrati}\\
 La pagina consente agli utenti di registrarsi ed accedere alle funzionalità del sito \textit{CorsaIdeale}. 
-L’estensione \textit{SviluppAbile} ha rilevato alcune criticità principali: immagini del logo e del pulsante "torna su" prive di testo alternativo significativo ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}) e campi del form con placeholder utilizzati come unica indicazione ({\wcagref[wcag:2.4.6]{\textit{2.4.6}}}). Viene inoltre segnalato l'errore di chiusura di un tag \texttt{p} con un tag \texttt{h3} ({\wcagref[wcag:1.3.1]{\textit{1.3.1 - Info and Relationships}}}).\\
+L’estensione \textit{SviluppAbile} ha rilevato alcune criticità principali: immagini del logo e del pulsante "torna su" prive di testo alternativo significativo ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}) e campi del \glslink{formg}{form} con placeholder utilizzati come unica indicazione ({\wcagref[wcag:2.4.6]{\textit{2.4.6}}}). Viene inoltre segnalato l'errore di chiusura di un tag \texttt{p} con un tag \texttt{h3} ({\wcagref[wcag:1.3.1]{\textit{1.3.1 - Info and Relationships}}}).\\
 
 \noindent \textbf{Conclusioni}\\
 L’analisi complessiva delle principali pagine di \textit{CorsaIdeale} evidenzia criticità ricorrenti, in particolare relative ai testi alternativi delle immagini, alla gestione della navigazione e all’accessibilità dei form e dei link. Purtroppo l'estensione \textit{SviluppAbile} non è in grado di controllare i contrasti dei colori in maniera esaustiva e suggerisce spesso errori non presenti di heading scorretti.
@@ -443,17 +447,17 @@ L’analisi complessiva delle principali pagine di \textit{CorsaIdeale} evidenzi
 \endfoot
 \hline
 \endlastfoot
-\begin{itemize}
+\begin{itemize}[left=0pt, itemsep=0pt, topsep=0pt]
     \item Alt immagini vuoti
     \item Attributi id senza valore valido 
     \item Chiusura tag p erroneamente con tag h3 
     \item Label non univoca 
     \item Nomi attributi in maiuscolo anziché in minuscolo
 \end{itemize}
- & \begin{itemize}
+ & \begin{itemize}[left=0pt, itemsep=0pt, topsep=0pt]
     \item Contrasto colori
 \end{itemize}
- & \begin{itemize}
+ & \begin{itemize}[left=0pt, itemsep=0pt, topsep=0pt]
     \item Tag di heading usati in maniera scorretta
 \end{itemize}\\
 \hhline{|=|=|=|} 
@@ -466,7 +470,7 @@ L’analisi complessiva delle principali pagine di \textit{CorsaIdeale} evidenzi
 
 % === BOOKOVERFLOW ===
 \subsection{Sito web: BookOverflow}
-\noindent Di seguito vengono riportati alcuni dei test effettuati sul sito \href{https://caa.studenti.math.unipd.it/lribon/}{BookOverflow}, sito web vincitore del concorso.
+\noindent Di seguito vengono riportati alcuni dei test effettuati sul sito \href{https://caa.studenti.math.unipd.it/lribon/}{BookOverflow}, sito web vincitore del concorso.\\
 \subsubsection{Total Validator}
 \begin{figure}[H]
     \centering
@@ -474,7 +478,7 @@ L’analisi complessiva delle principali pagine di \textit{CorsaIdeale} evidenzi
     \caption{Analisi di Total Validator sul sito web \textit{BookOverflow}}\label{fig:TV_bookoverflow}
 \end{figure}
 
-\noindent Come visibile in figura \ref{fig:TV_bookoverflow} (che riporta, a titolo di esempio, il report della homepage), non vi sono errori di accessibilità.
+\noindent Come visibile in figura \ref{fig:TV_bookoverflow} (che riporta, a titolo di esempio, il report della homepage), non vi sono errori di accessibilità.\\
 
 \subsubsection{Lighthouse}
 \noindent Il report ha restituito un punteggio di 100/100 nella sezione \textit{Accessibility}, indicando che, secondo le metriche automatiche adottate, non sono stati rilevati errori o problematiche di accessibilità (vedi figura \ref{fig:Lighthouse_bookoverflow}).
@@ -485,7 +489,7 @@ L’analisi complessiva delle principali pagine di \textit{CorsaIdeale} evidenzi
 \end{figure}
 
 \subsubsection{SviluppAbile}
-\noindent Di seguito viene illustrato il processo di test effettuato da \textit{SviluppAbile} confrontando i risultati ottenuti dagli altri strumenti di validazione e integrando anche un controllo manuale basato sulle Web Content Accessibility Guidelines (WCAG 2.1). Lo studio è stato articolato sulle principali pagine del sito.\\
+\noindent Di seguito viene illustrato il processo di test effettuato da \textit{SviluppAbile} confrontando i risultati ottenuti dagli altri strumenti di validazione e integrando anche un controllo manuale basato sulle Web Content Accessibility Guidelines (\acrshort{wcag} 2.1). Lo studio è stato articolato sulle principali pagine del sito.\\
 
 \noindent \textbf{Pagina home}\\
 La pagina introduce la piattaforma e mostra i libri più scambiati. 
@@ -502,7 +506,7 @@ La pagina illustra il funzionamento della piattaforma \textit{BookOverflow}, spi
 L’estensione \textit{SviluppAbile} non segnala alcun tipo di errore.\\
 
 \noindent \textbf{Conclusioni}\\
-In sintesi, la pagina risulta pienamente accessibile; le criticità segnalate da \textit{SviluppAbile} costituiscono falsi positivi dovuti alle ristrette capacità di analisi dell'IA alla base dell'estensione.\\
+In sintesi, la pagina risulta pienamente accessibile; le criticità segnalate da \textit{SviluppAbile} costituiscono falsi positivi dovuti alle ristrette capacità di analisi dell'\acrshort{ia} alla base dell'estensione.\\
 
 
 \paragraph{F1-score} \mbox{}\\
@@ -527,10 +531,10 @@ In sintesi, la pagina risulta pienamente accessibile; le criticità segnalate da
 \hline
 \endlastfoot
  & 
-\begin{itemize}
+\begin{itemize}[left=0pt, itemsep=0pt, topsep=0pt]
     \item Contrasto insufficiente link visitati/non
 \end{itemize}
- & \begin{itemize}
+ & \begin{itemize}[left=0pt, itemsep=0pt, topsep=0pt]
     \item Tabindex non adeguato
 \end{itemize}\\
 \hhline{|=|=|=|} 
@@ -541,6 +545,7 @@ In sintesi, la pagina risulta pienamente accessibile; le criticità segnalate da
 \noindent L'F\textsubscript{1}-score calcolato è $F_{1}=0$, valore che indica prestazioni non soddisfacenti in questo caso specifico. 
 Ciò evidenzia la necessità di ulteriori miglioramenti nell’identificazione degli errori, soprattutto per quanto riguarda i falsi positivi.
 
+\newpage
 % === LUZZAUTO ===
 \subsection{Sito web: LuzzAuto}
 \noindent Di seguito vengono riportati alcuni dei test effettuati sul sito web \href{https://caa.studenti.math.unipd.it/eartusi/index.php}{LuzzAuto}.
@@ -564,13 +569,13 @@ uno relativo all'associazione corretta delle etichette ai rispettivi controlli e
 \end{figure}
 
 \subsubsection{SviluppAbile}
-\noindent Di seguito viene illustrato il processo di test effettuato da \textit{SviluppAbile} confrontando i risultati ottenuti dagli altri strumenti di validazione e integrando anche un controllo manuale basato sulle Web Content Accessibility Guidelines (WCAG 2.1). Lo studio è stato articolato sulle principali pagine del sito.\\
+\noindent Di seguito viene illustrato il processo di test effettuato da \textit{SviluppAbile} confrontando i risultati ottenuti dagli altri strumenti di validazione e integrando anche un controllo manuale basato sulle Web Content Accessibility Guidelines (\acrshort{wcag} 2.1). Lo studio è stato articolato sulle principali pagine del sito.\\
 
 \noindent \textbf{Pagina home}\\
 L’analisi della pagina tramite l’estensione \textit{SviluppAbile} non ha rilevato errori di accessibilità. L’unico avviso segnalato riguarda testi alternativi (\texttt{alt}) troppo lunghi per alcune immagini, ma queste descrizioni dettagliate non compromettono la fruibilità dei contenuti per utenti con disabilità visive ({\wcagref[wcag:1.1.1]{\textit{1.1.1 - Non-text Content}}}). \\
 
 \noindent \textbf{Pagina about}\\
-L’analisi della pagina non ha evidenziato errori di accessibilità e sono stati correttamente individuati gli elementi interattivi come link e pulsanti, che risultano etichettati e navigabili tramite tastiera ({\wcagref[wcag:2.1.1]{\textit{2.1.1}}}), garantendo la conformità ai requisiti WCAG relativi all’accessibilità da tastiera e alla comprensibilità dei contenuti testuali.  
+L’analisi della pagina non ha evidenziato errori di accessibilità e sono stati correttamente individuati gli elementi interattivi come link e pulsanti, che risultano etichettati e navigabili tramite tastiera ({\wcagref[wcag:2.1.1]{\textit{2.1.1}}}), garantendo la conformità ai requisiti \acrshort{wcag} relativi all’accessibilità da tastiera e alla comprensibilità dei contenuti testuali.  
 La pagina presenta una struttura semantica chiara ({\wcagref[wcag:1.3.1]{\textit{1.3.1 - Info and Relationships}}}), immagini corredate da testi alternativi descrittivi ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}) e informazioni accessibili sulle sezioni del sito.\\
 
 \noindent \textbf{Pagina test\_drive}\\
@@ -578,8 +583,7 @@ L’analisi della pagina non ha rilevato errori di accessibilità.\\
 
 \noindent \textbf{Conclusioni}\\
 L’analisi complessiva delle pagine principali tramite \textit{SviluppAbile} mostra che l’estensione è efficace nell’individuare problemi come testi alternativi troppo lunghi e garantire la navigabilità da tastiera degli elementi interattivi. Tuttavia, alcune criticità relative alla struttura HTML, all’uso corretto dei tag semantici e alla compatibilità con lettori di schermo non vengono completamente rilevate.  
-È pertanto consigliabile integrare l’uso di \textit{SviluppAbile} con controlli manuali e verifiche basate sulle WCAG 2.1 ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}, {\wcagref[wcag:1.3.1]{\textit{1.3.1}}}, {\wcagref[wcag:2.1.1]{\textit{2.1.1}}}, {\wcagref[wcag:4.1.1]{\textit{4.1.1}}}) per ottenere una valutazione completa dell’accessibilità del sito.
-
+È pertanto consigliabile integrare l’uso di \textit{SviluppAbile} con controlli manuali e verifiche basate sulle \acrshort{wcag} 2.1 ({\wcagref[wcag:1.1.1]{\textit{1.1.1}}}, {\wcagref[wcag:1.3.1]{\textit{1.3.1}}}, {\wcagref[wcag:2.1.1]{\textit{2.1.1}}}, {\wcagref[wcag:4.1.1]{\textit{4.1.1}}}) per ottenere una valutazione completa dell’accessibilità del sito.\\
 
 \paragraph{F1-score} \mbox{}\\
 \noindent Nella tabella \ref{tab:luzzauto} vengono riportati i risultati ottenuti utilizzando l'estensione \textit{SviluppAbile}.
@@ -602,10 +606,10 @@ L’analisi complessiva delle pagine principali tramite \textit{SviluppAbile} mo
 \endfoot
 \hline
 \endlastfoot
-\begin{itemize}
+\begin{itemize}[left=0pt, itemsep=0pt, topsep=0pt]
     \item Le etichette dei controlli non sono state associate correttamente ai rispettivi elementi.
 \end{itemize} & 
-\begin{itemize}
+\begin{itemize}[left=0pt, itemsep=0pt, topsep=0pt]
     \item Tag o contenuto non consentito. 
 \end{itemize}
  & \\
@@ -707,7 +711,7 @@ Per migliorare l'accessibilità degli elementi interattivi tramite ARIA, ti sugg
 2.  Aggiungi gli attributi aria-label e aria-describedby per fornire una descrizione dell'elemento interattivo.\\
 3.  Utilizza l'attributo aria-haspopup per indicare se un elemento è un menu o una lista.\\
 \\In questo modo, l'elemento interattivo sarà più facile da navigare e controllare tramite strumenti assistivi come screen reader e mouse navigator.\\
-Per ulteriori informazioni sugli attributi ARIA, ti consiglio di consultare la documentazione ufficiale dell'W3C.\\
+Per ulteriori informazioni sugli attributi ARIA, ti consiglio di consultare la documentazione ufficiale dell'\acrshort{w3c}.\\
 \\CODICE SUGGERITO:\\
 \texttt{1 <!DOCTYPE html>\\
 2 <html><head>\\

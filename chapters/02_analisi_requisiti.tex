@@ -4,14 +4,14 @@
 
 \section{Obiettivo del progetto}
 \label{sec:obiettivo}
-\noindent L’obiettivo principale del progetto è la realizzazione di un’estensione web interattiva con chatbot integrato, pensata per supportare gli sviluppatori nell’individuazione e nella correzione degli errori di accessibilità presenti nelle pagine web. \\Il progetto si propone di rispondere alle seguenti esigenze:
+\noindent L’obiettivo principale del progetto è la realizzazione di un’estensione web interattiva con \glslink{chatbotg}{chatbot} integrato, pensata per supportare gli sviluppatori nell’individuazione e nella correzione degli errori di accessibilità presenti nelle pagine web. \\Il progetto si propone di rispondere alle seguenti esigenze:
 \begin{itemize}
     \item Fornire un linguaggio chiaro e facilmente comprensibile, anche per chi non ha conoscenze approfondite delle linee guida di accessibilità;
     \item Offrire un supporto immediato e contestuale durante lo sviluppo del codice;
     \item Facilitare il miglioramento della qualità e dell’accessibilità dei siti web, promuovendo buone pratiche di progettazione inclusiva.
 \end{itemize}
 
-\noindent Ulteriore obiettivo del progetto è l’individuazione del modello LLM più adatto a soddisfare le esigenze dell’estensione.
+\noindent Ulteriore obiettivo del progetto è l’individuazione del modello \acrshort{llm} più adatto a soddisfare le esigenze dell’estensione.
 
 \section{Casi d'uso}
 \label{sec:uc}
@@ -32,67 +32,66 @@ Nel caso dell’estensione \textit{SviluppAbile}, l’attore identificato è lo 
 \addcontentsline{toc}{paragraph}{UC1: Analisi assistita}
 \noindent \textbf{Attori principali}: Sviluppatore web.\\
 \textbf{Precondizioni}: L’utente ha selezionato la modalità di analisi assistita.\\
-\textbf{Descrizione}: L’estensione esegue la scansione del DOM della pagina web e mostra il codice sul pannello a sinistra. Nel pannello a destra è visibile la chat vuota con due domande suggerite e un campo di testo per l'inserimento di domande.\\
-\textbf{Postcondizioni}: L’utente visualizza il DOM e la chat che potrà utilizzare.\\
+\textbf{Descrizione}: L’estensione esegue la scansione del \acrshort{dom} della pagina web e mostra il codice sul pannello a sinistra. Nel pannello a destra è visibile la chat vuota con due domande suggerite e un campo di testo per l'inserimento di domande.\\
+\textbf{Postcondizioni}: L’utente visualizza il \acrshort{dom} e la chat che potrà utilizzare.\\
 
 \subsubsection*{UC1.1: Utilizzo delle domande suggerite}
 \noindent \textbf{Attori principali}: Sviluppatore web.\\
 \textbf{Precondizioni}: L’utente ha avviato la modalità di analisi assistita.\\
-\textbf{Descrizione}: L’utente clicca su una domanda suggerita e la invia all'IA.\\
-\textbf{Postcondizioni}: L’utente riceve una risposta contestualizzata, vede eventuali righe pertinenti del DOM evidenziate e nella chat appaiono delle ulteriori domande suggerite correlate.
+\textbf{Descrizione}: L’utente clicca su una domanda suggerita e la invia all'\acrshort{ia}.\\
+\textbf{Postcondizioni}: L’utente riceve una risposta contestualizzata, vede eventuali righe pertinenti del \acrshort{dom} evidenziate e nella chat appaiono delle ulteriori domande suggerite correlate.\\
 
 \subsubsection*{UC1.2: Inserimento domanda}
 \noindent \textbf{Attori principali}: Sviluppatore web.\\
 \textbf{Precondizioni}: L’utente ha aperto la chat in modalità di analisi assistita.\\
-\textbf{Descrizione}: L’utente inserisce manualmente una domanda nel form dedicato della chat e la invia all'IA.\\
-\textbf{Postcondizioni}: L’utente riceve una risposta contestualizzata, vede eventuali righe pertinenti del DOM evidenziate e nella chat appaiono delle ulteriori domande suggerite correlate.
+\textbf{Descrizione}: L’utente inserisce manualmente una domanda nella casella di testo dedicata della chat e la invia all'\acrshort{ia}.\\
+\textbf{Postcondizioni}: L’utente riceve una risposta contestualizzata, vede eventuali righe pertinenti del \acrshort{dom} evidenziate e nella chat appaiono delle ulteriori domande suggerite correlate.\\
 
 
 \subsubsection*{UC2: Modalità sviluppo guidato}
 \addcontentsline{toc}{paragraph}{UC2: Modalità sviluppo guidato}
 \noindent \textbf{Attori principali}: Sviluppatore web.\\
 \textbf{Precondizioni}: L’utente ha selezionato la modalità di sviluppo guidato.\\
-\textbf{Descrizione}: L’estensione mostra il DOM della pagina, il pannello centrale con il codice generato e la chat interattiva. \\
+\textbf{Descrizione}: L’estensione mostra il \acrshort{dom} della pagina, il pannello centrale con il codice generato e la chat interattiva. \\
 \textbf{Postcondizioni}: L’utente dispone di uno spazio di sviluppo assistito in cui ricevere sia chiarimenti teorici sia frammenti di codice pronti per l’uso.\\
 
 \subsubsection*{UC2.1: Utilizzo delle domande suggerite}
 \noindent \textbf{Attori principali}: Sviluppatore web.\\
 \textbf{Precondizioni}: L’utente ha avviato la chat in modalità sviluppo guidato.\\
-\textbf{Descrizione}: L’utente clicca su una domanda suggerita e la invia all'IA.\\
+\textbf{Descrizione}: L’utente clicca su una domanda suggerita e la invia all'\acrshort{ia}.\\
 \textbf{Postcondizioni}: L’utente riceve una risposta contestualizzata, con eventuale blocco di codice visualizzato nel pannello centrale e suggerimenti per approfondire l’analisi.\\
 
 \subsubsection*{UC2.2: Inserimento domanda}
 \noindent \textbf{Attori principali}: Sviluppatore web.\\
 \textbf{Precondizioni}: L’utente ha aperto la chat in modalità di sviluppo guidato.\\
-\textbf{Descrizione}: L’utente inserisce manualmente una domanda nel form dedicato della chat e la invia all'IA.\\
-\textbf{Postcondizioni}: L’utente riceve una risposta contestualizzata, con eventuale blocco di codice visualizzato nel pannello centrale e suggerimenti per approfondire l’analisi.
+\textbf{Descrizione}: L’utente inserisce manualmente una domanda nella casella di testo dedicata della chat e la invia all'\acrshort{ia}.\\
+\textbf{Postcondizioni}: L’utente riceve una risposta contestualizzata, con eventuale blocco di codice visualizzato nel pannello centrale e suggerimenti per approfondire l’analisi.\\
 
 \subsubsection*{UC2.2: Copia di un blocco di codice}
 \noindent \textbf{Attori principali}: Sviluppatore web.\\
-\textbf{Precondizioni}: L’IA ha generato almeno un blocco di codice in risposta a una domanda dell’utente.\\
+\textbf{Precondizioni}: L’\acrshort{ia} ha generato almeno un blocco di codice in risposta a una domanda dell’utente.\\
 \textbf{Descrizione}: L’estensione visualizza il blocco di codice numerato; l’utente può copiarlo negli appunti per utilizzarlo immediatamente nel proprio progetto.\\
 \textbf{Postcondizioni}: Il frammento selezionato è disponibile negli appunti dell’utente.\\
 
 \subsubsection*{UC2.3: Download del codice generato}
 \noindent \textbf{Attori principali}: Sviluppatore web.\\
 \textbf{Precondizioni}: L’estensione ha generato uno o più blocchi di codice in modalità guidata.\\
-\textbf{Descrizione}: L’utente clicca i pulsante \textit{“Scarica codice”}; l’estensione concatena tutti i blocchi generati e produce un file HTML scaricabile.\\
-\textbf{Postcondizioni}: L’utente ottiene un file contenente tutti i suggerimenti di codice prodotti dall’IA.\\
+\textbf{Descrizione}: L’utente clicca i pulsante \textit{“Scarica codice”}; l’estensione concatena tutti i blocchi generati e produce un file \acrshort{html} scaricabile.\\
+\textbf{Postcondizioni}: L’utente ottiene un file contenente tutti i suggerimenti di codice prodotti dall’\acrshort{ia}.\\
 
 \subsubsection*{UC3: Blocco estensione su pagine di sistema}
 \addcontentsline{toc}{paragraph}{UC3: Blocco estensione su pagine di sistema}
 \noindent \textbf{Attori principali}: Sviluppatore web.\\
-\textbf{Precondizioni}: L’utente tenta di avviare l’estensione in una pagina di sistema del browser (es. \texttt{chrome://}, \texttt{edge://}, \texttt{about:}, nuova scheda).\\
-\textbf{Descrizione}: L’estensione rileva che la pagina corrente appartiene alle aree riservate del browser, non accessibili alle estensioni. L'estensione apre un popup informativo che comunica all’utente l’impossibilità di utilizzare \textit{SviluppAbile} in quella pagina.\\
+\textbf{Precondizioni}: L’utente tenta di avviare l’estensione in una pagina di sistema del \glslink{browserg}{browser} (es. \texttt{chrome://}, \texttt{edge://}, \texttt{about:}, nuova scheda).\\
+\textbf{Descrizione}: L’estensione rileva che la pagina corrente appartiene alle aree riservate del \glslink{browserg}{browser}, non accessibili alle estensioni. L'estensione apre un popup informativo che comunica all’utente l’impossibilità di utilizzare \textit{SviluppAbile} in quella pagina.\\
 \textbf{Postcondizioni}: L’utente è informato del blocco e comprende che l’estensione può essere utilizzata solo su pagine web ordinarie.\\
 
 \subsubsection*{UC4: Gestione errori di comunicazione con l’IA}
-\addcontentsline{toc}{paragraph}{UC4: Gestione errori di comunicazione con l’IA}
+\addcontentsline{toc}{paragraph}{UC4: Gestione errori di comunicazione con l’\acrshort{ia}}
 \noindent \textbf{Attori principali}: Sviluppatore web.\\
-\textbf{Precondizioni}: L’utente ha inviato una richiesta all’IA tramite chat (in modalità analisi assistita o sviluppo guidato).\\
-\textbf{Descrizione}: L’estensione gestisce risposte non valide o errori di parsing JSON provenienti dal server dell’IA notificando l’utente.\\
+\textbf{Precondizioni}: L’utente ha inviato una richiesta all’\acrshort{ia} tramite chat (in modalità analisi assistita o sviluppo guidato).\\
+\textbf{Descrizione}: L’estensione gestisce risposte non valide o errori di \glslink{parsingg}{parsing} JSON provenienti dal \glslink{serverg}{server} dell’\acrshort{ia} notificando l’utente.\\
 \textbf{Postcondizioni}: L’utente è consapevole dell’errore e può ripetere la richiesta o verificare la configurazione del sistema.\\
-
 
 
 \section{Tracciamento dei requisiti}
@@ -128,15 +127,15 @@ Nel caso dell’estensione \textit{SviluppAbile}, l’attore identificato è lo 
 \endlastfoot
 \textbf{RO-01} & L’estensione deve offrire un prompt iniziale che consenta all’utente di scegliere tra modalità analisi assistita e modalità sviluppo guidato. & UC0\\
 \hline
-\textbf{RO-02} & In modalità analisi assistita, l’estensione deve permettere di visualizzare il DOM numerato della pagina e di porre domande all’IA. & UC1\\
+\textbf{RO-02} & In modalità analisi assistita, l’estensione deve permettere di visualizzare il \acrshort{dom} numerato della pagina e di porre domande all’\acrshort{ia}. & UC1\\
 \hline
 \textbf{RO-03} & In modalità sviluppo guidato, l’estensione deve mostrare il DOM numerato, il pannello centrale con i suggerimenti di codice e la chat laterale. & UC2\\
 \hline
-\textbf{RO-04} & L’estensione deve impedire l’avvio su pagine di sistema del browser (es. chrome://, about:blank, nuova scheda). & UC3\\
+\textbf{RO-04} & L’estensione deve impedire l’avvio su pagine di sistema del \glslink{browserg}{browser} (es. chrome://, about:blank, nuova scheda). & UC3\\
 \hline
-\textbf{RO-05} & L’estensione deve gestire eventuali errori di comunicazione con l’IA mostrando messaggi esplicativi all’utente. & UC4\\
+\textbf{RO-05} & L’estensione deve gestire eventuali errori di comunicazione con l’\acrshort{ia} mostrando messaggi esplicativi all’utente. & UC4\\
 \hline
-\textbf{RO-06} & Individuazione dell'LLM più congrua alle necessità dell'estensione. & Obiettivo progetto \\
+\textbf{RO-06} & Individuazione dell'\acrshort{llm} più congrua alle necessità dell'estensione. & Obiettivo progetto \\
 \hline
 \end{longtable}
 \end{footnotesize}
@@ -161,13 +160,13 @@ Nel caso dell’estensione \textit{SviluppAbile}, l’attore identificato è lo 
 \endfoot
 \hline
 \endlastfoot
-\textbf{RD-01} & L’estensione deve proporre domande suggerite per facilitare l’interazione con l’IA in entrambe le modalità. & UC1.1, UC2.1\\
+\textbf{RD-01} & L’estensione deve proporre domande suggerite per facilitare l’interazione con l’\acrshort{ia} in entrambe le modalità. & UC1.1, UC2.1\\
 \hline
-\textbf{RD-02} & In modalità analisi assistita, l’estensione deve evidenziare nel codice le righe pertinenti alla risposta dell’IA. & UC1.2\\
+\textbf{RD-02} & In modalità analisi assistita, l’estensione deve evidenziare nel codice le righe pertinenti alla risposta dell’\acrshort{ia}. & UC1.2\\
 \hline
-\textbf{RD-03} & In modalità sviluppo guidato, l’IA deve generare suggerimenti di codice accessibile numerati e separati in blocchi. & UC2\\
+\textbf{RD-03} & In modalità sviluppo guidato, l’\acrshort{ia} deve generare suggerimenti di codice accessibile numerati e separati in blocchi. & UC2\\
 \hline
-\textbf{RD-04} & L’utente deve poter scaricare un file HTML contenente tutti i blocchi di codice generati. & UC2.3\\
+\textbf{RD-04} & L’utente deve poter scaricare un file \acrshort{html} contenente tutti i blocchi di codice generati. & UC2.3\\
 \hline
 \end{longtable}
 \end{footnotesize}
@@ -196,7 +195,7 @@ Nel caso dell’estensione \textit{SviluppAbile}, l’attore identificato è lo 
 \hline
 \textbf{RF-02} & L’estensione deve supportare il cambio della lingua dell’interfaccia dall’italiano all’inglese. & \\
 \hline
-\textbf{RF-03} & L’estensione deve mantenere la cronologia delle interazioni con l’IA nella sessione corrente. & \\
+\textbf{RF-03} & L’estensione deve mantenere la cronologia delle interazioni con l’\acrshort{ia} nella sessione corrente. & \\
 \hline
 \end{longtable}
 \end{footnotesize}

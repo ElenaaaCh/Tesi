@@ -16,7 +16,7 @@ Il \acrshort{poc} non teneva conto di aspetti come la scalabilità, l’ottimizz
   \item \texttt{service\_worker.js}: gestisce le richieste verso il modello di \glslink{iag}{intelligenza artificiale}, inviando il codice recuperato e ricevendo in risposta i suggerimenti generati.
 \end{itemize}
 
-\noindent Questa versione sperimentale costituiva una base minima ma solida su cui successivamente è stato possibile costruire le funzionalità avanzate, affinare l’interfaccia e integrare logiche più complesse per la gestione dei risultati.\\
+\noindent Questa versione sperimentale costituiva una base minima ma solida su cui successivamente è stato possibile costruire le funzionalità avanzate, affinare l’interfaccia e integrare logiche più complesse per la gestione dei risultati.
 
 
 \section{Prodotto finale}
@@ -103,7 +103,7 @@ Per agevolare l’utilizzo pratico, ogni codice prodotto può essere scaricato d
     \caption{Modalità: sviluppo guidato, dopo alcune interazioni}\label{fig:mg2}
 \end{figure}
 
-\subsection{Interazione con l'AI}
+\subsection{Interazione con l'IA}
 \noindent L’estensione sviluppata prevede un’integrazione diretta con Ollama (come descritto in precedenza). Questa scelta garantisce all’utente il pieno controllo sui dati, riducendo i rischi legati alla trasmissione di informazioni sensibili verso servizi esterni e permettendo un utilizzo anche in assenza di connessione Internet stabile. L’interazione con l’\glslink{iag}{intelligenza artificiale} avviene attraverso chiamate HTTP ad un endpoint locale, al quale vengono inviati prompt costruiti dinamicamente in base alle esigenze del flusso operativo. Il codice \ref{lst:funzOllama} mostra tale interazione.
 
 \begin{lstlisting}[style=jsStyle, caption={Funzione di interazione con Ollama}, label={lst:funzOllama}]
